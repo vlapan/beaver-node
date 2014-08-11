@@ -1,0 +1,36 @@
+{
+  "name": "beaver-node",
+  "description": "Cluster configuration builder",
+  "version": "0.1.0",
+  "author": "vlapan <vlapan@vlapan.com>",
+  "contributors": [
+    {
+      "name": "vlapan",
+      "email": "vlapan@vlapan.com"
+    }
+  ],
+  "dependencies": {
+    "async": "~0.9.0",
+    "dns-zonefile": "^0.1.1",
+    "hoek": "~2.4.1",
+    "mkdirp": "~0.5.0",
+    "network": "~0.0.9",
+    "nginx-conf": "~0.2.1",
+    "should": "~4.0.4",
+    "validator": "~3.17.0",
+    "winston": "~0.7.3",
+    "yargs": "*"
+  },
+  "keywords": [
+    "configuration"
+  ],
+  "preferGlobal": "true",
+  "repository": "git://github.com/vlapan/beaver",
+  "bin": {
+    "beaver": "./bin/beaver"
+  },
+  "main": "./app.js",
+  "engines": {
+    "node": "~0.10"
+  }
+}

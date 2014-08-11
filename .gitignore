@@ -1,0 +1,5 @@
+.DS_Store
+._*
+node_modules
+.fuse_hidden*
+output

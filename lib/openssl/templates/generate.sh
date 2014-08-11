@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+NAME=%{prefix}
+ROUTE=%{route}
+ROOTNAME=%{prefixRoot}
+SUBJECTPREFIX=%{subjectPrefix}
+TEMPPASS=%{tempPass}
+
+[ -f ${NAME}.key.original ] || {
+	openssl genrsa -des3 -passout ${TEMPPASS} -out ${NAME}.key.original 1024
+	openssl rsa -passin ${TEMPPASS} -in ${NAME}.key.original -out ${NAME}.key
+}
+[ -f ${NAME}.csr ] || openssl req -new -batch -subj "${SUBJECTPREFIX}${ROUTE}" -key ${NAME}.key -out ${NAME}.csr
+[ -f ${NAME}.crt ] || openssl x509 -req -days 3650 -in ${NAME}.csr -CA ${ROOTNAME}.crt -CAkey ${ROOTNAME}.key -CAcreateserial -out ${NAME}.crt
