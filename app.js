@@ -43,7 +43,14 @@ function callback() {
 			});
 		}
 
+		var sslPrefix = '/usr/local/etc/beaver/ssl';
 		if (argv.sslPrefix) {
+			sslPrefix = argv.sslPrefix;
+		}
+
+		var prefixExists = fs.existsSync(path.dirname(path.normalize(sslPrefix)));
+
+		if (prefixExists) {
 			function serverDaemonNote() {
 				logger.log('info', 'Daemon mode, listening ' + argv.httpsPort + '!');
 			}
