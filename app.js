@@ -103,10 +103,22 @@ function callback() {
 			app.post('/', function (req, res) {
 				logger.log('info', 'https: new configuration!');
 				config.set(JSON.parse(req.body.config));
-				extensions.generate(function () {
-					res.send('Done!');
+				// console.log(qs.stringify(req.body));
+				extensions.generate(function (err) {
+					if (err) {
+						res.send(err);
+					} else {
+						res.send('Done!');
+					}
 					serverDaemonNote();
 				});
+				// if (false && req.body.forward && fs.existsSync('/usr/local/etc/beaver/bobot.auth')) {
+				// 	var auth = fs.readFileSync('/usr/local/etc/beaver/bobot.auth');
+				// 	Object.keys(config.vms).forEach(function(key) {
+				// 		exec('', function(error, stdout, stderr) {
+				// 		});
+				// 	});
+				// }
 			});
 
 			var server = https.createServer({
