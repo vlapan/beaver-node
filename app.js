@@ -63,7 +63,7 @@ function callback() {
 
 				var user = basicAuth(req);
 
-				if (!user || !user.name || !user.pass) {
+				if (!user || !user.name || !user.pass || req.body.logout) {
 					return unauthorized(res);
 				}
 
@@ -78,15 +78,15 @@ function callback() {
 				});
 			};
 
-			app.use(auth);
-
 			var bodyParser = require('body-parser');
 			app.use(bodyParser.urlencoded({
 				extended: false
-			})); // to support URL-encoded bodies
+			}));
+
+			app.use(auth);
 
 			app.get('/', function (req, res) {
-				res.send('<form action="/" method="post" enctype="application/x-www-form-urlencoded"><input type="submit"><textarea name="config" style="width:100%;height:500px;"></textarea></form>');
+				res.send('<form action="/" method="post" enctype="application/x-www-form-urlencoded"><input type="submit" name="logout" value="Logout"><input type="submit"><textarea name="config" style="width:100%;height:500px;"></textarea></form>');
 			});
 
 			app.post('/', function (req, res) {
