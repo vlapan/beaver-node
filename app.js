@@ -1,6 +1,9 @@
 var fs = require('fs');
 var os = require('os');
 var path = require('path');
+var exec = require('child_process').exec;
+
+var qs = require('qs');
 
 var argv = require(__dirname + '/lib/argv');
 var logger = require(__dirname + '/lib/logger');
