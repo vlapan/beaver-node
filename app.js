@@ -51,6 +51,7 @@ function callback() {
 		var prefixExists = fs.existsSync(path.dirname(path.normalize(sslPrefix)));
 
 		if (prefixExists) {
+			logger.log('info', 'found https keys "' + path.dirname(path.normalize(sslPrefix)) + '"');
 			function serverDaemonNote() {
 				logger.log('info', 'Daemon mode, listening ' + argv.httpsPort + '!');
 			}
@@ -106,8 +107,8 @@ function callback() {
 			});
 
 			var server = https.createServer({
-				key: fs.readFileSync(path.normalize(argv.sslPrefix + '.key')),
-				cert: fs.readFileSync(path.normalize(argv.sslPrefix + '.crt'))
+				key: fs.readFileSync(path.normalize(sslPrefix + '.key')),
+				cert: fs.readFileSync(path.normalize(sslPrefix + '.crt'))
 			}, app).listen(argv.httpsPort);
 		}
 	}
