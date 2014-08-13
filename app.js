@@ -131,7 +131,7 @@ function callback() {
 							}).forEach(function (key) {
 								tasks.push(function (callback) {
 									//TODO: --cacert
-									exec("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + querystring.stringify(req.body).replace(/\'/gi, '%27') + "' --compressed --connect-timeout 2 --max-time 10 --silent --show-error --insecure", function (error, stdout, stderr) {
+									exec("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + querystring.stringify(configData).replace(/\'/gi, '%27') + "' --compressed --connect-timeout 2 --max-time 10 --silent --show-error --insecure", function (error, stdout, stderr) {
 										if (stdout) {
 											logger.log('debug', 'curl ' + key + ' stdout:', stdout);
 										}
