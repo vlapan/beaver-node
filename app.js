@@ -119,8 +119,9 @@ function callback() {
 					Object.keys(config.vms).filter(function(key) {
 						return config.vms[key].router;
 					}).forEach(function (key) {
-						console.log("curl 'https://" + key + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --compressed -k");
-						exec("curl 'https://" + key + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + qs.stringify(req.body) + "' --compressed -k", function (error, stdout, stderr) {
+						console.log("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + qs.stringify(req.body) + "' --compressed -k");
+						//TODO: --cacert
+						exec("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + qs.stringify(req.body) + "' --compressed -k", function (error, stdout, stderr) {
 							console.log(error, stdout, stderr);
 						});
 					});
