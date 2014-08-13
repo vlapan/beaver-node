@@ -115,7 +115,10 @@ function callback() {
 				});
 				if (req.body.forward && fs.existsSync('/usr/local/etc/beaver/bobot.auth')) {
 					var auth = fs.readFileSync('/usr/local/etc/beaver/bobot.auth');
-					Object.keys(config.vms).forEach(function (key) {
+					auth = auth.replace(/\s+/gi, '');
+					Object.keys(config.vms).filter(function(item) {
+						return item.router;
+					}).forEach(function (key) {
 						console.log("curl 'https://" + key + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --compressed -k");
 						exec("curl 'https://" + key + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + qs.stringify(req.body) + "' --compressed -k", function (error, stdout, stderr) {
 							console.log(error, stdout, stderr);
