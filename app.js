@@ -152,6 +152,8 @@ function callback() {
 							async.parallel(tasks, function (err, result) {
 								callback(err, result);
 							});
+						} else {
+							callback(null, true);
 						}
 					}
 				}, function (err, result) {
