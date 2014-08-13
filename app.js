@@ -115,7 +115,7 @@ function callback() {
 				});
 				if (req.body.forward && fs.existsSync('/usr/local/etc/beaver/bobot.auth')) {
 					var auth = fs.readFileSync('/usr/local/etc/beaver/bobot.auth');
-					auth = auth.replace(/\s+/gi, '');
+					auth = auth.toString().replace(/\s+/gi, '');
 					Object.keys(config.vms).filter(function(item) {
 						return item.router;
 					}).forEach(function (key) {
