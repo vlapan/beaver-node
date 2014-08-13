@@ -4,7 +4,7 @@ var path = require('path');
 var exec = require('child_process').exec;
 var querystring = require('querystring');
 
-var qs = require('qs');
+var async = require('async');
 
 var argv = require(__dirname + '/lib/argv');
 var logger = require(__dirname + '/lib/logger');
@@ -104,31 +104,59 @@ function callback() {
 
 			app.post('/', function (req, res) {
 				logger.log('info', 'https: new configuration!');
-				config.set(JSON.parse(req.body.config));
-				// console.log(qs.stringify(req.body));
-				extensions.generate(function (err) {
-					if (err) {
-						res.send(err);
-					} else {
-						res.send('Done!');
-					}
-					serverDaemonNote();
-				});
-				// console.log(querystring.stringify(req.body).replace(/\'/gi, '%22'));
-				if (req.body.forward && fs.existsSync('/usr/local/etc/beaver/bobot.auth')) {
-					delete req.body.forward;
-					var auth = fs.readFileSync('/usr/local/etc/beaver/bobot.auth');
-					auth = auth.toString().replace(/\s+/gi, '');
-					Object.keys(config.vms).filter(function(key) {
-						return config.vms[key].router;
-					}).forEach(function (key) {
-						console.log("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + querystring.stringify(req.body).replace(/\'/gi, '%22') + "' --compressed -k");
-						//TODO: --cacert
-						exec("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + querystring.stringify(req.body).replace(/\'/gi, '%22') + "' --compressed -k", function (error, stdout, stderr) {
-							console.log(error, stdout, stderr);
+				var sepa = '\n\n-------------------------------------------------------------\n\n';
+				async.parallel({
+					config: function (callback) {
+						config.set(JSON.parse(req.body.config));
+						extensions.generate(function (err) {
+							if (err) {
+								res.write('SELF:' + err + sepa);
+							} else {
+								res.write('SELF: Done!' + sepa);
+							}
+							serverDaemonNote();
+							callback(err, true);
 						});
-					});
-				}
+					},
+					forward: function (callback) {
+						if (req.body.forward && fs.existsSync('/usr/local/etc/beaver/bobot.auth')) {
+							var auth = fs.readFileSync('/usr/local/etc/beaver/bobot.auth');
+							auth = auth.toString().replace(/\s+/gi, '');
+							var configData = {
+								config: req.body.config
+							};
+							var tasks = [];
+							Object.keys(config.vms).filter(function (key) {
+								return config.vms[key].router && key !== config._hostname;
+							}).forEach(function (key) {
+								tasks.push(function (callback) {
+									//TODO: --cacert
+									exec("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + querystring.stringify(req.body).replace(/\'/gi, '%27') + "' --compressed --max-time 10 -k --retry 1", function (error, stdout, stderr) {
+										if (stdout) {
+											logger.log('debug', 'curl ' + key + ' stdout:', stdout);
+										}
+										if (error) {
+											logger.error('curl ' + key + '', error);
+											if (stderr) {
+												logger.error('curl ' + key + ' stderr:', stderr);
+											}
+											res.write(key + ': ' + error + (stderr ? ' // ' + stderr : '') + sepa);
+											callback(null, true);
+											return;
+										}
+										res.write(key + ': Done!' + sepa);
+										callback(null, true);
+									});
+								});
+							});
+							async.parallel(tasks, function (err, result) {
+								callback(err, result);
+							});
+						}
+					}
+				}, function (err, result) {
+					res.end();
+				});
 			});
 
 			var server = https.createServer({
