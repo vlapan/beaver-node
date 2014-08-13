@@ -55,6 +55,7 @@ function callback() {
 
 		if (prefixExists) {
 			logger.log('info', 'found https keys "' + path.dirname(path.normalize(sslPrefix)) + '"');
+
 			function serverDaemonNote() {
 				logger.log('info', 'Daemon mode, listening ' + argv.httpsPort + '!');
 			}
@@ -97,7 +98,7 @@ function callback() {
 			app.use(auth);
 
 			app.get('/', function (req, res) {
-				res.send('<form action="/" method="post" enctype="application/x-www-form-urlencoded"><input type="submit" name="logout" value="Logout"><input type="submit"><textarea name="config" style="width:100%;height:500px;"></textarea></form>');
+				res.send('<form action="/" method="post" enctype="application/x-www-form-urlencoded"><input type="submit" name="logout" value="Logout"><input type="submit"><input type="checkbox" name="forward"><textarea name="config" style="width:100%;height:500px;"></textarea></form>');
 			});
 
 			app.post('/', function (req, res) {
@@ -112,13 +113,15 @@ function callback() {
 					}
 					serverDaemonNote();
 				});
-				// if (false && req.body.forward && fs.existsSync('/usr/local/etc/beaver/bobot.auth')) {
-				// 	var auth = fs.readFileSync('/usr/local/etc/beaver/bobot.auth');
-				// 	Object.keys(config.vms).forEach(function(key) {
-				// 		exec('', function(error, stdout, stderr) {
-				// 		});
-				// 	});
-				// }
+				if (req.body.forward && fs.existsSync('/usr/local/etc/beaver/bobot.auth')) {
+					var auth = fs.readFileSync('/usr/local/etc/beaver/bobot.auth');
+					Object.keys(config.vms).forEach(function (key) {
+						console.log("curl 'https://" + key + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --compressed -k");
+						exec("curl 'https://" + key + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + qs.stringify(req.body) + "' --compressed -k", function (error, stdout, stderr) {
+							console.log(error, stdout, stderr);
+						});
+					});
+				}
 			});
 
 			var server = https.createServer({
