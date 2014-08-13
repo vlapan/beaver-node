@@ -2,6 +2,7 @@ var fs = require('fs');
 var os = require('os');
 var path = require('path');
 var exec = require('child_process').exec;
+var querystring = require('querystring');
 
 var qs = require('qs');
 
@@ -114,14 +115,15 @@ function callback() {
 					serverDaemonNote();
 				});
 				if (req.body.forward && fs.existsSync('/usr/local/etc/beaver/bobot.auth')) {
+					delete req.body.forward;
 					var auth = fs.readFileSync('/usr/local/etc/beaver/bobot.auth');
 					auth = auth.toString().replace(/\s+/gi, '');
 					Object.keys(config.vms).filter(function(key) {
 						return config.vms[key].router;
 					}).forEach(function (key) {
-						console.log("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + qs.stringify(req.body) + "' --compressed -k");
+						console.log("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + querystring.stringify(req.body) + "' --compressed -k");
 						//TODO: --cacert
-						exec("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + qs.stringify(req.body) + "' --compressed -k", function (error, stdout, stderr) {
+						exec("curl 'https://" + config.vms[key].wan.ip + ":" + argv.httpsPort + "/' -u " + auth + " -H 'Content-Type: application/x-www-form-urlencoded' --data '" + querystring.stringify(req.body) + "' --compressed -k", function (error, stdout, stderr) {
 							console.log(error, stdout, stderr);
 						});
 					});
