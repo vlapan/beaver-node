@@ -8,6 +8,6 @@ each host in hosts
 				disabled = host.self
 				checked
 			)
-			span(style = host.self && 'color:#0c0;')
+			span(ip = host.wan && host.wan.ip)
 				!= host.key
 	!= ' '
