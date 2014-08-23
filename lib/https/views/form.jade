@@ -1,0 +1,39 @@
+extends layout
+
+block content
+	form(
+		action = "/"
+		method = "post"
+		enctype = "application/x-www-form-urlencoded"
+	)
+		.left-panel
+			.hostname!= hostname
+
+			input(
+				type = "submit"
+				name = "logout"
+				value = "Logout"
+			)
+			input(
+				type = "submit"
+				name = "submit"
+				disabled = true
+			)
+
+			.errors
+
+			fieldset
+				legend
+					!= 'Hosts'
+				.buttons
+					button.all!= 'All'
+					button.invert!= 'Invert'
+					button.reset!= 'Reset'
+				hr
+				.hosts
+
+		input(
+			type = "hidden"
+			name = "config"
+		)
+		pre#editor

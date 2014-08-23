@@ -1,0 +1,13 @@
+each host in hosts
+	.host
+		label
+			input(
+				type = "checkbox"
+				name = "forward"
+				value = host.key
+				disabled = host.self
+				checked
+			)
+			span(style = host.self && 'color:#0c0;')
+				!= host.key
+	!= ' '
