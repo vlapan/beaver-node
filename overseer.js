@@ -1,34 +1,29 @@
 var yargs = require('yargs')
     .strict()
-    .usage('Watch/check network services.\nUsage: overseer -h 10.1.1.1 -p 80')
-    .options('h', {
-        alias: 'hosts',
-        demand: true,
+    .usage('Watch/check network services.\nUsage: overseer -d ./monitor.json')
+    .options('d', {
+        alias: 'data',
         string: true,
-        describe: 'target hosts, comma-separated'
-    }).options('p', {
-        alias: 'ports',
-        demand: true,
+        describe: 'json data'
+    }).options('r', {
+        alias: 'result',
         string: true,
-        describe: 'ports to check, comma-separated'
-    }).options('t', {
-        alias: 'timeout',
-        string: true,
-        default: 2000,
-        describe: 'timeout, ms'
-    }).options('w', {
-        alias: 'watch',
-        boolean: true,
-        describe: 'watch ports'
+        describe: 'results file'
     }).options('i', {
         alias: 'interval',
         string: true,
         default: 10000,
         describe: 'interval between checks, ms'
-    }).options('m', {
-        alias: 'mail',
+    }).options('t', {
+        alias: 'tcpTimeout',
         string: true,
-        describe: 'mail addresses, comma-separated'
+        default: 5000,
+        describe: 'tcp timeout, ms'
+    }).options('w', {
+        alias: 'webTimeout',
+        string: true,
+        default: 10000,
+        describe: 'web timeout, ms'
     });
 
 var argv = yargs.argv;
@@ -38,179 +33,214 @@ var fs = require('fs');
 var net = require('net');
 var path = require('path');
 var async = require('async');
-var moment = require('moment');
+var jsdiff = require('diff');
 
 var nodemailer = require('nodemailer');
 var transporter = nodemailer.createTransport();
 
 //--------------------------------------------
 
-var hosts = argv.hosts.split(',');
 
-var ports = argv.ports.split(',');
-ports.map(function (port) {
-    return port | 0;
-}).filter(function (port) {
-    return port > 0 && port <= 65535;
+if (!argv.data) {
+    console.log(yargs.help());
+    process.exit();
+}
+
+var tasks, config;
+
+function readConfig() {
+    tasks = [];
+    config = JSON.parse(fs.readFileSync(argv.data));
+    config.tcp.forEach(function (service) {
+        tasks.push(checkTcp.bind(null, service));
+    });
+    config.web.forEach(function (service) {
+        tasks.push(checkWeb.bind(null, service));
+    });
+}
+readConfig();
+
+var configChanged = false;
+fs.watchFile(path.resolve(argv.data), function (curr, prev) {
+    console.log('> config file, modification detected "' + argv.data + '"!');
+    configChanged = true;
 });
 
-var timeout = argv.timeout | 0;
+var tcpTimeout = argv.tcpTimeout | 0;
+var webTimeout = argv.webTimeout | 0;
 
 var interval = argv.interval | 0;
 if (interval < 1000) {
     interval = 1000;
 }
 
-var active = false;
-
-var closedSince = {};
-
-function log(result) {
-    var now = new Date().toISOString();
-    var message = result.type;
-    if (result.reason) {
-        message += ' (' + result.reason + ')';
-    }
-    if (argv.w) {
-        message += '\t';
-        if (result.type === 'alive') {
-            message += '\t\twas dead since';
-        } else if (result.type === 'closed') {
-            message += 'since\t'
-        }
-        message += '\t' + result.since.toISOString() + '\t' + moment(result.since).fromNow();
-    }
-    console.log(now + '\t' + result.host + '\t' + result.port + '\t' + message);
-}
-
-function checkService(host, port, callback) {
-    var result;
-    var key = host + ':' + port;
-
+function checkTcp(service, callback) {
     var s = new net.Socket();
     s.setNoDelay();
 
     function setError(reason) {
-        if (!closedSince[key]) {
-            closedSince[key] = new Date();
-        }
-        result = {
-            type: 'closed',
-            date: new Date(),
-            host: host,
-            port: port,
-            since: closedSince[key],
-            reason: reason
-        };
+        service.status = 'FAIL';
+        service.reason = reason;
         s.destroy();
-        log(result);
     }
 
     s.on('close', function (data) {
-        callback && callback(null, result);
+        callback && callback(null, service);
     });
 
-    s.setTimeout(timeout, setError.bind(null, 'timeout'));
+    s.setTimeout(tcpTimeout, setError.bind(null, 'timeout'));
     s.on('error', function (error) {
         setError(error.code);
     });
 
-    s.connect(port, host, function () {
-        if (argv.w && closedSince[key]) {
-            var since = closedSince[key];
-            result = {
-                type: 'alive',
-                date: new Date(),
-                host: host,
-                port: port,
-                since: since
-            };
-            log(result);
-            delete closedSince[key];
-        } else if (!argv.w) {
-            result = {
-                type: 'opened',
-                date: new Date(),
-                host: host,
-                port: port
-            };
-            log(result);
-        }
+    s.connect(service.port, service.ip, function () {
+        service.status = 'OK';
         s.destroy();
     });
 }
 
-var previousResult;
+var request = require('request');
 
-function mail(subject, html) {
+function checkWeb(service, callback) {
+    request({
+        url: service.url,
+        timeout: webTimeout,
+        strictSSL: false
+    }, function (error, response, body) {
+        // console.log(service.url, error, response && response.statusCode);
+        if (!error && response.statusCode === service.expectCode) {
+            service.status = 'OK';
+        } else {
+            service.status = 'FAIL';
+            service.reason = error;
+        }
+        callback && callback(null, service);
+    });
+}
+
+var from = process.env['USER'] + '@' + os.hostname()
+
+function mail(to, subject, text, html) {
     transporter.sendMail({
-        from: process.env['USER'] + '@' + os.hostname(),
-        to: argv.mail.split(','),
+        from: from,
+        to: to,
         subject: subject,
+        text: text,
         html: html
     });
 }
 
-var jade = require('jade');
-var messageTemplate = jade.compile(fs.readFileSync(path.normalize(__dirname + '/templates/notification.jade')));
+function getNotifyFromLine(line) {
+    var arr = line.split(',');
+    return arr[arr.length - 1].trim();
+}
 
-function generateNotification(result) {
-    // console.log(result);
-    var changed = result;
-
-    if (previousResult) {
-        var previousGrouped = {};
-        previousResult.forEach(function(item) {
-            var key = item.host + '_' + item.port;
-            previousGrouped[key] = item;
-        });
-        changed = changed.filter(function(item) {
-            var key = item.host + '_' + item.port;
-            return !previousGrouped[key] || (previousGrouped[key] && previousGrouped[key].type !== item.type);
-        });
-    }
-    // console.log(changed);
-
-    if (!changed.length) {
-        return;
-    }
-
-    var aliveCount = changed.map(function(item) {
-        return item.type === 'alive' | 0
-    }).reduce(function(a, b) {
-        return a + b;
-    });
-
-    var closedCount = changed.length - aliveCount;
-
-    var changedGrouped = {};
-    changed.forEach(function(item) {
-        if (!changedGrouped[item.host]) {
-            changedGrouped[item.host] = {};
-        }
-        changedGrouped[item.host][item.port] = item;
-        item.sinceText = moment(item.since).fromNow();
-    });
-
-    var subject = 'services status' + (closedCount ? ', ' + closedCount + ' closed' : '') + (aliveCount ? ', ' + aliveCount + ' alive' : '');
-    var message = messageTemplate({
-        aliveCount: aliveCount,
-        closedCount: closedCount,
-        changed: changedGrouped
-    });
-    // console.log(message);
-
-    if (argv.mail) {
-        mail(subject, message);
+function parseItem(key) {
+    var item = config.notify[key];
+    switch (item.type) {
+        case 'group':
+            var list = [];
+            item.list.forEach(function(key) {
+                list.push(parseItem(key))
+            });
+            return list;
+        break;
+        case 'email':
+            return item.name + ' <' + item.email + '>';
+        break;
+        case 'sms':
+        break;
+        default:
+        break;
     }
 }
 
-var tasks = [];
-hosts.forEach(function (host) {
-    ports.forEach(function (port) {
-        tasks.push(checkService.bind(null, host, port));
+function getAddress(key) {
+    if (config.testing) {
+        return parseItem('testing');
+    }
+    return parseItem(key);
+}
+
+function generateNotification(current, previous) {
+    var diff = jsdiff.diffLines(previous, current);
+    var changesTXT = '';
+    var notify = {};
+    diff.forEach(function (diffPart) {
+        if (!diffPart.added && !diffPart.removed) {
+            return;
+        }
+        var parts = diffPart.value.split('\n');
+        parts.forEach(function (part) {
+            if (!part) {
+                return;
+            }
+            var changeTXT = (diffPart.added ? '+' : diffPart.removed ? '-' : '') + part;
+            changesTXT += changeTXT + '\n';
+            console.log(changeTXT);
+            var notifyList = getNotifyFromLine(part).split(' ');
+            notifyList.forEach(function (notifyKey) {
+                notify[notifyKey] = 1;
+            });
+        });
     });
-});
+
+    var date = (new Date()).toISOString();
+
+    Object.keys(notify).forEach(function (notifyKey) {
+        if (!config.notify[notifyKey]) {
+            return;
+        }
+        var text = '';
+        text += 'Date: ' + date + '\n';
+        text += 'Source: ' + os.hostname() + '\n\n\n';
+
+        var html = '';
+        html += '<strong>Date:</strong>&nbsp;' + date + '<br>';
+        html += '<strong>Source:</strong>&nbsp;' + os.hostname() + '<br><br><br>';
+
+        text += 'Diff:\n';
+        html += '<strong>Diff:</strong><br>';
+        changesTXT.split('\n').forEach(function (line) {
+            if (!line) {
+                return;
+            }
+            var list = getNotifyFromLine(line);
+            if (~list.indexOf(notifyKey)) {
+                text += line + '\n';
+                html += '<span style="color:#' + (line[0] === '+' ? '000' : '999') + ';">' + line.replace(/^\+/, '<span style="font-family:monospace;">+&nbsp;</span>').replace(/^\-/, '<span style="font-family:monospace;color:#aaa;">-&nbsp;</span>') + '</span><br>';
+            }
+        });
+
+        text += '\n\nComplete:\n';
+        html += '<br><br><strong>Complete:</strong><br>';
+        current.split('\n').forEach(function (line) {
+            if (!line) {
+                return;
+            }
+            var list = getNotifyFromLine(line);
+            if (~list.indexOf(notifyKey)) {
+                text += line + '\n';
+                if (~line.indexOf('OK')) {
+                    html += '<span style="color:#070;">' + line + '</span><br>';
+                } else {
+                    html += '<span style="color:#700;">' + line + '</span><br>';
+                }
+            }
+        });
+
+        var to = getAddress(notifyKey);
+        var subject = notifyKey + ', monitoring status changed';
+        console.log(to, subject);
+        mail(to, subject, text, html);
+    });
+}
+
+var prevState = '';
+if (argv.result && fs.existsSync(path.resolve(argv.result))) {
+    prevState = fs.readFileSync(path.resolve(argv.result), 'UTF-8');
+}
+var active = false;
 
 function start(callback) {
     if (active) {
@@ -218,18 +248,30 @@ function start(callback) {
     }
     active = true;
     async.parallel(tasks, function (err, result) {
-        result = result.filter(function (item) {
-            return item;
+        var states = [];
+        result.forEach(function (service) {
+            states.push(service.subject + ', ' + service.status + ', ' + service.notify.join(' '));
         });
-        generateNotification(result);
-        previousResult = result;
+        var state = states.sort().join('\n') + '\n';
+        if (argv.result) {
+            fs.writeFileSync(path.resolve(argv.result), state);
+        }
+
+        generateNotification(state, prevState);
+
+        prevState = state;
+
         active = false;
+
+        if (configChanged) {
+            readConfig();
+            configChanged = false;
+        }
+
         callback && callback();
     });
 }
 
 start(function watch() {
-    if (argv.w) {
-        setTimeout(start.bind(null, watch), interval);
-    }
+    setTimeout(start.bind(null, watch), interval);
 });
