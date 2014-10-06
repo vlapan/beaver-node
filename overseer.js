@@ -79,8 +79,8 @@ function checkTcp(service, callback) {
     s.setNoDelay();
 
     function setError(reason) {
-        service.status = 'FAIL';
         service.reason = reason;
+        service.status = 'FAIL(' + service.reason + ')';
         s.destroy();
     }
 
@@ -88,7 +88,7 @@ function checkTcp(service, callback) {
         callback && callback(null, service);
     });
 
-    s.setTimeout(tcpTimeout, setError.bind(null, 'timeout'));
+    s.setTimeout(tcpTimeout, setError.bind(null, 'TIMEOUT'));
     s.on('error', function (error) {
         setError(error.code);
     });
@@ -111,8 +111,8 @@ function checkWeb(service, callback) {
         if (!error && response.statusCode === service.expectCode) {
             service.status = 'OK';
         } else {
-            service.status = 'FAIL';
-            service.reason = error;
+            service.reason = response && response.statusCode ? response.statusCode : error.code;
+            service.status = 'FAIL(' + service.reason + ')';
         }
         callback && callback(null, service);
     });
@@ -138,19 +138,19 @@ function getNotifyFromLine(line) {
 function parseItem(key) {
     var item = config.notify[key];
     switch (item.type) {
-        case 'group':
-            var list = [];
-            item.list.forEach(function(key) {
-                list.push(parseItem(key))
-            });
-            return list;
+    case 'group':
+        var list = [];
+        item.list.forEach(function (key) {
+            list.push(parseItem(key))
+        });
+        return list;
         break;
-        case 'email':
-            return item.name + ' <' + item.email + '>';
+    case 'email':
+        return item.name + ' <' + item.email + '>';
         break;
-        case 'sms':
+    case 'sms':
         break;
-        default:
+    default:
         break;
     }
 }
@@ -208,7 +208,7 @@ function generateNotification(current, previous) {
             var list = getNotifyFromLine(line);
             if (~list.indexOf(notifyKey)) {
                 text += line + '\n';
-                html += '<span style="color:#' + (line[0] === '+' ? '000' : '999') + ';">' + line.replace(/^\+/, '<span style="font-family:monospace;">+&nbsp;</span>').replace(/^\-/, '<span style="font-family:monospace;color:#aaa;">-&nbsp;</span>') + '</span><br>';
+                html += '<span style="color:#' + (line[0] === '+' ? (~line.indexOf('FAIL') ? '700' : '070') : '999') + ';">' + line.replace(/^\+/, '<span style="font-family:monospace;">+&nbsp;</span>').replace(/^\-/, '<span style="font-family:monospace;color:#aaa;">-&nbsp;</span>') + '</span><br>';
             }
         });
 
@@ -221,11 +221,7 @@ function generateNotification(current, previous) {
             var list = getNotifyFromLine(line);
             if (~list.indexOf(notifyKey)) {
                 text += line + '\n';
-                if (~line.indexOf('OK')) {
-                    html += '<span style="color:#070;">' + line + '</span><br>';
-                } else {
-                    html += '<span style="color:#700;">' + line + '</span><br>';
-                }
+                html += '<span style="color:#' + (~line.indexOf('FAIL') ? '700' : '070') + ';">' + line + '</span><br>';
             }
         });
 
