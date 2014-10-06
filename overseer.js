@@ -208,7 +208,7 @@ function generateNotification(current, previous) {
             var list = getNotifyFromLine(line);
             if (~list.indexOf(notifyKey)) {
                 text += line + '\n';
-                html += '<span style="color:#' + (line[0] === '+' ? (~line.indexOf('FAIL') ? '700' : '070') : '999') + ';">' + line.replace(/^\+/, '<span style="font-family:monospace;">+&nbsp;</span>').replace(/^\-/, '<span style="font-family:monospace;color:#aaa;">-&nbsp;</span>') + '</span><br>';
+                html += '<span style="color:#' + (line[0] === '+' ? (~line.indexOf('FAIL') ? '700' : '070') : '999') + ';">' + line.replace(/^\+/, '<span style="font-family:monospace;">+&nbsp;</span>').replace(/^\-/, '<span style="font-family:monospace;color:#bbb;">-&nbsp;</span>') + '</span><br>';
             }
         });
 
