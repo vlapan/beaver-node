@@ -51,6 +51,11 @@ var tasks, config;
 function readConfig() {
     tasks = [];
     config = JSON.parse(fs.readFileSync(argv.data));
+    if (!config.testing) {
+        console.log('Production mode');
+    } else {
+        console.log('Debug mode')
+    }
     config.tcp.forEach(function (service) {
         tasks.push(checkTcp.bind(null, service));
     });
