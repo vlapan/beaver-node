@@ -84,8 +84,7 @@ function checkTcp(service, callback) {
     s.setNoDelay();
 
     function setError(reason) {
-        service.reason = reason;
-        service.status = 'FAIL(' + service.reason + ')';
+        service.status = 'FAIL(' + reason + ')';
         s.destroy();
     }
 
@@ -104,23 +103,63 @@ function checkTcp(service, callback) {
     });
 }
 
-var request = require('request');
-
-function checkWeb(service, callback) {
-    request({
-        url: service.url,
-        timeout: webTimeout,
-        strictSSL: false
-    }, function (error, response, body) {
-        // console.log(service.url, error, response && response.statusCode);
-        if (!error && response.statusCode === service.expectCode) {
+function requestCallback(callback, response) {
+    var service = this;
+    if (typeof response === 'string') {
+        service.status = 'FAIL(' + response + ')';
+    } else {
+        if (response.statusCode === service.expectCode) {
             service.status = 'OK';
         } else {
-            service.reason = response && response.statusCode ? response.statusCode : error.code;
-            service.status = 'FAIL(' + service.reason + ')';
+            service.status = 'FAIL(' + response.statusCode + ')';
         }
-        callback && callback(null, service);
+        response.on('data', function () {});
+        response.on('end', function () {});
+        response.socket.end();
+        response.req.abort();
+    }
+    // console.log(callback, service.url, typeof response === 'string' ? response : response.statusCode);
+    callback && callback(null, service);
+}
+
+function requestWeb(protocol, options, callback) {
+    var manager = protocol === 'http' ? require('http') : require('https');
+    var request = manager.request(options, callback).on('error', function (err) {
+        callback(err.code);
+    }).on('socket', function (socket) {
+        socket.setTimeout(webTimeout);
+        socket.on('timeout', function () {
+            request.abort();
+        });
     });
+    request.end();
+}
+
+var url = require('url');
+
+function checkWeb(service, callback) {
+    var urlParsed = url.parse(service.url);
+    var options = {
+        agent: false,
+        headers: {
+            'Connection': ''
+        },
+        rejectUnauthorized: false
+    };
+    var ip = service.subject.match(/ip=([0-9.]+$)/);
+    if (ip) {
+        ip = ip[1];
+        options.hostname = ip;
+        options.headers['Host'] = urlParsed.hostname;
+    } else {
+        options.hostname = urlParsed.hostname;
+    }
+
+    if (urlParsed.port) {
+        options.port = urlParsed.port;
+    }
+    options.path = urlParsed.path;
+    requestWeb(urlParsed.protocol.replace(':', ''), options, requestCallback.bind(service, callback))
 }
 
 var from = process.env['USER'] + '@' + os.hostname()
@@ -247,6 +286,12 @@ function start(callback) {
     if (active) {
         return;
     }
+    if (configChanged) {
+        readConfig();
+        configChanged = false;
+        callback && callback();
+        return;
+    }
     active = true;
     async.parallel(tasks, function (err, result) {
         var states = [];
@@ -275,4 +320,5 @@ function start(callback) {
 
 start(function watch() {
     setTimeout(start.bind(null, watch), interval);
+    global.gc && global.gc();
 });

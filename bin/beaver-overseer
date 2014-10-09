@@ -1,4 +1,4 @@
-#!/usr/bin/env node
+#!/usr/bin/env node --use_strict --nouse-idle-notification --gc_global --expose-gc
 
 var path = require('path');
 require(path.normalize(__dirname + '/../overseer'));
