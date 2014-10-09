@@ -84,7 +84,8 @@ function checkTcp(service, callback) {
     s.setNoDelay();
 
     function setError(reason) {
-        service.status = 'FAIL(' + reason + ')';
+        service.reason = reason;
+        service.status = 'FAIL(' + service.reason + ')';
         s.destroy();
     }
 
@@ -103,63 +104,41 @@ function checkTcp(service, callback) {
     });
 }
 
-function requestCallback(callback, response) {
-    var service = this;
-    if (typeof response === 'string') {
-        service.status = 'FAIL(' + response + ')';
-    } else {
-        if (response.statusCode === service.expectCode) {
-            service.status = 'OK';
-        } else {
-            service.status = 'FAIL(' + response.statusCode + ')';
-        }
-        response.on('data', function () {});
-        response.on('end', function () {});
-        response.socket.end();
-        response.req.abort();
-    }
-    // console.log(callback, service.url, typeof response === 'string' ? response : response.statusCode);
-    callback && callback(null, service);
-}
-
-function requestWeb(protocol, options, callback) {
-    var manager = protocol === 'http' ? require('http') : require('https');
-    var request = manager.request(options, callback).on('error', function (err) {
-        callback(err.code);
-    }).on('socket', function (socket) {
-        socket.setTimeout(webTimeout);
-        socket.on('timeout', function () {
-            request.abort();
-        });
-    });
-    request.end();
-}
-
 var url = require('url');
+var request = require('request');
 
 function checkWeb(service, callback) {
-    var urlParsed = url.parse(service.url);
-    var options = {
-        agent: false,
-        headers: {
-            'Connection': ''
-        },
-        rejectUnauthorized: false
-    };
+    var headers;
+    var urlString;
     var ip = service.subject.match(/ip=([0-9.]+$)/);
     if (ip) {
         ip = ip[1];
-        options.hostname = ip;
-        options.headers['Host'] = urlParsed.hostname;
+        var urlParsed = url.parse(service.url);
+        urlString = urlParsed.protocol + '//' + ip + (urlParsed.port ? ':' + urlParsed.port : '') + urlParsed.path;
+        headers = {
+            'Host': urlParsed.hostname
+        };
+        // console.log(service.subject, urlString, headers);
     } else {
-        options.hostname = urlParsed.hostname;
+        urlString = service.url;
     }
 
-    if (urlParsed.port) {
-        options.port = urlParsed.port;
-    }
-    options.path = urlParsed.path;
-    requestWeb(urlParsed.protocol.replace(':', ''), options, requestCallback.bind(service, callback))
+    var req = request({
+        url: urlString,
+        headers: headers,
+        timeout: webTimeout,
+        strictSSL: false
+    }, function (error, response, body) {
+        // console.log(service.url, error, response && response.statusCode);
+        if (!error && response.statusCode === service.expectCode) {
+            service.status = 'OK';
+        } else {
+            service.reason = response && response.statusCode ? response.statusCode : error.code;
+            service.status = 'FAIL(' + service.reason + ')';
+        }
+        req.abort();
+        callback && callback(null, service);
+    });
 }
 
 var from = process.env['USER'] + '@' + os.hostname()
