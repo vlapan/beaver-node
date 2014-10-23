@@ -14,4 +14,5 @@ TEMPPASS=%{tempPass}
 }
 [ -f ${NAME}.csr ] || openssl req -new -batch -subj "${SUBJECTPREFIX}${ROUTE}" -key ${NAME}.key -out ${NAME}.csr
 [ -f ${NAME}.crt ] || openssl x509 -req -days 3650 -in ${NAME}.csr -CA ${ROOTNAME}.crt -CAkey ${ROOTNAME}.key -CAcreateserial -out ${NAME}.crt
+[ -f ${NAME}.chained.crt ] || (cat ${NAME}.crt ${ROOTNAME}.crt > ${NAME}.chained.crt)
 [ -f ${NAME}.crt ] && openssl x509 -in ${NAME}.crt -out ${NAME}.pem -outform PEM
