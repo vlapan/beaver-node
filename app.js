@@ -1,6 +1,4 @@
-var fs = require('fs');
-var os = require('os');
-var path = require('path');
+"use strict";
 
 var argv = require(__dirname + '/lib/argv');
 var logger = require(__dirname + '/lib/logger');
@@ -8,20 +6,36 @@ var logger = require(__dirname + '/lib/logger');
 var config = require(__dirname + '/lib/configuration');
 var extensions = require(__dirname + '/lib/extensions');
 
+function fileDaemonNote() {
+	logger.log('info', 'input: daemon mode, watching config file "' + argv.input + '"!');
+}
+
 function daemonStart() {
 	if (!argv.daemon) {
 		return;
 	}
+
 	if (argv.input) {
-		function fileDaemonNote() {
-			logger.log('info', 'Daemon mode, watching config file "' + argv.input + '"!');
-		}
 		fileDaemonNote();
 		config.watch(function () {
 			extensions.generate(fileDaemonNote);
 		});
 	}
+
 	require(__dirname + '/lib/https');
+
+	var extensionsEnabled = argv.e.split(',');
+	if (~extensionsEnabled.indexOf('monitor')) {
+		var Overseer = require('./lib/overseer/overseer');
+		var overseer = new Overseer({
+			data: argv.home + '/monitor.json',
+			result: argv.home + '/result.txt',
+			interval: 10000,
+			tcpTimeout: 5000,
+			webTimeout: 10000
+		});
+		overseer.start();
+	}
 }
 
 if (argv.input) {
