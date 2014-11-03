@@ -29,7 +29,7 @@ function daemonStart() {
 		var Overseer = require('./lib/overseer/overseer');
 		var overseer = new Overseer({
 			data: argv.home + '/monitor.json',
-			result: argv.home + '/result.txt',
+			result: argv.home + '/monitor-result.txt',
 			interval: 10000,
 			tcpTimeout: 5000,
 			webTimeout: 10000

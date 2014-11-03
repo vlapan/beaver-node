@@ -1,0 +1,45 @@
+#!/bin/sh
+
+# PROVIDE: factory
+# REQUIRE: NETWORKING SERVERS DAEMON
+# BEFORE:  LOGIN
+# KEYWORD: shutdown
+
+. /etc/rc.subr
+
+name="beaver"
+forever="/usr/local/bin/node /usr/local/bin/forever"
+workdir="/usr/local/lib/node_modules/beaver-node"
+script="app.js"
+
+rcvar=beaverd_enable
+
+start_cmd="start"
+stop_cmd="stop"
+restart_cmd="restart"
+
+load_rc_config $name
+eval "${rcvar}=\${${rcvar}:-'NO'}"
+
+USER=root
+PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin
+PWD=/root
+HOME=/root
+NODE_ENV=production
+
+start()
+{
+  ${forever} start -a -l /var/log/beaver.log -o /dev/null -e /var/log/beaver.log --watchDirectory ${workdir} ${workdir}/${script} -d --sslPrefix=/usr/local/etc/beaver/ssl --httpsPort=8443
+}
+
+stop()
+{
+  ${forever} stop ${workdir}/${script}
+}
+
+restart()
+{
+  ${forever} restart ${workdir}/${script}
+}
+
+run_rc_command "$1"
