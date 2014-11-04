@@ -22,6 +22,8 @@ block content
 
 			.errors
 
+			a(href="/monitor-result.txt")!= 'Monitor last result'
+
 			fieldset
 				legend
 					!= 'Hosts'
@@ -31,6 +33,7 @@ block content
 					button.reset!= 'Reset'
 				hr
 				.hosts
+
 
 		input(
 			type = "hidden"
