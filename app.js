@@ -10,8 +10,8 @@ function fileDaemonNote() {
 	logger.log('info', 'input: daemon mode, watching config file "' + argv.input + '"!');
 }
 
-function daemonStart() {
-	if (!argv.daemon) {
+function daemonStart(err) {
+	if (!argv.daemon || err) {
 		return;
 	}
 
