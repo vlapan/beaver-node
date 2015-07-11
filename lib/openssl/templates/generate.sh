@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 NAME=%{prefix}
 ROUTE=%{route}
@@ -20,6 +20,9 @@ INCLUDEROOTCA=%{includeRootCA}
 [ -f ${NAME}.raw.crt ] || openssl x509 -req -${SIGNATUREALGORITHM} -days ${EXPIRATIONDAYS} -in ${NAME}.csr -CA ${ROOTNAME}.crt -CAkey ${ROOTNAME}.key -CAcreateserial -out ${NAME}.raw.crt
 [ -f ${NAME}.crt ] || (
 	cat ${NAME}.raw.crt ${ROOTNAME}.crt > ${NAME}.crt
-	[ ${INCLUDEROOTCA} = true ] && [ -f ${ROOTNAME}.ca ] && cat ${ROOTNAME}.ca >> ${NAME}.crt
+	if [ "${INCLUDEROOTCA}" = "true" && -f ${ROOTNAME}.ca ]; then
+		cat ${ROOTNAME}.ca >> ${NAME}.crt
+	fi
 )
+
 [ -f ${NAME}.crt ] && openssl x509 -in ${NAME}.crt -out ${NAME}.pem -outform PEM
