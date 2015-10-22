@@ -29,7 +29,7 @@
     "qs": "~4.0.0",
     "request": "~2.60.0",
     "should": "~7.0.2",
-    "static-favicon": "~1.0.2",
+    "serve-favicon": "~2.3.0",
     "temp": "~0.8.3",
     "templatizer": "~1.5.2",
     "validator": "~3.41.2",
