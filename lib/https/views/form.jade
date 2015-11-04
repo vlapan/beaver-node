@@ -22,7 +22,11 @@ block content
 
 			.errors
 
-			a(href="/monitor-result.txt")!= 'Monitor last result'
+			a(
+				href = "/monitor-result.txt",
+				target="_blank"
+			)
+				!= 'Monitor last result'
 
 			fieldset
 				legend
