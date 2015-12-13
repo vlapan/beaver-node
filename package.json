@@ -11,7 +11,7 @@
   ],
   "dependencies": {
     "async": "~1.5.0",
-    "authenticate-pam": "rstudio/node-authenticate-pam#8d4a744",
+    "authenticate-pam": "~1.0.0",
     "basic-auth": "~1.0.3",
     "body-parser": "~1.14.1",
     "diff": "~2.2.1",
@@ -25,16 +25,16 @@
     "nan": "~2.1.0",
     "nginx-conf": "~1.1.0",
     "nodemailer": "~1.10.0",
-    "nodemailer-smtp-pool": "~1.1.3",
-    "qs": "~6.0.0",
+    "nodemailer-smtp-pool": "~1.1.4",
+    "qs": "~6.0.1",
     "request": "~2.67.0",
-    "should": "~7.1.1",
+    "should": "~8.0.1",
     "serve-favicon": "~2.3.0",
     "temp": "~0.8.3",
     "templatizer": "~1.5.4",
-    "validator": "~4.3.0",
+    "validator": "~4.4.0",
     "winston": "~2.1.1",
-    "yargs": "~3.30.0"
+    "yargs": "~3.31.0"
   },
   "keywords": [
     "configuration"
