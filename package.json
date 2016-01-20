@@ -15,7 +15,7 @@
     "basic-auth": "~1.0.3",
     "body-parser": "~1.14.2",
     "diff": "~2.2.1",
-    "dns-zonefile": "~0.1.10",
+    "dns-zonefile": "~0.1.11",
     "express": "~4.13.1",
     "hoek": "~3.0.4",
     "jade": "~1.11.0",
@@ -26,15 +26,15 @@
     "nginx-conf": "~1.1.0",
     "nodemailer": "~2.0.0",
     "nodemailer-smtp-pool": "~2.0.0",
-    "qs": "~6.0.1",
+    "qs": "~6.0.2",
     "request": "~2.67.0",
     "should": "~8.1.1",
     "serve-favicon": "~2.3.0",
     "temp": "~0.8.3",
     "templatizer": "~1.5.4",
-    "validator": "~4.5.0",
+    "validator": "~4.5.1",
     "winston": "~2.1.1",
-    "yargs": "~3.31.0"
+    "yargs": "~3.32.0"
   },
   "keywords": [
     "configuration"
