@@ -22,7 +22,7 @@
     "mkdirp": "~0.5.1",
     "moment": "~2.13.0",
     "morgan": "~1.7.0",
-    "nan": "~2.3.3",
+    "nan": "~2.2.0",
     "nginx-conf": "~1.2.0",
     "nodemailer": "~2.3.2",
     "nodemailer-smtp-pool": "~2.5.2",
