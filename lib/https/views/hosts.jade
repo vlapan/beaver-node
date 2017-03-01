@@ -8,6 +8,39 @@ each host in hosts
 				disabled = host.self
 				checked
 			)
-			span(ip = host.wan && host.wan.ip)
+			span
 				!= host.key
+		ul(style = "margin-top:0;list-style-type:none;padding-left:14px;")
+			if host.self
+				li
+					small.address(ip = '127.0.0.1')
+						input(
+							type = "radio"
+							name = host.key
+							disabled
+							selected
+							checked
+							style = "width:1em;vertical-align:middle;"
+						)
+						!= '127.0.0.1'
+					!= '&nbsp;'
+					small(style = "float:right;margin-right:5px;color:grey;")
+						!= 'local'
+			else
+				each item, index in host.addresses
+					li
+						small.address(ip = item.ip, port = item.port)
+							input(
+								type = "radio"
+								name = host.key
+								selected = index === 0
+								checked = index === 0
+								style = "width:1em;vertical-align:middle;"
+								value = item.ip + (item.port ? ':' + item.port : '')
+							)
+							!= item.ip + (item.port ? ':' + item.port : '')
+						if item.source
+							!= '&nbsp;'
+							small(style = "float:right;margin-right:5px;color:grey;")
+								!= item.source
 	!= ' '

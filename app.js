@@ -36,6 +36,10 @@ function daemonStart(err) {
 		});
 		overseer.start();
 	}
+
+	if (argv.discover) {
+		require(__dirname + '/lib/discovery');
+	}
 }
 
 if (argv.input) {

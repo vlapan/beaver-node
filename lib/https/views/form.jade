@@ -31,12 +31,19 @@ block content
 			fieldset
 				legend
 					!= 'Hosts'
-				.buttons
-					button.all!= 'All'
-					button.invert!= 'Invert'
-					button.reset!= 'Reset'
+				.wrap(style = "padding:3px;")
+					.buttons
+						span!= 'Selection:&nbsp;'
+						button.all!= 'All'
+						button.invert!= 'Invert'
+						button.reset!= 'Reset'
 				hr
-				.hosts
+				.wrap(style = "padding:3px;")
+					.buttons
+						button.check(disabled)!= 'Recheck'
+				hr
+				.wrap(style = "padding-top:3px;")
+					.hosts
 
 
 		input(
