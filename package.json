@@ -10,12 +10,12 @@
     }
   ],
   "dependencies": {
-    "async": "~2.1.5",
+    "async": "~2.2.0",
     "authenticate-pam": "~1.0.2",
     "basic-auth": "~1.1.0",
     "body-parser": "~1.17.1",
     "diff": "~3.2.0",
-    "dns-zonefile": "~0.1.19",
+    "dns-zonefile": "~0.2.2",
     "express": "~4.15.2",
     "hoek": "~4.1.0",
     "ip": "^1.1.5",
@@ -29,7 +29,7 @@
     "nodemailer-smtp-pool": "~2.8.2",
     "qs": "~6.4.0",
     "request": "~2.81.0",
-    "serve-favicon": "~2.4.1",
+    "serve-favicon": "~2.4.2",
     "should": "~11.2.1",
     "temp": "~0.8.3",
     "templatizer": "~1.5.4",
