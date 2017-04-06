@@ -8,6 +8,7 @@ module.exports = {
     "indent": ["error", 4],
     "no-console": "off",
     "no-continue": "off",
+    "no-underscore-dangle": "off",
     "no-bitwise": ["error", {
       "int32Hint": true,
       "allow": ["~"]
