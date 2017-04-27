@@ -22,6 +22,7 @@ SERIAL=%{serial}
 if [ ! -f ${NAME}.crt ]; then
 	cat ${NAME}.raw-crt ${ROOTNAME}.ca-crt > ${NAME}.crt
 	if [ "${INCLUDEROOTCA}" = "true" ] && [ -f ${ROOTNAME}.ca ]; then
+		echo >> ${NAME}.crt
 		cat ${ROOTNAME}.ca >> ${NAME}.crt
 	fi
 fi
