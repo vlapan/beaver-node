@@ -5,7 +5,7 @@ set -ex
 NAME=%{prefix}
 ROUTE=%{route}
 ROOTNAME=%{prefixRoot}
-SUBJECTPREFIX="%{subjectPrefix}"
+SUBJECT="%{subject}"
 TEMPPASS=%{tempPass}
 KEYSIZE=%{keySize}
 SIGNATUREALGORITHM=%{signatureAlgorithm}
@@ -17,7 +17,7 @@ SERIAL=%{serial}
 	openssl genrsa -des3 -passout ${TEMPPASS} -out ${NAME}.key.original ${KEYSIZE}
 	openssl rsa -passin ${TEMPPASS} -in ${NAME}.key.original -out ${NAME}.key
 }
-[ -f ${NAME}.csr ] || openssl req -new -batch -subj "${SUBJECTPREFIX}${ROUTE}" -key ${NAME}.key -out ${NAME}.csr
+[ -f ${NAME}.csr ] || openssl req -new -batch -subj "${SUBJECT}" -key ${NAME}.key -out ${NAME}.csr
 [ -f ${NAME}.raw-crt ] || openssl x509 -req -${SIGNATUREALGORITHM} -days ${EXPIRATIONDAYS} -in ${NAME}.csr -CA ${ROOTNAME}.ca-crt -CAkey ${ROOTNAME}.ca-key -set_serial ${SERIAL} -out ${NAME}.raw-crt
 if [ ! -f ${NAME}.crt ]; then
 	cat ${NAME}.raw-crt ${ROOTNAME}.ca-crt > ${NAME}.crt
