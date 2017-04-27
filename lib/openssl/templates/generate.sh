@@ -5,7 +5,7 @@ set -ex
 NAME=%{prefix}
 ROUTE=%{route}
 ROOTNAME=%{prefixRoot}
-SUBJECTPREFIX=%{subjectPrefix}
+SUBJECTPREFIX="%{subjectPrefix}"
 TEMPPASS=%{tempPass}
 KEYSIZE=%{keySize}
 SIGNATUREALGORITHM=%{signatureAlgorithm}
