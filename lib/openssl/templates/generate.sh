@@ -77,6 +77,7 @@ CNF="$(
         basicConstraints=CA:FALSE
         extendedKeyUsage=serverAuth, clientAuth
         $(echo $SUBJ  | tr '/' '\n' | sed '/^$/d' | grep ^ext: | cut -d: -f2- | sed '/^$/d')
+EOF
 )"
 echo ">>>>>> CNF:\n$CNF\n<<<<<<"
 
