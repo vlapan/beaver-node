@@ -34,7 +34,7 @@
     "qs": "^6.5.0",
     "request": "^2.81.0",
     "serve-favicon": "^2.4.3",
-    "should": "^11.2.1",
+    "should": "^12.0.0",
     "temp": "^0.8.3",
     "templatizer": "^1.5.4",
     "validator": "^8.1.0",
@@ -52,11 +52,11 @@
     "node": ">=7.3.0"
   },
   "devDependencies": {
-    "eslint": "^4.0.0",
-    "eslint-config-airbnb-base": "^11.2.0",
-    "eslint-config-google": "^0.8.0",
+    "eslint": "^4.6.0",
+    "eslint-config-airbnb-base": "^11.3.2",
+    "eslint-config-google": "^0.9.1",
     "eslint-config-standard": "^10.2.1",
-    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1"
   }
