@@ -1,0 +1,330 @@
+{
+	"locations": {
+		"a1": {
+			"name": "a1.example.com",
+			"title": "a1.example.com location",
+			"wan3" : ["10.20.20.20", "10.20.20.21"],
+			"lan3" : ["10.10.10.10", "10.10.10.11"],
+			"ext": {
+				"web": {
+					"ip": "web.a1.example.com"
+				},
+				"tcp": {
+					"ip": "l3.a1.example.com"
+				}
+			},
+			"routing": {
+				"gateway": "10.10.10.1"
+			}
+		},
+		"b1": {
+			"name": "b1.example.com",
+			"title": "b1.example.com location",
+			"wan3" : ["10.20.21.20", "10.20.21.21"],
+			"lan3" : ["10.10.11.10", "10.10.11.11"],
+			"ext": {
+				"web": {
+					"ip": "web.b1.example.com"
+				},
+				"tcp": {
+					"ip": "l3.b1.example.com"
+				}
+			},
+			"routing": {
+				"gateway": "10.10.11.1"
+			}
+		}
+	},
+	"servers": {
+		"s1.a1.example.com": {
+			"disposition": "host",
+			"location": "a1",
+			"notify": [
+				"grp-adm"
+			],
+			"resources": {
+				"cpu": 24,
+				"ram": "256G",
+				"hdd": "20000G"
+			},
+			"wan": {
+				"mac": "??:??:??:??:??",
+				"ip": "1.1.1.1"
+			},
+			"lan": {
+				"mac": "1A:01:01:01:01:01",
+				"ip": "172.16.1.1"
+			}
+		},
+		"s1.b1.example.com": {
+			"disposition": "host",
+			"location": "b1",
+			"notify": [
+				"grp-adm"
+			],
+			"resources": {
+				"cpu": 24,
+				"ram": "256G",
+				"hdd": "20000G"
+			},
+			"wan": {
+				"mac": "??:??:??:??:??",
+				"ip": "1.2.1.1"
+			},
+			"lan": {
+				"mac": "1A:01:01:01:01:01",
+				"ip": "172.16.2.1"
+			}
+		},
+		"l61.a1.example.com": {
+			"disposition": "guest",
+			"router": "active",
+			"monitor": true,
+			"location": "a1",
+			"resources": {
+				"cpu": 4,
+				"ram": "4096m",
+				"hdd": "100G"
+			},
+			"lan": {
+				"mac": "2A:01:01:01:01:01",
+				"ip": "172.16.3.1"
+			},
+			"wan": {
+				"mac": "20:01:01:01:01:01",
+				"ip": "192.168.64.26"
+			},
+			"tap": {
+				"name": "tap-l6",
+				"ip": "10.254.1.1",
+				"key": "-----BEGIN RSA PUBLIC KEY-----...-----END RSA PUBLIC KEY-----"
+			},
+			"vpn": {
+				"key": "l6route",
+				"ip": "10.253.1.1"
+			},
+			"notify": [
+				"grp-adm"
+			],
+			"tcpShift": "1000",
+			"type": "unix",
+			"os": "bsd11"
+		},
+		"l62.a1.example.com": {
+			"disposition": "guest",
+			"router": "active",
+			"monitor": true,
+			"location": "a1",
+			"resources": {
+				"cpu": 4,
+				"ram": "4096m",
+				"hdd": "100G"
+			},
+			"lan": {
+				"mac": "2A:01:01:01:01:02",
+				"ip": "172.16.3.2"
+			},
+			"wan": {
+				"mac": "20:01:01:01:01:02",
+				"ip": "192.168.64.27"
+			},
+			"tap": {
+				"name": "tap-l6",
+				"ip": "10.254.1.2",
+				"key": "-----BEGIN RSA PUBLIC KEY-----...-----END RSA PUBLIC KEY-----"
+			},
+			"vpn": {
+				"key": "l6route",
+				"ip": "10.253.1.2"
+			},
+			"notify": [
+				"grp-adm"
+			],
+			"tcpShift": "1000",
+			"type": "unix",
+			"os": "bsd11"
+		},
+		"l62.b1.example.com": {
+			"disposition": "guest",
+			"router": "active",
+			"monitor": true,
+			"location": "b1",
+			"resources": {
+				"cpu": 4,
+				"ram": "4096m",
+				"hdd": "100G"
+			},
+			"lan": {
+				"mac": "2A:01:01:01:02:02",
+				"ip": "172.16.4.2"
+			},
+			"wan": {
+				"mac": "20:01:01:01:02:02",
+				"ip": "192.168.64.28"
+			},
+			"tap": {
+				"name": "tap-l6",
+				"ip": "10.254.2.2",
+				"key": "-----BEGIN RSA PUBLIC KEY-----...-----END RSA PUBLIC KEY-----"
+			},
+			"vpn": {
+				"key": "l6route",
+				"ip": "10.253.2.2"
+			},
+			"notify": [
+				"grp-adm"
+			],
+			"tcpShift": "1000",
+			"type": "unix",
+			"os": "bsd11"
+		}
+	},
+	"kvm": {
+		"OSes": {
+			"bsd11": {
+				"install": "ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/11.0/FreeBSD-11.0-RELEASE-amd64-bootonly.iso",
+				"ssh": true,
+				"title": "FreeBSD 11"
+			},
+			"bsd10": {
+				"install": "ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.0/FreeBSD-10.0-RELEASE-amd64-bootonly.iso",
+				"ssh": true,
+				"title": "FreeBSD 10"
+			},
+			"ubuntu": {
+				"install": "http://releases.ubuntu.com/14.04.1/ubuntu-14.04.1-server-amd64.iso",
+				"ssh": true,
+				"title": "Ubuntu Server LTS"
+			},
+			"win8": {
+				"install": "manual",
+				"rdp": true,
+				"title": "Windows 8"
+			}
+		}
+	},
+	"monitoring": {
+		"settings": {
+			"intervalMillis": "30000"
+		},
+		"tests": {
+			"tcp": {
+				"timeoutMillis": "5000"
+			},
+			"web": {
+				"timeoutMillis": "10000"
+			}
+		},
+		"notify": {
+			"user1": {
+				"type": "email",
+				"name": "User 1",
+				"email": "user1@example.com"
+			},
+			"user2": {
+				"type": "email",
+				"name": "User 2",
+				"email": "user2@example.com"
+			},
+			"user3": {
+				"type": "email",
+				"name": "User 3",
+				"email": "user3@example.com"
+			},
+			"grp-adm": {
+				"type": "group",
+				"name": "Admins",
+				"list": [
+					"user1",
+					"user2",
+					"user3"
+				]
+			}
+		}
+	},
+	"routing": {
+		"ssl": {},
+		"options": {
+			"dns": {
+				"ttl": 600,
+				"refresh": 300,
+				"retry": 150,
+				"expire": 86400,
+				"minimum": 600
+			},
+			"dhcp": {}
+		},
+		"types": {
+			"unix": {
+				"level3": {
+					"53": 53,
+					"82": 82,
+					"22/tcp": 22,
+					"80/tcp": 80,
+					"443/tcp": 443
+				},
+				"level6": {
+					"plain": 3000,
+					"secure": 3000
+				}
+			},
+			"windows": {
+				"level3": {
+					"389": 3389,
+					"433": 1433,
+					"80/tcp": 80,
+					"443/tcp": 443
+				},
+				"level6": {
+					"plain": 3000,
+					"secure": 3000
+				}
+			}
+		},
+		"domains": {
+			".example.com": {
+				"publish": true,
+				"mode": "infrastructure",
+				"dns": {
+					"A": {
+						"@": "1.1.1.1",
+						"www": "1.1.1.1",
+						"service": ["1.1.2.1", "1.1.2.2"]
+					},
+					"MX": {
+						"@": [
+							"5 aspmx.l.google.com.",
+							"10 alt1.aspmx.l.google.com.",
+							"15 alt2.aspmx.l.google.com."
+						]
+					}
+				}
+			}
+		},
+		"routes": {
+			"default": {
+				"ssl": "1024-sha1"
+			},
+			"service.example.com": {
+				"target": [
+					"l61.a1.example.com",
+					"l61.b1.example.com"
+				],
+				"dns": "use-wan"
+			},
+			"static.external.example.net": {
+				"target": [
+					"http://9.9.9.9:80",
+					"https://9.9.9.9:443"
+				],
+				"monitor": {
+					"notify": [
+						"grp-adm"
+					],
+					"expectCode": 302
+				},
+				"ssl": "// ssl info //"
+			}
+		}
+	}
+}
