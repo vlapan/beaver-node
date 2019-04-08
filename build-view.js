@@ -1,3 +1,7 @@
-var templatizer = require('templatizer');
+const puglatizer = require('puglatizer');
 
-templatizer(__dirname + '/lib/https/views', __dirname + '/lib/https/public/js/view-compiled.js');
+puglatizer(`./lib/https/views/dynamic`, `./lib/https/public/js/view-compiled.js`, {
+    compileDebug: false,
+    cache: false,
+    debug: false,
+});
