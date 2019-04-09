@@ -37,6 +37,7 @@
     "request": "^2.88.0",
     "serve-favicon": "^2.5.0",
     "should": "^13.2.3",
+    "ssl-utils": "^0.3.0",
     "temp": "^0.9.0",
     "validator": "^10.8.0",
     "winston": "^2.4.1",
