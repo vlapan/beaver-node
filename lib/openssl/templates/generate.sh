@@ -95,7 +95,7 @@ if [ "$TYPE" = "RSA" ]; then
         openssl req -newkey rsa:$BITS -nodes -batch -$ALGM -extensions req_ext -keyout "$CNKY" -config <(echo "$CNF")
     )"
 else
-    openssl ecparam -name $CURV -genkey -param_enc explicit -out "$CNKY"
+    openssl ecparam -name $CURV -genkey -out "$CNKY"
     CSR="$(
         openssl req -new -key "$CNKY" -batch -extensions req_ext -config <(echo "$CNF") -subj "$SUBJECT" -subject
     )"
