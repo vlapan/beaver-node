@@ -34,12 +34,12 @@ ROOTNAME=%{prefixRoot}
 IMCT="${ROOTNAME}.ca-crt"
 IMKY="${ROOTNAME}.ca-key"
 [ -f "$IMCT" ] || {
-	echo "FATAL: can't create CN - intermediate is not available: $IMCT"
-	exit 1
+    echo "FATAL: can't create CN - intermediate is not available: $IMCT"
+    exit 1
 }
 [ -f "$IMKY" ] || {
-	echo "FATAL: can't create CN - intermediate is not available: $IMKY"
-	exit 1
+    echo "FATAL: can't create CN - intermediate is not available: $IMKY"
+    exit 1
 }
 
 NAME=%{prefix}
@@ -47,14 +47,22 @@ ROUTE=%{route}
 
 CNCT="${NAME}.crt"
 CNKY="${NAME}.key"
-BITS=%{keySize}
+KEYSIZE=%{keySize}
+if [[ $KEYSIZE =~ ^[0-9]+$ ]]; then
+    TYPE=RSA
+    BITS=$KEYSIZE
+else
+    TYPE=EC
+    CURV=$KEYSIZE
+    BITS=4096
+fi
 ALGM=%{signatureAlgorithm}
 DAYS=%{expirationDays}
 SUBJ="%{subject}"
 SERIAL=%{serial}
 
 if [ -f "$CNCT" ]; then
-	exit 0
+    exit 0
 fi
 
 CNF="$(
@@ -82,9 +90,16 @@ EOF
 echo ">>>>>> CNF:\n$CNF\n<<<<<<"
 
 SUBJECT="$(echo $SUBJ | tr '/' '\n' | sed '/^$/d' | grep -v ^ext: | sed '/^$/d' | sed 's/^/\//g' | tr -d '\n')"
-CSR="$(
-    openssl req -newkey rsa:$BITS -nodes -batch -$ALGM -extensions req_ext -keyout "$CNKY" -config <(echo "$CNF")
-)"
+if [ "$TYPE" = "RSA" ]; then
+    CSR="$(
+        openssl req -newkey rsa:$BITS -nodes -batch -$ALGM -extensions req_ext -keyout "$CNKY" -config <(echo "$CNF")
+    )"
+else
+    openssl ecparam -name $CURV -genkey -param_enc explicit -out "$CNKY"
+    CSR="$(
+        openssl req -new -key "$CNKY" -batch -extensions req_ext -config <(echo "$CNF") -subj "$SUBJECT" -subject
+    )"
+fi
 echo ">>>>>> CSR:\n$(openssl req -in <(echo "$CSR") -text -noout)\n<<<<<<"
 
 KEY="$(
