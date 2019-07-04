@@ -36,6 +36,15 @@ function daemonStart(err) {
         overseer.start();
     }
 
+    if (~extensionsEnabled.indexOf('acme') && !argv.disableAcme) {
+        const Acme = require('./lib/acme/acme');
+        const acme = new Acme({
+            data: `${argv.home}/acme.json`,
+            interval: 10000,
+        });
+        acme.start();
+    }
+
     if (argv.discover) {
         require(`${__dirname}/lib/discovery`);
     }
