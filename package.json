@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "keywords": [
     "configuration"
   ],
@@ -15,7 +15,7 @@
     }
   ],
   "engines": {
-    "node": ">=7.3.0"
+    "node": ">=10.9.0"
   },
   "main": "./app.js",
   "preferGlobal": "true",
@@ -24,11 +24,11 @@
     "beaver-overseer": "./bin/beaver-overseer"
   },
   "scripts": {
-    "build": "node build-view.js"
+    "build": "node lib/https/build-view.js"
   },
   "dependencies": {
     "async": "^2.6.1",
-    "authenticate-pam": "^1.0.2",
+    "authenticate-pam": "github:WeiAnAn/node-authenticate-pam#5c06f8cf950a9992e902d061368b6442a8daf67c",
     "basic-auth": "^2.0.1",
     "body-parser": "^1.18.3",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
@@ -45,7 +45,6 @@
     "nodemailer": "^6.1.0",
     "nodemailer-smtp-pool": "^2.8.3",
     "pug": "^2.0.3",
-    "puglatizer": "^1.1.9",
     "qs": "^6.5.2",
     "request": "^2.88.0",
     "serve-favicon": "^2.5.0",
@@ -57,13 +56,20 @@
     "yargs": "^13.2.2"
   },
   "devDependencies": {
+    "babel-eslint": "^10.0.1",
     "eslint": "^5.6.1",
     "eslint-config-airbnb-base": "^13.1.0",
     "eslint-config-google": "^0.12.0",
+    "eslint-config-prettier": "^4.1.0",
     "eslint-config-standard": "^12.0.0",
+    "eslint-plugin-css-modules": "^2.11.0",
+    "eslint-plugin-flowtype": "^3.6.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^8.0.1",
+    "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.0.1",
-    "eslint-plugin-standard": "^4.0.0"
+    "eslint-plugin-standard": "^4.0.0",
+    "prettier": "^1.16.4",
+    "puglatizer": "^1.1.9"
   }
 }
