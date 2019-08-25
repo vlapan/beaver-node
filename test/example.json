@@ -258,7 +258,7 @@
 					"tempPass": "pass:example.org",
 					"subject2" : "/C=RU/ST=RU/OU=example.org/CN=${CN}/ext:subjectAltName=DNS:${CN}",
 					"subject0" : "/C=RU/ST=RU/OU=example.org/CN=${CN}/ext:subjectAltName=DNS:${CN}",
-					"subject" : "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/1.CN=*.${CN}/ext:subjectAltName=DNS:${CN},DNS:qwe.${CN}",
+					"subject" : "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/1.CN=*.${CN}/ext:subjectAltName=DNS:${CN}",
 					"subjectPrefix1" : "/C=RU/ST=RU/OU=example.org/CN=",
 					"keySize": "secp384r1",
 					"expirationDays": 84,
@@ -348,7 +348,7 @@
 			},
 			"s4.service.example.com": {
 				"target": "service.example.com",
-				"ssl": "use:service.example.com"
+				"ssl": "acme"
 			},
 			"static.backup.example.net": {
 				"target": "service.example.com",
