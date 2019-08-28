@@ -39,8 +39,8 @@ function daemonStart(err) {
     if (~extensionsEnabled.indexOf('acme') && !argv.disableAcme) {
         const Acme = require('./lib/acme/acme');
         const acme = new Acme({
-            data: `${argv.home}/acme.json`,
-            interval: 10000,
+            data: `${argv.home}/acme/acme.json`,
+            interval: 24 * 60 * 60 * 1000,
         });
         acme.start();
     }

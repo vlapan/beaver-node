@@ -79,6 +79,7 @@
 		"l61.a1.example.com": {
 			"disposition": "guest",
 			"router": "active",
+			"acme": true,
 			"monitor": true,
 			"location": "a1",
 			"resources": {
