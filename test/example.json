@@ -247,7 +247,7 @@
 			"defaultPreset" : "4096-sha256",
 			"presets" : {
 				"acme" : {
-					"type" : "acme",
+					"type" : "acme-http-01",
 					"acme" : "letsencrypt",
 					"email" : "user@example.com"
 				},
