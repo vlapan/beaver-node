@@ -42,7 +42,7 @@ function daemonStart(err) {
             data: `${argv.home}/acme/acme.json`,
             interval: 24 * 60 * 60 * 1000,
         });
-        setTimeout(acme.start, 30000);
+        setTimeout(acme.start.bind(acme), 30000);
     }
 
     if (argv.discover) {
