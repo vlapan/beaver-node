@@ -80,7 +80,7 @@
 			"disposition": "guest",
 			"router": "active",
 			"acme": true,
-			"monitor": true,
+			"monitor": false,
 			"location": "a1",
 			"resources": {
 				"cpu": 4,
@@ -249,7 +249,7 @@
 			"presets" : {
 				"acme" : {
 					"type" : "acme-http-01",
-					"acme" : "letsencrypt",
+					"acme" : "letsencrypt-staging",
 					"master" : "l61.a1.example.com",
 					"email" : "user@example.com",
 					"keySize" : 2048,
