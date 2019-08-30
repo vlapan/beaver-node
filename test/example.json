@@ -79,7 +79,6 @@
 		"l61.a1.example.com": {
 			"disposition": "guest",
 			"router": "active",
-			"acme": true,
 			"monitor": false,
 			"location": "a1",
 			"resources": {
@@ -247,10 +246,25 @@
 		"ssl" : {
 			"defaultPreset" : "4096-sha256",
 			"presets" : {
-				"acme" : {
+				"acme-le-1" : {
 					"type" : "acme-http-01",
 					"acme" : "letsencrypt-staging",
 					"master" : "l61.a1.example.com",
+					"email" : "user@example.com",
+					"keySize" : 2048,
+					"subject" : "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:l61.a1.example.com"
+				},
+				"acme-le-2" : {
+					"type" : "acme-http-01",
+					"acme" : "letsencrypt-staging",
+					"master" : "l62.a1.example.com",
+					"email" : "user@example.com",
+					"keySize" : 2048,
+					"subject" : "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:l61.a1.example.com"
+				},
+				"acme-le-no-master" : {
+					"type" : "acme-http-01",
+					"acme" : "letsencrypt-staging",
 					"email" : "user@example.com",
 					"keySize" : 2048,
 					"subject" : "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:l61.a1.example.com"
@@ -352,7 +366,19 @@
 			},
 			"s4.service.example.com": {
 				"target": "service.example.com",
-				"ssl": "acme"
+				"ssl": "use:service.example.com"
+			},
+			"acme-le-1.service.example.com": {
+				"target": "service.example.com",
+				"ssl": "acme-le-1"
+			},
+			"acme-le-2.service.example.com": {
+				"target": "service.example.com",
+				"ssl": "acme-le-2"
+			},
+			"acme-le-no-master.service.example.com": {
+				"target": "service.example.com",
+				"ssl": "acme-le-no-master"
 			},
 			"static.backup.example.net": {
 				"target": "service.example.com",
