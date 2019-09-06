@@ -249,7 +249,7 @@
 				"acme-le-1" : {
 					"type" : "acme-http-01",
 					"acme" : "letsencrypt-staging",
-					"master" : "l61.a1.example.com",
+					"master" : "l62.a1.example.com",
 					"email" : "user@example.com",
 					"keySize" : 2048,
 					"subject" : "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:l61.a1.example.com"
@@ -257,7 +257,7 @@
 				"acme-le-2" : {
 					"type" : "acme-http-01",
 					"acme" : "letsencrypt-staging",
-					"master" : "l62.a1.example.com",
+					"master" : "l62.b1.example.com",
 					"email" : "user@example.com",
 					"keySize" : 2048,
 					"subject" : "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:l61.a1.example.com"
