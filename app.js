@@ -40,7 +40,7 @@ function daemonStart(err) {
         const Acme = require('./lib/acme/acme');
         const acme = new Acme({
             data: `${argv.home}/acme/acme.json`,
-            interval: 24 * 60 * 60 * 1000,
+            interval: 15 * 60 * 1000,
         });
         setTimeout(acme.start.bind(acme), 30000);
     }
