@@ -485,7 +485,7 @@ clean-css@^4.1.11:
 
 "clean-yaumnrc@github:myx/clean-yaumnrc":
   version "0.0.17"
-  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/943409571350643348a10f7355bd91407888620d"
+  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/c3fa7d46a1f810259706dcbb2411b1bce1fd2504"
 
 cli-cursor@^2.1.0:
   version "2.1.0"
