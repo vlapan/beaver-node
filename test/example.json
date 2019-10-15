@@ -285,6 +285,9 @@
 			}
 		},
 		"options": {
+           "tinc": {
+               "compression": 7
+           },
 			"dns": {
 				"ttl": 600,
 				"refresh": 300,
