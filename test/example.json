@@ -340,7 +340,20 @@
 							"10 alt1.aspmx.l.google.com.",
 							"15 alt2.aspmx.l.google.com."
 						]
-					}
+                   },
+                   "CAA": [{
+                       "flags": 0,
+                       "tag": "issue",
+                       "value": "ca.example.com"
+                   }, {
+                       "flags": 0,
+                       "tag": "iodef",
+                       "value": "mailto:security@example.com"
+                   }, {
+                       "flags": 0,
+                       "tag": "iodef",
+                       "value": "http://iodef.example.com/"
+                   }]
 				}
 			}
 		},
