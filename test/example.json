@@ -381,7 +381,8 @@
 		},
 		"s1.service.example.com": {
 			"target": "service.example.com",
-			"ssl": "use:service.example.com"
+			"ssl": "use:service.example.com",
+			"root": "/var/www/s1.service.example.com/public"
 		},
 		"s2.service.example.com": {
 			"target": "service.example.com",
