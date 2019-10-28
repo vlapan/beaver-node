@@ -285,9 +285,9 @@
 			}
 		},
 		"options": {
-           "tinc": {
-               "compression": 7
-           },
+			"tinc": {
+				"compression": 7
+			},
 			"dns": {
 				"ttl": 600,
 				"refresh": 300,
@@ -340,77 +340,91 @@
 							"10 alt1.aspmx.l.google.com.",
 							"15 alt2.aspmx.l.google.com."
 						]
-                   },
-                   "CAA": [{
-                       "flags": 0,
-                       "tag": "issue",
-                       "value": "ca.example.com"
-                   }, {
-                       "flags": 0,
-                       "tag": "iodef",
-                       "value": "mailto:security@example.com"
-                   }, {
-                       "flags": 0,
-                       "tag": "iodef",
-                       "value": "http://iodef.example.com/"
-                   }]
+					},
+					"CAA": [{
+						"flags": 0,
+						"tag": "issue",
+						"value": "ca.example.com"
+					}, {
+						"flags": 0,
+						"tag": "iodef",
+						"value": "mailto:security@example.com"
+					}, {
+						"flags": 0,
+						"tag": "iodef",
+						"value": "http://iodef.example.com/"
+					}]
+				}
+			}
+		}
+	},
+	"targets": {
+		"default": {
+			"ssl": "4096-sha256"
+		},
+		"service.example.com": {
+			"target": [
+				"l61.a1.example.com",
+				"l61.b1.example.com"
+			],
+			"dns": "use-wan",
+			"static" : {
+				"/" : {
+					"type" : "git-static",
+					"repository" : "git@github.com:beaverway/beaver-web-static-test.git",
+					"sourcePath" : "www/",
+					"indexPage" : "index.html",
+					"updateHook" : "/git-update-hook-1231251356731234324353523423",
+					"pullInterval" : 900
 				}
 			}
 		},
-		"routes": {
-			"default": {
-				"ssl": "4096-sha256"
-			},
-			"service.example.com": {
-				"target": [
-					"l61.a1.example.com",
-					"l61.b1.example.com"
+		"s1.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "use:service.example.com"
+		},
+		"s2.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "use:service.example.com"
+		},
+		"s3.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "use:service.example.com"
+		},
+		"s4.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "use:service.example.com"
+		},
+		"acme-le-1.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "acme-le-1"
+		},
+		"acme-le-2.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "acme-le-2"
+		},
+		"acme-le-no-master.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "acme-le-no-master"
+		},
+		"git-static.cdn.example.net": {
+			"target": "git@github.com:beaverway/beaver-web-static-test.git",
+			"ssl": "acme-le-2"
+		},
+		"static.backup.example.net": {
+			"target": "service.example.com",
+			"ssl": false
+		},
+		"static.external.example.net": {
+			"target": [
+				"http://9.9.9.9:80",
+				"https://9.9.9.9:443"
+			],
+			"monitor": {
+				"notify": [
+					"grp-adm"
 				],
-				"dns": "use-wan"
-			},
-			"s1.service.example.com": {
-				"target": "service.example.com",
-				"ssl": "use:service.example.com"
-			},
-			"s2.service.example.com": {
-				"target": "service.example.com",
-				"ssl": "use:service.example.com"
-			},
-			"s3.service.example.com": {
-				"target": "service.example.com",
-				"ssl": "use:service.example.com"
-			},
-			"s4.service.example.com": {
-				"target": "service.example.com",
-				"ssl": "use:service.example.com"
-			},
-			"acme-le-1.service.example.com": {
-				"target": "service.example.com",
-				"ssl": "acme-le-1"
-			},
-			"acme-le-2.service.example.com": {
-				"target": "service.example.com",
-				"ssl": "acme-le-2"
-			},
-			"acme-le-no-master.service.example.com": {
-				"target": "service.example.com",
-				"ssl": "acme-le-no-master"
-			},
-			"static.backup.example.net": {
-				"target": "service.example.com",
-				"ssl": false
-			},
-			"static.external.example.net": {
-				"target": [
-					"http://9.9.9.9:80",
-					"https://9.9.9.9:443"
-				],
-				"monitor": {
-					"notify": [
-						"grp-adm"
-					],
-					"expectCode": 302
-				}
+				"expectCode": 302
 			}
 		}
 	}
