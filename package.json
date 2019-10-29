@@ -29,7 +29,7 @@
   "dependencies": {
     "acme-client": "^3.2.0",
     "async": "^2.6.1",
-    "authenticate-pam": "github:WeiAnAn/node-authenticate-pam#5c06f8cf950a9992e902d061368b6442a8daf67c",
+    "authenticate-pam": "github:Rush/node-authenticate-pam",
     "basic-auth": "^2.0.1",
     "bluebird": "^3.5.5",
     "body-parser": "^1.18.3",

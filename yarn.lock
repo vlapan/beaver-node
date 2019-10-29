@@ -259,11 +259,11 @@ asynckit@^0.4.0:
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
   integrity sha1-x57Zf380y48robyXkLzDZkdLS3k=
 
-"authenticate-pam@github:WeiAnAn/node-authenticate-pam#5c06f8cf950a9992e902d061368b6442a8daf67c":
+"authenticate-pam@github:Rush/node-authenticate-pam":
   version "1.0.2"
-  resolved "https://codeload.github.com/WeiAnAn/node-authenticate-pam/tar.gz/5c06f8cf950a9992e902d061368b6442a8daf67c"
+  resolved "https://codeload.github.com/Rush/node-authenticate-pam/tar.gz/d94724e204d4ae474c10e78e223b60ebfb7c62fd"
   dependencies:
-    nan "^2.14.0"
+    nan "*"
 
 aws-sign2@~0.7.0:
   version "0.7.0"
@@ -1857,7 +1857,7 @@ mute-stream@0.0.7:
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
   integrity sha1-MHXOk7whuPq0PhvE2n6BFe0ee6s=
 
-nan@^2.14.0:
+nan@*:
   version "2.14.0"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.14.0.tgz#7818f722027b2459a86f0295d434d1fc2336c52c"
   integrity sha512-INOFj37C7k3AfaNTtX8RhsTw7qRy7eLET14cROi9+5HAVbbHuIWUHEauBv5qT4Av2tWasiTY1Jw6puUNqRJXQg==
