@@ -18,7 +18,7 @@
     "node": ">=10.9.0"
   },
   "main": "./app.js",
-  "preferGlobal": "true",
+  "preferGlobal": true,
   "bin": {
     "beaver": "./bin/beaver",
     "beaver-overseer": "./bin/beaver-overseer"
