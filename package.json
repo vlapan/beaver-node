@@ -47,7 +47,6 @@
     "nodemailer-smtp-pool": "^2.8.3",
     "pug": "^2.0.3",
     "request": "^2.88.0",
-    "serve-favicon": "^2.5.0",
     "ssl-utils": "^0.3.0",
     "tar": "^4.4.10",
     "winston": "^2.4.1",
