@@ -32,7 +32,6 @@
     "authenticate-pam": "github:Rush/node-authenticate-pam",
     "basic-auth": "^2.0.1",
     "bluebird": "^3.5.5",
-    "body-parser": "^1.18.3",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
     "diff": "^4.0.1",
     "dns-zonefile": "^0.2.2",
