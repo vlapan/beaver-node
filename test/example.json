@@ -358,6 +358,22 @@
 			}
 		}
 	},
+   "services": {
+       "git": {
+           "repositories": {
+               "beaver-web-static-test": {
+                   "repository": "https://github.com/beaverway/beaver-web-static-test.git",
+                   "updateHook": "/git-update-hook-cdn-1211221356831234324753521429",
+                   "pullInterval": 900,
+                   "monitor": {
+                       "notify": [
+                           "grp-adm"
+                       ]
+                   }
+               }
+           }
+       }
+   },
 	"targets": {
 		"default": {
 			"ssl": "4096-sha256"
@@ -368,14 +384,13 @@
 				"l61.b1.example.com"
 			],
 			"dns": "use-wan",
-			"static" : {
-				"/" : {
-					"type" : "git-static",
-					"repository" : "git@github.com:beaverway/beaver-web-static-test.git",
-					"sourcePath" : "www/",
-					"indexPage" : "index.html",
-					"updateHook" : "/git-update-hook-1231251356731234324353523423",
-					"pullInterval" : 900
+           "static": {
+               "/": {
+                   "type": "git-static",
+                   "repository": "beaver-web-static-test",
+                   "sourcePath": "www/",
+                   "indexPage": "index.html",
+                   "errorPage": "error.html"
 				}
 			}
 		},
