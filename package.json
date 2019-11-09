@@ -65,7 +65,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "prettier": "^1.16.4",
+    "prettier": "^1.19.1",
     "puglatizer": "^1.1.9"
   }
 }
