@@ -45,6 +45,15 @@ function daemonStart(err) {
         setTimeout(acme.start.bind(acme), 30000);
     }
 
+    if (~extensionsEnabled.indexOf('git-static') && !argv.disableGitStatic) {
+        const GitStatic = require('./lib/git-static/git-static');
+        const gitStatic = new GitStatic({
+            data: `${argv.home}/git-static/git-static.json`,
+            interval: 5 * 60 * 1000,
+        });
+        setTimeout(gitStatic.start.bind(gitStatic), 1 * 60 * 1000);
+    }
+
     if (argv.discover) {
         require(`${__dirname}/lib/discovery`);
     }
