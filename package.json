@@ -33,10 +33,12 @@
     "basic-auth": "^2.0.1",
     "bluebird": "^3.5.5",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
+    "debug": "^4.1.1",
     "diff": "^4.0.1",
     "dns-zonefile": "^0.2.2",
     "express": "^4.16.3",
     "fs-extra": "^8.1.0",
+    "glob-to-regexp": "^0.4.1",
     "ip": "^1.1.5",
     "morgan": "^1.9.1",
     "multicast-dns": "^7.0.0",
@@ -45,11 +47,10 @@
     "nodemailer": "^6.1.0",
     "nodemailer-smtp-pool": "^2.8.3",
     "pug": "^2.0.3",
-    "request": "^2.88.0",
     "ssl-utils": "^0.3.0",
     "tar": "^5.0.5",
     "winston": "^3.2.1",
-    "yargs": "^14.2.0"
+    "yargs": "^15.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.0.1",
@@ -59,12 +60,13 @@
     "eslint-config-prettier": "^6.5.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-css-modules": "^2.11.0",
-    "eslint-plugin-flowtype": "^4.3.0",
+    "eslint-plugin-flowtype": "^4.4.1",
     "eslint-plugin-import": "^2.14.0",
     "eslint-plugin-node": "^10.0.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
+    "flow-bin": "^0.112.0",
     "prettier": "^1.19.1",
     "puglatizer": "^1.1.9"
   }
