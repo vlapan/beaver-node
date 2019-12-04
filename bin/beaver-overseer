@@ -1,44 +1,44 @@
 #!/usr/bin/env node
 
-var yargs = require('yargs')
-	.strict()
-	.usage('Monitor network services.\nUsage: overseer -d ./monitor.json')
-	.options('d', {
-		alias: 'data',
-		string: true,
-		describe: 'json data'
-	}).options('r', {
-		alias: 'result',
-		string: true,
-		describe: 'results file'
-	}).options('i', {
-		alias: 'interval',
-		default: 10000,
-		describe: 'interval between checks, ms'
-	}).options('t', {
-		alias: 'tcpTimeout',
-		default: 5000,
-		describe: 'tcp timeout, ms'
-	}).options('w', {
-		alias: 'webTimeout',
-		default: 10000,
-		describe: 'web timeout, ms'
-	});
+const yargs = require('yargs')
+    .strict()
+    .usage('Monitor network services.\nUsage: overseer -d ./monitor.json')
+    .options('d', {
+        alias: 'data',
+        string: true,
+        describe: 'json data'
+    }).options('r', {
+        alias: 'result',
+        string: true,
+        describe: 'results file'
+    }).options('i', {
+        alias: 'interval',
+        default: 10000,
+        describe: 'interval between checks, ms'
+    }).options('t', {
+        alias: 'tcpTimeout',
+        default: 5000,
+        describe: 'tcp timeout, ms'
+    }).options('w', {
+        alias: 'webTimeout',
+        default: 10000,
+        describe: 'web timeout, ms'
+    });
 
 function main(args) {
-	var argv = yargs.parse(args);
-	if (!argv.data) {
-		console.log(yargs.help());
-		process.exit();
-	}
+    const argv = yargs.parse(args);
+    if (!argv.data) {
+        console.log(yargs.help());
+        process.exit();
+    }
 
-	var Overseer = require('../lib/overseer/overseer');
-	var overseer = new Overseer(argv);
-	overseer.start();
+    const Overseer = require('../lib/overseer/overseer');
+    const overseer = new Overseer(argv);
+    overseer.start();
 }
 
 if (!module.parent) {
-	main(process.argv);
+    main(process.argv);
 } else {
-	module.exports = main;
+    module.exports = main;
 }
