@@ -1,8 +1,8 @@
-const argv = require(`${__dirname}/lib/argv`);
-const logger = require(`${__dirname}/lib/logger`);
+const argv = require('./lib/argv');
+const logger = require('./lib/logger');
 
-const config = require(`${__dirname}/lib/configuration`);
-const extensions = require(`${__dirname}/lib/extensions`);
+const config = require('./lib/configuration');
+const extensions = require('./lib/extensions');
 
 function fileDaemonNote() {
     logger.log('info', `input: daemon mode, watching config file "${argv.input}"!`);
@@ -21,7 +21,7 @@ function daemonStart(err) {
         });
     }
 
-    require(`${__dirname}/lib/https`);
+    require('./lib/https');
 
     const extensionsEnabled = argv.e.split(',');
     if (~extensionsEnabled.indexOf('monitor') && !argv.disableOverseer) {
@@ -49,13 +49,13 @@ function daemonStart(err) {
         const GitStatic = require('./lib/git-static/git-static');
         const gitStatic = new GitStatic({
             data: `${argv.home}/git-static/git-static.json`,
-            interval: 5 * 60 * 1000,
+            interval: 1 * 60 * 1000,
         });
         setTimeout(gitStatic.start.bind(gitStatic), 1 * 60 * 1000);
     }
 
     if (argv.discover) {
-        require(`${__dirname}/lib/discovery`);
+        require('./lib/discovery');
     }
 }
 

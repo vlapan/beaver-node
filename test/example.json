@@ -328,6 +328,7 @@
 			".example.com": {
 				"publish": true,
 				"mode": "infrastructure",
+				"allow-transfer": ["l62.b1.example.com", "192.168.65.1"],
 				"dns": {
 					"A": {
 						"@": "1.1.1.1",
@@ -355,6 +356,27 @@
 						"value": "http://iodef.example.com/"
 					}]
 				}
+			},
+			".example-2.com" : {
+				"publish": true,
+				"mode" : "dedicated",
+				"dns" : {
+					"TXT" : {
+						"@" : "( \"v=spf1 a mx ptr ~all\" )"
+					}
+				}
+			},
+			".example-3.com": {
+				"publish": true,
+				"mode": "slave",
+				"masters": ["l61.a1.example.com", "l62.a1.example.com", "192.168.64.1"],
+				"slaves" : ["l62.b1.example.com", "192.168.65.1"]
+			},
+			".example-4.com": {
+				"publish": true,
+				"mode": "slave",
+				"masters": ["l61.a1.example.com", "l62.a1.example.com", "192.168.64.1"],
+				"slaves" : ["l62.b1.example.com", "192.168.65.1"]
 			}
 		}
 	},
@@ -362,8 +384,10 @@
 		"git": {
 			"repositories": {
 				"beaver-web-static-test": {
+					"master": "l61.a1.example.com",
 					"repository": "https://github.com/beaverway/beaver-web-static-test.git",
-					"updateHook": "/git-update-hook-cdn-1211221356831234324753521429",
+					"updateHook": "https://service.example.com/git-update-hook-01234567890123456789",
+					"updateHookSecret": "secret-0123456789",
 					"pullInterval": 900,
 					"monitor": {
 						"notify": [
@@ -381,7 +405,7 @@
 		"service.example.com": {
 			"target": [
 				"l61.a1.example.com",
-				"l61.b1.example.com"
+				"l62.b1.example.com"
 			],
 			"dns": "use-wan",
 			"static": {
@@ -391,6 +415,41 @@
 					"sourcePath": "www/",
 					"indexPage": "index.html",
 					"errorPage": "error.html"
+				}
+			}
+		},
+		"cdn.example.com": {
+			"nginx": {
+				"expires": "1y",
+				"add_header": ["Cache-Control public", "Access-Control-Allow-Origin *"]
+			},
+			"static": {
+				"/": {
+					"type": "git-static",
+					"repository": "beaver-web-static-test",
+					"sourcePath": "www/",
+					"indexPage": "index.html",
+					"errorPage": "error.html"
+				}
+			}
+		},
+		"cdn2.example.com": {
+			"static": {
+				"/": {
+					"type": "git-static",
+					"repository": "beaver-web-static-test",
+					"sourcePath": "www/",
+					"indexPage": "index.html",
+					"errorPage": "error.html",
+					"nginx": {
+						"expires": "1y",
+						"add_header": "Cache-Control public",
+						"match": {
+							"{*.js,*.css}": {
+								"add_header": "Special 1"
+							}
+						}
+					}
 				}
 			}
 		},
