@@ -25,6 +25,7 @@ module.exports = {
             'allow': ['~'],
         }],
         'no-restricted-syntax': 'off',
+        'no-plusplus': 'off',
     },
     settings: {
         'import/resolver': {
