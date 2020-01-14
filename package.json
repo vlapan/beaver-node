@@ -33,6 +33,7 @@
     "authenticate-pam": "github:Rush/node-authenticate-pam",
     "basic-auth": "^2.0.1",
     "bluebird": "^3.5.5",
+    "common-tags": "^1.8.0",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
     "debug": "^4.1.1",
     "diff": "^4.0.1",
