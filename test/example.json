@@ -363,6 +363,13 @@
 							"15 alt2.aspmx.l.google.com."
 						]
 					},
+                   "TXT" : {
+                       "@" : [
+                           "text_record_1",
+                           "text record 2",
+                           "text record 3"
+                       ]
+                   },
 					"CAA": [{
 						"flags": 0,
 						"tag": "issue",
@@ -383,7 +390,7 @@
 				"mode" : "dedicated",
 				"dns" : {
 					"TXT" : {
-						"@" : "( \"v=spf1 a mx ptr ~all\" )"
+                       "@" : "v=spf1 a mx ptr ~all"
 					}
 				}
 			},
