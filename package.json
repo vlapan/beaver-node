@@ -44,7 +44,7 @@
     "glob-to-regexp": "^0.4.1",
     "ip": "^1.1.5",
     "morgan": "^1.9.1",
-    "multicast-dns": "^7.0.0",
+    "multicast-dns": "^7.2.2",
     "nginx-conf": "^1.5.0",
     "node-forge": "^0.9.1",
     "nodemailer": "^6.4.11",
@@ -58,7 +58,7 @@
     "@babel/node": "^7.10.5",
     "@babel/preset-flow": "^7.10.4",
     "babel-eslint": "^10.0.1",
-    "eslint": "^7.5.0",
+    "eslint": "^7.6.0",
     "eslint-config-airbnb-base": "^14.0.0",
     "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.5.0",
@@ -70,7 +70,7 @@
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.0.1",
     "eslint-plugin-standard": "^4.0.0",
-    "flow-bin": "^0.130.0",
+    "flow-bin": "^0.131.0",
     "prettier": "^2.0.5",
     "puglatizer": "^1.1.9"
   }
