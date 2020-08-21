@@ -2,8 +2,12 @@ module.exports = {
     parser: 'babel-eslint',
     extends: [
         'airbnb-base',
+        "eslint:recommended",
+        "plugin:node/recommended",
         'plugin:flowtype/recommended',
         'plugin:css-modules/recommended',
+        // 'plugin:jsdoc/recommended',
+        // 'plugin:security/recommended',
         'prettier',
         'prettier/flowtype',
     ],
@@ -13,6 +17,9 @@ module.exports = {
         'css-modules',
         'prettier',
     ],
+    parserOptions: {
+        "ecmaVersion": 2020
+    },
     rules: {
         'max-len': ['error', 999, 4],
         'indent': ['error', 4],
@@ -30,7 +37,7 @@ module.exports = {
     settings: {
         'import/resolver': {
             node: {
-                moduleDirectory: ['node_modules', 'src'],
+                moduleDirectory: ['node_modules', 'lib', 'src'],
             },
         },
     },

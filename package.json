@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.27",
+  "version": "0.1.28",
   "keywords": [
     "configuration"
   ],
@@ -26,7 +26,8 @@
   },
   "scripts": {
     "build": "node lib/https/build-view.js",
-    "flow": "flow"
+    "eslint": "eslint '**/*.js'",
+    "flow": "flow check --all --show-all-errors --show-all-branches"
   },
   "dependencies": {
     "@slack/webhook": "^5.0.3",
@@ -39,7 +40,7 @@
     "common-tags": "^1.8.0",
     "debug": "^4.1.1",
     "diff": "^4.0.1",
-    "dns-zonefile": "^0.2.2",
+    "dns-zonefile": "^0.2.6",
     "express": "^4.16.3",
     "fs-extra": "^9.0.1",
     "glob-to-regexp": "^0.4.1",
@@ -51,7 +52,7 @@
     "nodemailer": "^6.4.11",
     "nodemailer-smtp-pool": "^2.8.3",
     "ssl-utils": "^1.0.0",
-    "tar": "^6.0.2",
+    "tar": "^6.0.5",
     "winston": "^3.2.1",
     "yargs": "^15.0.1"
   },
@@ -59,17 +60,18 @@
     "@babel/node": "^7.10.5",
     "@babel/preset-flow": "^7.10.4",
     "babel-eslint": "^10.0.1",
-    "eslint": "^7.6.0",
+    "eslint": "^7.7.0",
     "eslint-config-airbnb-base": "^14.0.0",
-    "eslint-config-google": "^0.14.0",
     "eslint-config-prettier": "^6.5.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-css-modules": "^2.11.0",
     "eslint-plugin-flowtype": "^5.2.0",
     "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsdoc": "^30.2.4",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^3.0.1",
     "eslint-plugin-promise": "^4.0.1",
+    "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.0.0",
     "flow-bin": "^0.131.0",
     "prettier": "^2.0.5",

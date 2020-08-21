@@ -11,7 +11,6 @@ function fileDaemonNote() {
 function daemonStart(err) {
     if (!argv.daemon || err) {
         process.exit();
-        return;
     }
 
     if (argv.input) {
