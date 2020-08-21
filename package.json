@@ -29,6 +29,7 @@
     "flow": "flow"
   },
   "dependencies": {
+    "@slack/webhook": "^5.0.3",
     "acme-client": "^3.2.0",
     "async": "^3.1.0",
     "authenticate-pam": "github:Rush/node-authenticate-pam",

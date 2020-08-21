@@ -232,6 +232,10 @@
 				"name": "User 3",
 				"email": "user3@example.com"
 			},
+			"slack": {
+				"type": "slack",
+				"hook": "HOOK_URL"
+			},
 			"grp-adm": {
 				"type": "group",
 				"name": "Admins",
