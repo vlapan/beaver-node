@@ -21,8 +21,9 @@ module.exports = {
         "ecmaVersion": 2020
     },
     rules: {
+        'semi': [2, "always", { "omitLastInOneLineBlock": true }],
         'max-len': ['error', 999, 4],
-        'indent': ['error', 4],
+        "indent": ["error", 4], // ["error", 4, { "SwitchCase": 1 }],
         'func-names': ['error', 'never'],
         'no-console': 'off',
         'no-continue': 'off',
@@ -33,6 +34,7 @@ module.exports = {
         }],
         'no-restricted-syntax': 'off',
         'no-plusplus': 'off',
+        'no-await-in-loop': 'off',
     },
     settings: {
         'import/resolver': {

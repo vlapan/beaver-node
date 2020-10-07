@@ -6,4 +6,6 @@ module.exports = {
   semi: true,
   quoteProps: 'as-needed',
   bracketSpacing: true,
+  printWidth: 120,
+  arrowParens: "always",
 };

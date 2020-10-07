@@ -1,8 +1,15 @@
 #!/usr/bin/env node
 
-const yargs = require('yargs')
+const debug = require('debug');
+const Yargs = require('yargs');
+
+const Overseer = require('../lib/overseer/overseer');
+
+const yargs = Yargs
     .strict()
-    .usage('Monitor network services.\nUsage: overseer -d ./monitor.json')
+    .usage('Monitor network services.\nUsage: beaver-overseer -d ./monitor.json')
+    .example('beaver-overseer -d ./monitor.json', 'run as daemon')
+    .env('BEAVER_OVERSEER')
     .options('d', {
         alias: 'data',
         string: true,
@@ -23,16 +30,27 @@ const yargs = require('yargs')
         alias: 'webTimeout',
         default: 10000,
         describe: 'web timeout, ms'
-    });
+    })
+    .options('v', {
+        alias: 'verbose',
+        describe: 'each "v" adds verbosity',
+    })
+    .help('help')
+    .count('verbose');
 
 function main(args) {
     const argv = yargs.parse(args);
     if (!argv.data) {
-        console.log(yargs.help());
+        yargs.showHelp();
         process.exit();
     }
+    const levelOption = argv.v | 0;
+    if (levelOption > 0) {
+        const debugValue = (process.env.DEBUG ? (['beaver*'].concat(process.env.DEBUG.split(','))).join(',') : 'beaver*');
+        process.env.DEBUG = debugValue;
+        debug.enable(debugValue);
+    }
 
-    const Overseer = require('../lib/overseer/overseer');
     const overseer = new Overseer(argv);
     overseer.start();
 }

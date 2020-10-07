@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+LEFT=$1
+RIGHT=$2
+
+if [ -z "$LEFT" -o -z "$RIGHT" ]; then
+    printf "Syntax: \n\t $0 left right\n"
+    exit 1
+fi
+
+diff \
+    --recursive \
+    --side-by-side \
+    --width=$(tput cols) \
+    --ignore-space-change \
+    --ignore-blank-lines \
+    --ignore-all-space \
+    --suppress-common-lines \
+    --minimal \
+    --exclude='cert' \
+    --exclude='beaver-ssl' \
+    --ignore-matching-lines=';serial' \
+    --ignore-matching-lines='; Exported' \
+    $LEFT $RIGHT | less

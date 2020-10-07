@@ -79,13 +79,14 @@
 		"l61.a1.example.com": {
 			"disposition": "guest",
 			"router": "active",
-			"monitor": false,
+			"monitor": true,
 			"location": "a1",
 			"resources": {
 				"cpu": 4,
 				"ram": "4096m",
 				"hdd": "100G"
 			},
+			"net": "net",
 			"lan": {
 				"mac": "2A:01:01:01:01:01",
 				"ip": "172.16.3.1"
@@ -121,6 +122,7 @@
 				"ram": "4096m",
 				"hdd": "100G"
 			},
+			"net": "net",
 			"lan": {
 				"mac": "2A:01:01:01:01:02",
 				"ip": "172.16.3.2"
@@ -155,6 +157,7 @@
 				"ram": "4096m",
 				"hdd": "100G"
 			},
+			"net": "net",
 			"lan": {
 				"mac": "2A:01:01:01:02:02",
 				"ip": "172.16.4.2"
@@ -488,6 +491,9 @@
 			}
 		},
 		"s1.service.example.com": {
+			"nginx": {
+				"proxy_connect_timeout": "60s"
+			},
 			"target": "service.example.com",
 			"ssl": "use:service.example.com",
 			"root": "/var/www/s1.service.example.com/public"
@@ -503,6 +509,18 @@
 		"s4.service.example.com": {
 			"target": "service.example.com",
 			"ssl": "use:service.example.com"
+		},
+		"s5.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "use:service.example.com"
+		},
+		"s6.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "use:service.example.com"
+		},
+		"s7.service.example.com": {
+			"target": "service.example.com",
+			"ssl": "2048-sha256"
 		},
 		"acme-le-1.service.example.com": {
 			"target": "service.example.com",
