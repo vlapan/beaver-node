@@ -51,7 +51,7 @@
     "morgan": "^1.10.0",
     "multicast-dns": "^7.2.2",
     "nginx-conf": "^1.5.0",
-    "node-forge": "^0.9.1",
+    "node-forge": "^0.10.0",
     "nodemailer": "^6.4.13",
     "nodemailer-smtp-pool": "^2.8.3",
     "ssl-utils": "^1.0.0",
