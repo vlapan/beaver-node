@@ -8,6 +8,7 @@ const https = require('./lib/https');
 const Overseer = require('./lib/overseer/overseer');
 const Acme = require('./lib/acme/acme');
 const GitStatic = require('./lib/git-static/git-static');
+const { daemonStarted } = require('./lib/notificator');
 
 module.exports = {
     async main(argv) {
@@ -83,5 +84,7 @@ module.exports = {
         if (argv.discover) {
             require('./lib/discovery');
         }
+
+        daemonStarted();
     },
 };
