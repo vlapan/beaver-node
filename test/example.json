@@ -274,10 +274,15 @@
 					"extends": "acme-le-default",
 					"master": "l62.b1.example.com"
 				},
-				"acme-dns-wildcard": {
+				"acme-dns-wildcard-1": {
 					"extends": "acme-le-default",
 					"type": "acme-dns-01",
 					"master": "l61.a1.example.com"
+				},
+				"acme-dns-wildcard-2": {
+					"extends": "acme-le-default",
+					"type": "acme-dns-01",
+					"master": "l62.a1.example.com"
 				},
 				"acme-le-no-master": {
 					"extends": "acme-le-default",
@@ -533,9 +538,13 @@
 			"target": "service.example.com",
 			"ssl": "acme-le-2"
 		},
-		"dns-wildcard.acme.example.com": {
+		"dns-wildcard-1.acme.example.com": {
 			"target": "service.example.com",
-			"ssl": "acme-dns-wildcard"
+			"ssl": "acme-dns-wildcard-1"
+		},
+		"dns-wildcard-2.acme.example.com": {
+			"target": "service.example.com",
+			"ssl": "acme-dns-wildcard-2"
 		},
 		"acme-le-no-master.service.example.com": {
 			"target": "service.example.com",

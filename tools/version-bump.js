@@ -9,7 +9,7 @@ const inc = require('semver/functions/inc');
         const data = JSON.parse(json);
         data.version = inc(data.version, 'patch');
         console.log(data.version);
-        await fs.writeFile(path, JSON.stringify(data, null, 2));
+        await fs.writeFile(path, `${JSON.stringify(data, null, 2)}\n`);
     } catch (error) {
         console.error(error);
         throw error;
