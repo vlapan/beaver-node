@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.43",
+  "version": "0.1.44",
   "keywords": [
     "configuration"
   ],
@@ -40,6 +40,7 @@
     "basic-auth": "^2.0.1",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
     "common-tags": "^1.8.0",
+    "dayjs": "^1.9.3",
     "debug": "^4.2.0",
     "diff": "^4.0.2",
     "dns-zonefile": "^0.2.6",
