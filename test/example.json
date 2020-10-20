@@ -538,6 +538,10 @@
 			"target": "service.example.com",
 			"ssl": "acme-le-2"
 		},
+		"example.com": {
+			"target": "service.example.com",
+			"ssl": "acme-dns-wildcard-1"
+		},
 		"dns-wildcard-1.acme.example.com": {
 			"target": "service.example.com",
 			"ssl": "acme-dns-wildcard-1"
