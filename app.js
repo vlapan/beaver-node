@@ -17,11 +17,13 @@ module.exports = {
             try {
                 await config.readFile();
                 debug('extentions: start');
+                const user = process.env.SUDO_USER || process.env.USER;
                 try {
                     await extensions.generate({
                         argv,
                         config,
                         debug,
+                        user,
                     });
                     debug('extentions: done');
                 } catch (e) {
@@ -39,11 +41,13 @@ module.exports = {
         debug('daemons: start');
 
         if (argv.input && !argv.disableDaemonFile) {
+            const user = process.env.SUDO_USER || process.env.USER;
             config.watch(async () => {
                 return extensions.generate({
                     argv,
                     config,
                     debug,
+                    user,
                 });
             });
         }

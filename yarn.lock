@@ -1008,17 +1008,17 @@ eslint-config-airbnb-base@^14.2.0:
     object.assign "^4.1.0"
     object.entries "^1.1.2"
 
-eslint-config-prettier@^6.14.0:
-  version "6.14.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.14.0.tgz#390e7863a8ae99970981933826476169285b3a27"
-  integrity sha512-DbVwh0qZhAC7CNDWcq8cBdK6FcVHiMTKmCypOPWeZkp9hJ8xYwTaWSa6bb6cjfi8KOeJy0e9a8Izxyx+O4+gCQ==
+eslint-config-prettier@^6.15.0:
+  version "6.15.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-prettier/-/eslint-config-prettier-6.15.0.tgz#7f93f6cb7d45a92f1537a70ecc06366e1ac6fed9"
+  integrity sha512-a1+kOYLR8wMGustcgAjdydMsQ2A/2ipRPwRKUmfYaSxc9ZPcrku080Ctl6zrZzZNs/U82MjSv+qKREkoq3bJaw==
   dependencies:
     get-stdin "^6.0.0"
 
-eslint-config-standard@^15.0.0:
-  version "15.0.0"
-  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-15.0.0.tgz#459f823b47ac0541b0a22b1d0a161a9da543f687"
-  integrity sha512-MZ8KRhUJLtMbjQo9PsEzFG29vqbQJfLoLBHrTaAaFMtDx9PIm1GZgyUanOLgf1xOE1aWrtZZSbxBYCy8dJCCBg==
+eslint-config-standard@^16.0.0:
+  version "16.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-config-standard/-/eslint-config-standard-16.0.0.tgz#5f21e9b8be8be28c096e592e1137769d33c5cd92"
+  integrity sha512-kMCehB9yXIG+LNsu9uXfm06o6Pt63TFAOzn9tUOzw4r/hFIxHhNR1Xomxy+B5zMrXhqyfHVEcmanzttEjGei9w==
 
 eslint-import-resolver-node@^0.3.4:
   version "0.3.4"
@@ -1387,10 +1387,10 @@ flatted@^2.0.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-2.0.1.tgz#69e57caa8f0eacbc281d2e2cb458d46fdb449e08"
   integrity sha512-a1hQMktqW9Nmqr5aktAux3JMNqaucxGcjtjWnZLHX7yyPCmlSV3M54nGYbqT8K+0GhF3NBgmJCc3ma+WOgX8Jg==
 
-flow-bin@^0.136.0:
-  version "0.136.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.136.0.tgz#2c1be64496d791ea3160047ce22968ef166835f1"
-  integrity sha512-Z0sycQDyWXiNsGAhOBUrvHPzz7Q4g38BT57+YzZGffbaBmWRNC6MGZb+R6XTzeWb30bZin5V21nPQZezJzm9cQ==
+flow-bin@^0.137.0:
+  version "0.137.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.137.0.tgz#322a15b3744195af1e02bf1fec0a716296aee7d5"
+  integrity sha512-ytwUn68fPKK/VWVpCxJ4KNeNIjCC/uX0Ll6Z1E98sOXfMknB000WtgQjKYDdO6tOR8mvXBE0adzjgCrChVympw==
 
 fn.name@1.x.x:
   version "1.1.0"
@@ -2640,6 +2640,11 @@ readable-stream@~2.0.0:
     process-nextick-args "~1.0.6"
     string_decoder "~0.10.x"
     util-deprecate "~1.0.1"
+
+recursive-diff@^1.0.8:
+  version "1.0.8"
+  resolved "https://registry.yarnpkg.com/recursive-diff/-/recursive-diff-1.0.8.tgz#45078df142af0085915971c5af17cd5a560086d5"
+  integrity sha512-WfUcVao/HRsZZjI96PjcefTZ87rsxrgryIlWJB2UrHs4v3kFFzvMOm801a1WoqG+IAsLKJPsGlvubR74EDqGWQ==
 
 redis-commands@^1.2.0:
   version "1.5.0"
