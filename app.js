@@ -85,10 +85,6 @@ module.exports = {
             setTimeout(gitStatic.start.bind(gitStatic), 1 * 60 * 1000);
         }
 
-        if (argv.discover) {
-            require('./lib/discovery');
-        }
-
         daemonStarted();
     },
 };
