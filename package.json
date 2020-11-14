@@ -35,7 +35,7 @@
   "dependencies": {
     "@slack/webhook": "^5.0.3",
     "ace-builds": "^1.4.12",
-    "acme-client": "^4.0.2",
+    "acme-client": "^4.1.1",
     "async": "^3.2.0",
     "authenticate-pam": "github:Rush/node-authenticate-pam",
     "basic-auth": "^2.0.1",
@@ -53,7 +53,7 @@
     "multicast-dns": "^7.2.2",
     "nginx-conf": "^1.5.0",
     "node-forge": "^0.10.0",
-    "nodemailer": "^6.4.15",
+    "nodemailer": "^6.4.16",
     "nodemailer-smtp-pool": "^2.8.3",
     "ssl-utils": "^1.0.0",
     "supports-color": "^7.2.0",
@@ -75,7 +75,7 @@
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-security": "^1.4.0",
     "eslint-plugin-standard": "^4.1.0",
-    "flow-bin": "^0.137.0",
+    "flow-bin": "^0.138.0",
     "prettier": "^2.1.2",
     "semver": "^7.3.2"
   }
