@@ -1,12 +1,9 @@
 module.exports = {
-    parser: 'babel-eslint',
     extends: [
         'airbnb-base',
         "eslint:recommended",
         "plugin:node/recommended",
-        'plugin:flowtype/recommended',
         'plugin:css-modules/recommended',
-        // 'plugin:jsdoc/recommended',
         // 'plugin:security/recommended',
         'prettier',
         'prettier/flowtype',
