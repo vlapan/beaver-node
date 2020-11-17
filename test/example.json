@@ -442,6 +442,19 @@
 		"default": {
 			"ssl": "4096-sha256"
 		},
+		"no-target.example.com": {
+			"ssl": "2048-sha256",
+			"dns": "use-router",
+			"static": {
+				"/": {
+					"type": "git-static",
+					"repository": "beaver-web-static-test",
+					"sourcePath": "www/",
+					"indexPage": "index.html",
+					"errorPage": "error.html"
+				}
+			}
+		},
 		"service.example.com": {
 			"ssl": "2048-sha256",
 			"target": [
