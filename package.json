@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.66",
+  "version": "0.1.67",
   "keywords": [
     "configuration"
   ],
@@ -61,34 +61,6 @@
     "winston": "^3.3.3",
     "yargs": "^16.1.1"
   },
-  "bundleDependencies": [
-    "@slack/webhook",
-    "ace-builds",
-    "acme-client",
-    "async",
-    "basic-auth",
-    "clean-yaumnrc",
-    "common-tags",
-    "dayjs",
-    "debug",
-    "diff",
-    "dns-zonefile",
-    "express",
-    "fs-extra",
-    "glob-to-regexp",
-    "lit-html",
-    "morgan",
-    "multicast-dns",
-    "nginx-conf",
-    "node-forge",
-    "nodemailer",
-    "nodemailer-smtp-pool",
-    "ssl-utils",
-    "supports-color",
-    "tar",
-    "winston",
-    "yargs"
-  ],
   "devDependencies": {
     "eslint": "^7.13.0",
     "eslint-config-airbnb-base": "^14.2.1",
