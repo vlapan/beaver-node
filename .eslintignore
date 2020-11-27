@@ -4,4 +4,4 @@
 # Ignore built files except build/index.js
 build/*
 !build/index.js
-lib/https/public/*
+# lib/https/public/*

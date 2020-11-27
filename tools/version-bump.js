@@ -2,7 +2,7 @@ const fs = require('fs/promises');
 // eslint-disable-next-line node/no-unpublished-require, import/no-extraneous-dependencies
 const inc = require('semver/functions/inc');
 
-(async function() {
+(async function () {
     try {
         const path = './package.json';
         const json = await fs.readFile(path);

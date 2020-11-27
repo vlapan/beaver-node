@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.68",
+  "version": "0.1.69",
   "keywords": [
     "configuration"
   ],
@@ -29,7 +29,8 @@
     "start": "bin/beaver",
     "bump": "node tools/version-bump.js",
     "build": "node lib/https/build-view.js",
-    "eslint": "eslint '**/*.js'",
+    "eslint": "eslint --fix .",
+    "eslint-list": "eslint .",
     "flow": "flow check --all --show-all-errors --show-all-branches"
   },
   "dependencies": {
@@ -65,6 +66,7 @@
     "eslint": "^7.14.0",
     "eslint-config-standard": "^16.0.2",
     "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-json": "^2.1.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.1.0",

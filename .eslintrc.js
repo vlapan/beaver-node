@@ -6,19 +6,26 @@ module.exports = {
         'plugin:promise/recommended',
         'plugin:import/errors',
         'plugin:import/warnings',
+        'plugin:json/recommended',
     ],
     plugins: [
         'standard',
         'node',
         'promise',
         'import',
+        'json',
     ],
     env: {
         node: true,
         browser: true,
     },
+    overrides: [{
+        files: ['**/*.json'],
+    }],
     rules: {
-        indent: ['error', 4], // ["error", 4, { "SwitchCase": 1 }],
+        indent: ['error', 4, {
+            SwitchCase: 1,
+        }],
         semi: [2, 'always', {
             omitLastInOneLineBlock: true,
         }],

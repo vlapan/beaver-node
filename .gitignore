@@ -4,3 +4,4 @@ node_modules
 .fuse_hidden*
 output
 yarn-error.log
+beaver-node*.tgz
