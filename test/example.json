@@ -507,6 +507,25 @@
 				}
 			}
 		},
+		"lfs-static.example.com": {
+			"static": {
+				"/": {
+					"type": "lfs-static",
+					"sourcePath": "/usr/local/www/lfs-static",
+					"indexPage": "index.html",
+					"errorPage": "error.html",
+					"nginx": {
+						"expires": "1y",
+						"add_header": "Cache-Control public",
+						"match": {
+							"{*.js,*.css}": {
+								"add_header": "Special 1"
+							}
+						}
+					}
+				}
+			}
+		},
 		"s1.service.example.com": {
 			"nginx": {
 				"proxy_connect_timeout": "60s"
