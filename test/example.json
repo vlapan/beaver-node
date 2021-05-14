@@ -403,6 +403,23 @@
 				"dns" : {
 					"TXT" : {
 						"@" : "v=spf1 a mx ptr ~all"
+					},
+					"CAA": {
+						"@": [
+							{
+								"flags": 0,
+								"tag": "issue",
+								"value": "ca.example.com"
+							}, {
+								"flags": 0,
+								"tag": "iodef",
+								"value": "mailto:security@example.com"
+							}, {
+								"flags": 0,
+								"tag": "iodef",
+								"value": "http://iodef.example.com/"
+							}
+						]
 					}
 				}
 			},
