@@ -382,19 +382,11 @@
 							"text record 3"
 						]
 					},
-					"CAA": [{
-						"flags": 0,
-						"tag": "issue",
-						"value": "ca.example.com"
-					}, {
-						"flags": 0,
-						"tag": "iodef",
-						"value": "mailto:security@example.com"
-					}, {
-						"flags": 0,
-						"tag": "iodef",
-						"value": "http://iodef.example.com/"
-					}]
+					"CAA": [
+						"0 issue ca.example.com",
+						"0 iodef mailto:security@example.com",
+						"0 iodef http://iodef.example.com/"
+					]
 				}
 			},
 			".example-2.com" : {
@@ -405,6 +397,11 @@
 						"@" : "v=spf1 a mx ptr ~all"
 					},
 					"CAA": {
+						"sub": [
+							"0 issue ca.example.com",
+							"0 iodef mailto:security@example.com",
+							"0 iodef http://iodef.example.com/"
+						],
 						"@": [
 							{
 								"flags": 0,
