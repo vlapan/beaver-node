@@ -19,6 +19,9 @@ module.exports = {
         node: true,
         browser: true,
     },
+    parserOptions: {
+        ecmaVersion: 2020,
+    },
     overrides: [{
         files: ['**/*.json'],
     }],
