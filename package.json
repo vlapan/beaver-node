@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.91",
+  "version": "0.1.92",
   "keywords": [
     "configuration"
   ],
@@ -42,7 +42,7 @@
     "basic-auth": "^2.0.1",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
     "common-tags": "^1.8.0",
-    "dayjs": "^1.10.4",
+    "dayjs": "^1.10.5",
     "debug": "^4.3.1",
     "diff": "^5.0.0",
     "dns-zonefile": "^0.2.7",
@@ -51,10 +51,10 @@
     "glob-to-regexp": "^0.4.1",
     "lit-html": "^1.4.1",
     "morgan": "^1.10.0",
-    "multicast-dns": "^7.2.2",
+    "multicast-dns": "^7.2.3",
     "nginx-conf": "^2.0.0",
     "node-forge": "^0.10.0",
-    "nodemailer": "^6.6.0",
+    "nodemailer": "^6.6.1",
     "nodemailer-smtp-pool": "^2.8.3",
     "ssl-utils": "^1.0.0",
     "supports-color": "^9.0.0",
@@ -63,9 +63,9 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.26.0",
-    "eslint-config-standard": "^16.0.2",
-    "eslint-plugin-import": "^2.22.1",
+    "eslint": "^7.27.0",
+    "eslint-config-standard": "^16.0.3",
+    "eslint-plugin-import": "^2.23.3",
     "eslint-plugin-json": "^3.0.0",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
