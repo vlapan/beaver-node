@@ -312,8 +312,8 @@ chownr@^2.0.0:
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
 "clean-yaumnrc@github:myx/clean-yaumnrc":
-  version "0.0.43"
-  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/ce92c604a67b3c1c00b41a59321a92a168f74e5c"
+  version "0.0.44"
+  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/a5405872eaf6ec2322cb02593b5a5510ffcc10ea"
 
 cliui@^7.0.2:
   version "7.0.2"
