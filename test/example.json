@@ -87,6 +87,14 @@
 				"hdd": "100G"
 			},
 			"net": "net",
+			"srv" : {
+				"_resolve._tcp": {
+					"priority": "20",
+					"weight": "25",
+					"port": "27443"
+				},
+				"_build._tcp" : "20 25 27443"
+			},
 			"lan": {
 				"mac": "2A:01:01:01:01:01",
 				"ip": "172.16.3.1"
@@ -158,6 +166,15 @@
 				"hdd": "100G"
 			},
 			"net": "net",
+			"srv" : {
+				"_resolve._tcp": {
+					"priority": "10",
+					"weight": "25",
+					"port": "26443"
+				},
+				"_sip._tcp" : "0 5 5060",
+				"_build._tcp" : "20 25 26443"
+			},
 			"lan": {
 				"mac": "2A:01:01:01:02:02",
 				"ip": "172.16.4.2"
@@ -174,6 +191,50 @@
 			"vpn": {
 				"key": "l6route",
 				"ip": "10.253.2.2"
+			},
+			"notify": [
+				"grp-adm"
+			],
+			"tcpShift": "1000",
+			"type": "unix",
+			"os": "bsd11"
+		},
+		"l61.a1.example.org": {
+			"disposition": "guest",
+			"router": "active",
+			"monitor": true,
+			"location": "a1",
+			"resources": {
+				"cpu": 4,
+				"ram": "4096m",
+				"hdd": "100G"
+			},
+			"net": "net",
+			"srv" : {
+				"_resolve._tcp": {
+					"priority": "20",
+					"weight": "25",
+					"port": "27443"
+				},
+				"_build._tcp" : "20 25 27443"
+			},
+			"lan": {
+				"mac": "2A:01:01:01:01:01",
+				"ip": "172.16.3.1"
+			},
+			"wan": {
+				"mac": "20:01:01:01:01:01",
+				"ip": "192.168.64.26",
+				"iface": "wan.4022"
+			},
+			"tap": {
+				"name": "tap-l6",
+				"ip": "10.254.1.1",
+				"key": "-----BEGIN RSA PUBLIC KEY-----...-----END RSA PUBLIC KEY-----"
+			},
+			"vpn": {
+				"key": "l6route",
+				"ip": "10.253.1.1"
 			},
 			"notify": [
 				"grp-adm"
@@ -382,6 +443,13 @@
 							"text record 3"
 						]
 					},
+					"SRV": {
+						"_www._tcp": [
+							"0 5 80 web1.example.com.",
+							"0 5 80 web2.example.com.",
+							"0 5 80 web3.example.com."
+						]
+					},
 					"CAA": [
 						"0 issue ca.example.com",
 						"0 iodef mailto:security@example.com",
@@ -395,6 +463,28 @@
 				"dns" : {
 					"TXT" : {
 						"@" : "v=spf1 a mx ptr ~all"
+					},
+					"SRV": {
+						"_www._tcp": [
+							{
+								"priority": "0",
+								"weight": "5",
+								"port": "80",
+								"target": "web1.example.com."
+							},
+							{
+								"priority": "0",
+								"weight": "5",
+								"port": "80",
+								"target": "web2.example.com."
+							},
+							{
+								"priority": "0",
+								"weight": "5",
+								"port": "80",
+								"target": "web3.example.com."
+							}
+						]
 					},
 					"CAA": {
 						"sub": [
@@ -431,6 +521,10 @@
 				"mode": "slave",
 				"masters": ["l61.a1.example.com", "l62.a1.example.com", "192.168.64.1"],
 				"slaves" : ["l62.b1.example.com", "192.168.65.1"]
+			},
+			".example.org": {
+				"publish": true,
+				"mode": "infrastructure"
 			}
 		}
 	},
@@ -476,6 +570,11 @@
 				"l62.b1.example.com"
 			],
 			"dns": "use-wan",
+			"srv" : [
+				"_resolve._tcp",
+				"_build._tcp",
+				"_sip._tcp"
+			],
 			"static": {
 				"/": {
 					"type": "git-static",
@@ -586,6 +685,18 @@
 			"target": "service.example.com",
 			"ssl": "acme-le-2"
 		},
+		"example.org": {
+			"target": [
+				"l61.a1.example.org"
+			],
+			"dns": "use-wan",
+			"srv" : [
+				"_resolve._tcp",
+				"_build._tcp",
+				"_sip._tcp"
+			],
+			"ssl": "acme-dns-wildcard-1"
+		},
 
 		"example.com": {
 			"target": "service.example.com",
@@ -610,6 +721,19 @@
 		"dns1.example.org": {
 			"target": "service.example.com",
 			"ssl": "use:example.com"
+		},
+
+		"dns-test-1.example.com": {
+			"extends": "example.com",
+			"ssl": "acme-dns-wildcard-1"
+		},
+		"dns-test-1-1.example.com": {
+			"extends": "example.com",
+			"ssl": "use:dns-test-1.example.com"
+		},
+		"sub-1.dns-test-1.example.com": {
+			"extends": "example.com",
+			"ssl": "use:dns-test-1.example.com"
 		},
 
 		"dns-wildcard-1.acme.example.com": {
