@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.94",
+  "version": "0.1.95",
   "keywords": [
     "configuration"
   ],
@@ -63,13 +63,15 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.28.0",
+    "eslint": "^7.29.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-json": "^3.0.0",
+    "eslint-plugin-lit": "^1.5.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^5.1.0",
     "eslint-plugin-standard": "^5.0.0",
+    "eslint-plugin-wc": "^1.3.0",
     "flow-bin": "^0.153.0",
     "semver": "^7.3.5"
   }
