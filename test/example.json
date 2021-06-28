@@ -570,11 +570,6 @@
 				"l62.b1.example.com"
 			],
 			"dns": "use-wan",
-			"srv" : [
-				"_resolve._tcp",
-				"_build._tcp",
-				"_sip._tcp"
-			],
 			"static": {
 				"/": {
 					"type": "git-static",
@@ -700,6 +695,11 @@
 
 		"example.com": {
 			"target": "service.example.com",
+			"srv" : [
+				"_resolve._tcp",
+				"_build._tcp",
+				"_sip._tcp"
+			],
 			"ssl": "acme-dns-wildcard-1"
 		},
 		"dns1.example.com": {
