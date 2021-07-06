@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.102",
+  "version": "0.1.103",
   "keywords": [
     "configuration"
   ],
@@ -42,8 +42,8 @@
     "basic-auth": "^2.0.1",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
     "common-tags": "^1.8.0",
-    "dayjs": "^1.10.5",
-    "debug": "^4.3.1",
+    "dayjs": "^1.10.6",
+    "debug": "^4.3.2",
     "diff": "^5.0.0",
     "dns-zonefile": "^0.2.7",
     "express": "^4.17.1",
@@ -63,7 +63,7 @@
     "yargs": "^17.0.1"
   },
   "devDependencies": {
-    "eslint": "^7.29.0",
+    "eslint": "^7.30.0",
     "eslint-config-standard": "^16.0.3",
     "eslint-plugin-import": "^2.23.4",
     "eslint-plugin-json": "^3.0.0",

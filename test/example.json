@@ -605,10 +605,26 @@
 					"errorPage": "error.html",
 					"nginx": {
 						"expires": "1y",
-						"add_header": "Cache-Control public",
+						"add_header": [
+							"InheritRoot true",
+							"DefaultReplace 0",
+							"DefaultReplaceNotQuoted 1 2 3",
+							"DefaultReplaceQuoted '1 2 3'",
+							"AddHeader 0",
+							"ReplaceHeader 0",
+							"RemoveHeader 0"
+						],
 						"match": {
 							"{*.js,*.css}": {
-								"add_header": "Special 1"
+								"add_header": [
+									"InnerHeader 1",
+									"DefaultReplace 1",
+									"DefaultReplaceNotQuoted 0 1 2 3",
+									"DefaultReplaceQuoted '0 1 2 3'",
+									"+AddHeader 1",
+									"*ReplaceHeader 1",
+									"-RemoveHeader"
+								]
 							}
 						}
 					}
