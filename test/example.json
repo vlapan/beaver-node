@@ -583,7 +583,10 @@
 		"cdn.example.com": {
 			"nginx": {
 				"expires": "1y",
-				"add_header": ["Cache-Control public", "Access-Control-Allow-Origin *"]
+				"add_header": [
+					"Cache-Control public",
+					"Access-Control-Allow-Origin *"
+				]
 			},
 			"static": {
 				"/": {
@@ -596,6 +599,13 @@
 			}
 		},
 		"cdn2.example.com": {
+			"nginx": {
+				"expires": "1y",
+				"add_header": [
+					"InheritRoot0 true",
+					"DefaultReplace -1"
+				]
+			},
 			"static": {
 				"/": {
 					"type": "git-static",
