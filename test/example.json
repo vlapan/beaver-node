@@ -270,13 +270,16 @@
 	},
 	"monitoring": {
 		"settings": {
+			"appendReason": false,
 			"intervalMillis": "30000"
 		},
 		"tests": {
 			"tcp": {
+				"appendReason": false,
 				"timeoutMillis": "5000"
 			},
 			"web": {
+				"appendReason": true,
 				"timeoutMillis": "10000"
 			}
 		},
