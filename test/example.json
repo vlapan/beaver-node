@@ -242,6 +242,23 @@
 			"tcpShift": "1000",
 			"type": "unix",
 			"os": "bsd11"
+		},
+		"l64.a1.example.org": {
+			"disposition": "guest",
+			"router": "active",
+			"monitor": true,
+			"location": "a1",
+			"lan": {
+				"mac": "2A:01:01:01:01:01",
+				"ip": "172.16.4.1"
+			},
+			"wan": {
+				"mac": "20:01:01:01:01:01",
+				"ip": "192.168.64.27"
+			},
+			"tcpShift": "1000",
+			"type": "unix",
+			"os": "bsd11"
 		}
 	},
 	"kvm": {
