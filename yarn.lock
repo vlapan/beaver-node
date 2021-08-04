@@ -509,10 +509,10 @@ dns-packet@^5.2.2:
   dependencies:
     ip "^1.1.5"
 
-dns-zonefile@^0.2.7:
-  version "0.2.7"
-  resolved "https://registry.yarnpkg.com/dns-zonefile/-/dns-zonefile-0.2.7.tgz#55f19b0b341d4c5989a52293de498d50fbebd69f"
-  integrity sha512-RCB871ooLJLmke2LsolbHMbwjF+5Z4+IYM67z14wLCKDGAl/Ha7n7jyOTtAPz5xhZyyiJLk0rmmHVK0nN+Kgrw==
+dns-zonefile@^0.2.8:
+  version "0.2.8"
+  resolved "https://registry.yarnpkg.com/dns-zonefile/-/dns-zonefile-0.2.8.tgz#d5dd6b2d10e9cfca0de5ab6f13b4c2b4c3478d9a"
+  integrity sha512-HbkD7wEFwiojZd6xHL3g0M+R5vqR9/fRkZqm2lN4Y4wKPTL40qHdsB3gVg5f/YcRJq8v8E0aqbwBXSUWH6kyVQ==
 
 doctrine@^2.1.0:
   version "2.1.0"
@@ -740,10 +740,10 @@ eslint-visitor-keys@^2.0.0:
   resolved "https://registry.yarnpkg.com/eslint-visitor-keys/-/eslint-visitor-keys-2.0.0.tgz#21fdc8fbcd9c795cc0321f0563702095751511a8"
   integrity sha512-QudtT6av5WXels9WjIM7qz1XD1cWGvX4gGXvp/zBn9nXG02D0utdU3Em2m/QjTnrsk6bBjmCygl3rmj118msQQ==
 
-eslint@^7.31.0:
-  version "7.31.0"
-  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.31.0.tgz#f972b539424bf2604907a970860732c5d99d3aca"
-  integrity sha512-vafgJpSh2ia8tnTkNUkwxGmnumgckLh5aAbLa1xRmIn9+owi8qBNGKL+B881kNKNTy7FFqTEkpNkUvmw0n6PkA==
+eslint@^7.32.0:
+  version "7.32.0"
+  resolved "https://registry.yarnpkg.com/eslint/-/eslint-7.32.0.tgz#c6d328a14be3fb08c8d1d21e12c02fdb7a2a812d"
+  integrity sha512-VHZ8gX+EDfz+97jGcgyGCyRia/dPOd6Xh9yPv8Bl1+SoaIwD+a/vlrOmGRUyOYu7MwUhc7CxqeaDZU13S4+EpA==
   dependencies:
     "@babel/code-frame" "7.12.11"
     "@eslint/eslintrc" "^0.4.3"
@@ -2199,10 +2199,10 @@ table@^6.0.9:
     string-width "^4.2.0"
     strip-ansi "^6.0.0"
 
-tar@^6.1.1:
-  version "6.1.1"
-  resolved "https://registry.yarnpkg.com/tar/-/tar-6.1.1.tgz#4d7da4b132b334bb8c175ed1de466fe9157ea0eb"
-  integrity sha512-GG0R7yt/CQkvG4fueXDi52Zskqxe2AyRJ+Wm54yqarnBgcX3qRIWh10qLVAAN+mlPFGTfP5UxvD3Fbi11UOTUQ==
+tar@^6.1.6:
+  version "6.1.6"
+  resolved "https://registry.yarnpkg.com/tar/-/tar-6.1.6.tgz#c23d797b0a1efe5d479b1490805c5443f3560c5d"
+  integrity sha512-oaWyu5dQbHaYcyZCTfyPpC+VmI62/OM2RTUYavTk1MDr1cwW5Boi3baeYQKiZbY2uSQJGr+iMOzb/JFxLrft+g==
   dependencies:
     chownr "^2.0.0"
     fs-minipass "^2.0.0"
