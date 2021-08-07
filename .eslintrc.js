@@ -7,6 +7,8 @@ module.exports = {
         'plugin:import/errors',
         'plugin:import/warnings',
         'plugin:json/recommended',
+        'plugin:wc/recommended',
+        'plugin:lit/recommended',
     ],
     plugins: [
         'standard',
@@ -51,6 +53,9 @@ module.exports = {
         'no-plusplus': 'off',
         'no-await-in-loop': 'off',
         'multiline-ternary': ['error', 'never'],
+        'node/no-missing-import': ['error', {
+            allowModules: ['lit-html'],
+        }],
     },
     settings: {
         'import/resolver': {
