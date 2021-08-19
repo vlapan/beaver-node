@@ -1,5 +1,6 @@
 const debug = require('debug')('beaver');
 
+const versions = require('./versions');
 const config = require('./lib/configuration');
 const extensions = require('./lib/extensions');
 
@@ -13,6 +14,7 @@ const { daemonStarted } = require('./lib/notificator');
 module.exports = {
     async main(argv) {
         debug('start');
+        debug(`versions: beaver ${await versions.get('beaver')}, yaumrc ${await versions.get('yaumrc')}`);
         if (argv.input) {
             try {
                 await config.readFile();
