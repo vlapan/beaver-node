@@ -106,5 +106,6 @@ KEY="$(
     openssl x509 -req -$ALGM -days $DAYS -in <(echo "$CSR") -CA "$IMCT" -CAkey "$IMKY" -set_serial $SERIAL -extfile <(echo "$CNF") -extensions req_ext
 )"
 echo ">>>>>> CNCT:\n$(openssl x509 -in <(echo "$KEY") -text)\n<<<<<<"
+
 (echo "$KEY" ; echo "" ; cat "$IMCT") > "$CNCT"
 
