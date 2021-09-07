@@ -18,7 +18,7 @@ eval "${rcvar}=\${${rcvar}:-'NO'}"
 
 command_service="beaver -vvvvvv --daemon --home=${beaverd_home} --httpsPort=${beaverd_port}"
 command="/usr/sbin/daemon"
-command_args="-f -r -o ${logfile} -P ${pidfile} -- ${command_service}"
+command_args="-f -r -H -o ${logfile} -P ${pidfile} -- ${command_service}"
 
 USER=root
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin
