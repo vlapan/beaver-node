@@ -31,6 +31,7 @@ set -ex
 
 
 ROOTNAME=%{prefixRoot}
+RTCA="${ROOTNAME}.ca"
 IMCT="${ROOTNAME}.ca-crt"
 IMKY="${ROOTNAME}.ca-key"
 [ -f "$IMCT" ] || {
@@ -60,6 +61,7 @@ ALGM=%{signatureAlgorithm}
 DAYS=%{expirationDays}
 SUBJ="%{subject}"
 SERIAL=%{serial}
+INCLUDEROOTCA=%{includeRootCA}
 
 if [ -f "$CNCT" ]; then
     exit 0
@@ -102,10 +104,18 @@ else
 fi
 echo ">>>>>> CSR:\n$(openssl req -in <(echo "$CSR") -text -noout)\n<<<<<<"
 
-KEY="$(
+CRT="$(
     openssl x509 -req -$ALGM -days $DAYS -in <(echo "$CSR") -CA "$IMCT" -CAkey "$IMKY" -set_serial $SERIAL -extfile <(echo "$CNF") -extensions req_ext
 )"
-echo ">>>>>> CNCT:\n$(openssl x509 -in <(echo "$KEY") -text)\n<<<<<<"
+echo ">>>>>> CNCT:\n$(openssl x509 -in <(echo "$CRT") -text)\n<<<<<<"
 
-(echo "$KEY" ; echo "" ; cat "$IMCT") > "$CNCT"
+(
+    echo "$CRT"
+    echo ""
+    cat "$IMCT"
+    if [ "${INCLUDEROOTCA}" = "true" -a -f "$RTCA" ]; then
+        echo ""
+        cat "$RTCA"
+    fi
+) > "$CNCT"
 

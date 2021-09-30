@@ -2,6 +2,7 @@
 
 set -ex
 
+RTCA="%{rtca}"
 IMCT="%{imct}"
 IMKY="%{imky}"
 
@@ -54,8 +55,10 @@ echo ">>>>>> CNCT:\n$(openssl x509 -in <(echo "$CRT") -text)\n<<<<<<"
 
 (
     echo "$CRT"
-    if [ "${INCLUDEROOTCA}" = "true" ]; then
+    echo ""
+    cat "$IMCT"
+    if [ "${INCLUDEROOTCA}" = "true" -a -f "$RTCA" ]; then
         echo ""
-        echo "$IMCT"
+        cat "$RTCA"
     fi
 ) > "$CNCT"
