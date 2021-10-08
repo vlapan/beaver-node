@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.126",
+  "version": "0.1.127",
   "keywords": [
     "configuration"
   ],
@@ -55,7 +55,6 @@
     "node-forge": "^0.10.0",
     "nodemailer": "^6.6.5",
     "nodemailer-smtp-pool": "^2.8.3",
-    "ssl-utils": "^1.0.0",
     "supports-color": "^9.0.2",
     "tar": "^6.1.11",
     "winston": "^3.3.3",

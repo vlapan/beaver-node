@@ -22,7 +22,7 @@ module.exports = {
         browser: true,
     },
     parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 2021,
     },
     overrides: [{
         files: ['**/*.json'],

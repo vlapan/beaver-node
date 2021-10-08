@@ -2,15 +2,7 @@
 
 set -ex
 
-RTCA="%{rtca}"
-IMCT="%{imct}"
-IMKY="%{imky}"
-
-NAME=%{prefix}
-CSR="%{csr}"
-
 CNCT="${NAME}.crt"
-KEYSIZE=%{keySize}
 if [[ $KEYSIZE =~ ^[0-9]+$ ]]; then
     TYPE=RSA
     BITS=$KEYSIZE
@@ -19,10 +11,6 @@ else
     CURV=$KEYSIZE
     BITS=4096
 fi
-ALGM=%{signatureAlgorithm}
-DAYS=%{expirationDays}
-SERIAL=%{serial}
-INCLUDEROOTCA=%{includeRootCA}
 
 if [ -f "$CNCT" ]; then
     exit 0
@@ -56,9 +44,9 @@ echo ">>>>>> CNCT:\n$(openssl x509 -in <(echo "$CRT") -text)\n<<<<<<"
 (
     echo "$CRT"
     echo ""
-    cat "$IMCT"
-    if [ "${INCLUDEROOTCA}" = "true" -a -f "$RTCA" ]; then
+    echo "$IMCT"
+    if [ "${INCLUDEROOTCA}" = "true" -a ! -z "$RTCA" ]; then
         echo ""
-        cat "$RTCA"
+        echo "$RTCA"
     fi
 ) > "$CNCT"
