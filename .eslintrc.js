@@ -1,7 +1,6 @@
 module.exports = {
     extends: [
         'eslint:recommended',
-        'standard',
         'plugin:node/recommended',
         'plugin:promise/recommended',
         'plugin:import/errors',
@@ -11,7 +10,6 @@ module.exports = {
         'plugin:lit/recommended',
     ],
     plugins: [
-        'standard',
         'node',
         'promise',
         'import',
@@ -22,7 +20,7 @@ module.exports = {
         browser: true,
     },
     parserOptions: {
-        ecmaVersion: 2021,
+        ecmaVersion: 2022,
     },
     overrides: [{
         files: ['**/*.json'],
