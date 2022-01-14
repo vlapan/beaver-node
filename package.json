@@ -52,7 +52,7 @@
     "lit-html": "^2.0.2",
     "morgan": "^1.10.0",
     "nginx-conf": "^2.0.0",
-    "node-forge": "^0.10.0",
+    "node-forge": "^1.0.0",
     "nodemailer": "^6.7.2",
     "supports-color": "^9.2.1",
     "tar": "^6.1.11",
