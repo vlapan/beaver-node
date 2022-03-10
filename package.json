@@ -23,6 +23,7 @@
   "bin": {
     "beaver": "./bin/beaver",
     "beaver-diff": "./bin/beaver-diff",
+    "beaver-export": "./bin/beaver-export",
     "beaver-overseer": "./bin/beaver-overseer"
   },
   "scripts": {

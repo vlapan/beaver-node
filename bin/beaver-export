@@ -1,0 +1,4 @@
+#!/bin/sh
+beaver -i /dev/stdin -o /tmp/beaver $* >&2
+cd /tmp/beaver
+tar -cf /dev/stdout .
