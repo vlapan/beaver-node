@@ -68,7 +68,7 @@ if [ -f "$CNCT" ]; then
 fi
 
 CNF="$(
-    cat <<- EOF | sed 's/^[ \t]*//;s/[ ]*$//'
+    sed -e 's/^[ \t]*//;s/[ ]*$//' <<- EOF
         [req]
         default_bits=$BITS
         default_md=$ALGM
