@@ -316,9 +316,16 @@
 				"name": "User 3",
 				"email": "user3@example.com"
 			},
-			"slack": {
+			"slack-alert": {
+				"type" : "slack",
+				"filter": ["error", "alert"],
+				"auth" : "TOKEN",
+				"hook": "https://slack.com/api/chat.postMessage?channel=bot-messages"
+			},
+			"slack-track": {
 				"type": "slack",
-				"hook": "HOOK_URL"
+				"hook": "HOOK_URL",
+				"disabled": true
 			},
 			"grp-adm": {
 				"type": "group",
@@ -413,6 +420,10 @@
 			}
 		},
 		"options": {
+			"nginx": {
+				"maxFails": 5,
+				"failTimeout": "15s"
+			},
 			"tinc": {
 				"compression": 7
 			},
@@ -787,7 +798,13 @@
 			"target": "service.example.com",
 			"ssl": "acme-le-2"
 		},
+
+		"abstract.app": {
+			"maxFails": 15,
+			"failTimeout": "35s"
+		},
 		"example.org": {
+			"extends": "abstract.app",
 			"target": [
 				"l61.a1.example.org"
 			],

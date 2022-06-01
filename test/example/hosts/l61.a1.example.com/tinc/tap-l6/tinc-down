@@ -1,0 +1,3 @@
+#!/bin/sh
+logger -i -t "tinc.tap-l6" "tinc-down, name=$NAME, iface=$INTERFACE"
+ifconfig tap-l6 destroy

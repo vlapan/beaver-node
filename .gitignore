@@ -5,3 +5,12 @@ node_modules
 output
 yarn-error.log
 beaver-node*.tgz
+test/*/hosts/*-saved
+test/*/hosts/*-home
+test/**/*.csr
+test/**/*.crt
+test/**/*.key
+test/**/*.ca
+test/**/*.ca-crt
+test/**/*.ca-key
+test/**/*.bak

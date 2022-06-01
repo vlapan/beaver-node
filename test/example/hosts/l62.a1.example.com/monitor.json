@@ -1,0 +1,230 @@
+{
+    "disabled": false,
+    "testing": false,
+    "appendReason": false,
+    "appendReasonTcp": false,
+    "appendReasonWeb": true,
+    "interval": 30000,
+    "tcpTimeout": 5000,
+    "webTimeout": 10000,
+    "notify": {
+        "user1": {
+            "type": "email",
+            "name": "User 1",
+            "email": "user1@example.com"
+        },
+        "user2": {
+            "type": "email",
+            "name": "User 2",
+            "email": "user2@example.com"
+        },
+        "user3": {
+            "type": "email",
+            "name": "User 3",
+            "email": "user3@example.com"
+        },
+        "slack-alert": {
+            "type": "slack",
+            "filter": [
+                "error",
+                "alert"
+            ],
+            "auth": "TOKEN",
+            "hook": "https://slack.com/api/chat.postMessage?channel=bot-messages"
+        },
+        "slack-track": {
+            "type": "slack",
+            "hook": "HOOK_URL",
+            "disabled": true
+        },
+        "grp-adm": {
+            "type": "group",
+            "name": "Admins",
+            "list": [
+                "user1",
+                "user2",
+                "user3"
+            ]
+        }
+    },
+    "tcp": [
+        {
+            "host": "l61.a1.example.com",
+            "ip": "172.16.3.1",
+            "port": 22,
+            "subject": "tcp-conn-22: l61.a1.example.com, ssh-lan, ip=172.16.3.1",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "l61.a1.example.com",
+            "ip": "192.168.64.26",
+            "port": 22,
+            "subject": "tcp-conn-22: l61.a1.example.com, ssh-wan, ip=192.168.64.26",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "ip": "192.168.64.26",
+            "port": 22,
+            "subject": "tcp-conn-22: l61.a1.example.com, ssh-wan, ip=192.168.64.26",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "l61.a1.example.org",
+            "ip": "172.16.3.1",
+            "port": 22,
+            "subject": "tcp-conn-22: l61.a1.example.org, ssh-lan, ip=172.16.3.1",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "l61.a1.example.org",
+            "ip": "192.168.64.26",
+            "port": 22,
+            "subject": "tcp-conn-22: l61.a1.example.org, ssh-wan, ip=192.168.64.26",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "ip": "192.168.64.26",
+            "port": 22,
+            "subject": "tcp-conn-22: l61.a1.example.org, ssh-wan, ip=192.168.64.26",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "l62.a1.example.com",
+            "ip": "172.16.3.2",
+            "port": 22,
+            "subject": "tcp-conn-22: l62.a1.example.com, ssh-lan, ip=172.16.3.2",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "l62.a1.example.com",
+            "ip": "192.168.64.27",
+            "port": 22,
+            "subject": "tcp-conn-22: l62.a1.example.com, ssh-wan, ip=192.168.64.27",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "ip": "192.168.64.27",
+            "port": 22,
+            "subject": "tcp-conn-22: l62.a1.example.com, ssh-wan, ip=192.168.64.27",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "l62.b1.example.com",
+            "ip": "172.16.4.2",
+            "port": 22,
+            "subject": "tcp-conn-22: l62.b1.example.com, ssh-lan, ip=172.16.4.2",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "l62.b1.example.com",
+            "ip": "192.168.64.28",
+            "port": 22,
+            "subject": "tcp-conn-22: l62.b1.example.com, ssh-wan, ip=192.168.64.28",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "ip": "192.168.64.28",
+            "port": 22,
+            "subject": "tcp-conn-22: l62.b1.example.com, ssh-wan, ip=192.168.64.28",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "s1.a1.example.com",
+            "ip": "172.16.1.1",
+            "port": 22,
+            "subject": "tcp-conn-22: s1.a1.example.com, ssh-lan, ip=172.16.1.1",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "s1.a1.example.com",
+            "ip": "1.1.1.1",
+            "port": 22,
+            "subject": "tcp-conn-22: s1.a1.example.com, ssh-wan, ip=1.1.1.1",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "ip": "1.1.1.1",
+            "port": 22,
+            "subject": "tcp-conn-22: s1.a1.example.com, ssh-wan, ip=1.1.1.1",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "s1.b1.example.com",
+            "ip": "172.16.2.1",
+            "port": 22,
+            "subject": "tcp-conn-22: s1.b1.example.com, ssh-lan, ip=172.16.2.1",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "host": "s1.b1.example.com",
+            "ip": "1.2.1.1",
+            "port": 22,
+            "subject": "tcp-conn-22: s1.b1.example.com, ssh-wan, ip=1.2.1.1",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "ip": "1.2.1.1",
+            "port": 22,
+            "subject": "tcp-conn-22: s1.b1.example.com, ssh-wan, ip=1.2.1.1",
+            "notify": [
+                "grp-adm"
+            ]
+        }
+    ],
+    "web": [
+        {
+            "url": "http://static.external.example.net/",
+            "ip": "static.external.example.net",
+            "port": false,
+            "expectCode": 302,
+            "subject": "web-get-302: http://static.external.example.net/, ip=static.external.example.net",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "https://static.external.example.net/",
+            "ip": "static.external.example.net",
+            "port": false,
+            "expectCode": 302,
+            "subject": "web-get-302: https://static.external.example.net/, ip=static.external.example.net",
+            "notify": [
+                "grp-adm"
+            ]
+        }
+    ]
+}

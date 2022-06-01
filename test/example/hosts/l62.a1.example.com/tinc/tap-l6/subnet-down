@@ -1,0 +1,2 @@
+#!/bin/sh
+logger -i -t "tinc.tap-l6" "subnet-down, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT, subnet=$SUBNET, weight=$WEIGHT"

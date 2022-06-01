@@ -1,0 +1,51 @@
+; Zone: example-2.com.
+
+$ORIGIN example-2.com.
+$TTL 600
+
+; SOA Record
+@	 		IN	SOA	l61.a1.example.com.	admin.example-2.com.	(
+300	 ;refresh
+150	 ;retry
+86400	 ;expire
+600	 ;minimum ttl
+)
+
+; NS Records
+@	IN	NS	a1	; global
+@	IN	NS	b1	; global
+
+; MX Records
+
+; A Records
+*	IN	A	10.20.20.20	; global
+*	IN	A	10.20.21.20	; global
+@	IN	A	10.20.20.20	; global
+@	IN	A	10.20.21.20	; global
+a1	IN	A	10.20.20.20	; global
+b1	IN	A	10.20.21.20	; global
+
+; AAAA Records
+
+; CNAME Records
+
+; PTR Records
+
+; TXT Records
+@	IN	TXT	"v=spf1 a mx ptr ~all"	; global
+
+; SRV Records
+_www._tcp	IN	SRV	0	5	80	web1.example.com.
+_www._tcp	IN	SRV	0	5	80	web2.example.com.
+_www._tcp	IN	SRV	0	5	80	web3.example.com.
+
+; SPF Records
+
+; CAA Records
+sub	CAA 0 issue "ca.example.com"
+sub	CAA 0 iodef "mailto:security@example.com"
+sub	CAA 0 iodef "http://iodef.example.com/"
+@	CAA 0 issue "ca.example.com"
+@	CAA 0 iodef "mailto:security@example.com"
+@	CAA 0 iodef "http://iodef.example.com/"
+

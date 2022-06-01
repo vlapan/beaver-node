@@ -29,6 +29,7 @@
     "start": "bin/beaver",
     "bump": "node tools/version-bump.js",
     "build": "node lib/https/build-view.js",
+    "test": "bin/beaver-test",
     "eslint": "eslint --fix .",
     "eslint-list": "eslint .",
     "flow": "flow check --all --show-all-errors --show-all-branches"
