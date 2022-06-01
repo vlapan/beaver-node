@@ -21,4 +21,4 @@ diff \
     --exclude='beaver-ssl' \
     --ignore-matching-lines=';serial' \
     --ignore-matching-lines='; Exported' \
-    "$LEFT" "$RIGHT" | less
+    "$LEFT" "$RIGHT"
