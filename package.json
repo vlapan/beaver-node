@@ -61,7 +61,6 @@
     "nodemailer": "^6.7.5",
     "supports-color": "^9.2.2",
     "tar": "^6.1.11",
-    "winston": "^3.3.3",
     "yargs": "^17.5.1"
   },
   "devDependencies": {
