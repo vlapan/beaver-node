@@ -80,3 +80,5 @@ _resolve._tcp.example.org.	IN	SRV	20	25	27443	l61.a1.example.org.
 
 ; CAA Records
 
+; DS Records
+

@@ -212,7 +212,9 @@ _www._tcp	IN	SRV	0	5	80	web3.example.com.
 ; SPF Records
 
 ; CAA Records
-@	CAA 0 issue "ca.example.com"
-@	CAA 0 iodef "mailto:security@example.com"
-@	CAA 0 iodef "http://iodef.example.com/"
+@	IN	CAA	0	issue	ca.example.com
+@	IN	CAA	0	iodef	mailto:security@example.com
+@	IN	CAA	0	iodef	http://iodef.example.com/
+
+; DS Records
 
