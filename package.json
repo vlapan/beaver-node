@@ -30,6 +30,7 @@
     "bump": "node tools/version-bump.js",
     "build": "node lib/https/build-view.js",
     "test": "bin/beaver-test",
+    "test-clean": "bin/beaver-test-clean",
     "test-diff": "bin/beaver-test-diff",
     "test-save": "bin/beaver-test-save",
     "test-daemon": "bin/beaver-test-daemon",
