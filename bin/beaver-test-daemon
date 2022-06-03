@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+TEST_PATH=test/example
+export BEAVER_DAEMON=true
+export BEAVER_HOSTNAME=l61.a1.example.com
+BEAVER_HOSTNAME_PATH="${TEST_PATH}/hosts/${BEAVER_HOSTNAME}"
+
+if [ -d "${BEAVER_HOSTNAME_PATH}" ]; then
+    if [ ! -d "${BEAVER_HOSTNAME_PATH}-saved" ]; then
+        cp -R ${BEAVER_HOSTNAME_PATH} ${BEAVER_HOSTNAME_PATH}-saved
+    fi
+else
+    mkdir -p ${BEAVER_HOSTNAME_PATH}
+    if [ ! -d "${BEAVER_HOSTNAME_PATH}-saved" ]; then
+        mkdir -p ${BEAVER_HOSTNAME_PATH}-saved
+    fi
+fi
+if time bin/beaver -v \
+    --output=${BEAVER_HOSTNAME_PATH} \
+    --home=${BEAVER_HOSTNAME_PATH}-home \
+    --platform=freebsd \
+    --disable-notify \
+    --disable-acme; then
+    echo exited with code 1
+else
+    echo exited with code 2
+fi
+echo

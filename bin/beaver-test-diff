@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+HOSTS="l61.a1.example.com l62.a1.example.com"
+TEST_PATH=test/example
+
+for BEAVER_HOSTNAME in $HOSTS; do
+    BEAVER_HOSTNAME_PATH=${TEST_PATH}/hosts/${BEAVER_HOSTNAME}
+    if [ -d "${BEAVER_HOSTNAME_PATH}" ]; then
+        if [ ! -d "${BEAVER_HOSTNAME_PATH}-saved" ]; then
+            cp -R ${BEAVER_HOSTNAME_PATH} ${BEAVER_HOSTNAME_PATH}-saved
+        fi
+    else
+        mkdir -p ${BEAVER_HOSTNAME_PATH}
+        if [ ! -d "${BEAVER_HOSTNAME_PATH}-saved" ]; then
+            mkdir -p ${BEAVER_HOSTNAME_PATH}-saved
+        fi
+    fi
+    DIFF="$(bin/beaver-diff ${BEAVER_HOSTNAME_PATH}-saved ${BEAVER_HOSTNAME_PATH})"
+    if [ "${DIFF}" ]; then
+        echo "${BEAVER_HOSTNAME} diff follows:"
+        echo "${DIFF}"
+        echo
+    else
+        echo "${BEAVER_HOSTNAME} no changes."
+    fi
+done

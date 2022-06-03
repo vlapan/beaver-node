@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+HOSTS="l61.a1.example.com l62.a1.example.com"
+TEST_PATH=test/example
+
+for BEAVER_HOSTNAME in $HOSTS; do
+    BEAVER_HOSTNAME_PATH=${TEST_PATH}/hosts/${BEAVER_HOSTNAME}
+    if [ -d "${BEAVER_HOSTNAME_PATH}" ]; then
+        rm -rdf ${BEAVER_HOSTNAME_PATH}-saved
+        cp -R ${BEAVER_HOSTNAME_PATH} ${BEAVER_HOSTNAME_PATH}-saved
+    fi
+done

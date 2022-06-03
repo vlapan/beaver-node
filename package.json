@@ -15,7 +15,7 @@
     }
   ],
   "engines": {
-    "node": ">=12.18.0"
+    "node": ">=16.14.0"
   },
   "main": "./app.js",
   "private": true,
@@ -30,6 +30,9 @@
     "bump": "node tools/version-bump.js",
     "build": "node lib/https/build-view.js",
     "test": "bin/beaver-test",
+    "test-diff": "bin/beaver-test-diff",
+    "test-save": "bin/beaver-test-save",
+    "test-daemon": "bin/beaver-test-daemon",
     "eslint": "eslint --fix .",
     "eslint-list": "eslint .",
     "flow": "flow check --all --show-all-errors --show-all-branches"
