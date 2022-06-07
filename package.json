@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.146",
+  "version": "0.1.147",
   "keywords": [
     "configuration"
   ],
@@ -41,13 +41,13 @@
   "dependencies": {
     "ace-builds": "^1.5.3",
     "acme-client": "^4.2.5",
-    "async": "^3.2.3",
+    "async": "^3.2.4",
     "authenticate-pam": "^1.0.5",
     "axios": "^0.27.2",
     "basic-auth": "^2.0.1",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
     "common-tags": "^1.8.2",
-    "dayjs": "^1.11.2",
+    "dayjs": "^1.11.3",
     "debug": "^4.3.4",
     "diff": "^5.1.0",
     "dns-zonefile": "^0.2.10",
@@ -64,7 +64,7 @@
     "yargs": "^17.5.1"
   },
   "devDependencies": {
-    "eslint": "^8.16.0",
+    "eslint": "^8.17.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-lit": "^1.6.1",
