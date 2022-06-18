@@ -123,3 +123,4 @@
 # skip: 10.10.10.10                                                           static.external.example.net.example.org
 # skip: 10.10.10.11                                                           static.external.example.net.example.org
 # skip: 10.20.21.20                                                           static.external.example.net.example.org
+192.168.64.91                                                                 wan-only.example.org

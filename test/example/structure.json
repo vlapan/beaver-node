@@ -33,6 +33,9 @@
 			"routing": {
 				"gateway": "10.10.11.1"
 			}
+		},
+		"standalone": {
+			"name": "standalone"
 		}
 	},
 	"servers": {
@@ -258,6 +261,22 @@
 			},
 			"tcpShift": "1000",
 			"type": "unix",
+			"os": "bsd11"
+		},
+		"lan-only.example.org": {
+			"location": "standalone",
+			"lan": {
+				"mac": "2A:01:01:01:01:01",
+				"ip": "172.16.99.1"
+			},
+			"os": "bsd11"
+		},
+		"wan-only.example.org": {
+			"location": "standalone",
+			"wan": {
+				"mac": "20:01:01:01:01:01",
+				"ip": "192.168.64.91"
+			},
 			"os": "bsd11"
 		}
 	},

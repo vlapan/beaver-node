@@ -42,6 +42,7 @@ _acme-challenge.dns1	IN	NS	l61.a1.example.com.	; global
 *.static.backup.example.net	IN	A	10.20.21.20	; global
 *.static.external.example.net	IN	A	10.20.20.20	; global
 *.static.external.example.net	IN	A	10.20.21.20	; global
+*.wan-only	IN	A	192.168.64.91	; global
 @	IN	A	192.168.64.26	; global
 a1	IN	A	10.20.20.20	; global
 abstract.app	IN	A	10.20.20.20	; global
@@ -63,6 +64,7 @@ static.backup.example.net	IN	A	10.20.20.20	; global
 static.backup.example.net	IN	A	10.20.21.20	; global
 static.external.example.net	IN	A	10.20.20.20	; global
 static.external.example.net	IN	A	10.20.21.20	; global
+wan-only	IN	A	192.168.64.91	; global
 
 ; AAAA Records
 
