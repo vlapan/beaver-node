@@ -56,7 +56,7 @@ module.exports = {
 
         const extensionsEnabled = argv.e.split(',');
 
-        if (~extensionsEnabled.indexOf('ssl') && !argv.disableDaemonWeb) {
+        if (~extensionsEnabled.indexOf('ssl') && !argv.disableDaemonHttps) {
             https.start();
         }
 
