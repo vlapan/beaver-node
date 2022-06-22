@@ -12,6 +12,8 @@ $TTL 600
 )
 
 ; NS Records
+@	IN	NS	a1	; global
+@	IN	NS	b1	; global
 
 ; MX Records
 
