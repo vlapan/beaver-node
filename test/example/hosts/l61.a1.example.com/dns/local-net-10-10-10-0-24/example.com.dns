@@ -12,8 +12,6 @@ $TTL 600
 )
 
 ; NS Records
-@	IN	NS	a1	; local-net-10-10-10-0-24
-@	IN	NS	b1	; local-net-10-10-10-0-24
 
 ; MX Records
 @	IN	MX	5	aspmx.l.google.com.	; local-net-10-10-10-0-24
@@ -26,9 +24,6 @@ $TTL 600
 *	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 *.a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.abstract.app	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.abstract.app	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.abstract.app	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.acme-le-1-2.service	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 *.acme-le-1-2.service	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 *.acme-le-1.service	IN	A	10.10.10.10	; local-net-10-10-10-0-24
@@ -44,11 +39,6 @@ $TTL 600
 *.cdn2	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 *.cdn2	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 *.cdn2	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-*.cert.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.cert.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.default	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.default	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.default	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.dns-test-1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 *.dns-test-1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 *.dns-test-1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
@@ -71,10 +61,6 @@ $TTL 600
 *.ec384	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 *.ec384	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 *.ec384	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-*.example.org	IN	A	192.168.64.26	; local-net-10-10-10-0-24
-*.git-static.cdn.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.git-static.cdn.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.git-static.cdn.example.net	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.l61.a1	IN	A	192.168.64.26	; local-net-10-10-10-0-24
 *.l62.a1	IN	A	192.168.64.27	; local-net-10-10-10-0-24
 *.l62.b1	IN	A	192.168.64.28	; local-net-10-10-10-0-24
@@ -105,11 +91,6 @@ $TTL 600
 *.s7.service	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 *.service	IN	A	192.168.64.26	; local-net-10-10-10-0-24
 *.service	IN	A	192.168.64.28	; local-net-10-10-10-0-24
-*.static.backup.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.static.backup.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.static.external.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.static.external.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.static.external.example.net	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.sub-1.dns-test-1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 *.sub-1.dns-test-1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 *.sub-1.dns-test-1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
@@ -118,9 +99,6 @@ $TTL 600
 @	IN	A	1.1.1.1	; local-net-10-10-10-0-24
 a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-abstract.app	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-abstract.app	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-abstract.app	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 acme-le-1-2.service	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 acme-le-1-2.service	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 acme-le-1.service	IN	A	10.10.10.10	; local-net-10-10-10-0-24
@@ -136,11 +114,6 @@ cdn	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 cdn2	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 cdn2	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 cdn2	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-cert.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-cert.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-default	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-default	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-default	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 dns-test-1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 dns-test-1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 dns-test-1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
@@ -163,10 +136,6 @@ ec256	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 ec384	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 ec384	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 ec384	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-example.org	IN	A	192.168.64.26	; local-net-10-10-10-0-24
-git-static.cdn.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-git-static.cdn.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-git-static.cdn.example.net	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 l61.a1	IN	A	192.168.64.26	; local-net-10-10-10-0-24
 l62.a1	IN	A	192.168.64.27	; local-net-10-10-10-0-24
 l62.b1	IN	A	192.168.64.28	; local-net-10-10-10-0-24
@@ -197,11 +166,6 @@ s7.service	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 s7.service	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 service	IN	A	1.1.2.1	; local-net-10-10-10-0-24
 service	IN	A	1.1.2.2	; local-net-10-10-10-0-24
-static.backup.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-static.backup.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-static.external.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-static.external.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-static.external.example.net	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 sub-1.dns-test-1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 sub-1.dns-test-1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
 sub-1.dns-test-1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
@@ -221,11 +185,11 @@ www	IN	A	1.1.1.1	; local-net-10-10-10-0-24
 @	IN	TXT	"text record 3"	; local-net-10-10-10-0-24
 
 ; SRV Records
-_build._tcp.example.com.	IN	SRV	20	25	27443	l61.a1.example.com.
-_build._tcp.example.com.	IN	SRV	20	25	26443	l62.b1.example.com.
-_resolve._tcp.example.com.	IN	SRV	20	25	27443	l61.a1.example.com.
-_resolve._tcp.example.com.	IN	SRV	10	25	26443	l62.b1.example.com.
-_sip._tcp.example.com.	IN	SRV	0	5	5060	l62.b1.example.com.
+_build._tcp	IN	SRV	20	25	27443	l61.a1.example.com.
+_build._tcp	IN	SRV	20	25	26443	l62.b1.example.com.
+_resolve._tcp	IN	SRV	20	25	27443	l61.a1.example.com.
+_resolve._tcp	IN	SRV	10	25	26443	l62.b1.example.com.
+_sip._tcp	IN	SRV	0	5	5060	l62.b1.example.com.
 _www._tcp	IN	SRV	0	5	80	web1.example.com.
 _www._tcp	IN	SRV	0	5	80	web2.example.com.
 _www._tcp	IN	SRV	0	5	80	web3.example.com.

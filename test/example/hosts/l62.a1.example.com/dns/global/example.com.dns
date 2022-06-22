@@ -12,8 +12,6 @@ $TTL 600
 )
 
 ; NS Records
-@	IN	NS	a1	; global
-@	IN	NS	b1	; global
 _acme-challenge	IN	NS	l61.a1.example.com.	; global
 _acme-challenge.dns1	IN	NS	l61.a1.example.com.	; global
 _acme-challenge.dns2	IN	NS	l61.a1.example.com.	; global
@@ -34,8 +32,6 @@ _acme-challenge.dns-wildcard-2.acme	IN	NS	l62.a1.example.com.	; global
 *	IN	A	10.20.20.20	; global
 *	IN	A	10.20.21.20	; global
 *.a1	IN	A	10.20.20.20	; global
-*.abstract.app	IN	A	10.20.20.20	; global
-*.abstract.app	IN	A	10.20.21.20	; global
 *.acme-le-1-2.service	IN	A	10.20.20.20	; global
 *.acme-le-1-2.service	IN	A	10.20.21.20	; global
 *.acme-le-1.service	IN	A	10.20.20.20	; global
@@ -49,10 +45,6 @@ _acme-challenge.dns-wildcard-2.acme	IN	NS	l62.a1.example.com.	; global
 *.cdn	IN	A	10.20.21.20	; global
 *.cdn2	IN	A	10.20.20.20	; global
 *.cdn2	IN	A	10.20.21.20	; global
-*.cert.example.net	IN	A	10.20.20.20	; global
-*.cert.example.net	IN	A	10.20.21.20	; global
-*.default	IN	A	10.20.20.20	; global
-*.default	IN	A	10.20.21.20	; global
 *.dns-test-1	IN	A	10.20.20.20	; global
 *.dns-test-1	IN	A	10.20.21.20	; global
 *.dns-test-1-1	IN	A	10.20.20.20	; global
@@ -71,9 +63,6 @@ _acme-challenge.dns-wildcard-2.acme	IN	NS	l62.a1.example.com.	; global
 *.ec256	IN	A	10.20.21.20	; global
 *.ec384	IN	A	10.20.20.20	; global
 *.ec384	IN	A	10.20.21.20	; global
-*.example.org	IN	A	192.168.64.26	; global
-*.git-static.cdn.example.net	IN	A	10.20.20.20	; global
-*.git-static.cdn.example.net	IN	A	10.20.21.20	; global
 *.l61.a1	IN	A	192.168.64.26	; global
 *.l62.a1	IN	A	192.168.64.27	; global
 *.l62.b1	IN	A	192.168.64.28	; global
@@ -101,18 +90,12 @@ _acme-challenge.dns-wildcard-2.acme	IN	NS	l62.a1.example.com.	; global
 *.s7.service	IN	A	10.20.21.20	; global
 *.service	IN	A	192.168.64.26	; global
 *.service	IN	A	192.168.64.28	; global
-*.static.backup.example.net	IN	A	10.20.20.20	; global
-*.static.backup.example.net	IN	A	10.20.21.20	; global
-*.static.external.example.net	IN	A	10.20.20.20	; global
-*.static.external.example.net	IN	A	10.20.21.20	; global
 *.sub-1.dns-test-1	IN	A	10.20.20.20	; global
 *.sub-1.dns-test-1	IN	A	10.20.21.20	; global
 *.sub.dns3	IN	A	10.20.20.20	; global
 *.sub.dns3	IN	A	10.20.21.20	; global
 @	IN	A	1.1.1.1	; global
 a1	IN	A	10.20.20.20	; global
-abstract.app	IN	A	10.20.20.20	; global
-abstract.app	IN	A	10.20.21.20	; global
 acme-le-1-2.service	IN	A	10.20.20.20	; global
 acme-le-1-2.service	IN	A	10.20.21.20	; global
 acme-le-1.service	IN	A	10.20.20.20	; global
@@ -126,10 +109,6 @@ cdn	IN	A	10.20.20.20	; global
 cdn	IN	A	10.20.21.20	; global
 cdn2	IN	A	10.20.20.20	; global
 cdn2	IN	A	10.20.21.20	; global
-cert.example.net	IN	A	10.20.20.20	; global
-cert.example.net	IN	A	10.20.21.20	; global
-default	IN	A	10.20.20.20	; global
-default	IN	A	10.20.21.20	; global
 dns-test-1	IN	A	10.20.20.20	; global
 dns-test-1	IN	A	10.20.21.20	; global
 dns-test-1-1	IN	A	10.20.20.20	; global
@@ -148,9 +127,6 @@ ec256	IN	A	10.20.20.20	; global
 ec256	IN	A	10.20.21.20	; global
 ec384	IN	A	10.20.20.20	; global
 ec384	IN	A	10.20.21.20	; global
-example.org	IN	A	192.168.64.26	; global
-git-static.cdn.example.net	IN	A	10.20.20.20	; global
-git-static.cdn.example.net	IN	A	10.20.21.20	; global
 l61.a1	IN	A	192.168.64.26	; global
 l62.a1	IN	A	192.168.64.27	; global
 l62.b1	IN	A	192.168.64.28	; global
@@ -178,10 +154,6 @@ s7.service	IN	A	10.20.20.20	; global
 s7.service	IN	A	10.20.21.20	; global
 service	IN	A	1.1.2.1	; global
 service	IN	A	1.1.2.2	; global
-static.backup.example.net	IN	A	10.20.20.20	; global
-static.backup.example.net	IN	A	10.20.21.20	; global
-static.external.example.net	IN	A	10.20.20.20	; global
-static.external.example.net	IN	A	10.20.21.20	; global
 sub-1.dns-test-1	IN	A	10.20.20.20	; global
 sub-1.dns-test-1	IN	A	10.20.21.20	; global
 sub.dns3	IN	A	10.20.20.20	; global
@@ -200,11 +172,11 @@ www	IN	A	1.1.1.1	; global
 @	IN	TXT	"text record 3"	; global
 
 ; SRV Records
-_build._tcp.example.com.	IN	SRV	20	25	27443	l61.a1.example.com.
-_build._tcp.example.com.	IN	SRV	20	25	26443	l62.b1.example.com.
-_resolve._tcp.example.com.	IN	SRV	20	25	27443	l61.a1.example.com.
-_resolve._tcp.example.com.	IN	SRV	10	25	26443	l62.b1.example.com.
-_sip._tcp.example.com.	IN	SRV	0	5	5060	l62.b1.example.com.
+_build._tcp	IN	SRV	20	25	27443	l61.a1.example.com.
+_build._tcp	IN	SRV	20	25	26443	l62.b1.example.com.
+_resolve._tcp	IN	SRV	20	25	27443	l61.a1.example.com.
+_resolve._tcp	IN	SRV	10	25	26443	l62.b1.example.com.
+_sip._tcp	IN	SRV	0	5	5060	l62.b1.example.com.
 _www._tcp	IN	SRV	0	5	80	web1.example.com.
 _www._tcp	IN	SRV	0	5	80	web2.example.com.
 _www._tcp	IN	SRV	0	5	80	web3.example.com.

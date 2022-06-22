@@ -12,14 +12,14 @@ $TTL 600
 )
 
 ; NS Records
-@	IN	NS	a1	; global
-@	IN	NS	b1	; global
 
 ; MX Records
 
 ; A Records
 *	IN	A	10.20.20.20	; global
 *	IN	A	10.20.21.20	; global
+*.a1	IN	A	10.20.20.20	; global
+*.b1	IN	A	10.20.21.20	; global
 @	IN	A	10.20.20.20	; global
 @	IN	A	10.20.21.20	; global
 a1	IN	A	10.20.20.20	; global

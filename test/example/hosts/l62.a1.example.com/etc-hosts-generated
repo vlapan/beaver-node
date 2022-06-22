@@ -1,9 +1,6 @@
 1.1.1.1                                                                       example.com
 # skip: 10.10.10.10                                                           a1.example.com
 # skip: 10.10.10.11                                                           a1.example.com
-# skip: 10.10.10.10                                                           abstract.app.example.com
-# skip: 10.10.10.11                                                           abstract.app.example.com
-# skip: 10.20.21.20                                                           abstract.app.example.com
 # skip: 10.10.10.10                                                           acme-le-1-2.service.example.com
 # skip: 10.10.10.11                                                           acme-le-1-2.service.example.com
 # skip: 10.10.10.10                                                           acme-le-1.service.example.com
@@ -19,11 +16,6 @@
 # skip: 10.10.10.10                                                           cdn2.example.com
 # skip: 10.10.10.11                                                           cdn2.example.com
 # skip: 10.20.21.20                                                           cdn2.example.com
-# skip: 10.10.10.10                                                           cert.example.net.example.com
-# skip: 10.10.10.11                                                           cert.example.net.example.com
-# skip: 10.10.10.10                                                           default.example.com
-# skip: 10.10.10.11                                                           default.example.com
-# skip: 10.20.21.20                                                           default.example.com
 # skip: 10.10.10.10                                                           dns-test-1.example.com
 # skip: 10.10.10.11                                                           dns-test-1.example.com
 # skip: 10.20.21.20                                                           dns-test-1.example.com
@@ -46,10 +38,6 @@
 # skip: 10.10.10.10                                                           ec384.example.com
 # skip: 10.10.10.11                                                           ec384.example.com
 # skip: 10.20.21.20                                                           ec384.example.com
-192.168.64.26                                                                 example.org.example.com
-# skip: 10.10.10.10                                                           git-static.cdn.example.net.example.com
-# skip: 10.10.10.11                                                           git-static.cdn.example.net.example.com
-# skip: 10.20.21.20                                                           git-static.cdn.example.net.example.com
 192.168.64.26                                                                 l61.a1.example.com
 192.168.64.27                                                                 l62.a1.example.com
 192.168.64.28                                                                 l62.b1.example.com
@@ -80,11 +68,6 @@
 # skip: 10.10.10.11                                                           s7.service.example.com
 # skip: 1.1.2.1                                                               service.example.com
 # skip: 1.1.2.2                                                               service.example.com
-# skip: 10.10.10.10                                                           static.backup.example.net.example.com
-# skip: 10.10.10.11                                                           static.backup.example.net.example.com
-# skip: 10.10.10.10                                                           static.external.example.net.example.com
-# skip: 10.10.10.11                                                           static.external.example.net.example.com
-# skip: 10.20.21.20                                                           static.external.example.net.example.com
 # skip: 10.10.10.10                                                           sub-1.dns-test-1.example.com
 # skip: 10.10.10.11                                                           sub-1.dns-test-1.example.com
 # skip: 10.20.21.20                                                           sub-1.dns-test-1.example.com
@@ -100,27 +83,9 @@
 192.168.64.26                                                                 example.org
 # skip: 10.10.10.10                                                           a1.example.org
 # skip: 10.10.10.11                                                           a1.example.org
-# skip: 10.10.10.10                                                           abstract.app.example.org
-# skip: 10.10.10.11                                                           abstract.app.example.org
-# skip: 10.20.21.20                                                           abstract.app.example.org
 10.20.21.20                                                                   b1.example.org
-# skip: 10.10.10.10                                                           cert.example.net.example.org
-# skip: 10.10.10.11                                                           cert.example.net.example.org
-# skip: 10.10.10.10                                                           default.example.org
-# skip: 10.10.10.11                                                           default.example.org
-# skip: 10.20.21.20                                                           default.example.org
 # skip: 10.10.10.10                                                           dns1.example.org
 # skip: 10.10.10.11                                                           dns1.example.org
-# skip: 10.10.10.10                                                           example.com.example.org
-# skip: 10.10.10.11                                                           example.com.example.org
-# skip: 10.10.10.10                                                           git-static.cdn.example.net.example.org
-# skip: 10.10.10.11                                                           git-static.cdn.example.net.example.org
-# skip: 10.20.21.20                                                           git-static.cdn.example.net.example.org
 192.168.64.26                                                                 l61.a1.example.org
 192.168.64.27                                                                 l64.a1.example.org
-# skip: 10.10.10.10                                                           static.backup.example.net.example.org
-# skip: 10.10.10.11                                                           static.backup.example.net.example.org
-# skip: 10.10.10.10                                                           static.external.example.net.example.org
-# skip: 10.10.10.11                                                           static.external.example.net.example.org
-# skip: 10.20.21.20                                                           static.external.example.net.example.org
 192.168.64.91                                                                 wan-only.example.org

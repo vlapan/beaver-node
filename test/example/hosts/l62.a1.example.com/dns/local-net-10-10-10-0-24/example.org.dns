@@ -12,8 +12,6 @@ $TTL 600
 )
 
 ; NS Records
-@	IN	NS	a1	; local-net-10-10-10-0-24
-@	IN	NS	b1	; local-net-10-10-10-0-24
 
 ; MX Records
 
@@ -23,56 +21,20 @@ $TTL 600
 *	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 *.a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.abstract.app	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.abstract.app	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.abstract.app	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.b1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-*.cert.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.cert.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.default	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.default	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.default	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.dns1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 *.dns1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.example.com	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.example.com	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.git-static.cdn.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.git-static.cdn.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.git-static.cdn.example.net	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.l61.a1	IN	A	192.168.64.26	; local-net-10-10-10-0-24
 *.l64.a1	IN	A	192.168.64.27	; local-net-10-10-10-0-24
-*.static.backup.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.static.backup.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.static.external.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.static.external.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.static.external.example.net	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 *.wan-only	IN	A	192.168.64.91	; local-net-10-10-10-0-24
 @	IN	A	192.168.64.26	; local-net-10-10-10-0-24
 a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-abstract.app	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-abstract.app	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-abstract.app	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 b1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-cert.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-cert.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-default	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-default	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-default	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 dns1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
 dns1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-example.com	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-example.com	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-git-static.cdn.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-git-static.cdn.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-git-static.cdn.example.net	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 l61.a1	IN	A	192.168.64.26	; local-net-10-10-10-0-24
 l64.a1	IN	A	192.168.64.27	; local-net-10-10-10-0-24
-static.backup.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-static.backup.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-static.external.example.net	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-static.external.example.net	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-static.external.example.net	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 wan-only	IN	A	192.168.64.91	; local-net-10-10-10-0-24
 
 ; AAAA Records
@@ -84,8 +46,8 @@ wan-only	IN	A	192.168.64.91	; local-net-10-10-10-0-24
 ; TXT Records
 
 ; SRV Records
-_build._tcp.example.org.	IN	SRV	20	25	27443	l61.a1.example.org.
-_resolve._tcp.example.org.	IN	SRV	20	25	27443	l61.a1.example.org.
+_build._tcp	IN	SRV	20	25	27443	l61.a1.example.org.
+_resolve._tcp	IN	SRV	20	25	27443	l61.a1.example.org.
 
 ; SPF Records
 

@@ -12,8 +12,6 @@ $TTL 600
 )
 
 ; NS Records
-@	IN	NS	a1	; global
-@	IN	NS	b1	; global
 _acme-challenge	IN	NS	l61.a1.example.com.	; global
 _acme-challenge.dns1	IN	NS	l61.a1.example.com.	; global
 
@@ -23,47 +21,19 @@ _acme-challenge.dns1	IN	NS	l61.a1.example.com.	; global
 *	IN	A	10.20.20.20	; global
 *	IN	A	10.20.21.20	; global
 *.a1	IN	A	10.20.20.20	; global
-*.abstract.app	IN	A	10.20.20.20	; global
-*.abstract.app	IN	A	10.20.21.20	; global
 *.b1	IN	A	10.20.21.20	; global
-*.cert.example.net	IN	A	10.20.20.20	; global
-*.cert.example.net	IN	A	10.20.21.20	; global
-*.default	IN	A	10.20.20.20	; global
-*.default	IN	A	10.20.21.20	; global
 *.dns1	IN	A	10.20.20.20	; global
 *.dns1	IN	A	10.20.21.20	; global
-*.example.com	IN	A	10.20.20.20	; global
-*.example.com	IN	A	10.20.21.20	; global
-*.git-static.cdn.example.net	IN	A	10.20.20.20	; global
-*.git-static.cdn.example.net	IN	A	10.20.21.20	; global
 *.l61.a1	IN	A	192.168.64.26	; global
 *.l64.a1	IN	A	192.168.64.27	; global
-*.static.backup.example.net	IN	A	10.20.20.20	; global
-*.static.backup.example.net	IN	A	10.20.21.20	; global
-*.static.external.example.net	IN	A	10.20.20.20	; global
-*.static.external.example.net	IN	A	10.20.21.20	; global
 *.wan-only	IN	A	192.168.64.91	; global
 @	IN	A	192.168.64.26	; global
 a1	IN	A	10.20.20.20	; global
-abstract.app	IN	A	10.20.20.20	; global
-abstract.app	IN	A	10.20.21.20	; global
 b1	IN	A	10.20.21.20	; global
-cert.example.net	IN	A	10.20.20.20	; global
-cert.example.net	IN	A	10.20.21.20	; global
-default	IN	A	10.20.20.20	; global
-default	IN	A	10.20.21.20	; global
 dns1	IN	A	10.20.20.20	; global
 dns1	IN	A	10.20.21.20	; global
-example.com	IN	A	10.20.20.20	; global
-example.com	IN	A	10.20.21.20	; global
-git-static.cdn.example.net	IN	A	10.20.20.20	; global
-git-static.cdn.example.net	IN	A	10.20.21.20	; global
 l61.a1	IN	A	192.168.64.26	; global
 l64.a1	IN	A	192.168.64.27	; global
-static.backup.example.net	IN	A	10.20.20.20	; global
-static.backup.example.net	IN	A	10.20.21.20	; global
-static.external.example.net	IN	A	10.20.20.20	; global
-static.external.example.net	IN	A	10.20.21.20	; global
 wan-only	IN	A	192.168.64.91	; global
 
 ; AAAA Records
@@ -75,8 +45,8 @@ wan-only	IN	A	192.168.64.91	; global
 ; TXT Records
 
 ; SRV Records
-_build._tcp.example.org.	IN	SRV	20	25	27443	l61.a1.example.org.
-_resolve._tcp.example.org.	IN	SRV	20	25	27443	l61.a1.example.org.
+_build._tcp	IN	SRV	20	25	27443	l61.a1.example.org.
+_resolve._tcp	IN	SRV	20	25	27443	l61.a1.example.org.
 
 ; SPF Records
 
