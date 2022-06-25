@@ -634,8 +634,13 @@
 		}
 	},
 	"targets": {
-		"default": {
+		"default": {},
+
+		"4096-sha265.example.com": {
 			"ssl": "4096-sha256"
+		},
+		"2048-sha265.example.com": {
+			"ssl": "2048-sha256"
 		},
 		"ec256.example.com": {
 			"ssl": "ec256"
@@ -643,8 +648,8 @@
 		"ec384.example.com": {
 			"ssl": "ec384"
 		},
+
 		"no-target.example.com": {
-			"ssl": "2048-sha256",
 			"dns": "use-router",
 			"static": {
 				"/": {
@@ -657,7 +662,6 @@
 			}
 		},
 		"service.example.com": {
-			"ssl": "2048-sha256",
 			"target": [
 				"l61.a1.example.com",
 				"l62.b1.example.com"

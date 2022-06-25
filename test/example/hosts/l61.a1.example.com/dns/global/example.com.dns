@@ -33,6 +33,10 @@ _acme-challenge.dns-wildcard-2.acme	IN	NS	l62.a1.example.com.	; global
 ; A Records
 *	IN	A	10.20.20.20	; global
 *	IN	A	10.20.21.20	; global
+*.2048-sha265	IN	A	10.20.20.20	; global
+*.2048-sha265	IN	A	10.20.21.20	; global
+*.4096-sha265	IN	A	10.20.20.20	; global
+*.4096-sha265	IN	A	10.20.21.20	; global
 *.a1	IN	A	10.20.20.20	; global
 *.acme-le-1-2.service	IN	A	10.20.20.20	; global
 *.acme-le-1-2.service	IN	A	10.20.21.20	; global
@@ -96,6 +100,10 @@ _acme-challenge.dns-wildcard-2.acme	IN	NS	l62.a1.example.com.	; global
 *.sub-1.dns-test-1	IN	A	10.20.21.20	; global
 *.sub.dns3	IN	A	10.20.20.20	; global
 *.sub.dns3	IN	A	10.20.21.20	; global
+2048-sha265	IN	A	10.20.20.20	; global
+2048-sha265	IN	A	10.20.21.20	; global
+4096-sha265	IN	A	10.20.20.20	; global
+4096-sha265	IN	A	10.20.21.20	; global
 @	IN	A	1.1.1.1	; global
 a1	IN	A	10.20.20.20	; global
 acme-le-1-2.service	IN	A	10.20.20.20	; global

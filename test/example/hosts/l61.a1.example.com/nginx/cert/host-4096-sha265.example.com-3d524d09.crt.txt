@@ -3,7 +3,7 @@ Certificate:
         Version: 3 (0x2)
     Signature Algorithm: sha256WithRSAEncryption
         Issuer: C=RU, ST=example.org, O=example.org, OU=example.org, CN=example.org/emailAddress=example@example.org
-        Subject: C=RU, ST=RU, OU=example.org, CN=default, CN=*.default
+        Subject: C=RU, ST=RU, OU=example.org, CN=4096-sha265.example.com, CN=*.4096-sha265.example.com
         Subject Public Key Info:
             Public Key Algorithm: rsaEncryption
                 Public-Key: (4096 bit)
@@ -16,5 +16,5 @@ Certificate:
             X509v3 Extended Key Usage: 
                 TLS Web Server Authentication, TLS Web Client Authentication
             X509v3 Subject Alternative Name: 
-                DNS:default
+                DNS:4096-sha265.example.com
     Signature Algorithm: sha256WithRSAEncryption
