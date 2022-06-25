@@ -37,12 +37,6 @@
                     "altNames": [],
                     "keySize": 2048,
                     "type": "acme-http-01"
-                },
-                {
-                    "commonName": "git-static.cdn.example.net",
-                    "altNames": [],
-                    "keySize": 2048,
-                    "type": "acme-http-01"
                 }
             ]
         },

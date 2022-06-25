@@ -638,11 +638,9 @@
 			"ssl": "4096-sha256"
 		},
 		"ec256.example.com": {
-			"targer": "service.example.com",
 			"ssl": "ec256"
 		},
 		"ec384.example.com": {
-			"targer": "service.example.com",
 			"ssl": "ec384"
 		},
 		"no-target.example.com": {
@@ -890,10 +888,6 @@
 		"acme-le-no-master.service.example.com": {
 			"target": "service.example.com",
 			"ssl": "acme-le-no-master"
-		},
-		"git-static.cdn.example.net": {
-			"target": "git@github.com:beaverway/beaver-web-static-test.git",
-			"ssl": "acme-le-2"
 		},
 		"cert.example.net": {
 			"target": "service.example.com",
