@@ -359,7 +359,7 @@
 	},
 	"routing": {
 		"ssl": {
-			"defaultPreset": "4096-sha256",
+			"defaultPreset": "ec256",
 			"presets": {
 				"acme-le-default": {
 					"type": "acme-http-01",
