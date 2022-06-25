@@ -241,7 +241,7 @@ chownr@^2.0.0:
 
 "clean-yaumnrc@github:myx/clean-yaumnrc":
   version "0.0.119"
-  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/2f5a93d471a626a316b7685b61e428b925db6568"
+  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/5844e3a91c3033d4aedceadc638d945bf9fe0f74"
 
 cliui@^7.0.2:
   version "7.0.4"

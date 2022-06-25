@@ -1,0 +1,21 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=RU, ST=example.org, O=example.org, OU=example.org, CN=example.org/emailAddress=example@example.org
+        Subject: C=RU, ST=RU, OU=example.org, CN=proxy.example.com, CN=*.proxy.example.com
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        X509v3 extensions:
+            X509v3 Key Usage: 
+                Digital Signature, Non Repudiation, Key Encipherment
+            X509v3 Basic Constraints: 
+                CA:FALSE
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication, TLS Web Client Authentication
+            X509v3 Subject Alternative Name: 
+                DNS:proxy.example.com
+    Signature Algorithm: sha256WithRSAEncryption

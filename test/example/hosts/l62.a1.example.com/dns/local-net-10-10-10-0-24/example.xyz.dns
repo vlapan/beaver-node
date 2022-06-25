@@ -1,0 +1,64 @@
+; Zone: example.xyz.
+
+$ORIGIN example.xyz.
+$TTL 600
+
+; SOA Record
+@	 		IN	SOA	l62.a1.example.com.	admin.example.xyz.	(
+300	 ;refresh
+150	 ;retry
+86400	 ;expire
+600	 ;minimum ttl
+)
+
+; NS Records
+@	IN	NS	a1	; local-net-10-10-10-0-24
+@	IN	NS	b1	; local-net-10-10-10-0-24
+
+; MX Records
+
+; A Records
+*	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+*	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+*	IN	A	10.20.21.20	; local-net-10-10-10-0-24
+*.a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+*.a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+*.b1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
+*.web	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+*.web	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+*.web	IN	A	10.20.21.20	; local-net-10-10-10-0-24
+*.web-eu	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+*.web-eu	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+*.web-ru	IN	A	10.20.21.20	; local-net-10-10-10-0-24
+*.www	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+*.www	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+@	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+@	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+b1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
+web	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+web	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+web	IN	A	10.20.21.20	; local-net-10-10-10-0-24
+web-eu	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+web-eu	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+web-ru	IN	A	10.20.21.20	; local-net-10-10-10-0-24
+www	IN	A	10.10.10.10	; local-net-10-10-10-0-24
+www	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+
+; AAAA Records
+
+; CNAME Records
+
+; PTR Records
+
+; TXT Records
+
+; SRV Records
+
+; SPF Records
+
+; CAA Records
+
+; DS Records
+

@@ -50,12 +50,21 @@
 # skip: 10.10.10.10                                                           lfs-static.example.com
 # skip: 10.10.10.11                                                           lfs-static.example.com
 # skip: 10.20.21.20                                                           lfs-static.example.com
+# skip: 10.10.10.10                                                           location.a1.example.com
+# skip: 10.10.10.11                                                           location.a1.example.com
+10.20.21.20                                                                   location.b1.example.com
 # skip: 10.10.10.10                                                           no-target.example.com
 # skip: 10.10.10.11                                                           no-target.example.com
 # skip: 10.20.21.20                                                           no-target.example.com
 # skip: 10.10.10.10                                                           pki.example.com
 # skip: 10.10.10.11                                                           pki.example.com
 # skip: 10.20.21.20                                                           pki.example.com
+# skip: 10.10.10.10                                                           proxy.example.com
+# skip: 10.10.10.11                                                           proxy.example.com
+# skip: 10.20.21.20                                                           proxy.example.com
+# skip: 10.10.10.10                                                           redirect.example.com
+# skip: 10.10.10.11                                                           redirect.example.com
+# skip: 10.20.21.20                                                           redirect.example.com
 1.1.1.1                                                                       s1.a1.example.com
 1.2.1.1                                                                       s1.b1.example.com
 # skip: 10.10.10.10                                                           s1.service.example.com
@@ -95,3 +104,16 @@
 192.168.64.26                                                                 l61.a1.example.org
 192.168.64.27                                                                 l64.a1.example.org
 192.168.64.91                                                                 wan-only.example.org
+# skip: 10.10.10.10                                                           example.xyz
+# skip: 10.10.10.11                                                           example.xyz
+# skip: 10.10.10.10                                                           a1.example.xyz
+# skip: 10.10.10.11                                                           a1.example.xyz
+10.20.21.20                                                                   b1.example.xyz
+# skip: 10.10.10.10                                                           web.example.xyz
+# skip: 10.10.10.11                                                           web.example.xyz
+# skip: 10.20.21.20                                                           web.example.xyz
+# skip: 10.10.10.10                                                           web-eu.example.xyz
+# skip: 10.10.10.11                                                           web-eu.example.xyz
+10.20.21.20                                                                   web-ru.example.xyz
+# skip: 10.10.10.10                                                           www.example.xyz
+# skip: 10.10.10.11                                                           www.example.xyz

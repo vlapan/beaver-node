@@ -589,6 +589,10 @@
 			".example.org": {
 				"publish": true,
 				"mode": "infrastructure"
+			},
+			".example.xyz": {
+				"publish": true,
+				"mode": "infrastructure"
 			}
 		}
 	},
@@ -647,6 +651,78 @@
 		},
 		"ec384.example.com": {
 			"ssl": "ec384"
+		},
+
+		"proxy.example.com": {
+			"proxyHttp": "https://example.com/",
+			"proxyHttps": "https://example.com/"
+		},
+
+		"redirect.example.com": {
+			"redirectHttp": "https://example.com/",
+			"redirectHttps": "https://example.com/"
+		},
+
+		"location.a1.example.com": {
+			"location": "a1",
+			"target": "service.example.com",
+			"redirectHttp": true
+		},
+
+		"location.b1.example.com": {
+			"location": "b1",
+			"target": "service.example.com",
+			"redirectHttp": true
+		},
+
+		"example.xyz" : {
+			"location" : "web-eu.example.xyz",
+			"target" : "web.example.xyz"
+		},
+
+		"www.example.xyz" : {
+			"location" : "web-eu.example.xyz",
+			"redirectHttp" : "https://example.com",
+			"redirectHttps" : "https://example.com"
+		},
+
+		"web.example.xyz" : {
+			"target" : [
+				"web-eu.example.xyz",
+				"web-ru.example.xyz"
+			],
+			"dns": "use-router",
+			"ssl": false
+		},
+
+		"web-eu.example.xyz" : {
+			"location" : "a1",
+			"target" : [
+				"l61.a1.example.com",
+				"l62.a1.example.com"
+			],
+			"ssl": false
+		},
+
+		"web-ru.example.xyz" : {
+			"location" : "b1",
+			"target" : "l61.b1.example.com",
+			"ssl": false
+		},
+
+		"l61.a1.example.com": {
+			"target": "l61.a1.example.com",
+			"dns": "use-wan"
+		},
+
+		"l62.a1.example.com": {
+			"target": "l62.a1.example.com",
+			"dns": "use-wan"
+		},
+
+		"l61.b1.example.com": {
+			"target": "l61.b1.example.com",
+			"dns": "use-wan"
 		},
 
 		"no-target.example.com": {

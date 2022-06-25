@@ -1,0 +1,54 @@
+; Zone: example.xyz.
+
+$ORIGIN example.xyz.
+$TTL 600
+
+; SOA Record
+@	 		IN	SOA	l62.a1.example.com.	admin.example.xyz.	(
+300	 ;refresh
+150	 ;retry
+86400	 ;expire
+600	 ;minimum ttl
+)
+
+; NS Records
+@	IN	NS	a1	; global
+@	IN	NS	b1	; global
+
+; MX Records
+
+; A Records
+*	IN	A	10.20.20.20	; global
+*	IN	A	10.20.21.20	; global
+*.a1	IN	A	10.20.20.20	; global
+*.b1	IN	A	10.20.21.20	; global
+*.web	IN	A	10.20.20.20	; global
+*.web	IN	A	10.20.21.20	; global
+*.web-eu	IN	A	10.20.20.20	; global
+*.web-ru	IN	A	10.20.21.20	; global
+*.www	IN	A	10.20.20.20	; global
+@	IN	A	10.20.20.20	; global
+a1	IN	A	10.20.20.20	; global
+b1	IN	A	10.20.21.20	; global
+web	IN	A	10.20.20.20	; global
+web	IN	A	10.20.21.20	; global
+web-eu	IN	A	10.20.20.20	; global
+web-ru	IN	A	10.20.21.20	; global
+www	IN	A	10.20.20.20	; global
+
+; AAAA Records
+
+; CNAME Records
+
+; PTR Records
+
+; TXT Records
+
+; SRV Records
+
+; SPF Records
+
+; CAA Records
+
+; DS Records
+
