@@ -240,8 +240,8 @@ chownr@^2.0.0:
   integrity sha512-bIomtDF5KGpdogkLd9VspvFzk9KfpyyGlS8YFVZl7TGPBHL5snIOnxeshwVgPteQ9b4Eydl+pVbIyE1DcvCWgQ==
 
 "clean-yaumnrc@github:myx/clean-yaumnrc":
-  version "0.0.119"
-  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/5844e3a91c3033d4aedceadc638d945bf9fe0f74"
+  version "0.0.121"
+  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/04bbd3114441a2bba109e704642c001600561cfa"
 
 cliui@^7.0.2:
   version "7.0.4"
@@ -758,10 +758,10 @@ flatted@^3.1.0:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.2.5.tgz#76c8584f4fc843db64702a6bd04ab7a8bd666da3"
   integrity sha512-WIWGi2L3DyTUvUrwRKgGi9TwxQMUEqPOPQBVi71R96jZXJdFskXEmf54BoZaS1kknGODoIGASGEzBUYdyMCBJg==
 
-flow-bin@^0.181.0:
-  version "0.181.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.181.0.tgz#0a0ceee391dea166232958826c09ac2973eec9ae"
-  integrity sha512-JVuD0GN9IhAj0WgS3e2BDstTOpx4KmYMTdiVSjeeLud49gs8EN5Ah/Jw59d7rdSXn1fTodoepPe1cKwleDoEag==
+flow-bin@^0.181.1:
+  version "0.181.1"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.181.1.tgz#7e51696b023de26baf5ef678c5fafd403b6b84c1"
+  integrity sha512-ZeGa8vyVG8l/2OK2Spb/HIWwavj8Cxzd+FfatquYppqNh696T5k6fi3Y+Ujwi02dwPeXYVoW1ML05em/vd3Uyg==
 
 follow-redirects@^1.14.8, follow-redirects@^1.14.9:
   version "1.15.1"
