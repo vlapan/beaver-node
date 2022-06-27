@@ -67,6 +67,7 @@ module.exports = {
                 interval: 10000,
                 tcpTimeout: 5000,
                 webTimeout: 10000,
+                maxAttempt: 2,
             });
             overseer.start();
         }

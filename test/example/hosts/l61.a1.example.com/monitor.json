@@ -7,6 +7,7 @@
     "interval": 30000,
     "tcpTimeout": 5000,
     "webTimeout": 10000,
+    "maxAttempt": 2,
     "notify": {
         "user1": {
             "type": "email",

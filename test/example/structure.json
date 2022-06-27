@@ -307,7 +307,8 @@
 	"monitoring": {
 		"settings": {
 			"appendReason": false,
-			"intervalMillis": "30000"
+			"intervalMillis": "30000",
+			"maxAttempt": 2
 		},
 		"tests": {
 			"tcp": {
