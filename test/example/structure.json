@@ -308,7 +308,7 @@
 		"settings": {
 			"appendReason": false,
 			"intervalMillis": "30000",
-			"maxAttempt": 2
+			"maxAttempts": 5
 		},
 		"tests": {
 			"tcp": {
