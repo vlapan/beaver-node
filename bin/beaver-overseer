@@ -1,11 +1,11 @@
 #!/usr/bin/env node
 
 const debug = require('debug');
-const Yargs = require('yargs');
+const yargs = require('yargs');
 
 const Overseer = require('../lib/overseer/overseer');
 
-const yargs = Yargs
+yargs
     .strict()
     .usage('Monitor network services.\nUsage: beaver-overseer -d ./monitor.json')
     .example('beaver-overseer -d ./monitor.json', 'run as daemon')
@@ -13,33 +13,37 @@ const yargs = Yargs
     .options('d', {
         alias: 'data',
         string: true,
-        describe: 'json data'
+        describe: 'json data',
     }).options('r', {
         alias: 'result',
         string: true,
-        describe: 'results file'
+        describe: 'results file',
     }).options('i', {
         alias: 'interval',
         default: 10000,
-        describe: 'interval between checks, ms'
+        describe: 'interval between checks, ms',
     }).options('t', {
         alias: 'tcpTimeout',
         default: 5000,
-        describe: 'tcp timeout, ms'
+        describe: 'tcp timeout, ms',
     }).options('w', {
         alias: 'webTimeout',
         default: 10000,
-        describe: 'web timeout, ms'
+        describe: 'web timeout, ms',
     })
     .options('v', {
         alias: 'verbose',
         describe: 'each "v" adds verbosity',
     })
+    .options('disableNotify', {
+        boolean: true,
+        default: true,
+        describe: 'disable notification',
+    })
     .help('help')
     .count('verbose');
 
-function main(args) {
-    const argv = yargs.parse(args);
+function main(argv) {
     if (!argv.data) {
         yargs.showHelp();
         process.exit();
@@ -56,7 +60,7 @@ function main(args) {
 }
 
 if (!module.parent) {
-    main(process.argv);
+    main(yargs.argv);
 } else {
     module.exports = main;
 }

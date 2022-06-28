@@ -64,6 +64,7 @@ module.exports = {
             const overseer = new Overseer({
                 data: `${argv.home}/monitor.json`,
                 result: `${argv.home}/monitor-result.txt`,
+                disableNotify: argv.disableNotify,
                 interval: 10000,
                 tcpTimeout: 5000,
                 webTimeout: 10000,
