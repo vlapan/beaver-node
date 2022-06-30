@@ -54,7 +54,7 @@ ${fw} add 608 set 2 nat 1 ip from 192.168.0.0/16 to any out // outgoing nat
 
 
 ${fw} add 800 set 2 deny icmp from me to 'table(6)' icmptype 5 in // block redirects for tincd
-${fw} add 800 set 2 fwd tablearg ip from 'table(6)' to 'table(5)' in // tincd forward
+
 
 
 ${fw} add 900 set 2 count ip6 from any to any // ipv6 of all
