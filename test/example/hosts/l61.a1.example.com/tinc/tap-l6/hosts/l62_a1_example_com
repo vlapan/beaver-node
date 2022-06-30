@@ -1,5 +1,12 @@
 Address = l62.a1.example.com
+# myself
 Subnet = 10.254.1.2/32
+# l61.a1.example.com
+Subnet = 172.16.3.1/32
+# l62.a1.example.com
+Subnet = 172.16.3.2/32
+# l61.a1.example.org
+Subnet = 172.16.3.1/32
 Compression = 7
 
 -----BEGIN RSA PUBLIC KEY-----...-----END RSA PUBLIC KEY-----
