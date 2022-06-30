@@ -121,7 +121,7 @@
 			],
 			"tcpShift": "1000",
 			"type": "unix",
-			"os": "bsd11"
+			"os": "bsd"
 		},
 		"l62.a1.example.com": {
 			"disposition": "guest",
@@ -156,7 +156,7 @@
 			],
 			"tcpShift": "1000",
 			"type": "unix",
-			"os": "bsd11"
+			"os": "bsd"
 		},
 		"l62.b1.example.com": {
 			"disposition": "guest",
@@ -200,7 +200,7 @@
 			],
 			"tcpShift": "1000",
 			"type": "unix",
-			"os": "bsd11"
+			"os": "bsd"
 		},
 		"l61.a1.example.org": {
 			"disposition": "guest",
@@ -244,7 +244,7 @@
 			],
 			"tcpShift": "1000",
 			"type": "unix",
-			"os": "bsd11"
+			"os": "bsd"
 		},
 		"l64.a1.example.org": {
 			"disposition": "guest",
@@ -261,7 +261,7 @@
 			},
 			"tcpShift": "1000",
 			"type": "unix",
-			"os": "bsd11"
+			"os": "bsd"
 		},
 		"lan-only.example.org": {
 			"location": "standalone",
@@ -269,7 +269,7 @@
 				"mac": "2A:01:01:01:01:01",
 				"ip": "172.16.99.1"
 			},
-			"os": "bsd11"
+			"os": "bsd"
 		},
 		"wan-only.example.org": {
 			"location": "standalone",
@@ -277,15 +277,15 @@
 				"mac": "20:01:01:01:01:01",
 				"ip": "192.168.64.91"
 			},
-			"os": "bsd11"
+			"os": "bsd"
 		}
 	},
 	"kvm": {
 		"OSes": {
-			"bsd11": {
-				"install": "ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/11.0/FreeBSD-11.0-RELEASE-amd64-bootonly.iso",
+			"bsd": {
+				"install": "latest",
 				"ssh": true,
-				"title": "FreeBSD 11"
+				"title": "FreeBSD Latest"
 			},
 			"bsd10": {
 				"install": "ftp://ftp.freebsd.org/pub/FreeBSD/releases/amd64/amd64/ISO-IMAGES/10.0/FreeBSD-10.0-RELEASE-amd64-bootonly.iso",
