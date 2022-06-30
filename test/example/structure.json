@@ -443,6 +443,7 @@
 				"failTimeout": "15s"
 			},
 			"tinc": {
+				"mode": "router",
 				"compression": 7
 			},
 			"dns": {
