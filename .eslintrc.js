@@ -54,6 +54,9 @@ module.exports = {
         'node/no-missing-import': ['error', {
             allowModules: ['lit-html'],
         }],
+        "node/no-unsupported-features/es-syntax": ["error", {
+            ignores: ["dynamicImport"],
+        }],
     },
     settings: {
         'import/resolver': {

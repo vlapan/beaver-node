@@ -371,10 +371,10 @@ diff@^5.1.0:
   resolved "https://registry.yarnpkg.com/diff/-/diff-5.1.0.tgz#bc52d298c5ea8df9194800224445ed43ffc87e40"
   integrity sha512-D+mk+qE8VC/PAUrlAU34N+VfXev0ghe5ywmpqrawphmVZc1bEfn56uo9qpyGp1p4xpzOHkSW4ztBd6L7Xx4ACw==
 
-dns-zonefile@^0.2.10:
-  version "0.2.10"
-  resolved "https://registry.yarnpkg.com/dns-zonefile/-/dns-zonefile-0.2.10.tgz#c9c1c4e74ff9a1c99636ae77e1440f0642d4dddd"
-  integrity sha512-YXs0T8EjhwI3YFpL4l7n9Uy+g/ufmd3WyDSQsI4mrMNlrrdgK6aN0AbNjOkKoHyF59l/x4Y3/z64F3aJWCKWpg==
+dns-zonefile@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/dns-zonefile/-/dns-zonefile-0.3.0.tgz#57d0870cfa2ea0dd7675dc72f6bb1a41d848d794"
+  integrity sha512-Dv6/ovxV+HjHQxtZNgUOisHacXzVrdF351fbRzdOF1MTyk9h6Tjd+bHkn/vLjzFx8HNRutra5Stm9FVWTuEoCg==
 
 doctrine@^2.1.0:
   version "2.1.0"
