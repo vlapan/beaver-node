@@ -1,2 +1,18 @@
 #!/bin/sh
 logger -i -t "tinc.tap-l6" "subnet-down, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT, subnet=$SUBNET, weight=$WEIGHT"
+DIR=$(dirname -- "$(readlink -f -- "$0";)")
+IP=${SUBNET%/*}
+MASK=${SUBNET#*/}
+ROUTEDIR="$DIR/routes/ip=$IP,mask=$MASK"
+[ -f "$ROUTEDIR/$REMOTEADDRESS" ] && rm "$ROUTEDIR/$REMOTEADDRESS"
+[ "0" = "$(ls $ROUTEDIR | wc -l | tr -d ' ')" ] && rm -rdf $ROUTEDIR 
+NETSTAT_CURRENT=$(netstat -rn | grep -e 'UHS.*tap-l6' | cut -d' ' -f1)
+ROUTES=$(ls $DIR/routes)
+for ITEM in $ROUTES; do
+    IP=$(echo $ITEM | cut -d= -f2 | cut -d, -f1)
+    MASK=$(echo $ITEM | cut -d= -f3)
+    echo $NETSTAT_CURRENT | grep -q $IP || route add "$IP/$MASK" -interface tap-l6
+done
+for IP in $NETSTAT_CURRENT; do
+    echo $ROUTES | grep -q $IP || route delete $IP -interface tap-l6
+done
