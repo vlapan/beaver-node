@@ -1,12 +1,13 @@
 #!/bin/sh
 logger -i -t "tinc.tap-l6" "subnet-up, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT, subnet=$SUBNET, weight=$WEIGHT"
-[ -z "$REMOTEADDRESS" ] && exit
 DIR=$(dirname -- "$(readlink -f -- "$0";)")
-IP=${SUBNET%/*}
-MASK=${SUBNET#*/}
-ROUTEDIR="$DIR/routes/ip=${IP},mask=${MASK}"
-mkdir -p $ROUTEDIR
-touch $ROUTEDIR/$REMOTEADDRESS
+if [ "$REMOTEADDRESS" ]; then
+    IP=${SUBNET%/*}
+    MASK=${SUBNET#*/}
+    ROUTEDIR="$DIR/routes/ip=${IP},mask=${MASK}"
+    mkdir -p $ROUTEDIR
+    touch $ROUTEDIR/$REMOTEADDRESS
+fi
 NETSTAT_CURRENT=$(netstat -rn | grep -e 'UHS.*tap-l6' | cut -d' ' -f1)
 ROUTES=$(ls $DIR/routes)
 for ITEM in $ROUTES; do
