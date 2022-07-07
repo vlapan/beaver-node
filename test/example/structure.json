@@ -444,7 +444,9 @@
 			},
 			"tinc": {
 				"mode": "router",
-				"compression": 7
+				"compression": 7,
+				"pingInterval": 60,
+				"pingTimeout": 5
 			},
 			"dns": {
 				"ttl": 600,
