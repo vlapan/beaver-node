@@ -3,8 +3,10 @@ logger -i -t "tinc.tap-l6" "tinc-down, name=$NAME, iface=$INTERFACE"
 if ifconfig tap-l6 2>/dev/null; then
     RAND=$(od -A n -t d -N 1 /dev/random)
     ifconfig tap-l6 name tap-l6-$RAND
+    ifconfig tap-l6-$RAND down
     ifconfig tap-l6-$RAND destroy &
 fi
 if ifconfig $INTERFACE 2>/dev/null; then
+    ifconfig $INTERFACE down
     ifconfig $INTERFACE destroy &
 fi

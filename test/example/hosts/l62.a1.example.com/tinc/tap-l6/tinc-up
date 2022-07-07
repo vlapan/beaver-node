@@ -5,6 +5,10 @@ ifconfig $INTERFACE up
 if ifconfig tap-l6 2>/dev/null; then
     RAND=$(od -A n -t d -N 1 /dev/random)
     ifconfig tap-l6 name tap-l6-$RAND
+    ifconfig tap-l6-$RAND down
+    for ITEM in $(netstat -rn | grep tap-l6-$RAND | cut -d' ' -f1); do
+        route delete $ITEM -interface tap-l6-$RAND
+    done
     ifconfig tap-l6-$RAND destroy &
 fi
 ifconfig $INTERFACE name tap-l6

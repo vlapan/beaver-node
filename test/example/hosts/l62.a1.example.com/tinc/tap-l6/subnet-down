@@ -8,7 +8,6 @@ if [ "$REMOTEADDRESS" ]; then
     [ -f "$ROUTEDIR/$REMOTEADDRESS" ] && rm "$ROUTEDIR/$REMOTEADDRESS"
     [ "0" = "$(ls $ROUTEDIR | wc -l | tr -d ' ')" ] && rm -rdf $ROUTEDIR 
 fi
-#!/bin/sh
 NETSTAT_CURRENT=$(netstat -rn | grep -e 'UHS.*tap-l6' | cut -d' ' -f1)
 ROUTES=$(ls $DIR/routes)
 ROUTES_REMOTE=$(cat $DIR/routes-remote)
