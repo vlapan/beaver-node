@@ -16,7 +16,7 @@
                     "altNames": [
                         "acme-le-1-2.service.example.com"
                     ],
-                    "keySize": 2048,
+                    "keySize": 4096,
                     "type": "acme-http-01"
                 }
             ]
@@ -35,7 +35,7 @@
                 {
                     "commonName": "acme-le-2.service.example.com",
                     "altNames": [],
-                    "keySize": 2048,
+                    "keySize": 4096,
                     "type": "acme-http-01"
                 }
             ]
@@ -56,7 +56,7 @@
                     "altNames": [
                         "*.example.org"
                     ],
-                    "keySize": 2048,
+                    "keySize": 4096,
                     "type": "acme-dns-01"
                 },
                 {
@@ -65,7 +65,7 @@
                         "dns1.example.org",
                         "*.example.com"
                     ],
-                    "keySize": 2048,
+                    "keySize": 4096,
                     "type": "acme-dns-01"
                 },
                 {
@@ -74,7 +74,7 @@
                         "dns-test-1-1.example.com",
                         "*.dns-test-1.example.com"
                     ],
-                    "keySize": 2048,
+                    "keySize": 4096,
                     "type": "acme-dns-01"
                 },
                 {
@@ -82,7 +82,7 @@
                     "altNames": [
                         "*.dns-wildcard-1.acme.example.com"
                     ],
-                    "keySize": 2048,
+                    "keySize": 4096,
                     "type": "acme-dns-01"
                 }
             ]
@@ -103,7 +103,7 @@
                     "altNames": [
                         "*.dns-wildcard-2.acme.example.com"
                     ],
-                    "keySize": 2048,
+                    "keySize": 4096,
                     "type": "acme-dns-01",
                     "dns": {
                         "mname": "l62.a1.example.com.",
