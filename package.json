@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.165",
+  "version": "0.1.166",
   "keywords": [
     "configuration"
   ],

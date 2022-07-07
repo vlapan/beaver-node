@@ -1,4 +1,5 @@
 #!/bin/sh
 logger -i -t "tinc.tap-l6" "tinc-down, name=$NAME, iface=$INTERFACE"
-ifconfig tap-l6 name tap-l6-prev
-ifconfig tap-l6-prev destroy &
+RAND=$(od -A n -t d -N 1 /dev/random)
+ifconfig tap-l6 name tap-l6-$RAND
+ifconfig tap-l6-$RAND destroy &
