@@ -2,6 +2,7 @@
 logger -i -t "tinc.tap-l6" "tinc-up, name=$NAME, iface=$INTERFACE"
 ifconfig $INTERFACE 10.254.1.2 netmask 255.255.0.0
 ifconfig $INTERFACE up
+ifconfig tap-l6 && ifconfig tap-l6 destroy
 ifconfig $INTERFACE name tap-l6
 #route add -net 224.0.0.0/4 -interface tap-l6 || echo 'multicast route already exists'
 DIR=$(dirname -- "$(readlink -f -- "$0";)")
