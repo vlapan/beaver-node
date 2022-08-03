@@ -862,7 +862,16 @@
 		"s2.service.example.com": {
 			"target": "service.example.com",
 			"ssl": "use:service.example.com",
-			"extends": "service.example.com"
+			"extends": "service.example.com",
+			"static": {
+				"/share": {
+					"type": "git-static",
+					"repository": "beaver-web-static-test",
+					"sourcePath": "www/",
+					"indexPage": "index.html",
+					"errorPage": "error.html"
+				}
+			}
 		},
 		"s3.service.example.com": {
 			"target": "service.example.com",
