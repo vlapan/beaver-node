@@ -8,7 +8,7 @@ URL=%{url}
 
 if [ -d ${REPOS}/${NAME} ]; then
     cd ${REPOS}/${NAME}
-    git pull --prune
+    git pull --prune --rebase
 else
     cd ${REPOS}
     git clone ${URL} ${NAME}
