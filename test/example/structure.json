@@ -656,8 +656,8 @@
 		},
 
 		"proxy.example.com": {
-			"proxyHttp": "https://example.com/",
-			"proxyHttps": "https://example.com/"
+			"proxyHttp": "https://example.com:443",
+			"proxyHttps": "https://example.com:443"
 		},
 
 		"redirect.example.com": {
