@@ -867,6 +867,7 @@
 				"/share": {
 					"type": "git-static",
 					"repository": "beaver-web-static-test",
+					"fail": "fast",
 					"sourcePath": "www/",
 					"indexPage": "index.html",
 					"errorPage": "error.html"
