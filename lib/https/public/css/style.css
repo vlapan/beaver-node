@@ -77,12 +77,21 @@ legend {
     position: absolute;
 }
 
+.approve-diff-form {
+    position: fixed;
+    top: 0;
+}
+
 .approve-diff-submit {
     font-size: 2em;
     margin: 1em 0 1em 0.5em;
 }
 
 .approve-diff-block {
+    position: fixed;
+    top: 80px;
+    bottom: 0;
+    overflow: auto;
     background-color: #000;
     padding: 1em;
     border: 1px solid #eee;
