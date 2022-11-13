@@ -6,6 +6,8 @@ REPOS=%{path}
 NAME=%{name}
 URL=%{url}
 
+export GIT_TERMINAL_PROMPT=0
+
 if [ -d ${REPOS}/${NAME} ]; then
     cd ${REPOS}/${NAME}
     git pull --prune --rebase
