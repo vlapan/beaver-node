@@ -870,7 +870,10 @@
 					"fail": "fast",
 					"sourcePath": "www/",
 					"indexPage": "index.html",
-					"errorPage": "error.html"
+					"errorPage": [
+						"error.html",
+						"502 504 error502.html"
+					]
 				}
 			}
 		},
