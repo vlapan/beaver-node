@@ -1,7 +1,7 @@
 {
   "name": "beaver-node",
   "description": "Cluster configuration builder",
-  "version": "0.1.185",
+  "version": "0.1.186",
   "keywords": [
     "configuration"
   ],
@@ -39,7 +39,7 @@
     "flow": "flow check --all --show-all-errors --show-all-branches"
   },
   "dependencies": {
-    "ace-builds": "^1.12.5",
+    "ace-builds": "^1.13.1",
     "acme-client": "^4.2.5",
     "async": "^3.2.4",
     "authenticate-pam": "^1.0.5",
@@ -64,7 +64,7 @@
     "yargs": "^17.6.2"
   },
   "devDependencies": {
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-json": "^3.1.0",
     "eslint-plugin-lit": "^1.6.1",

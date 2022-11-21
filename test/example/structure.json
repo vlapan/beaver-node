@@ -829,6 +829,9 @@
 						"match": {
 							"{*.js,*.css}": {
 								"add_header": "Special 1"
+							},
+							"/remote_addr": {
+								"return": "200 \"$remote_addr\\n\""
 							}
 						}
 					}
