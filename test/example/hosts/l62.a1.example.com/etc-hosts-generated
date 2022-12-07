@@ -65,6 +65,9 @@
 # skip: 10.10.10.10                                                           redirect.example.com
 # skip: 10.10.10.11                                                           redirect.example.com
 # skip: 10.20.21.20                                                           redirect.example.com
+# skip: 10.10.10.10                                                           redirectHttps.example.com
+# skip: 10.10.10.11                                                           redirectHttps.example.com
+# skip: 10.20.21.20                                                           redirectHttps.example.com
 1.1.1.1                                                                       s1.a1.example.com
 1.2.1.1                                                                       s1.b1.example.com
 # skip: 10.10.10.10                                                           s1.service.example.com

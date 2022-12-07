@@ -665,6 +665,16 @@
 			"redirectHttps": "https://example.com/"
 		},
 
+		"redirectHttps.example.com": {
+			"redirectHttp": true,
+			"static": {
+				"/": {
+					"type": "lfs-static",
+					"sourcePath": "/usr/local/www/lfs-static"
+				}
+			}
+		},
+
 		"location.a1.example.com": {
 			"location": "a1",
 			"target": "service.example.com",

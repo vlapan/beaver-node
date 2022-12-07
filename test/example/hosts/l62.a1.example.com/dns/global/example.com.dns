@@ -84,6 +84,8 @@ _acme-challenge.dns-wildcard-2.acme	IN	NS	l62.a1.example.com.	; global
 *.proxy	IN	A	10.20.21.20	; global
 *.redirect	IN	A	10.20.20.20	; global
 *.redirect	IN	A	10.20.21.20	; global
+*.redirectHttps	IN	A	10.20.20.20	; global
+*.redirectHttps	IN	A	10.20.21.20	; global
 *.s1.a1	IN	A	1.1.1.1	; global
 *.s1.b1	IN	A	1.2.1.1	; global
 *.s1.service	IN	A	10.20.20.20	; global
@@ -158,6 +160,8 @@ proxy	IN	A	10.20.20.20	; global
 proxy	IN	A	10.20.21.20	; global
 redirect	IN	A	10.20.20.20	; global
 redirect	IN	A	10.20.21.20	; global
+redirectHttps	IN	A	10.20.20.20	; global
+redirectHttps	IN	A	10.20.21.20	; global
 s1.a1	IN	A	1.1.1.1	; global
 s1.b1	IN	A	1.2.1.1	; global
 s1.service	IN	A	10.20.20.20	; global
