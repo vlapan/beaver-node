@@ -682,6 +682,10 @@
 			}
 		},
 
+		"redirectHttps.extends.example.com": {
+			"extends": "redirectHttps.example.com"
+		},
+
 		"location.a1.example.com": {
 			"location": "a1",
 			"target": "service.example.com",
