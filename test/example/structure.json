@@ -667,6 +667,13 @@
 
 		"redirectHttps.example.com": {
 			"redirectHttp": true,
+			"nginx": {
+				"expires": "1y",
+				"add_header": [
+					"InheritRoot0 true",
+					"DefaultReplace -1"
+				]
+			},
 			"static": {
 				"/": {
 					"type": "lfs-static",
