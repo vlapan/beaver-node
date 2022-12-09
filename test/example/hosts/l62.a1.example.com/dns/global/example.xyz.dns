@@ -19,7 +19,6 @@ $TTL 600
 
 ; A Records
 *	IN	A	10.20.20.20	; global
-*	IN	A	10.20.21.20	; global
 *.a1	IN	A	10.20.20.20	; global
 *.b1	IN	A	10.20.21.20	; global
 *.web	IN	A	10.20.20.20	; global
