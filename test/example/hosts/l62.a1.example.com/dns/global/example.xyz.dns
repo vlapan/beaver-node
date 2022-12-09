@@ -12,28 +12,28 @@ $TTL 600
 )
 
 ; NS Records
-@	IN	NS	a1	; global
-@	IN	NS	b1	; global
+@	IN	NS	a1	; config-n
+@	IN	NS	b1	; config-n
 
 ; MX Records
 
 ; A Records
-*	IN	A	10.20.20.20	; global
-*.a1	IN	A	10.20.20.20	; global
-*.b1	IN	A	10.20.21.20	; global
-*.web	IN	A	10.20.20.20	; global
-*.web	IN	A	10.20.21.20	; global
-*.web-eu	IN	A	10.20.20.20	; global
-*.web-ru	IN	A	10.20.21.20	; global
-*.www	IN	A	10.20.20.20	; global
-@	IN	A	10.20.20.20	; global
-a1	IN	A	10.20.20.20	; global
-b1	IN	A	10.20.21.20	; global
-web	IN	A	10.20.20.20	; global
-web	IN	A	10.20.21.20	; global
-web-eu	IN	A	10.20.20.20	; global
-web-ru	IN	A	10.20.21.20	; global
-www	IN	A	10.20.20.20	; global
+*	IN	A	10.20.20.20	; target-44-[TargetSingle(example.xyz)]
+*.a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
+*.b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+*.web	IN	A	10.20.20.20	; target-44-[TargetMultiple(web.example.xyz)]
+*.web	IN	A	10.20.21.20	; target-44-[TargetMultiple(web.example.xyz)]
+*.web-eu	IN	A	10.20.20.20	; target-44-[TargetMultiple(web-eu.example.xyz)]
+*.web-ru	IN	A	10.20.21.20	; target-44-[TargetSingle(web-ru.example.xyz)]
+*.www	IN	A	10.20.20.20	; target-44-[TargetStatic(www.example.xyz)]
+@	IN	A	10.20.20.20	; target-44-[TargetSingle(example.xyz)]
+a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
+b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+web	IN	A	10.20.20.20	; target-44-[TargetMultiple(web.example.xyz)]
+web	IN	A	10.20.21.20	; target-44-[TargetMultiple(web.example.xyz)]
+web-eu	IN	A	10.20.20.20	; target-44-[TargetMultiple(web-eu.example.xyz)]
+web-ru	IN	A	10.20.21.20	; target-44-[TargetSingle(web-ru.example.xyz)]
+www	IN	A	10.20.20.20	; target-44-[TargetStatic(www.example.xyz)]
 
 ; AAAA Records
 

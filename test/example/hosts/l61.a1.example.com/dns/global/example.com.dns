@@ -12,8 +12,8 @@ $TTL 600
 )
 
 ; NS Records
-@	IN	NS	a1	; global
-@	IN	NS	b1	; global
+@	IN	NS	a1	; config-n
+@	IN	NS	b1	; config-n
 _acme-challenge	IN	NS	l61.a1.example.com.	; global
 _acme-challenge.dns1	IN	NS	l61.a1.example.com.	; global
 _acme-challenge.dns2	IN	NS	l61.a1.example.com.	; global
@@ -26,169 +26,169 @@ _acme-challenge.dns-wildcard-1.acme	IN	NS	l61.a1.example.com.	; global
 _acme-challenge.dns-wildcard-2.acme	IN	NS	l62.a1.example.com.	; global
 
 ; MX Records
-@	IN	MX	5	aspmx.l.google.com.	; global
-@	IN	MX	10	alt1.aspmx.l.google.com.	; global
-@	IN	MX	15	alt2.aspmx.l.google.com.	; global
+@	IN	MX	5	aspmx.l.google.com.	; static
+@	IN	MX	10	alt1.aspmx.l.google.com.	; static
+@	IN	MX	15	alt2.aspmx.l.google.com.	; static
 
 ; A Records
-*	IN	A	10.20.20.20	; global
-*	IN	A	10.20.21.20	; global
-*.2048-sha265	IN	A	10.20.20.20	; global
-*.2048-sha265	IN	A	10.20.21.20	; global
-*.4096-sha265	IN	A	10.20.20.20	; global
-*.4096-sha265	IN	A	10.20.21.20	; global
-*.a1	IN	A	10.20.20.20	; global
-*.acme-le-1-2.service	IN	A	10.20.20.20	; global
-*.acme-le-1-2.service	IN	A	10.20.21.20	; global
-*.acme-le-1.service	IN	A	10.20.20.20	; global
-*.acme-le-1.service	IN	A	10.20.21.20	; global
-*.acme-le-2.service	IN	A	10.20.20.20	; global
-*.acme-le-2.service	IN	A	10.20.21.20	; global
-*.acme-le-no-master.service	IN	A	10.20.20.20	; global
-*.acme-le-no-master.service	IN	A	10.20.21.20	; global
-*.b1	IN	A	10.20.21.20	; global
-*.cdn	IN	A	10.20.20.20	; global
-*.cdn	IN	A	10.20.21.20	; global
-*.cdn2	IN	A	10.20.20.20	; global
-*.cdn2	IN	A	10.20.21.20	; global
-*.dns-test-1	IN	A	10.20.20.20	; global
-*.dns-test-1	IN	A	10.20.21.20	; global
-*.dns-test-1-1	IN	A	10.20.20.20	; global
-*.dns-test-1-1	IN	A	10.20.21.20	; global
-*.dns-wildcard-1.acme	IN	A	10.20.20.20	; global
-*.dns-wildcard-1.acme	IN	A	10.20.21.20	; global
-*.dns-wildcard-2.acme	IN	A	10.20.20.20	; global
-*.dns-wildcard-2.acme	IN	A	10.20.21.20	; global
-*.dns1	IN	A	10.20.20.20	; global
-*.dns1	IN	A	10.20.21.20	; global
-*.dns2	IN	A	10.20.20.20	; global
-*.dns2	IN	A	10.20.21.20	; global
-*.dns3	IN	A	10.20.20.20	; global
-*.dns3	IN	A	10.20.21.20	; global
-*.ec256	IN	A	10.20.20.20	; global
-*.ec256	IN	A	10.20.21.20	; global
-*.ec384	IN	A	10.20.20.20	; global
-*.ec384	IN	A	10.20.21.20	; global
-*.l61.a1	IN	A	192.168.64.26	; global
-*.l62.a1	IN	A	192.168.64.27	; global
-*.l62.b1	IN	A	192.168.64.28	; global
-*.lfs-static	IN	A	10.20.20.20	; global
-*.lfs-static	IN	A	10.20.21.20	; global
-*.location.a1	IN	A	10.20.20.20	; global
-*.location.b1	IN	A	10.20.21.20	; global
-*.no-target	IN	A	10.20.20.20	; global
-*.no-target	IN	A	10.20.21.20	; global
-*.pki	IN	A	10.20.20.20	; global
-*.pki	IN	A	10.20.21.20	; global
-*.proxy	IN	A	10.20.20.20	; global
-*.proxy	IN	A	10.20.21.20	; global
-*.redirect	IN	A	10.20.20.20	; global
-*.redirect	IN	A	10.20.21.20	; global
-*.redirectHttps	IN	A	10.20.20.20	; global
-*.redirectHttps	IN	A	10.20.21.20	; global
-*.redirectHttps.extends	IN	A	10.20.20.20	; global
-*.redirectHttps.extends	IN	A	10.20.21.20	; global
-*.s1.a1	IN	A	1.1.1.1	; global
-*.s1.b1	IN	A	1.2.1.1	; global
-*.s1.service	IN	A	10.20.20.20	; global
-*.s1.service	IN	A	10.20.21.20	; global
-*.s2.service	IN	A	10.20.20.20	; global
-*.s2.service	IN	A	10.20.21.20	; global
-*.s3.service	IN	A	10.20.20.20	; global
-*.s3.service	IN	A	10.20.21.20	; global
-*.s4.service	IN	A	10.20.20.20	; global
-*.s4.service	IN	A	10.20.21.20	; global
-*.s5.service	IN	A	10.20.20.20	; global
-*.s5.service	IN	A	10.20.21.20	; global
-*.s6.service	IN	A	10.20.20.20	; global
-*.s6.service	IN	A	10.20.21.20	; global
-*.s7.service	IN	A	10.20.20.20	; global
-*.s7.service	IN	A	10.20.21.20	; global
-*.service	IN	A	192.168.64.26	; global
-*.service	IN	A	192.168.64.28	; global
-*.sub-1.dns-test-1	IN	A	10.20.20.20	; global
-*.sub-1.dns-test-1	IN	A	10.20.21.20	; global
-*.sub.dns3	IN	A	10.20.20.20	; global
-*.sub.dns3	IN	A	10.20.21.20	; global
-2048-sha265	IN	A	10.20.20.20	; global
-2048-sha265	IN	A	10.20.21.20	; global
-4096-sha265	IN	A	10.20.20.20	; global
-4096-sha265	IN	A	10.20.21.20	; global
-@	IN	A	1.1.1.1	; global
-a1	IN	A	10.20.20.20	; global
-acme-le-1-2.service	IN	A	10.20.20.20	; global
-acme-le-1-2.service	IN	A	10.20.21.20	; global
-acme-le-1.service	IN	A	10.20.20.20	; global
-acme-le-1.service	IN	A	10.20.21.20	; global
-acme-le-2.service	IN	A	10.20.20.20	; global
-acme-le-2.service	IN	A	10.20.21.20	; global
-acme-le-no-master.service	IN	A	10.20.20.20	; global
-acme-le-no-master.service	IN	A	10.20.21.20	; global
-b1	IN	A	10.20.21.20	; global
-cdn	IN	A	10.20.20.20	; global
-cdn	IN	A	10.20.21.20	; global
-cdn2	IN	A	10.20.20.20	; global
-cdn2	IN	A	10.20.21.20	; global
-dns-test-1	IN	A	10.20.20.20	; global
-dns-test-1	IN	A	10.20.21.20	; global
-dns-test-1-1	IN	A	10.20.20.20	; global
-dns-test-1-1	IN	A	10.20.21.20	; global
-dns-wildcard-1.acme	IN	A	10.20.20.20	; global
-dns-wildcard-1.acme	IN	A	10.20.21.20	; global
-dns-wildcard-2.acme	IN	A	10.20.20.20	; global
-dns-wildcard-2.acme	IN	A	10.20.21.20	; global
-dns1	IN	A	10.20.20.20	; global
-dns1	IN	A	10.20.21.20	; global
-dns2	IN	A	10.20.20.20	; global
-dns2	IN	A	10.20.21.20	; global
-dns3	IN	A	10.20.20.20	; global
-dns3	IN	A	10.20.21.20	; global
-ec256	IN	A	10.20.20.20	; global
-ec256	IN	A	10.20.21.20	; global
-ec384	IN	A	10.20.20.20	; global
-ec384	IN	A	10.20.21.20	; global
-l61.a1	IN	A	192.168.64.26	; global
-l62.a1	IN	A	192.168.64.27	; global
-l62.b1	IN	A	192.168.64.28	; global
-lfs-static	IN	A	10.20.20.20	; global
-lfs-static	IN	A	10.20.21.20	; global
-location.a1	IN	A	10.20.20.20	; global
-location.b1	IN	A	10.20.21.20	; global
-no-target	IN	A	10.20.20.20	; global
-no-target	IN	A	10.20.21.20	; global
-pki	IN	A	10.20.20.20	; global
-pki	IN	A	10.20.21.20	; global
-proxy	IN	A	10.20.20.20	; global
-proxy	IN	A	10.20.21.20	; global
-redirect	IN	A	10.20.20.20	; global
-redirect	IN	A	10.20.21.20	; global
-redirectHttps	IN	A	10.20.20.20	; global
-redirectHttps	IN	A	10.20.21.20	; global
-redirectHttps.extends	IN	A	10.20.20.20	; global
-redirectHttps.extends	IN	A	10.20.21.20	; global
-s1.a1	IN	A	1.1.1.1	; global
-s1.b1	IN	A	1.2.1.1	; global
-s1.service	IN	A	10.20.20.20	; global
-s1.service	IN	A	10.20.21.20	; global
-s2.service	IN	A	10.20.20.20	; global
-s2.service	IN	A	10.20.21.20	; global
-s3.service	IN	A	10.20.20.20	; global
-s3.service	IN	A	10.20.21.20	; global
-s4.service	IN	A	10.20.20.20	; global
-s4.service	IN	A	10.20.21.20	; global
-s5.service	IN	A	10.20.20.20	; global
-s5.service	IN	A	10.20.21.20	; global
-s6.service	IN	A	10.20.20.20	; global
-s6.service	IN	A	10.20.21.20	; global
-s7.service	IN	A	10.20.20.20	; global
-s7.service	IN	A	10.20.21.20	; global
-service	IN	A	1.1.2.1	; global
-service	IN	A	1.1.2.2	; global
-sub-1.dns-test-1	IN	A	10.20.20.20	; global
-sub-1.dns-test-1	IN	A	10.20.21.20	; global
-sub.dns3	IN	A	10.20.20.20	; global
-sub.dns3	IN	A	10.20.21.20	; global
-www	IN	A	1.1.1.1	; global
+*	IN	A	10.20.20.20	; target-44-[TargetSingle(example.com)]
+*	IN	A	10.20.21.20	; target-44-[TargetSingle(example.com)]
+*.2048-sha265	IN	A	10.20.20.20	; target-44-[Target(2048-sha265.example.com)]
+*.2048-sha265	IN	A	10.20.21.20	; target-44-[Target(2048-sha265.example.com)]
+*.4096-sha265	IN	A	10.20.20.20	; target-44-[Target(4096-sha265.example.com)]
+*.4096-sha265	IN	A	10.20.21.20	; target-44-[Target(4096-sha265.example.com)]
+*.a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
+*.acme-le-1-2.service	IN	A	10.20.20.20	; target-44-[TargetSingle(acme-le-1-2.service.example.com)]
+*.acme-le-1-2.service	IN	A	10.20.21.20	; target-44-[TargetSingle(acme-le-1-2.service.example.com)]
+*.acme-le-1.service	IN	A	10.20.20.20	; target-44-[TargetSingle(acme-le-1.service.example.com)]
+*.acme-le-1.service	IN	A	10.20.21.20	; target-44-[TargetSingle(acme-le-1.service.example.com)]
+*.acme-le-2.service	IN	A	10.20.20.20	; target-44-[TargetSingle(acme-le-2.service.example.com)]
+*.acme-le-2.service	IN	A	10.20.21.20	; target-44-[TargetSingle(acme-le-2.service.example.com)]
+*.acme-le-no-master.service	IN	A	10.20.20.20	; target-44-[TargetSingle(acme-le-no-master.service.example.com)]
+*.acme-le-no-master.service	IN	A	10.20.21.20	; target-44-[TargetSingle(acme-le-no-master.service.example.com)]
+*.b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+*.cdn	IN	A	10.20.20.20	; target-44-[TargetStatic(cdn.example.com)]
+*.cdn	IN	A	10.20.21.20	; target-44-[TargetStatic(cdn.example.com)]
+*.cdn2	IN	A	10.20.20.20	; target-44-[TargetStatic(cdn2.example.com)]
+*.cdn2	IN	A	10.20.21.20	; target-44-[TargetStatic(cdn2.example.com)]
+*.dns-test-1	IN	A	10.20.20.20	; target-44-[Target(dns-test-1.example.com)]
+*.dns-test-1	IN	A	10.20.21.20	; target-44-[Target(dns-test-1.example.com)]
+*.dns-test-1-1	IN	A	10.20.20.20	; target-44-[Target(dns-test-1-1.example.com)]
+*.dns-test-1-1	IN	A	10.20.21.20	; target-44-[Target(dns-test-1-1.example.com)]
+*.dns-wildcard-1.acme	IN	A	10.20.20.20	; target-44-[TargetSingle(dns-wildcard-1.acme.example.com)]
+*.dns-wildcard-1.acme	IN	A	10.20.21.20	; target-44-[TargetSingle(dns-wildcard-1.acme.example.com)]
+*.dns-wildcard-2.acme	IN	A	10.20.20.20	; target-44-[TargetSingle(dns-wildcard-2.acme.example.com)]
+*.dns-wildcard-2.acme	IN	A	10.20.21.20	; target-44-[TargetSingle(dns-wildcard-2.acme.example.com)]
+*.dns1	IN	A	10.20.20.20	; target-44-[TargetSingle(dns1.example.com)]
+*.dns1	IN	A	10.20.21.20	; target-44-[TargetSingle(dns1.example.com)]
+*.dns2	IN	A	10.20.20.20	; target-44-[TargetSingle(dns2.example.com)]
+*.dns2	IN	A	10.20.21.20	; target-44-[TargetSingle(dns2.example.com)]
+*.dns3	IN	A	10.20.20.20	; target-44-[TargetSingle(dns3.example.com)]
+*.dns3	IN	A	10.20.21.20	; target-44-[TargetSingle(dns3.example.com)]
+*.ec256	IN	A	10.20.20.20	; target-44-[Target(ec256.example.com)]
+*.ec256	IN	A	10.20.21.20	; target-44-[Target(ec256.example.com)]
+*.ec384	IN	A	10.20.20.20	; target-44-[Target(ec384.example.com)]
+*.ec384	IN	A	10.20.21.20	; target-44-[Target(ec384.example.com)]
+*.l61.a1	IN	A	192.168.64.26	; target-44-[TargetSingle(l61.a1.example.com)]
+*.l62.a1	IN	A	192.168.64.27	; target-44-[TargetSingle(l62.a1.example.com)]
+*.l62.b1	IN	A	192.168.64.28	; target-44-[Router(l62.b1.example.com)]
+*.lfs-static	IN	A	10.20.20.20	; target-44-[TargetStatic(lfs-static.example.com)]
+*.lfs-static	IN	A	10.20.21.20	; target-44-[TargetStatic(lfs-static.example.com)]
+*.location.a1	IN	A	10.20.20.20	; target-44-[TargetSingle(location.a1.example.com)]
+*.location.b1	IN	A	10.20.21.20	; target-44-[TargetSingle(location.b1.example.com)]
+*.no-target	IN	A	10.20.20.20	; target-44-[TargetStatic(no-target.example.com)]
+*.no-target	IN	A	10.20.21.20	; target-44-[TargetStatic(no-target.example.com)]
+*.pki	IN	A	10.20.20.20	; target-44-[TargetStatic(pki.example.com)]
+*.pki	IN	A	10.20.21.20	; target-44-[TargetStatic(pki.example.com)]
+*.proxy	IN	A	10.20.20.20	; target-44-[TargetStatic(proxy.example.com)]
+*.proxy	IN	A	10.20.21.20	; target-44-[TargetStatic(proxy.example.com)]
+*.redirect	IN	A	10.20.20.20	; target-44-[TargetStatic(redirect.example.com)]
+*.redirect	IN	A	10.20.21.20	; target-44-[TargetStatic(redirect.example.com)]
+*.redirectHttps	IN	A	10.20.20.20	; target-44-[TargetStatic(redirectHttps.example.com)]
+*.redirectHttps	IN	A	10.20.21.20	; target-44-[TargetStatic(redirectHttps.example.com)]
+*.redirectHttps.extends	IN	A	10.20.20.20	; target-44-[Target(redirectHttps.extends.example.com)]
+*.redirectHttps.extends	IN	A	10.20.21.20	; target-44-[Target(redirectHttps.extends.example.com)]
+*.s1.a1	IN	A	1.1.1.1	; target-44-[Server(s1.a1.example.com)]
+*.s1.b1	IN	A	1.2.1.1	; target-44-[Server(s1.b1.example.com)]
+*.s1.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s1.service.example.com)]
+*.s1.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s1.service.example.com)]
+*.s2.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s2.service.example.com)]
+*.s2.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s2.service.example.com)]
+*.s3.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s3.service.example.com)]
+*.s3.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s3.service.example.com)]
+*.s4.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s4.service.example.com)]
+*.s4.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s4.service.example.com)]
+*.s5.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s5.service.example.com)]
+*.s5.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s5.service.example.com)]
+*.s6.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s6.service.example.com)]
+*.s6.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s6.service.example.com)]
+*.s7.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s7.service.example.com)]
+*.s7.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s7.service.example.com)]
+*.service	IN	A	192.168.64.26	; target-44-[TargetMultiple(service.example.com)]
+*.service	IN	A	192.168.64.28	; target-44-[TargetMultiple(service.example.com)]
+*.sub-1.dns-test-1	IN	A	10.20.20.20	; target-44-[Target(sub-1.dns-test-1.example.com)]
+*.sub-1.dns-test-1	IN	A	10.20.21.20	; target-44-[Target(sub-1.dns-test-1.example.com)]
+*.sub.dns3	IN	A	10.20.20.20	; target-44-[TargetSingle(sub.dns3.example.com)]
+*.sub.dns3	IN	A	10.20.21.20	; target-44-[TargetSingle(sub.dns3.example.com)]
+2048-sha265	IN	A	10.20.20.20	; target-44-[Target(2048-sha265.example.com)]
+2048-sha265	IN	A	10.20.21.20	; target-44-[Target(2048-sha265.example.com)]
+4096-sha265	IN	A	10.20.20.20	; target-44-[Target(4096-sha265.example.com)]
+4096-sha265	IN	A	10.20.21.20	; target-44-[Target(4096-sha265.example.com)]
+@	IN	A	1.1.1.1	; static
+a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
+acme-le-1-2.service	IN	A	10.20.20.20	; target-44-[TargetSingle(acme-le-1-2.service.example.com)]
+acme-le-1-2.service	IN	A	10.20.21.20	; target-44-[TargetSingle(acme-le-1-2.service.example.com)]
+acme-le-1.service	IN	A	10.20.20.20	; target-44-[TargetSingle(acme-le-1.service.example.com)]
+acme-le-1.service	IN	A	10.20.21.20	; target-44-[TargetSingle(acme-le-1.service.example.com)]
+acme-le-2.service	IN	A	10.20.20.20	; target-44-[TargetSingle(acme-le-2.service.example.com)]
+acme-le-2.service	IN	A	10.20.21.20	; target-44-[TargetSingle(acme-le-2.service.example.com)]
+acme-le-no-master.service	IN	A	10.20.20.20	; target-44-[TargetSingle(acme-le-no-master.service.example.com)]
+acme-le-no-master.service	IN	A	10.20.21.20	; target-44-[TargetSingle(acme-le-no-master.service.example.com)]
+b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+cdn	IN	A	10.20.20.20	; target-44-[TargetStatic(cdn.example.com)]
+cdn	IN	A	10.20.21.20	; target-44-[TargetStatic(cdn.example.com)]
+cdn2	IN	A	10.20.20.20	; target-44-[TargetStatic(cdn2.example.com)]
+cdn2	IN	A	10.20.21.20	; target-44-[TargetStatic(cdn2.example.com)]
+dns-test-1	IN	A	10.20.20.20	; target-44-[Target(dns-test-1.example.com)]
+dns-test-1	IN	A	10.20.21.20	; target-44-[Target(dns-test-1.example.com)]
+dns-test-1-1	IN	A	10.20.20.20	; target-44-[Target(dns-test-1-1.example.com)]
+dns-test-1-1	IN	A	10.20.21.20	; target-44-[Target(dns-test-1-1.example.com)]
+dns-wildcard-1.acme	IN	A	10.20.20.20	; target-44-[TargetSingle(dns-wildcard-1.acme.example.com)]
+dns-wildcard-1.acme	IN	A	10.20.21.20	; target-44-[TargetSingle(dns-wildcard-1.acme.example.com)]
+dns-wildcard-2.acme	IN	A	10.20.20.20	; target-44-[TargetSingle(dns-wildcard-2.acme.example.com)]
+dns-wildcard-2.acme	IN	A	10.20.21.20	; target-44-[TargetSingle(dns-wildcard-2.acme.example.com)]
+dns1	IN	A	10.20.20.20	; target-44-[TargetSingle(dns1.example.com)]
+dns1	IN	A	10.20.21.20	; target-44-[TargetSingle(dns1.example.com)]
+dns2	IN	A	10.20.20.20	; target-44-[TargetSingle(dns2.example.com)]
+dns2	IN	A	10.20.21.20	; target-44-[TargetSingle(dns2.example.com)]
+dns3	IN	A	10.20.20.20	; target-44-[TargetSingle(dns3.example.com)]
+dns3	IN	A	10.20.21.20	; target-44-[TargetSingle(dns3.example.com)]
+ec256	IN	A	10.20.20.20	; target-44-[Target(ec256.example.com)]
+ec256	IN	A	10.20.21.20	; target-44-[Target(ec256.example.com)]
+ec384	IN	A	10.20.20.20	; target-44-[Target(ec384.example.com)]
+ec384	IN	A	10.20.21.20	; target-44-[Target(ec384.example.com)]
+l61.a1	IN	A	192.168.64.26	; target-44-[TargetSingle(l61.a1.example.com)]
+l62.a1	IN	A	192.168.64.27	; target-44-[TargetSingle(l62.a1.example.com)]
+l62.b1	IN	A	192.168.64.28	; target-44-[Router(l62.b1.example.com)]
+lfs-static	IN	A	10.20.20.20	; target-44-[TargetStatic(lfs-static.example.com)]
+lfs-static	IN	A	10.20.21.20	; target-44-[TargetStatic(lfs-static.example.com)]
+location.a1	IN	A	10.20.20.20	; target-44-[TargetSingle(location.a1.example.com)]
+location.b1	IN	A	10.20.21.20	; target-44-[TargetSingle(location.b1.example.com)]
+no-target	IN	A	10.20.20.20	; target-44-[TargetStatic(no-target.example.com)]
+no-target	IN	A	10.20.21.20	; target-44-[TargetStatic(no-target.example.com)]
+pki	IN	A	10.20.20.20	; target-44-[TargetStatic(pki.example.com)]
+pki	IN	A	10.20.21.20	; target-44-[TargetStatic(pki.example.com)]
+proxy	IN	A	10.20.20.20	; target-44-[TargetStatic(proxy.example.com)]
+proxy	IN	A	10.20.21.20	; target-44-[TargetStatic(proxy.example.com)]
+redirect	IN	A	10.20.20.20	; target-44-[TargetStatic(redirect.example.com)]
+redirect	IN	A	10.20.21.20	; target-44-[TargetStatic(redirect.example.com)]
+redirectHttps	IN	A	10.20.20.20	; target-44-[TargetStatic(redirectHttps.example.com)]
+redirectHttps	IN	A	10.20.21.20	; target-44-[TargetStatic(redirectHttps.example.com)]
+redirectHttps.extends	IN	A	10.20.20.20	; target-44-[Target(redirectHttps.extends.example.com)]
+redirectHttps.extends	IN	A	10.20.21.20	; target-44-[Target(redirectHttps.extends.example.com)]
+s1.a1	IN	A	1.1.1.1	; target-44-[Server(s1.a1.example.com)]
+s1.b1	IN	A	1.2.1.1	; target-44-[Server(s1.b1.example.com)]
+s1.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s1.service.example.com)]
+s1.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s1.service.example.com)]
+s2.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s2.service.example.com)]
+s2.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s2.service.example.com)]
+s3.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s3.service.example.com)]
+s3.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s3.service.example.com)]
+s4.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s4.service.example.com)]
+s4.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s4.service.example.com)]
+s5.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s5.service.example.com)]
+s5.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s5.service.example.com)]
+s6.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s6.service.example.com)]
+s6.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s6.service.example.com)]
+s7.service	IN	A	10.20.20.20	; target-44-[TargetSingle(s7.service.example.com)]
+s7.service	IN	A	10.20.21.20	; target-44-[TargetSingle(s7.service.example.com)]
+service	IN	A	1.1.2.1	; static
+service	IN	A	1.1.2.2	; static
+sub-1.dns-test-1	IN	A	10.20.20.20	; target-44-[Target(sub-1.dns-test-1.example.com)]
+sub-1.dns-test-1	IN	A	10.20.21.20	; target-44-[Target(sub-1.dns-test-1.example.com)]
+sub.dns3	IN	A	10.20.20.20	; target-44-[TargetSingle(sub.dns3.example.com)]
+sub.dns3	IN	A	10.20.21.20	; target-44-[TargetSingle(sub.dns3.example.com)]
+www	IN	A	1.1.1.1	; static
 
 ; AAAA Records
 
@@ -197,26 +197,26 @@ www	IN	A	1.1.1.1	; global
 ; PTR Records
 
 ; TXT Records
-@	IN	TXT	text_record_1	; global
-@	IN	TXT	"text record 2"	; global
-@	IN	TXT	"text record 3"	; global
+@	IN	TXT	text_record_1	; static
+@	IN	TXT	"text record 2"	; static
+@	IN	TXT	"text record 3"	; static
 
 ; SRV Records
-_build._tcp	IN	SRV	20	25	27443	l61.a1.example.com.
-_build._tcp	IN	SRV	20	25	26443	l62.b1.example.com.
-_resolve._tcp	IN	SRV	20	25	27443	l61.a1.example.com.
-_resolve._tcp	IN	SRV	10	25	26443	l62.b1.example.com.
-_sip._tcp	IN	SRV	0	5	5060	l62.b1.example.com.
-_www._tcp	IN	SRV	0	5	80	web1.example.com.
-_www._tcp	IN	SRV	0	5	80	web2.example.com.
-_www._tcp	IN	SRV	0	5	80	web3.example.com.
+_build._tcp	IN	SRV	20	25	27443	l61.a1.example.com.	; target-srv
+_build._tcp	IN	SRV	20	25	26443	l62.b1.example.com.	; target-srv
+_resolve._tcp	IN	SRV	20	25	27443	l61.a1.example.com.	; target-srv
+_resolve._tcp	IN	SRV	10	25	26443	l62.b1.example.com.	; target-srv
+_sip._tcp	IN	SRV	0	5	5060	l62.b1.example.com.	; target-srv
+_www._tcp	IN	SRV	0	5	80	web1.example.com.	; static
+_www._tcp	IN	SRV	0	5	80	web2.example.com.	; static
+_www._tcp	IN	SRV	0	5	80	web3.example.com.	; static
 
 ; SPF Records
 
 ; CAA Records
-@	IN	CAA	0	issue	ca.example.com
-@	IN	CAA	0	iodef	mailto:security@example.com
-@	IN	CAA	0	iodef	http://iodef.example.com/
+@	IN	CAA	0	issue	ca.example.com	; static
+@	IN	CAA	0	iodef	mailto:security@example.com	; static
+@	IN	CAA	0	iodef	http://iodef.example.com/	; static
 
 ; DS Records
 

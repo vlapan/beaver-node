@@ -12,24 +12,24 @@ $TTL 600
 )
 
 ; NS Records
-@	IN	NS	a1	; local-net-10-10-10-0-24
-@	IN	NS	b1	; local-net-10-10-10-0-24
+@	IN	NS	a1	; config-n
+@	IN	NS	b1	; config-n
 
 ; MX Records
 
 ; A Records
-*	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-*.a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.b1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-@	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-@	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-@	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-b1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
+*	IN	A	10.10.10.10	; config-a4
+*	IN	A	10.10.10.11	; config-a4
+*	IN	A	10.20.21.20	; config-a4
+*.a1	IN	A	10.10.10.10	; location-44-[Location(a1)]
+*.a1	IN	A	10.10.10.11	; location-44-[Location(a1)]
+*.b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+@	IN	A	10.10.10.10	; config-a4
+@	IN	A	10.10.10.11	; config-a4
+@	IN	A	10.20.21.20	; config-a4
+a1	IN	A	10.10.10.10	; location-44-[Location(a1)]
+a1	IN	A	10.10.10.11	; location-44-[Location(a1)]
+b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
 
 ; AAAA Records
 
@@ -38,22 +38,22 @@ b1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
 ; PTR Records
 
 ; TXT Records
-@	IN	TXT	"v=spf1 a mx ptr ~all"	; local-net-10-10-10-0-24
+@	IN	TXT	"v=spf1 a mx ptr ~all"	; static
 
 ; SRV Records
-_www._tcp	IN	SRV	0	5	80	web1.example.com.
-_www._tcp	IN	SRV	0	5	80	web2.example.com.
-_www._tcp	IN	SRV	0	5	80	web3.example.com.
+_www._tcp	IN	SRV	0	5	80	web1.example.com.	; static
+_www._tcp	IN	SRV	0	5	80	web2.example.com.	; static
+_www._tcp	IN	SRV	0	5	80	web3.example.com.	; static
 
 ; SPF Records
 
 ; CAA Records
-sub	IN	CAA	0	issue	ca.example.com
-sub	IN	CAA	0	iodef	mailto:security@example.com
-sub	IN	CAA	0	iodef	http://iodef.example.com/
-@	IN	CAA	0	issue	ca.example.com
-@	IN	CAA	0	iodef	mailto:security@example.com
-@	IN	CAA	0	iodef	http://iodef.example.com/
+sub	IN	CAA	0	issue	ca.example.com	; static
+sub	IN	CAA	0	iodef	mailto:security@example.com	; static
+sub	IN	CAA	0	iodef	http://iodef.example.com/	; static
+@	IN	CAA	0	issue	ca.example.com	; static
+@	IN	CAA	0	iodef	mailto:security@example.com	; static
+@	IN	CAA	0	iodef	http://iodef.example.com/	; static
 
 ; DS Records
 

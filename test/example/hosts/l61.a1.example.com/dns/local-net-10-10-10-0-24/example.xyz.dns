@@ -12,38 +12,38 @@ $TTL 600
 )
 
 ; NS Records
-@	IN	NS	a1	; local-net-10-10-10-0-24
-@	IN	NS	b1	; local-net-10-10-10-0-24
+@	IN	NS	a1	; config-n
+@	IN	NS	b1	; config-n
 
 ; MX Records
 
 ; A Records
-*	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.b1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-*.web	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.web	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.web	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-*.web-eu	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.web-eu	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-*.web-ru	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-*.www	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-*.www	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-@	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-@	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-a1	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-a1	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-b1	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-web	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-web	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-web	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-web-eu	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-web-eu	IN	A	10.10.10.11	; local-net-10-10-10-0-24
-web-ru	IN	A	10.20.21.20	; local-net-10-10-10-0-24
-www	IN	A	10.10.10.10	; local-net-10-10-10-0-24
-www	IN	A	10.10.10.11	; local-net-10-10-10-0-24
+*	IN	A	10.10.10.10	; target-44-[TargetSingle(example.xyz)]
+*	IN	A	10.10.10.11	; target-44-[TargetSingle(example.xyz)]
+*.a1	IN	A	10.10.10.10	; location-44-[Location(a1)]
+*.a1	IN	A	10.10.10.11	; location-44-[Location(a1)]
+*.b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+*.web	IN	A	10.10.10.10	; target-44-[TargetMultiple(web.example.xyz)]
+*.web	IN	A	10.10.10.11	; target-44-[TargetMultiple(web.example.xyz)]
+*.web	IN	A	10.20.21.20	; target-44-[TargetMultiple(web.example.xyz)]
+*.web-eu	IN	A	10.10.10.10	; target-44-[TargetMultiple(web-eu.example.xyz)]
+*.web-eu	IN	A	10.10.10.11	; target-44-[TargetMultiple(web-eu.example.xyz)]
+*.web-ru	IN	A	10.20.21.20	; target-44-[TargetSingle(web-ru.example.xyz)]
+*.www	IN	A	10.10.10.10	; target-44-[TargetStatic(www.example.xyz)]
+*.www	IN	A	10.10.10.11	; target-44-[TargetStatic(www.example.xyz)]
+@	IN	A	10.10.10.10	; target-44-[TargetSingle(example.xyz)]
+@	IN	A	10.10.10.11	; target-44-[TargetSingle(example.xyz)]
+a1	IN	A	10.10.10.10	; location-44-[Location(a1)]
+a1	IN	A	10.10.10.11	; location-44-[Location(a1)]
+b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+web	IN	A	10.10.10.10	; target-44-[TargetMultiple(web.example.xyz)]
+web	IN	A	10.10.10.11	; target-44-[TargetMultiple(web.example.xyz)]
+web	IN	A	10.20.21.20	; target-44-[TargetMultiple(web.example.xyz)]
+web-eu	IN	A	10.10.10.10	; target-44-[TargetMultiple(web-eu.example.xyz)]
+web-eu	IN	A	10.10.10.11	; target-44-[TargetMultiple(web-eu.example.xyz)]
+web-ru	IN	A	10.20.21.20	; target-44-[TargetSingle(web-ru.example.xyz)]
+www	IN	A	10.10.10.10	; target-44-[TargetStatic(www.example.xyz)]
+www	IN	A	10.10.10.11	; target-44-[TargetStatic(www.example.xyz)]
 
 ; AAAA Records
 
