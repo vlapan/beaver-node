@@ -22,7 +22,7 @@ class Versions {
         return typeof data === 'object' && data.version;
     }
 
-    async yaumrc() {
+    async yaumnrc() {
         const json = await fs.promises.readFile(path.resolve(path.dirname(require.resolve('clean-yaumnrc')), 'package.json'));
         const data = JSON.parse(json);
         return typeof data === 'object' && data.version;

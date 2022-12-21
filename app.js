@@ -14,7 +14,7 @@ const { daemonStarted } = require('./lib/notificator');
 module.exports = {
     async main(argv) {
         debug('start');
-        debug(`versions: beaver ${await versions.get('beaver')}, yaumrc ${await versions.get('yaumrc')}`);
+        debug(`versions: beaver ${await versions.get('beaver')}, yaumnrc ${await versions.get('yaumnrc')}`);
         if (argv.input) {
             try {
                 await config.readFile();
