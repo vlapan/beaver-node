@@ -1,0 +1,123 @@
+# skip: 10.20.20.20                                                           2048-sha265.example.com
+# skip: 10.10.11.10                                                           2048-sha265.example.com
+# skip: 10.10.11.11                                                           2048-sha265.example.com
+# skip: 10.20.20.20                                                           4096-sha265.example.com
+# skip: 10.10.11.10                                                           4096-sha265.example.com
+# skip: 10.10.11.11                                                           4096-sha265.example.com
+1.1.1.1                                                                       example.com
+10.20.20.20                                                                   a1.example.com
+# skip: 10.10.11.10                                                           acme-le-1-2.service.example.com
+# skip: 10.10.11.11                                                           acme-le-1-2.service.example.com
+# skip: 10.10.11.10                                                           acme-le-1.service.example.com
+# skip: 10.10.11.11                                                           acme-le-1.service.example.com
+# skip: 10.10.11.10                                                           acme-le-2.service.example.com
+# skip: 10.10.11.11                                                           acme-le-2.service.example.com
+# skip: 10.10.11.10                                                           acme-le-no-master.service.example.com
+# skip: 10.10.11.11                                                           acme-le-no-master.service.example.com
+# skip: 10.10.11.10                                                           b1.example.com
+# skip: 10.10.11.11                                                           b1.example.com
+# skip: 10.20.20.20                                                           cdn.example.com
+# skip: 10.10.11.10                                                           cdn.example.com
+# skip: 10.10.11.11                                                           cdn.example.com
+# skip: 10.20.20.20                                                           cdn2.example.com
+# skip: 10.10.11.10                                                           cdn2.example.com
+# skip: 10.10.11.11                                                           cdn2.example.com
+# skip: 10.20.20.20                                                           dns-test-1.example.com
+# skip: 10.10.11.10                                                           dns-test-1.example.com
+# skip: 10.10.11.11                                                           dns-test-1.example.com
+# skip: 10.20.20.20                                                           dns-test-1-1.example.com
+# skip: 10.10.11.10                                                           dns-test-1-1.example.com
+# skip: 10.10.11.11                                                           dns-test-1-1.example.com
+# skip: 10.10.11.10                                                           dns-wildcard-1.acme.example.com
+# skip: 10.10.11.11                                                           dns-wildcard-1.acme.example.com
+# skip: 10.10.11.10                                                           dns-wildcard-2.acme.example.com
+# skip: 10.10.11.11                                                           dns-wildcard-2.acme.example.com
+# skip: 10.10.11.10                                                           dns1.example.com
+# skip: 10.10.11.11                                                           dns1.example.com
+# skip: 10.10.11.10                                                           dns2.example.com
+# skip: 10.10.11.11                                                           dns2.example.com
+# skip: 10.10.11.10                                                           dns3.example.com
+# skip: 10.10.11.11                                                           dns3.example.com
+# skip: 10.20.20.20                                                           ec256.example.com
+# skip: 10.10.11.10                                                           ec256.example.com
+# skip: 10.10.11.11                                                           ec256.example.com
+# skip: 10.20.20.20                                                           ec384.example.com
+# skip: 10.10.11.10                                                           ec384.example.com
+# skip: 10.10.11.11                                                           ec384.example.com
+192.168.64.26                                                                 l61.a1.example.com
+192.168.64.27                                                                 l62.a1.example.com
+192.168.64.28                                                                 l62.b1.example.com
+# skip: 10.20.20.20                                                           lfs-static.example.com
+# skip: 10.10.11.10                                                           lfs-static.example.com
+# skip: 10.10.11.11                                                           lfs-static.example.com
+10.20.20.20                                                                   location.a1.example.com
+# skip: 10.10.11.10                                                           location.b1.example.com
+# skip: 10.10.11.11                                                           location.b1.example.com
+# skip: 10.20.20.20                                                           no-target.example.com
+# skip: 10.10.11.10                                                           no-target.example.com
+# skip: 10.10.11.11                                                           no-target.example.com
+# skip: 10.20.20.20                                                           pki.example.com
+# skip: 10.10.11.10                                                           pki.example.com
+# skip: 10.10.11.11                                                           pki.example.com
+# skip: 10.20.20.20                                                           proxy.example.com
+# skip: 10.10.11.10                                                           proxy.example.com
+# skip: 10.10.11.11                                                           proxy.example.com
+# skip: 10.20.20.20                                                           redirect.example.com
+# skip: 10.10.11.10                                                           redirect.example.com
+# skip: 10.10.11.11                                                           redirect.example.com
+# skip: 10.20.20.20                                                           redirectHttps.example.com
+# skip: 10.10.11.10                                                           redirectHttps.example.com
+# skip: 10.10.11.11                                                           redirectHttps.example.com
+# skip: 10.20.20.20                                                           redirectHttps.extends.example.com
+# skip: 10.10.11.10                                                           redirectHttps.extends.example.com
+# skip: 10.10.11.11                                                           redirectHttps.extends.example.com
+1.1.1.1                                                                       s1.a1.example.com
+1.2.1.1                                                                       s1.b1.example.com
+# skip: 10.10.11.10                                                           s1.service.example.com
+# skip: 10.10.11.11                                                           s1.service.example.com
+# skip: 10.10.11.10                                                           s2.service.example.com
+# skip: 10.10.11.11                                                           s2.service.example.com
+# skip: 10.10.11.10                                                           s3.service.example.com
+# skip: 10.10.11.11                                                           s3.service.example.com
+# skip: 10.10.11.10                                                           s4.service.example.com
+# skip: 10.10.11.11                                                           s4.service.example.com
+# skip: 10.10.11.10                                                           s5.service.example.com
+# skip: 10.10.11.11                                                           s5.service.example.com
+# skip: 10.10.11.10                                                           s6.service.example.com
+# skip: 10.10.11.11                                                           s6.service.example.com
+# skip: 10.10.11.10                                                           s7.service.example.com
+# skip: 10.10.11.11                                                           s7.service.example.com
+# skip: 1.1.2.1                                                               service.example.com
+# skip: 1.1.2.2                                                               service.example.com
+# skip: 10.20.20.20                                                           sub-1.dns-test-1.example.com
+# skip: 10.10.11.10                                                           sub-1.dns-test-1.example.com
+# skip: 10.10.11.11                                                           sub-1.dns-test-1.example.com
+# skip: 10.10.11.10                                                           sub.dns3.example.com
+# skip: 10.10.11.11                                                           sub.dns3.example.com
+1.1.1.1                                                                       www.example.com
+# skip: 10.20.20.20                                                           example-2.com
+# skip: 10.10.11.10                                                           example-2.com
+# skip: 10.10.11.11                                                           example-2.com
+10.20.20.20                                                                   a1.example-2.com
+# skip: 10.10.11.10                                                           b1.example-2.com
+# skip: 10.10.11.11                                                           b1.example-2.com
+192.168.64.26                                                                 example.org
+10.20.20.20                                                                   a1.example.org
+# skip: 10.10.11.10                                                           b1.example.org
+# skip: 10.10.11.11                                                           b1.example.org
+# skip: 10.10.11.10                                                           dns1.example.org
+# skip: 10.10.11.11                                                           dns1.example.org
+192.168.64.26                                                                 l61.a1.example.org
+192.168.64.27                                                                 l64.a1.example.org
+192.168.64.91                                                                 wan-only.example.org
+10.20.20.20                                                                   example.xyz
+10.20.20.20                                                                   a1.example.xyz
+# skip: 10.10.11.10                                                           b1.example.xyz
+# skip: 10.10.11.11                                                           b1.example.xyz
+# skip: 10.20.20.20                                                           web.example.xyz
+# skip: 10.10.11.10                                                           web.example.xyz
+# skip: 10.10.11.11                                                           web.example.xyz
+10.20.20.20                                                                   web-eu.example.xyz
+# skip: 10.10.11.10                                                           web-ru.example.xyz
+# skip: 10.10.11.11                                                           web-ru.example.xyz
+10.20.20.20                                                                   www.example.xyz

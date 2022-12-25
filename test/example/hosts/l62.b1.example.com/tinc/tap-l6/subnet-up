@@ -1,0 +1,11 @@
+#!/bin/sh
+logger -i -t "tinc.tap-l6" "subnet-up, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT, subnet=$SUBNET, weight=$WEIGHT"
+DIR=$(dirname -- "$(readlink -f -- "$0";)")
+if [ "$REMOTEADDRESS" ]; then
+    IP=${SUBNET%/*}
+    MASK=${SUBNET#*/}
+    ROUTEDIR="$DIR/routes/ip=${IP},mask=${MASK}"
+    mkdir -p $ROUTEDIR
+    touch $ROUTEDIR/$REMOTEADDRESS
+fi
+/bin/sh $DIR/routes.sh

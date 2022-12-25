@@ -1,0 +1,57 @@
+; Zone: example.org.
+
+$ORIGIN example.org.
+$TTL 600
+
+; SOA Record
+@	 		IN	SOA	l62.b1.example.com.	admin.example.org.	(
+300	 ;refresh
+150	 ;retry
+86400	 ;expire
+600	 ;minimum ttl
+)
+
+; NS Records
+@	IN	NS	a1	; config-n
+@	IN	NS	b1	; config-n
+
+; MX Records
+
+; A Records
+*	IN	A	192.168.64.26	; target-44-[TargetSingle(example.org)]
+*.a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
+*.b1	IN	A	10.10.11.10	; location-44-[Location(b1)]
+*.b1	IN	A	10.10.11.11	; location-44-[Location(b1)]
+*.dns1	IN	A	10.10.11.10	; target-44-[TargetSingle(dns1.example.org)]
+*.dns1	IN	A	10.10.11.11	; target-44-[TargetSingle(dns1.example.org)]
+*.l61.a1	IN	A	192.168.64.26	; target-44-[Router(l61.a1.example.org)]
+*.l64.a1	IN	A	192.168.64.27	; target-44-[Router(l64.a1.example.org)]
+*.wan-only	IN	A	192.168.64.91	; target-44-[Server(wan-only.example.org)]
+@	IN	A	192.168.64.26	; target-44-[TargetSingle(example.org)]
+a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
+b1	IN	A	10.10.11.10	; location-44-[Location(b1)]
+b1	IN	A	10.10.11.11	; location-44-[Location(b1)]
+dns1	IN	A	10.10.11.10	; target-44-[TargetSingle(dns1.example.org)]
+dns1	IN	A	10.10.11.11	; target-44-[TargetSingle(dns1.example.org)]
+l61.a1	IN	A	192.168.64.26	; target-44-[Router(l61.a1.example.org)]
+l64.a1	IN	A	192.168.64.27	; target-44-[Router(l64.a1.example.org)]
+wan-only	IN	A	192.168.64.91	; target-44-[Server(wan-only.example.org)]
+
+; AAAA Records
+
+; CNAME Records
+
+; PTR Records
+
+; TXT Records
+
+; SRV Records
+_build._tcp	IN	SRV	20	25	27443	l61.a1.example.org.	; target-srv
+_resolve._tcp	IN	SRV	20	25	27443	l61.a1.example.org.	; target-srv
+
+; SPF Records
+
+; CAA Records
+
+; DS Records
+

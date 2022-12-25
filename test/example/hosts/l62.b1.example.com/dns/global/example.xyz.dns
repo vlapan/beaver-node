@@ -1,0 +1,53 @@
+; Zone: example.xyz.
+
+$ORIGIN example.xyz.
+$TTL 600
+
+; SOA Record
+@	 		IN	SOA	l62.b1.example.com.	admin.example.xyz.	(
+300	 ;refresh
+150	 ;retry
+86400	 ;expire
+600	 ;minimum ttl
+)
+
+; NS Records
+@	IN	NS	a1	; config-n
+@	IN	NS	b1	; config-n
+
+; MX Records
+
+; A Records
+*	IN	A	10.20.20.20	; target-44-[TargetSingle(example.xyz)]
+*.a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
+*.b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+*.web	IN	A	10.20.20.20	; target-44-[TargetMultiple(web.example.xyz)]
+*.web	IN	A	10.20.21.20	; target-44-[TargetMultiple(web.example.xyz)]
+*.web-eu	IN	A	10.20.20.20	; target-44-[TargetMultiple(web-eu.example.xyz)]
+*.web-ru	IN	A	10.20.21.20	; target-44-[TargetSingle(web-ru.example.xyz)]
+*.www	IN	A	10.20.20.20	; target-44-[TargetStatic(www.example.xyz)]
+@	IN	A	10.20.20.20	; target-44-[TargetSingle(example.xyz)]
+a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
+b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+web	IN	A	10.20.20.20	; target-44-[TargetMultiple(web.example.xyz)]
+web	IN	A	10.20.21.20	; target-44-[TargetMultiple(web.example.xyz)]
+web-eu	IN	A	10.20.20.20	; target-44-[TargetMultiple(web-eu.example.xyz)]
+web-ru	IN	A	10.20.21.20	; target-44-[TargetSingle(web-ru.example.xyz)]
+www	IN	A	10.20.20.20	; target-44-[TargetStatic(www.example.xyz)]
+
+; AAAA Records
+
+; CNAME Records
+
+; PTR Records
+
+; TXT Records
+
+; SRV Records
+
+; SPF Records
+
+; CAA Records
+
+; DS Records
+

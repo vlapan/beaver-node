@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-HOSTS="l61.a1.example.com l62.a1.example.com"
+HOSTS="l61.a1.example.com l62.a1.example.com l62.b1.example.com"
 TEST_PATH=test/example
 
 for BEAVER_HOSTNAME in $HOSTS; do

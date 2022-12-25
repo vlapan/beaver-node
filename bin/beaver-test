@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
-HOSTS="l61.a1.example.com l62.a1.example.com"
+DEBUG="$1"
+if [ "$DEBUG" ]; then
+    HOSTS="l61.a1.example.com"
+else
+    HOSTS="l61.a1.example.com l62.a1.example.com l62.b1.example.com"
+fi
 TEST_PATH=test/example
 BEAVER_DAEMON=false
 
@@ -33,11 +38,19 @@ for BEAVER_HOSTNAME in $HOSTS; do
     echo
 done
 
-for ITEM in $(find test/example/hosts -name "*.csr" | grep -vE -e "/*.-saved/"); do
-    openssl req -text -noout -in ${ITEM} | grep -v -e '[a-z0-9]:[a-z0-9]' -e 'Modulus:' > ${ITEM}.txt
-done
-for ITEM in $(find test/example/hosts -name "*.crt" -o -name "*.ca" -o -name "*.ca-crt" | grep -vE -e "/*.-saved/"); do
-    openssl x509 -in ${ITEM} -text -noout | grep -v -e 'Modulus:' -e 'X509v3 Authority Key Identifier:' -e 'X509v3 Subject Key Identifier:' -e 'Serial Number:' -e 'Validity' -e 'Not Before:' -e 'Not After :' -e 'pub: $' -e ':\w\w$' -e ':\w\w:$' -e '^$' > ${ITEM}.txt
-done
+{
+    for ITEM in $(find test/example/hosts -name "*.csr" | grep -vE -e "/*.-saved/"); do
+        openssl req -text -noout -in ${ITEM} | grep -v -e '[a-z0-9]:[a-z0-9]' -e 'Modulus:' > ${ITEM}.txt
+    done
+} &
 
-sed -i '' '/^; Exported/d;/;serial$/d' $(find test/example/hosts -name "*.dns" | grep -vE -e "/*.-saved/")
+{
+    for ITEM in $(find test/example/hosts -name "*.crt" -o -name "*.ca" -o -name "*.ca-crt" | grep -vE -e "/*.-saved/"); do
+        openssl x509 -in ${ITEM} -text -noout | grep -v -e 'Modulus:' -e 'X509v3 Authority Key Identifier:' -e 'X509v3 Subject Key Identifier:' -e 'Serial Number:' -e 'Validity' -e 'Not Before:' -e 'Not After :' -e 'pub: $' -e ':\w\w$' -e ':\w\w:$' -e '^$' > ${ITEM}.txt
+    done
+} &
+
+sed -i '' '/^; Exported/d;/;serial$/d' $(find test/example/hosts -name "*.dns" | grep -vE -e "/*.-saved/") &
+
+
+wait
