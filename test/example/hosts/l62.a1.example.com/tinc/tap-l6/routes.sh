@@ -1,6 +1,7 @@
 #!/bin/sh
 DIR=$(dirname -- "$(readlink -f -- "$0";)")
 NETSTAT_CURRENT=$(netstat -rn | grep -e 'UHS.*tap-l6' | cut -d' ' -f1)
+mkdir -p $DIR/routes
 ROUTES=$(ls $DIR/routes)
 ROUTES_REMOTE=$(cat $DIR/routes-remote)
 for ITEM in $ROUTES; do
