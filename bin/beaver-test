@@ -46,7 +46,7 @@ done
 
 {
     for ITEM in $(find test/example/hosts -name "*.crt" -o -name "*.ca" -o -name "*.ca-crt" | grep -vE -e "/*.-saved/"); do
-        openssl x509 -in ${ITEM} -text -noout | grep -v -e 'Modulus:' -e 'X509v3 Authority Key Identifier:' -e 'X509v3 Subject Key Identifier:' -e 'Serial Number:' -e 'Validity' -e 'Not Before:' -e 'Not After :' -e 'pub: $' -e ':\w\w$' -e ':\w\w:$' -e '^$' > ${ITEM}.txt
+        openssl x509 -in ${ITEM} -text -noout | grep -v -e 'pub:' -e 'Signature Value:' -e 'Modulus:' -e 'X509v3 Authority Key Identifier:' -e 'X509v3 Subject Key Identifier:' -e 'Serial Number:' -e 'Validity' -e 'Not Before:' -e 'Not After :' -e 'pub: $' -e ':\w\w$' -e ':\w\w:$' -e '^$' > ${ITEM}.txt
     done
 } &
 
