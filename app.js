@@ -36,7 +36,7 @@ module.exports = {
             } catch (e) { }
         }
         if (argv.daemon) {
-            this.daemonStart(argv);
+            await this.daemonStart(argv);
         }
     },
     async daemonStart(argv) {

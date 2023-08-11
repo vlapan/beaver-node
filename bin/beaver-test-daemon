@@ -19,6 +19,7 @@ if time beaver -v \
     --output=${BEAVER_HOSTNAME_PATH} \
     --home=${BEAVER_HOSTNAME_PATH}-home \
     --platform=freebsd \
+    --disable-overseer \
     --disable-notify \
     --disable-acme; then
     echo exited with code 1

@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
+export BEAVER_DAEMON=false
+TEST_PATH=test/example
+
 DEBUG="$1"
 if [ "$DEBUG" ]; then
     HOSTS="l61.a1.example.com"
 else
     HOSTS="l61.a1.example.com l62.a1.example.com l62.b1.example.com"
 fi
-TEST_PATH=test/example
-BEAVER_DAEMON=false
 
 for BEAVER_HOSTNAME in $HOSTS; do
     BEAVER_HOSTNAME_PATH="${TEST_PATH}/hosts/${BEAVER_HOSTNAME}"

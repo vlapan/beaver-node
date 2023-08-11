@@ -14,7 +14,6 @@ logfile="/var/log/${name}.log"
 load_rc_config $name
 : ${beaverd_port=1001}
 : ${beaverd_home="/usr/local/etc/beaver"}
-eval "${rcvar}=\${${rcvar}:-'NO'}"
 
 command_service="beaver -vvvvvv --daemon --home=${beaverd_home} --httpsPort=${beaverd_port}"
 command="/usr/sbin/daemon"
@@ -24,6 +23,6 @@ USER=root
 PATH=/sbin:/bin:/usr/sbin:/usr/bin:/usr/local/sbin:/usr/local/bin:/root/bin
 PWD=/root
 HOME=/root
-NODE_ENV=production
+export NODE_ENV=production
 
 run_rc_command "$1"
