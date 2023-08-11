@@ -95,7 +95,6 @@ module.exports = {
                 argv,
                 config,
                 debug,
-                ac,
             });
             setTimeout(notificatorDaemon.start.bind(notificatorDaemon), 1 * 1 * 1000);
         }
