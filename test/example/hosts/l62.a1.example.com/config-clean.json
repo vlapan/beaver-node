@@ -1,0 +1,1015 @@
+{
+    "locations": {
+        "a1": {
+            "name": "a1.example.com",
+            "title": "a1.example.com location",
+            "wan3": [
+                "10.20.20.20",
+                "10.20.20.21"
+            ],
+            "lan3": [
+                "10.10.10.10/24",
+                "10.10.10.11/24"
+            ]
+        },
+        "b1": {
+            "name": "b1.example.com",
+            "title": "b1.example.com location",
+            "wan3": [
+                "10.20.21.20",
+                "10.20.21.21"
+            ],
+            "lan3": [
+                "10.10.11.10/24",
+                "10.10.11.11/24"
+            ]
+        },
+        "standalone": {
+            "name": "standalone"
+        }
+    },
+    "servers": {
+        "s1.a1.example.com": {
+            "disposition": "host",
+            "location": "a1",
+            "notify": [
+                "grp-adm"
+            ],
+            "resources": {
+                "cpu": 24,
+                "ram": "256G",
+                "hdd": "20000G"
+            },
+            "wan": {
+                "mac": "??:??:??:??:??",
+                "ip": "1.1.1.1"
+            },
+            "lan": {
+                "mac": "1A:01:01:01:01:01",
+                "ip": "172.16.1.1"
+            }
+        },
+        "s1.b1.example.com": {
+            "disposition": "host",
+            "location": "b1",
+            "notify": [
+                "grp-adm"
+            ],
+            "resources": {
+                "cpu": 24,
+                "ram": "256G",
+                "hdd": "20000G"
+            },
+            "wan": {
+                "mac": "??:??:??:??:??",
+                "ip": "1.2.1.1"
+            },
+            "lan": {
+                "mac": "1A:01:01:01:01:01",
+                "ip": "172.16.2.1"
+            }
+        },
+        "l61.a1.example.com": {
+            "disposition": "guest",
+            "router": "active",
+            "monitor": true,
+            "location": "a1",
+            "resources": {
+                "cpu": 4,
+                "ram": "4096m",
+                "hdd": "100G"
+            },
+            "net": "net",
+            "srv": {
+                "_resolve._tcp": {
+                    "priority": "20",
+                    "weight": "25",
+                    "port": "27443"
+                },
+                "_build._tcp": "20 25 27443"
+            },
+            "lan": {
+                "mac": "2A:01:01:01:01:01",
+                "ip": "172.16.3.1"
+            },
+            "wan": {
+                "mac": "20:01:01:01:01:01",
+                "ip": "192.168.64.26",
+                "iface": "wan.4022"
+            },
+            "tap": {
+                "name": "tap-l6",
+                "ip": "10.254.1.1",
+                "key": "--- RSA PUBLIC KEY, hash: 158318912"
+            },
+            "vpn": {
+                "key": "l6route",
+                "ip": "10.253.1.1"
+            },
+            "notify": [
+                "grp-adm"
+            ],
+            "tcpShift": "1000",
+            "type": "unix",
+            "os": "bsd"
+        },
+        "l62.a1.example.com": {
+            "disposition": "guest",
+            "router": "active",
+            "monitor": true,
+            "location": "a1",
+            "resources": {
+                "cpu": 4,
+                "ram": "4096m",
+                "hdd": "100G"
+            },
+            "net": "net",
+            "lan": {
+                "mac": "2A:01:01:01:01:02",
+                "ip": "172.16.3.2"
+            },
+            "wan": {
+                "mac": "20:01:01:01:01:02",
+                "ip": "192.168.64.27"
+            },
+            "tap": {
+                "name": "tap-l6",
+                "ip": "10.254.1.2",
+                "key": "--- RSA PUBLIC KEY, hash: 158318912"
+            },
+            "vpn": {
+                "key": "l6route",
+                "ip": "10.253.1.2"
+            },
+            "notify": [
+                "grp-adm"
+            ],
+            "tcpShift": "1000",
+            "type": "unix",
+            "os": "bsd"
+        },
+        "l62.b1.example.com": {
+            "disposition": "guest",
+            "router": "active",
+            "monitor": true,
+            "location": "b1",
+            "resources": {
+                "cpu": 4,
+                "ram": "4096m",
+                "hdd": "100G"
+            },
+            "net": "net",
+            "srv": {
+                "_resolve._tcp": {
+                    "priority": "10",
+                    "weight": "25",
+                    "port": "26443"
+                },
+                "_sip._tcp": "0 5 5060",
+                "_build._tcp": "20 25 26443"
+            },
+            "lan": {
+                "mac": "2A:01:01:01:02:02",
+                "ip": "172.16.4.2"
+            },
+            "wan": {
+                "mac": "20:01:01:01:02:02",
+                "ip": "192.168.64.28"
+            },
+            "tap": {
+                "name": "tap-l6",
+                "ip": "10.254.2.2",
+                "key": "--- RSA PUBLIC KEY, hash: 158318912"
+            },
+            "vpn": {
+                "key": "l6route",
+                "ip": "10.253.2.2"
+            },
+            "notify": [
+                "grp-adm"
+            ],
+            "tcpShift": "1000",
+            "type": "unix",
+            "os": "bsd"
+        },
+        "l61.a1.example.org": {
+            "disposition": "guest",
+            "router": "active",
+            "monitor": true,
+            "location": "a1",
+            "resources": {
+                "cpu": 4,
+                "ram": "4096m",
+                "hdd": "100G"
+            },
+            "net": "net",
+            "srv": {
+                "_resolve._tcp": {
+                    "priority": "20",
+                    "weight": "25",
+                    "port": "27443"
+                },
+                "_build._tcp": "20 25 27443"
+            },
+            "lan": {
+                "mac": "2A:01:01:01:01:01",
+                "ip": "172.16.3.1"
+            },
+            "wan": {
+                "mac": "20:01:01:01:01:01",
+                "ip": "192.168.64.26",
+                "iface": "wan.4022"
+            },
+            "tap": {
+                "name": "tap-l6",
+                "ip": "10.254.1.1",
+                "key": "--- RSA PUBLIC KEY, hash: 158318912"
+            },
+            "vpn": {
+                "key": "l6route",
+                "ip": "10.253.1.1"
+            },
+            "notify": [
+                "grp-adm"
+            ],
+            "tcpShift": "1000",
+            "type": "unix",
+            "os": "bsd"
+        },
+        "l64.a1.example.org": {
+            "disposition": "guest",
+            "router": "active",
+            "monitor": true,
+            "location": "a1",
+            "lan": {
+                "mac": "2A:01:01:01:01:01",
+                "ip": "172.16.4.1"
+            },
+            "wan": {
+                "mac": "20:01:01:01:01:01",
+                "ip": "192.168.64.27"
+            },
+            "tcpShift": "1000",
+            "type": "unix",
+            "os": "bsd"
+        },
+        "lan-only.example.org": {
+            "location": "standalone",
+            "lan": {
+                "mac": "2A:01:01:01:01:01",
+                "ip": "172.16.99.1"
+            },
+            "os": "bsd"
+        },
+        "wan-only.example.org": {
+            "location": "standalone",
+            "wan": {
+                "mac": "20:01:01:01:01:01",
+                "ip": "192.168.64.91"
+            },
+            "os": "bsd"
+        }
+    },
+    "monitoring": {
+        "templates": {},
+        "notify": {
+            "user1": {
+                "type": "email",
+                "name": "User 11",
+                "email": "user1@example.com",
+                "password": "$6$wIArYdbyTe9hVzND$ZRMQC2u4pLwQ0euVvabcj/m.NiIJSvspF43zqlN9mhIRbiz9ROPgYZJo2IwXYkVJr5ompQkNYx/wIm9/BDNR0."
+            },
+            "user2": {
+                "type": "email",
+                "name": "User 2",
+                "email": "user2@example.com"
+            },
+            "user3": {
+                "type": "email",
+                "name": "User 3",
+                "email": "user3@example.com"
+            },
+            "slack-alert": {
+                "type": "slack",
+                "filter": [
+                    "error",
+                    "alert"
+                ],
+                "auth": "TOKEN",
+                "hook": "https://slack.com/api/chat.postMessage?channel=bot-messages"
+            },
+            "slack-track": {
+                "type": "slack",
+                "hook": "HOOK_URL",
+                "disabled": true
+            },
+            "grp-adm": {
+                "type": "group",
+                "name": "Admins",
+                "list": [
+                    "user1",
+                    "user2",
+                    "user3"
+                ]
+            }
+        }
+    },
+    "services": {
+        "pki": {
+            "authorities": {
+                "zone1": {
+                    "publicUri": "http://pki.example.com",
+                    "external": {
+                        "bcp.example.org": {
+                            "preset": "4096-sha256",
+                            "csr": "-----BEGIN CERTIFICATE REQUEST-----\r\nMIICyTCCAbECAQAwKDEmMCQGA1UEAwwdYWNtZS1sZS0xLnNlcnZpY2UuZXhhbXBs\r\nZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDX+7qOHqc2dzND\r\nQfcAbp5OuCmAVfVkbfImlI0kPExIbFFog5ZL9wcRnzscGk4LkOhk1kPXpu3sxpJn\r\nD/wTm5XPYwfCjJTJvw0K/ngGtkBDElYtqmRdJSCzBrRbJC95TiVf6g02yVSf8nc9\r\nwwD5Y/n6UQnBFu9CK98dy0GHmGINlRc3DhCy8p7VPiuJ+KolaQPNdO4rYhAS50Fz\r\n5GBJssJ0cNXQOEbqvgFBTzFQ7IFIlFh0SIABSJtZHsi7Wh/qpOxAmJswuygLTzq5\r\n0L+9D6oyE+x7NzQYQ/t15C6Xu4nrk0tAOljomqVoB0rlri+R4/QS/vMDRHabPJBt\r\n32rFIccVAgMBAAGgXDBaBgkqhkiG9w0BCQ4xTTBLMEkGA1UdEQRCMECCHWFjbWUt\r\nbGUtMS5zZXJ2aWNlLmV4YW1wbGUuY29tgh9hY21lLWxlLTEtMi5zZXJ2aWNlLmV4\r\nYW1wbGUuY29tMA0GCSqGSIb3DQEBBQUAA4IBAQDNdzYrUIPmsZWQg6/IlLQJLwd2\r\nNEe4aGn9k/KMYrII6a9XijBEstvI1laheoqNfCLxZV0vtA6ibsmqdx6TqViDpBQA\r\nIgJVLZaB/EeWg+VRPF49XR8pB5UHHGr1ID1PD4BAgDhEvdgPTU2hjDdvOG0svDtk\r\nMLE1GpKHnJgL+0ZffwLVAL26MLDGd4dqCyMEB021QJdTT6kO6w3pN4BJV6RoWTZ8\r\n9McPv4KVki6H3q5MyuP1pA9yRV8z4yzI+fdfDdQ4CYcGJdpIQ1PfqFSxBUyEEW7W\r\nzIZ5SdpnFZQCbzqqO0jL+J/i1ieQf6umelqU3mPCkd3X6tZhfaTIjetKElas\r\n-----END CERTIFICATE REQUEST-----"
+                        }
+                    }
+                },
+                "zone2": {
+                    "publicUri": "http://pki.example.com/prefix",
+                    "master": "l62.a1.example.com",
+                    "external": {
+                        "bcp.example.org": {
+                            "preset": "4096-sha256",
+                            "csr": "-----BEGIN CERTIFICATE REQUEST-----\r\nMIICyTCCAbECAQAwKDEmMCQGA1UEAwwdYWNtZS1sZS0xLnNlcnZpY2UuZXhhbXBs\r\nZS5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQDX+7qOHqc2dzND\r\nQfcAbp5OuCmAVfVkbfImlI0kPExIbFFog5ZL9wcRnzscGk4LkOhk1kPXpu3sxpJn\r\nD/wTm5XPYwfCjJTJvw0K/ngGtkBDElYtqmRdJSCzBrRbJC95TiVf6g02yVSf8nc9\r\nwwD5Y/n6UQnBFu9CK98dy0GHmGINlRc3DhCy8p7VPiuJ+KolaQPNdO4rYhAS50Fz\r\n5GBJssJ0cNXQOEbqvgFBTzFQ7IFIlFh0SIABSJtZHsi7Wh/qpOxAmJswuygLTzq5\r\n0L+9D6oyE+x7NzQYQ/t15C6Xu4nrk0tAOljomqVoB0rlri+R4/QS/vMDRHabPJBt\r\n32rFIccVAgMBAAGgXDBaBgkqhkiG9w0BCQ4xTTBLMEkGA1UdEQRCMECCHWFjbWUt\r\nbGUtMS5zZXJ2aWNlLmV4YW1wbGUuY29tgh9hY21lLWxlLTEtMi5zZXJ2aWNlLmV4\r\nYW1wbGUuY29tMA0GCSqGSIb3DQEBBQUAA4IBAQDNdzYrUIPmsZWQg6/IlLQJLwd2\r\nNEe4aGn9k/KMYrII6a9XijBEstvI1laheoqNfCLxZV0vtA6ibsmqdx6TqViDpBQA\r\nIgJVLZaB/EeWg+VRPF49XR8pB5UHHGr1ID1PD4BAgDhEvdgPTU2hjDdvOG0svDtk\r\nMLE1GpKHnJgL+0ZffwLVAL26MLDGd4dqCyMEB021QJdTT6kO6w3pN4BJV6RoWTZ8\r\n9McPv4KVki6H3q5MyuP1pA9yRV8z4yzI+fdfDdQ4CYcGJdpIQ1PfqFSxBUyEEW7W\r\nzIZ5SdpnFZQCbzqqO0jL+J/i1ieQf6umelqU3mPCkd3X6tZhfaTIjetKElas\r\n-----END CERTIFICATE REQUEST-----"
+                        }
+                    }
+                }
+            }
+        },
+        "git": {
+            "repositories": {
+                "beaver-web-static-test": {
+                    "master": "l61.a1.example.com",
+                    "repository": "https://github.com/beaverway/beaver-web-static-test.git",
+                    "updateHook": "https://service.example.com/git-update-hook-01234567890123456789",
+                    "updateHookSecret": "secret-0123456789",
+                    "pullInterval": 900,
+                    "monitor": {
+                        "notify": [
+                            "grp-adm"
+                        ]
+                    }
+                }
+            }
+        }
+    },
+    "routing": {
+        "options": {
+            "nginx": {
+                "maxFails": 5,
+                "failTimeout": "15s"
+            },
+            "tinc": {
+                "mode": "router",
+                "compression": 7,
+                "pingInterval": 60,
+                "pingTimeout": 5
+            },
+            "dns": {
+                "ttl": 600,
+                "refresh": 300,
+                "retry": 150,
+                "expire": 86400,
+                "minimum": 600
+            },
+            "dhcp": {}
+        },
+        "types": {
+            "unix": {
+                "level3": {
+                    "53": 53,
+                    "82": 82,
+                    "22/tcp": 22,
+                    "80/tcp": 80,
+                    "443/tcp": 443
+                },
+                "level6": {
+                    "plain": 3000,
+                    "secure": 3000
+                }
+            },
+            "windows": {
+                "level3": {
+                    "389": 3389,
+                    "433": 1433,
+                    "80/tcp": 80,
+                    "443/tcp": 443
+                },
+                "level6": {
+                    "plain": 3000,
+                    "secure": 3000
+                }
+            }
+        },
+        "ssl": {
+            "defaultPreset": "ec256",
+            "presets": {
+                "acme-le-default": {
+                    "type": "acme-http-01",
+                    "acme": "letsencrypt-staging",
+                    "email": "user@example.com",
+                    "keySize": 4096,
+                    "subject": "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:l61.a1.example.com"
+                },
+                "acme-le-0": {
+                    "extends": "acme-le-default",
+                    "master": "l62.a1.example.com"
+                },
+                "acme-le-1": {
+                    "extends": "acme-le-default",
+                    "master": "l62.a1.example.com",
+                    "subject": "/C=EU/ST=EU/OU=example.org/0.CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:l61.a1.example.com"
+                },
+                "acme-le-2": {
+                    "extends": "acme-le-default",
+                    "master": "l62.b1.example.com"
+                },
+                "acme-dns-wildcard-1": {
+                    "extends": "acme-le-default",
+                    "type": "acme-dns-01",
+                    "master": "l61.a1.example.com"
+                },
+                "acme-dns-wildcard-2": {
+                    "extends": "acme-le-default",
+                    "type": "acme-dns-01",
+                    "master": "l62.a1.example.com"
+                },
+                "acme-le-no-master": {
+                    "extends": "acme-le-default",
+                    "type": "acme-http-01",
+                    "acme": "letsencrypt-staging",
+                    "email": "user@example.com",
+                    "keySize": 2048,
+                    "subject": "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:l61.a1.example.com"
+                },
+                "2048-sha256": {
+                    "extends": "4096-sha256",
+                    "keySize": 2048,
+                    "includeRootCA": true
+                },
+                "ec": {
+                    "rootCA": "--- PUBLIC CERTIFICATE, hash: -1521881563",
+                    "rootCrt": "--- PUBLIC CERTIFICATE, hash: -1783383896",
+                    "rootKey": "--- SSL PRIVATE KEY, hash: -2136102001",
+                    "subject": "/C=RU/ST=RU/OU=example.org/CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:*.${CN}",
+                    "includeRootCA": true,
+                    "expirationDays": 84,
+                    "keySize": "secp256r1",
+                    "signatureAlgorithm": "sha256"
+                },
+                "ec256": {
+                    "extends": "ec",
+                    "keySize": "secp256r1"
+                },
+                "ec384": {
+                    "extends": "ec",
+                    "keySize": "secp384r1"
+                },
+                "4096-sha256": {
+                    "rootCA": "--- PUBLIC CERTIFICATE, hash: -1521881563",
+                    "rootCrt": "--- PUBLIC CERTIFICATE, hash: -1783383896",
+                    "rootKey": "--- SSL PRIVATE KEY, hash: -2136102001",
+                    "subject": "/C=RU/ST=RU/OU=example.org/CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:*.${CN}",
+                    "subjectPrefix1": "/C=RU/ST=RU/OU=example.org/CN=",
+                    "keySize": 4096,
+                    "expirationDays": 84,
+                    "signatureAlgorithm": "sha256"
+                }
+            }
+        },
+        "domains": {
+            ".example.com": {
+                "mode": "infrastructure",
+                "allow-transfer": [
+                    "l62.b1.example.com",
+                    "192.168.65.1"
+                ],
+                "dns": {
+                    "A": {
+                        "@": [
+                            "1.1.1.1"
+                        ],
+                        "www": [
+                            "1.1.1.1"
+                        ],
+                        "service": [
+                            "1.1.2.1",
+                            "1.1.2.2"
+                        ]
+                    },
+                    "MX": {
+                        "@": [
+                            "5 aspmx.l.google.com.",
+                            "10 alt1.aspmx.l.google.com.",
+                            "15 alt2.aspmx.l.google.com."
+                        ]
+                    },
+                    "TXT": {
+                        "@": [
+                            "text_record_1",
+                            "text record 2",
+                            "text record 3"
+                        ]
+                    },
+                    "SRV": {
+                        "_www._tcp": [
+                            "0 5 80 web1.example.com.",
+                            "0 5 80 web2.example.com.",
+                            "0 5 80 web3.example.com."
+                        ]
+                    },
+                    "CAA": {
+                        "0": [
+                            "0 issue ca.example.com"
+                        ],
+                        "1": [
+                            "0 iodef mailto:security@example.com"
+                        ],
+                        "2": [
+                            "0 iodef http://iodef.example.com/"
+                        ]
+                    }
+                }
+            },
+            ".example-2.com": {
+                "mode": "dedicated",
+                "dns": {
+                    "TXT": {
+                        "@": [
+                            "v=spf1 a mx ptr ~all"
+                        ]
+                    },
+                    "SRV": {
+                        "_www._tcp": [
+                            {
+                                "priority": "0",
+                                "weight": "5",
+                                "port": "80",
+                                "target": "web1.example.com."
+                            },
+                            {
+                                "priority": "0",
+                                "weight": "5",
+                                "port": "80",
+                                "target": "web2.example.com."
+                            },
+                            {
+                                "priority": "0",
+                                "weight": "5",
+                                "port": "80",
+                                "target": "web3.example.com."
+                            }
+                        ]
+                    },
+                    "CAA": {
+                        "sub": [
+                            "0 issue ca.example.com",
+                            "0 iodef mailto:security@example.com",
+                            "0 iodef http://iodef.example.com/"
+                        ],
+                        "@": [
+                            {
+                                "flags": 0,
+                                "tag": "issue",
+                                "value": "ca.example.com"
+                            },
+                            {
+                                "flags": 0,
+                                "tag": "iodef",
+                                "value": "mailto:security@example.com"
+                            },
+                            {
+                                "flags": 0,
+                                "tag": "iodef",
+                                "value": "http://iodef.example.com/"
+                            }
+                        ]
+                    }
+                }
+            },
+            ".example-3.com": {
+                "mode": "slave",
+                "masters": [
+                    "l61.a1.example.com",
+                    "l62.a1.example.com",
+                    "192.168.64.1"
+                ],
+                "slaves": [
+                    "l62.b1.example.com",
+                    "192.168.65.1"
+                ]
+            },
+            ".example-4.com": {
+                "mode": "slave",
+                "masters": [
+                    "l61.a1.example.com",
+                    "l62.a1.example.com",
+                    "192.168.64.1"
+                ],
+                "slaves": [
+                    "l62.b1.example.com",
+                    "192.168.65.1"
+                ]
+            },
+            ".example.org": {
+                "mode": "infrastructure",
+                "dns": {}
+            },
+            ".example.xyz": {
+                "mode": "infrastructure",
+                "dns": {}
+            }
+        }
+    },
+    "targets": {
+        "default": {},
+        "4096-sha265.example.com": {
+            "ssl": "4096-sha256"
+        },
+        "2048-sha265.example.com": {
+            "ssl": "2048-sha256"
+        },
+        "ec256.example.com": {
+            "ssl": "ec256"
+        },
+        "ec384.example.com": {
+            "ssl": "ec384"
+        },
+        "proxy.example.com": {
+            "proxyHttp": "https://example.com:443",
+            "proxyHttps": "https://example.com:443"
+        },
+        "redirect.example.com": {
+            "redirectHttp": "https://example.com/",
+            "redirectHttps": "https://example.com/"
+        },
+        "redirectHttps.example.com": {
+            "redirectHttp": true,
+            "nginx": {
+                "expires": "1y",
+                "add_header": [
+                    "InheritRoot0 true",
+                    "DefaultReplace -1"
+                ]
+            },
+            "static": {
+                "/": {
+                    "type": "lfs-static",
+                    "sourcePath": "/usr/local/www/lfs-static"
+                }
+            }
+        },
+        "redirectHttps.extends.example.com": {
+            "extends": "redirectHttps.example.com"
+        },
+        "location.a1.example.com": {
+            "location": "a1",
+            "target": "service.example.com",
+            "redirectHttp": true
+        },
+        "location.b1.example.com": {
+            "location": "b1",
+            "target": "service.example.com",
+            "redirectHttp": true
+        },
+        "example.xyz": {
+            "location": "web-eu.example.xyz",
+            "target": "web.example.xyz"
+        },
+        "www.example.xyz": {
+            "location": "web-eu.example.xyz",
+            "redirectHttp": "https://example.com",
+            "redirectHttps": "https://example.com"
+        },
+        "web.example.xyz": {
+            "target": [
+                "web-eu.example.xyz",
+                "web-ru.example.xyz"
+            ],
+            "dns": "use-router",
+            "ssl": false
+        },
+        "web-eu.example.xyz": {
+            "location": "a1",
+            "target": [
+                "l61.a1.example.com",
+                "l62.a1.example.com"
+            ],
+            "ssl": false
+        },
+        "web-ru.example.xyz": {
+            "location": "b1",
+            "target": "l61.b1.example.com",
+            "ssl": false
+        },
+        "l61.a1.example.com": {
+            "target": "l61.a1.example.com",
+            "dns": "use-wan",
+            "proxy": {
+                "dns": {
+                    "udp/53": "example.xyz:53",
+                    "tcp/53": [
+                        "example.xyz:53",
+                        "example.org:53"
+                    ]
+                },
+                "ftp": {
+                    "tcp/21": {
+                        "target": "example.xyz:21",
+                        "timeout": "5s"
+                    }
+                }
+            }
+        },
+        "l62.a1.example.com": {
+            "target": "l62.a1.example.com",
+            "dns": "use-wan"
+        },
+        "l61.b1.example.com": {
+            "target": "l61.b1.example.com",
+            "dns": "use-wan"
+        },
+        "no-target.example.com": {
+            "dns": "use-router",
+            "static": {
+                "/": {
+                    "type": "git-static",
+                    "repository": "beaver-web-static-test",
+                    "sourcePath": "www/",
+                    "indexPage": "index.html",
+                    "errorPage": "error.html"
+                }
+            }
+        },
+        "service.example.com": {
+            "target": [
+                "l61.a1.example.com",
+                "l62.b1.example.com"
+            ],
+            "dns": "use-wan",
+            "static": {
+                "/": {
+                    "type": "git-static",
+                    "repository": "beaver-web-static-test",
+                    "sourcePath": "www/",
+                    "indexPage": "index.html",
+                    "errorPage": "error.html"
+                }
+            }
+        },
+        "cdn.example.com": {
+            "nginx": {
+                "expires": "1y",
+                "add_header": [
+                    "Cache-Control public",
+                    "Access-Control-Allow-Origin *"
+                ]
+            },
+            "static": {
+                "/": {
+                    "type": "git-static",
+                    "repository": "beaver-web-static-test",
+                    "sourcePath": "www/",
+                    "indexPage": "index.html",
+                    "errorPage": "error.html"
+                }
+            }
+        },
+        "cdn2.example.com": {
+            "nginx": {
+                "expires": "1y",
+                "add_header": [
+                    "InheritRoot0 true",
+                    "DefaultReplace -1"
+                ]
+            },
+            "static": {
+                "/": {
+                    "type": "git-static",
+                    "repository": "beaver-web-static-test",
+                    "sourcePath": "www/",
+                    "indexPage": "index.html",
+                    "errorPage": "error.html",
+                    "nginx": {
+                        "expires": "1y",
+                        "add_header": [
+                            "InheritRoot true",
+                            "DefaultReplace 0",
+                            "DefaultReplaceNotQuoted 1 2 3",
+                            "DefaultReplaceQuoted '1 2 3'",
+                            "AddHeader 0",
+                            "ReplaceHeader 0",
+                            "RemoveHeader 0"
+                        ],
+                        "match": {
+                            "{*.js,*.css}": {
+                                "add_header": [
+                                    "InnerHeader 1",
+                                    "DefaultReplace 1",
+                                    "DefaultReplaceNotQuoted 0 1 2 3",
+                                    "DefaultReplaceQuoted '0 1 2 3'",
+                                    "+AddHeader 1",
+                                    "*ReplaceHeader 1",
+                                    "-RemoveHeader"
+                                ]
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "lfs-static.example.com": {
+            "static": {
+                "/": {
+                    "type": "lfs-static",
+                    "hook": "lfs-hook.sh",
+                    "sourcePath": "/usr/local/www/lfs-static",
+                    "indexPage": "index.html",
+                    "errorPage": "error.html",
+                    "nginx": {
+                        "expires": "1y",
+                        "add_header": "Cache-Control public",
+                        "match": {
+                            "{*.js,*.css}": {
+                                "add_header": "Special 1"
+                            },
+                            "/remote_addr": {
+                                "return": "200 \"$remote_addr\\n\""
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "pki.example.com": {
+            "static": {
+                "/": {
+                    "type": "git-static",
+                    "repository": "beaver-web-static-test",
+                    "sourcePath": "www/",
+                    "indexPage": "index.html",
+                    "errorPage": "error.html"
+                },
+                "/redirect": {
+                    "nginx": {
+                        "return": "301 https://redirect.example.com"
+                    }
+                }
+            }
+        },
+        "s1.service.example.com": {
+            "nginx": {
+                "proxy_connect_timeout": "60s"
+            },
+            "target": "service.example.com",
+            "ssl": "use:service.example.com",
+            "root": "/var/www/s1.service.example.com/public"
+        },
+        "s2.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:service.example.com",
+            "extends": "service.example.com",
+            "static": {
+                "/share": {
+                    "type": "git-static",
+                    "repository": "beaver-web-static-test",
+                    "fail": "fast",
+                    "sourcePath": "www/",
+                    "indexPage": "index.html",
+                    "errorPage": [
+                        "error.html",
+                        "502 504 error502.html"
+                    ]
+                }
+            }
+        },
+        "s3.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:service.example.com",
+            "extends": "s2.service.example.com"
+        },
+        "s4.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:service.example.com"
+        },
+        "s5.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:service.example.com"
+        },
+        "s6.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:service.example.com"
+        },
+        "s7.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "2048-sha256"
+        },
+        "acme-le-1.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "acme-le-1"
+        },
+        "acme-le-1-2.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:acme-le-1.service.example.com"
+        },
+        "acme-le-2.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "acme-le-2"
+        },
+        "abstract.app": {
+            "maxFails": 15,
+            "failTimeout": "35s"
+        },
+        "example.org": {
+            "extends": "abstract.app",
+            "target": [
+                "l61.a1.example.org"
+            ],
+            "dns": "use-wan",
+            "srv": [
+                "_resolve._tcp",
+                "_build._tcp",
+                "_sip._tcp"
+            ],
+            "ssl": "acme-dns-wildcard-1"
+        },
+        "example.com": {
+            "target": "service.example.com",
+            "srv": [
+                "_resolve._tcp",
+                "_build._tcp",
+                "_sip._tcp"
+            ],
+            "ssl": "acme-dns-wildcard-1"
+        },
+        "dns1.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:example.com"
+        },
+        "dns2.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:example.com"
+        },
+        "dns3.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:example.com"
+        },
+        "sub.dns3.example.com": {
+            "target": "service.example.com",
+            "ssl": "use:example.com"
+        },
+        "dns1.example.org": {
+            "target": "service.example.com",
+            "ssl": "use:example.com"
+        },
+        "dns-test-1.example.com": {
+            "extends": "example.com",
+            "ssl": "acme-dns-wildcard-1"
+        },
+        "dns-test-1-1.example.com": {
+            "extends": "example.com",
+            "ssl": "use:dns-test-1.example.com"
+        },
+        "sub-1.dns-test-1.example.com": {
+            "extends": "example.com",
+            "ssl": "use:dns-test-1.example.com"
+        },
+        "dns-wildcard-1.acme.example.com": {
+            "target": "service.example.com",
+            "ssl": "acme-dns-wildcard-1"
+        },
+        "dns-wildcard-2.acme.example.com": {
+            "target": "service.example.com",
+            "ssl": "acme-dns-wildcard-2"
+        },
+        "acme-le-no-master.service.example.com": {
+            "target": "service.example.com",
+            "ssl": "acme-le-no-master"
+        },
+        "cert.example.net": {
+            "target": "service.example.com",
+            "ssl": {
+                "crt": "--- PUBLIC CERTIFICATE, hash: -1783383896",
+                "key": "--- SSL PRIVATE KEY, hash: -2136102001"
+            }
+        },
+        "static.backup.example.net": {
+            "target": "service.example.com",
+            "ssl": false
+        },
+        "static.external.example.net": {
+            "target": [
+                "http://9.9.9.9:80",
+                "https://9.9.9.9:443"
+            ],
+            "monitor": {
+                "notify": [
+                    "grp-adm"
+                ],
+                "expectCode": 302
+            }
+        }
+    }
+}
