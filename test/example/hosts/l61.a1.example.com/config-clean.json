@@ -275,9 +275,8 @@
         "notify": {
             "user1": {
                 "type": "email",
-                "name": "User 11",
-                "email": "user1@example.com",
-                "password": "$6$wIArYdbyTe9hVzND$ZRMQC2u4pLwQ0euVvabcj/m.NiIJSvspF43zqlN9mhIRbiz9ROPgYZJo2IwXYkVJr5ompQkNYx/wIm9/BDNR0."
+                "name": "User 1",
+                "email": "user1@example.com"
             },
             "user2": {
                 "type": "email",
@@ -706,22 +705,7 @@
         },
         "l61.a1.example.com": {
             "target": "l61.a1.example.com",
-            "dns": "use-wan",
-            "proxy": {
-                "dns": {
-                    "udp/53": "example.xyz:53",
-                    "tcp/53": [
-                        "example.xyz:53",
-                        "example.org:53"
-                    ]
-                },
-                "ftp": {
-                    "tcp/21": {
-                        "target": "example.xyz:21",
-                        "timeout": "5s"
-                    }
-                }
-            }
+            "dns": "use-wan"
         },
         "l62.a1.example.com": {
             "target": "l62.a1.example.com",
@@ -824,7 +808,6 @@
             "static": {
                 "/": {
                     "type": "lfs-static",
-                    "hook": "lfs-hook.sh",
                     "sourcePath": "/usr/local/www/lfs-static",
                     "indexPage": "index.html",
                     "errorPage": "error.html",
