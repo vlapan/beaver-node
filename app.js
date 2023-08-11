@@ -9,6 +9,7 @@ const https = require('./lib/https');
 const Overseer = require('./lib/overseer/overseer');
 const Acme = require('./lib/acme/acme');
 const GitStatic = require('./lib/git-static/git-static');
+const NotificatorDaemon = require('./lib/modules/notificator/daemon');
 const { daemonStarted } = require('./lib/notificator');
 
 module.exports = {
@@ -87,6 +88,16 @@ module.exports = {
                 interval: 1 * 60 * 1000,
             });
             setTimeout(gitStatic.start.bind(gitStatic), 1 * 60 * 1000);
+        }
+
+        if (!argv.disableNotificatorDaemon) {
+            const notificatorDaemon = new NotificatorDaemon({
+                argv,
+                config,
+                debug,
+                ac,
+            });
+            setTimeout(notificatorDaemon.start.bind(notificatorDaemon), 1 * 1 * 1000);
         }
 
         daemonStarted();
