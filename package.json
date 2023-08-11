@@ -21,12 +21,12 @@
   "private": true,
   "preferGlobal": true,
   "bin": {
-    "beaver": "./bin/beaver",
+    "beaver": "./bin/beaver.js",
     "beaver-diff": "./bin/beaver-diff",
     "beaver-overseer": "./bin/beaver-overseer"
   },
   "scripts": {
-    "start": "bin/beaver",
+    "start": "bin/beaver.js",
     "bump": "node tools/version-bump.js",
     "build": "node lib/https/build-view.js",
     "test": "bin/beaver-test",
