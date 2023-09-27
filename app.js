@@ -12,6 +12,28 @@ const GitStatic = require('./lib/git-static/git-static');
 const NotificatorDaemon = require('./lib/modules/notificator/daemon');
 const { daemonStarted } = require('./lib/notificator');
 
+const ac = new AbortController();
+
+// function abort() {
+//     try {
+//         https.stop();
+//         ac.abort();
+//     } catch (e) {
+//         debug(e);
+//     }
+// }
+
+// process.once('SIGINT', () => {
+//     console.log();
+//     debug('SIGINT: shutting down...');
+//     abort();
+// });
+
+// process.once('SIGTERM', () => {
+//     console.log('SIGTERM: shutting down...');
+//     abort();
+// });
+
 module.exports = {
     async main(argv) {
         debug('start');
@@ -27,6 +49,7 @@ module.exports = {
                         config,
                         debug,
                         user,
+                        ac,
                     });
                     debug('extentions: done');
                 } catch (e) {
@@ -43,6 +66,13 @@ module.exports = {
     async daemonStart(argv) {
         debug('daemons: start');
 
+        // const s = sleep(60000);
+        // s.abort('sd');
+        // setTimeout(s.abort.bind(s), 1000);
+        // try {
+        //     await s;
+        // } catch (e) {}
+
         if (argv.input && !argv.disableDaemonFile) {
             const user = process.env.SUDO_USER || process.env.USER;
             config.watch(async () => {
@@ -51,6 +81,7 @@ module.exports = {
                     config,
                     debug,
                     user,
+                    ac,
                 });
             });
         }
@@ -86,6 +117,7 @@ module.exports = {
             const gitStatic = new GitStatic({
                 data: `${argv.home}/git-static/git-static.json`,
                 interval: 1 * 60 * 1000,
+                ac,
             });
             setTimeout(gitStatic.start.bind(gitStatic), 1 * 60 * 1000);
         }
@@ -95,6 +127,7 @@ module.exports = {
                 argv,
                 config,
                 debug,
+                ac,
             });
             setTimeout(notificatorDaemon.start.bind(notificatorDaemon), 1 * 1 * 1000);
         }
