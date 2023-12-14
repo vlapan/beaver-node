@@ -2,8 +2,8 @@ Certificate:
     Data:
         Version: 3 (0x2)
         Signature Algorithm: sha256WithRSAEncryption
-        Issuer: C = RU, ST = example.org, O = example.org, OU = example.org, CN = example.org, emailAddress = example@example.org
-        Subject: C = RU, ST = RU, OU = example.org, CN = ec256.example.com
+        Issuer: C=RU, ST=example.org, O=example.org, OU=example.org, CN=example.org, emailAddress=example@example.org
+        Subject: C=RU, ST=RU, OU=example.org, CN=ec256.example.com
         Subject Public Key Info:
             Public Key Algorithm: id-ecPublicKey
                 Public-Key: (256 bit)
