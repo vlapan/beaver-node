@@ -385,7 +385,8 @@
 				"acme-dns-wildcard-1": {
 					"extends": "acme-le-default",
 					"type": "acme-dns-01",
-					"master": "l61.a1.example.com"
+					"master": "l61.a1.example.com",
+					"mirrorDomainSuffix": "example.org"
 				},
 				"acme-dns-wildcard-2": {
 					"extends": "acme-le-default",

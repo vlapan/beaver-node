@@ -85,7 +85,8 @@
                     "keySize": 4096,
                     "type": "acme-dns-01"
                 }
-            ]
+            ],
+            "mirrorDomainSuffix": "example.org"
         },
         "acme-dns-wildcard-2": {
             "master": "l62.a1.example.com",
