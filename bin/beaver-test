@@ -61,7 +61,10 @@ for ITEM in $(find test/example/hosts -name "notificator.json" | grep -vE -e "/*
         (async () => {
             const json = await fs.promises.readFile(file, 'utf8');
             const data = JSON.parse(json);
-            data.forEach((v) => v.date = new Date(0));
+            data.forEach((v) => {
+                v.date = (new Date(0)).toISOString();
+                v.message = v.message.replace(/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/g, (new Date(0)).toISOString());
+            });
             await fs.promises.writeFile(file, JSON.stringify(data, null, 4));
         })();
 EOF
