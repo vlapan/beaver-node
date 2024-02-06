@@ -90,8 +90,6 @@
             "masterDomains": [
                 ".example.com",
                 ".example-2.com",
-                ".example-3.com",
-                ".example-4.com",
                 ".example.org",
                 ".example.xyz"
             ]
@@ -126,8 +124,6 @@
             "masterDomains": [
                 ".example.com",
                 ".example-2.com",
-                ".example-3.com",
-                ".example-4.com",
                 ".example.org",
                 ".example.xyz"
             ]
