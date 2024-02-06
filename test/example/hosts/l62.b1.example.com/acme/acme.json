@@ -86,7 +86,15 @@
                     "type": "acme-dns-01"
                 }
             ],
-            "mirrorDomainSuffix": "example.org"
+            "mirrorDomainSuffix": "example.org",
+            "masterDomains": [
+                ".example.com",
+                ".example-2.com",
+                ".example-3.com",
+                ".example-4.com",
+                ".example.org",
+                ".example.xyz"
+            ]
         },
         "acme-dns-wildcard-2": {
             "master": "l62.a1.example.com",
@@ -107,6 +115,14 @@
                     "keySize": 4096,
                     "type": "acme-dns-01"
                 }
+            ],
+            "masterDomains": [
+                ".example.com",
+                ".example-2.com",
+                ".example-3.com",
+                ".example-4.com",
+                ".example.org",
+                ".example.xyz"
             ]
         },
         "acme-le-no-master": {
