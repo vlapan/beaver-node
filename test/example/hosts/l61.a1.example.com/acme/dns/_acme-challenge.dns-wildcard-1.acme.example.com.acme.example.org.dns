@@ -1,6 +1,6 @@
-; Zone: _acme-challenge.dns-test-1.example.com.example.org.
+; Zone: _acme-challenge.dns-wildcard-1.acme.example.com.acme.example.org.
 
-$ORIGIN _acme-challenge.dns-test-1.example.com.example.org.
+$ORIGIN _acme-challenge.dns-wildcard-1.acme.example.com.acme.example.org.
 $TTL 30
 
 ; SOA Record

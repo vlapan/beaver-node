@@ -1,6 +1,6 @@
-; Zone: _acme-challenge.example.org.example.org.
+; Zone: _acme-challenge.example.org.acme.example.org.
 
-$ORIGIN _acme-challenge.example.org.example.org.
+$ORIGIN _acme-challenge.example.org.acme.example.org.
 $TTL 30
 
 ; SOA Record

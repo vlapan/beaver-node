@@ -1,0 +1,17 @@
+; Zone: _acme-challenge.dns-wildcard-2.acme.example.com.example.org.
+
+$ORIGIN _acme-challenge.dns-wildcard-2.acme.example.com.example.org.
+$TTL 30
+
+; SOA Record
+@ IN SOA l62.a1.example.com. user.example.com. (
+    30      ;refresh
+    15      ;retry
+    60480   ;expire
+    60      ;minimum ttl
+)
+
+@ IN NS l62.a1.example.com.
+
+@            IN      TXT     "empty"
+vendor       IN      TXT     beaver-l6route

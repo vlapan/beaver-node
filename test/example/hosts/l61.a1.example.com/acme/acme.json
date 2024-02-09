@@ -114,7 +114,7 @@
                     }
                 }
             ],
-            "mirrorDomainSuffix": "example.org",
+            "mirrorDomainSuffix": "acme.example.org",
             "masterDomains": [
                 ".example.com",
                 ".example-2.com",
@@ -142,6 +142,7 @@
                     "type": "acme-dns-01"
                 }
             ],
+            "mirrorDomainSuffix": "example.org",
             "masterDomains": [
                 ".example.com",
                 ".example-2.com",
