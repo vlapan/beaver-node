@@ -38,6 +38,8 @@ l64.a1	IN	A	192.168.64.27	; target-44-[Router(l64.a1.example.org)]
 wan-only	IN	A	192.168.64.91	; target-44-[Server(wan-only.example.org)]
 
 ; AAAA Records
+*.b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
+b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
 
 ; CNAME Records
 

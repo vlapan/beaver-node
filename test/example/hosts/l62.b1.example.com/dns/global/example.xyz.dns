@@ -36,6 +36,22 @@ web-ru	IN	A	10.20.21.20	; target-44-[TargetSingle(web-ru.example.xyz)]
 www	IN	A	10.20.20.20	; target-44-[TargetStatic(www.example.xyz)]
 
 ; AAAA Records
+*	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetSingle(example.xyz)]
+*.a1	IN	AAAA	2001:db8:abcd:1234:c000::1000	; location-46-[Location(a1)]
+*.b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
+*.web	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetMultiple(web.example.xyz)]
+*.web	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetMultiple(web.example.xyz)]
+*.web-eu	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetMultiple(web-eu.example.xyz)]
+*.web-ru	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetSingle(web-ru.example.xyz)]
+*.www	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetStatic(www.example.xyz)]
+@	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetSingle(example.xyz)]
+a1	IN	AAAA	2001:db8:abcd:1234:c000::1000	; location-46-[Location(a1)]
+b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
+web	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetMultiple(web.example.xyz)]
+web	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetMultiple(web.example.xyz)]
+web-eu	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetMultiple(web-eu.example.xyz)]
+web-ru	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetSingle(web-ru.example.xyz)]
+www	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetStatic(www.example.xyz)]
 
 ; CNAME Records
 

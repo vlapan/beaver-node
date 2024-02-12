@@ -32,6 +32,10 @@ a1	IN	A	10.10.10.11	; location-44-[Location(a1)]
 b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
 
 ; AAAA Records
+*	IN	AAAA	2001:db8:abcd:1234:c000::2000	; config-a6
+*.b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
+@	IN	AAAA	2001:db8:abcd:1234:c000::2000	; config-a6
+b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
 
 ; CNAME Records
 

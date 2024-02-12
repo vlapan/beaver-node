@@ -46,6 +46,12 @@ www	IN	A	10.10.10.10	; target-44-[TargetStatic(www.example.xyz)]
 www	IN	A	10.10.10.11	; target-44-[TargetStatic(www.example.xyz)]
 
 ; AAAA Records
+*.b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
+*.web	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetMultiple(web.example.xyz)]
+*.web-ru	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetSingle(web-ru.example.xyz)]
+b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
+web	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetMultiple(web.example.xyz)]
+web-ru	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetSingle(web-ru.example.xyz)]
 
 ; CNAME Records
 
