@@ -621,6 +621,15 @@
                     "192.168.65.1"
                 ]
             },
+            ".example-5.com": {
+                "mode": "slave",
+                "masters": [
+                    "l61.a1.example.com",
+                    "l62.a1.example.com",
+                    "192.168.64.1"
+                ],
+                "slaves": []
+            },
             ".example.org": {
                 "mode": "infrastructure",
                 "dns": {}
