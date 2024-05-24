@@ -1,14 +1,14 @@
 ; Zone: _acme-challenge.dns-test-1-1.example.com.acme.example.org.
 
 $ORIGIN _acme-challenge.dns-test-1-1.example.com.acme.example.org.
-$TTL 30
+$TTL 15
 
 ; SOA Record
 @ IN SOA l61.a1.example.com. user.example.com. (
-    30      ;refresh
-    15      ;retry
+    15      ;refresh
+    10      ;retry
     60480   ;expire
-    60      ;minimum ttl
+    15      ;minimum ttl
 )
 
 @ IN NS l61.a1.example.com.
