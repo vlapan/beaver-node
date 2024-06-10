@@ -5,7 +5,7 @@ module.exports = {
         'plugin:promise/recommended',
         'plugin:import/errors',
         'plugin:import/warnings',
-        'plugin:json/recommended',
+        'plugin:json/recommended-legacy',
         'plugin:wc/recommended',
         'plugin:lit/recommended',
     ],
@@ -20,7 +20,8 @@ module.exports = {
         browser: true,
     },
     parserOptions: {
-        ecmaVersion: 2022,
+        ecmaVersion: 'latest',
+        sourceType: 'module',
     },
     overrides: [{
         files: ['**/*.json'],
@@ -47,6 +48,7 @@ module.exports = {
             int32Hint: true,
             allow: ['~'],
         }],
+        "function-paren-newline": ["error", "never"],
         'no-restricted-syntax': 'off',
         'no-plusplus': 'off',
         'no-await-in-loop': 'off',
@@ -55,7 +57,10 @@ module.exports = {
             allowModules: ['lit-html'],
         }],
         "node/no-unsupported-features/es-syntax": ["error", {
-            ignores: ["dynamicImport"],
+            ignores: [
+                'modules',
+                'dynamicImport',
+            ],
         }],
     },
     settings: {
