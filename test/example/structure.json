@@ -651,7 +651,12 @@
 		}
 	},
 	"targets": {
-		"default": {},
+		"default": {
+			"redirectHttp": true,
+			"nginx": {
+				"add_header": "InheritRoot0 true"
+			}
+		},
 
 		"4096-sha265.example.com": {
 			"ssl": "4096-sha256"
