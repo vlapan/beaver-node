@@ -15,7 +15,7 @@
     }
   ],
   "engines": {
-    "node": ">=16.15.1"
+    "node": ">=18.20.3"
   },
   "main": "./app.js",
   "private": true,
@@ -34,13 +34,15 @@
     "test-diff": "bin/beaver-test-diff",
     "test-save": "bin/beaver-test-save",
     "test-daemon": "bin/beaver-test-daemon",
-    "eslint": "eslint --fix .",
-    "eslint-list": "eslint .",
+    "eslint": "eslint --fix $(yarn run -s git-list-tree-files)",
+    "eslint-list": "eslint $(yarn run -s git-list-tree-files)",
+    "git-list-tree-files": "(for ITEM in $(git ls-tree -r HEAD --name-only | grep -e '.js$' -e '.mjs$' -e '.json$'); do if [ -f $ITEM ]; then echo $ITEM; fi; done) | xargs",
+    "git-list-staged-files": "git diff --name-only --diff-filter=d HEAD | xargs",
     "flow": "flow check --all --show-all-errors --show-all-branches",
     "audit": "osv-scanner --lockfile yarn.lock"
   },
   "dependencies": {
-    "ace-builds": "^1.34.2",
+    "ace-builds": "^1.35.3",
     "acme-client": "^4.2.5",
     "async": "^3.2.5",
     "authenticate-pam": "^1.0.5",
@@ -48,7 +50,7 @@
     "basic-auth": "^2.0.1",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
     "common-tags": "^1.8.2",
-    "dayjs": "^1.11.11",
+    "dayjs": "^1.11.12",
     "debug": "^4.3.5",
     "diff": "^5.2.0",
     "dns-zonefile": "^0.3.2",
@@ -59,20 +61,24 @@
     "morgan": "^1.10.0",
     "nginx-conf": "^2.1.0",
     "node-forge": "^1.3.1",
-    "nodemailer": "^6.9.13",
+    "nodemailer": "^6.9.14",
     "supports-color": "^8.1.1",
-    "tar": "^7.2.0",
+    "tar": "^7.4.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {
-    "eslint": "^8.4.0",
+    "@eslint/js": "^9.7.0",
+    "@stylistic/eslint-plugin-js": "^2.3.0",
+    "eslint": "^9.7.0",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-json": "^4.0.0",
     "eslint-plugin-lit": "^1.14.0",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^6.2.0",
+    "eslint-plugin-n": "^17.9.0",
+    "eslint-plugin-promise": "^6.6.0",
+    "eslint-plugin-unicorn": "^54.0.0",
     "eslint-plugin-wc": "^2.1.0",
-    "flow-bin": "^0.237.2",
-    "semver": "^7.6.2"
+    "flow-bin": "^0.241.0",
+    "globals": "^15.8.0",
+    "semver": "^7.6.3"
   }
 }
