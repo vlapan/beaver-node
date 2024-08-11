@@ -64,6 +64,7 @@
     "nodemailer": "^6.9.14",
     "supports-color": "^8.1.1",
     "tar": "^7.4.3",
+    "unixcrypt": "^2.0.0",
     "yargs": "^17.7.2"
   },
   "devDependencies": {

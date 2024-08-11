@@ -21,6 +21,7 @@ if time beaver -v \
     --platform=freebsd \
     --disable-overseer \
     --disable-notify \
+    --authentication-methods=passwd \
     --disable-acme; then
     echo exited with code 1
 else

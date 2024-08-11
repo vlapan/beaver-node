@@ -2618,6 +2618,11 @@ universalify@^2.0.0:
   resolved "https://registry.yarnpkg.com/universalify/-/universalify-2.0.1.tgz#168efc2180964e6386d061e094df61afe239b18d"
   integrity sha512-gptHNQghINnc/vTGIk0SOFGFNXw7JVrlRUtConJRlvaw6DuX0wO5Jeko9sWrMBhh+PsYAZ7oXAiOnf/UKogyiw==
 
+unixcrypt@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/unixcrypt/-/unixcrypt-2.0.0.tgz#49e86846f8c228f3026380028da5e658c8b4d752"
+  integrity sha512-q9p/FkpdmQ/gzeYebCdhJGnC+m0MxGNc+JBG0pmqRjQKbURvOepA7mb35Vuz1a2rN1vFhhHvTGI4Squ7qbaMlg==
+
 unpipe@1.0.0, unpipe@~1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
