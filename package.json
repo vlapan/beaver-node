@@ -27,7 +27,7 @@
   },
   "scripts": {
     "start": "bin/beaver.js",
-    "bump": "node tools/version-bump.js",
+    "bump": "node tools/version.js --bump",
     "test": "bin/beaver-test",
     "test-clean": "bin/beaver-test-clean",
     "test-diff": "bin/beaver-test-diff",
