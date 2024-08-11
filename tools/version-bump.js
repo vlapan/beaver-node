@@ -1,5 +1,4 @@
 const fs = require('fs/promises');
-// eslint-disable-next-line node/no-unpublished-require, import/no-extraneous-dependencies
 const inc = require('semver/functions/inc');
 
 (async function () {
