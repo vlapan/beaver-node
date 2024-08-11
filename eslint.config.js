@@ -6,6 +6,7 @@ const pluginLit = require('eslint-plugin-lit');
 const pluginJSON = require('eslint-plugin-json');
 const pluginPromise = require('eslint-plugin-promise');
 const pluginImport = require('eslint-plugin-import');
+const pluginUnicorn = require('eslint-plugin-unicorn');
 const stylisticJs = require('@stylistic/eslint-plugin-js');
 
 module.exports = [
@@ -150,6 +151,17 @@ module.exports = [
     ////
     // Promise
     pluginPromise.configs['flat/recommended'],
+    ////
+
+    ////
+    // Unicorn
+    {
+        ...pluginUnicorn.configs['flat/recommended'],
+        rules: {
+            ...pluginUnicorn.configs['flat/recommended'].rules,
+            'unicorn/prevent-abbreviations': 'off',
+        },
+    },
     ////
 
     ////
