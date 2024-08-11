@@ -45,7 +45,6 @@
     "ace-builds": "^1.35.4",
     "acme-client": "^4.2.5",
     "async": "^3.2.5",
-    "authenticate-pam": "^1.0.5",
     "axios": "^1.7.3",
     "basic-auth": "^2.0.1",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
@@ -66,6 +65,9 @@
     "tar": "^7.4.3",
     "unixcrypt": "^2.0.0",
     "yargs": "^17.7.2"
+  },
+  "optionalDependencies": {
+      "authenticate-pam": "^1.0.5"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.0",
