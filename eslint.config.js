@@ -181,6 +181,12 @@ module.exports = [
                     },
                 },
             ],
+            'unicorn/catch-error-name': [
+                'error',
+                {
+                    name: 'e',
+                },
+            ],
         },
     },
     ////
