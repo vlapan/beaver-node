@@ -160,6 +160,21 @@ module.exports = [
         rules: {
             ...pluginUnicorn.configs['flat/recommended'].rules,
             'unicorn/prevent-abbreviations': 'off',
+            'unicorn/template-indent': [
+                'error',
+                {
+                    indent: 4,
+                }
+            ],
+            "unicorn/filename-case": [
+                "error",
+                {
+                    "cases": {
+                        "kebabCase": true,
+                        "pascalCase": true
+                    }
+                }
+            ]
         },
     },
     ////
