@@ -34,39 +34,9 @@ module.exports = [
         },
     },
     {
-        plugins: {
-            '@stylistic/js': stylisticJs,
-        },
+        ...pluginJs.configs.recommended,
         rules: {
             ...pluginJs.configs.recommended.rules,
-            '@stylistic/js/indent': [
-                'error',
-                4,
-                {
-                    SwitchCase: 1,
-                },
-            ],
-            '@stylistic/js/semi': [
-                2,
-                'always',
-                {
-                    omitLastInOneLineBlock: true,
-                },
-            ],
-            '@stylistic/js/quotes': ['error', 'single'],
-            '@stylistic/js/comma-dangle': ['error', 'always-multiline'],
-            '@stylistic/js/max-len': ['error', 999, 4],
-            '@stylistic/js/space-before-function-paren': [
-                'error',
-                {
-                    anonymous: 'always',
-                    named: 'never',
-                    asyncArrow: 'always',
-                },
-            ],
-            '@stylistic/js/function-paren-newline': ['error', 'never'],
-            '@stylistic/js/multiline-ternary': ['error', 'never'],
-
             'func-names': ['error', 'never'],
             'no-console': 'off',
             'no-continue': 'off',
@@ -87,6 +57,68 @@ module.exports = [
                     allowEmptyCatch: true,
                 },
             ],
+        },
+    },
+    {
+        ...stylisticJs.configs['all-flat'],
+        plugins: {
+            '@stylistic/js': stylisticJs,
+        },
+        rules: {
+            ...stylisticJs.configs['all-flat'].rules,
+            '@stylistic/js/indent': [
+                'error',
+                4,
+                {
+                    SwitchCase: 1,
+                },
+            ],
+            '@stylistic/js/semi': [
+                2,
+                'always',
+                {
+                    omitLastInOneLineBlock: true,
+                },
+            ],
+            '@stylistic/js/quote-props': ['error', 'as-needed'],
+            '@stylistic/js/padded-blocks': ['error', 'never'],
+            '@stylistic/js/quotes': ['error', 'single'],
+            '@stylistic/js/comma-dangle': ['error', 'always-multiline'],
+            '@stylistic/js/max-len': ['error', 999, 4],
+            '@stylistic/js/space-before-function-paren': [
+                'error',
+                {
+                    anonymous: 'always',
+                    named: 'never',
+                    asyncArrow: 'always',
+                },
+            ],
+            '@stylistic/js/function-paren-newline': ['error', 'consistent'],
+            '@stylistic/js/multiline-ternary': ['error', 'never'],
+            '@stylistic/js/function-call-argument-newline': ['error', 'consistent'],
+            '@stylistic/js/array-bracket-newline': [
+                'error',
+                'consistent',
+            ],
+            '@stylistic/js/array-element-newline': [
+                'error',
+                {
+                    consistent: true,
+                    multiline: false,
+                },
+            ],
+            '@stylistic/js/multiline-comment-style': ['error', 'separate-lines'],
+            '@stylistic/js/spaced-comment': [
+                'error',
+                'always',
+                {
+                    exceptions: ['-', '=', '+', '/'],
+                },
+            ],
+            '@stylistic/js/dot-location': ['error', 'property'],
+            '@stylistic/js/object-curly-spacing': ['error', 'always'],
+            '@stylistic/js/no-extra-parens': 'off',
+            '@stylistic/js/newline-per-chained-call': 'off',
         },
     },
     ////
