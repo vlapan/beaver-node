@@ -81,6 +81,12 @@ module.exports = [
             'no-restricted-syntax': 'off',
             'no-plusplus': 'off',
             'no-await-in-loop': 'off',
+            'no-empty': [
+                'error',
+                {
+                    'allowEmptyCatch': true,
+                },
+            ],
         },
     },
     ////
