@@ -187,6 +187,7 @@ module.exports = [
                     name: 'e',
                 },
             ],
+            'unicorn/prefer-string-replace-all': 'off', // replaceAll isn't faster, at least on Safari
         },
     },
     ////
