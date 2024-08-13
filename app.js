@@ -57,7 +57,7 @@ module.exports = {
                     debug('extentions: failed');
                 }
                 // eslint-disable-next-line no-empty
-            } catch (e) { }
+            } catch {}
         }
         if (argv.daemon) {
             await this.daemonStart(argv);
