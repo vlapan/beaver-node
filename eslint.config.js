@@ -53,7 +53,7 @@ module.exports = [
                     omitLastInOneLineBlock: true,
                 },
             ],
-            // '@stylistic/js/quotes': ['error', 'single'],
+            '@stylistic/js/quotes': ['error', 'single'],
             '@stylistic/js/comma-dangle': ['error', 'always-multiline'],
             '@stylistic/js/max-len': ['error', 999, 4],
             '@stylistic/js/space-before-function-paren': [
@@ -172,12 +172,12 @@ module.exports = [
                     indent: 4,
                 }
             ],
-            "unicorn/filename-case": [
-                "error",
+            'unicorn/filename-case': [
+                'error',
                 {
-                    "cases": {
-                        "kebabCase": true,
-                        "pascalCase": true
+                    'cases': {
+                        'kebabCase': true,
+                        'pascalCase': true
                     }
                 }
             ]
