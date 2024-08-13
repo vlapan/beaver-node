@@ -64,6 +64,8 @@ for ITEM in $(find test/example/hosts -name "notificator.json" | grep -vE -e "/*
             data.forEach((v) => {
                 v.date = (new Date(0)).toISOString();
                 v.message = v.message.replace(/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/g, (new Date(0)).toISOString());
+                const messageTemp = v.message.split('\n');
+                v.message = [messageTemp.shift(), ...messageTemp.sort((a, b) => a.localeCompare(b))].join('\n');
             });
             await fs.promises.writeFile(file, JSON.stringify(data, null, 4));
         })();
