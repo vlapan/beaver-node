@@ -84,7 +84,7 @@ module.exports = [
             'no-empty': [
                 'error',
                 {
-                    'allowEmptyCatch': true,
+                    allowEmptyCatch: true,
                 },
             ],
         },
@@ -170,17 +170,17 @@ module.exports = [
                 'error',
                 {
                     indent: 4,
-                }
+                },
             ],
             'unicorn/filename-case': [
                 'error',
                 {
-                    'cases': {
-                        'kebabCase': true,
-                        'pascalCase': true
-                    }
-                }
-            ]
+                    cases: {
+                        kebabCase: true,
+                        pascalCase: true,
+                    },
+                },
+            ],
         },
     },
     ////
