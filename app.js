@@ -88,7 +88,7 @@ module.exports = {
         const extensionsEnabled = argv.e.split(',');
 
         if (~extensionsEnabled.indexOf('ssl') && !argv.disableDaemonHttps) {
-            https.start();
+            await https.start();
         }
 
         if (~extensionsEnabled.indexOf('monitor') && !argv.disableOverseer) {
