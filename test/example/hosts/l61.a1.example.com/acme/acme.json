@@ -112,6 +112,21 @@
                             "l61.a1.example.com"
                         ]
                     }
+                },
+                {
+                    "commonName": "mirror-domain-suffix.example-0.net",
+                    "altNames": [
+                        "*.mirror-domain-suffix.example-0.net"
+                    ],
+                    "keySize": 4096,
+                    "type": "acme-dns-01",
+                    "dns": {
+                        "mname": "l61.a1.example.com.",
+                        "rname": "user.example.com.",
+                        "ns": [
+                            "l61.a1.example.com"
+                        ]
+                    }
                 }
             ],
             "mirrorDomainSuffix": "acme.example.org",

@@ -84,6 +84,14 @@
                     ],
                     "keySize": 4096,
                     "type": "acme-dns-01"
+                },
+                {
+                    "commonName": "mirror-domain-suffix.example-0.net",
+                    "altNames": [
+                        "*.mirror-domain-suffix.example-0.net"
+                    ],
+                    "keySize": 4096,
+                    "type": "acme-dns-01"
                 }
             ],
             "mirrorDomainSuffix": "acme.example.org",

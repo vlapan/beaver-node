@@ -444,6 +444,11 @@
                     "master": "l62.a1.example.com",
                     "mirrorDomainSuffix": "example.org"
                 },
+                "acme-dns-wildcard-3": {
+                    "extends": "acme-le-default",
+                    "type": "acme-dns-01",
+                    "master": "l61.a1.example.com"
+                },
                 "acme-le-no-master": {
                     "extends": "acme-le-default",
                     "type": "acme-http-01",
@@ -1016,6 +1021,10 @@
                 ],
                 "expectCode": 302
             }
+        },
+        "mirror-domain-suffix.example-0.net": {
+            "target": "service.example.com",
+            "ssl": "acme-dns-wildcard-1"
         }
     }
 }
