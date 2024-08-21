@@ -64,6 +64,7 @@ module.exports = {
     },
     async daemonStart(argv) {
         debug('daemons: start');
+        const promises = [];
 
         // const s = sleep(60000);
         // s.abort('sd');
@@ -88,7 +89,7 @@ module.exports = {
         const extensionsEnabled = argv.e.split(',');
 
         if (~extensionsEnabled.indexOf('ssl') && !argv.disableDaemonHttps) {
-            await https.start();
+            promises.push(https.start());
         }
 
         if (~extensionsEnabled.indexOf('monitor') && !argv.disableOverseer) {
@@ -130,6 +131,8 @@ module.exports = {
             });
             setTimeout(notificatorDaemon.start.bind(notificatorDaemon), 1 * 1 * 1000);
         }
+
+        await Promise.all(promises);
 
         daemonStarted();
     },
