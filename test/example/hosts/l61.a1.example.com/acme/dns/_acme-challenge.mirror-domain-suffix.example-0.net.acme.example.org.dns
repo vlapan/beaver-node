@@ -1,0 +1,17 @@
+; Zone: _acme-challenge.mirror-domain-suffix.example-0.net.acme.example.org.
+
+$ORIGIN _acme-challenge.mirror-domain-suffix.example-0.net.acme.example.org.
+$TTL 15
+
+; SOA Record
+@ IN SOA l61.a1.example.com. user.example.com. (
+    15      ;refresh
+    10      ;retry
+    60480   ;expire
+    15      ;minimum ttl
+)
+
+@ IN NS l61.a1.example.com.
+
+@            IN      TXT     "empty"
+vendor       IN      TXT     beaver-l6route
