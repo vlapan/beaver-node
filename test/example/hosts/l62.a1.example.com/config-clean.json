@@ -496,6 +496,7 @@
             ".example.com": {
                 "mode": "infrastructure",
                 "allow-transfer": [
+                    "b1",
                     "l62.b1.example.com",
                     "192.168.65.1"
                 ],

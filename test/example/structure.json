@@ -498,8 +498,8 @@
 			".example.com": {
 				"publish": true,
 				"mode": "infrastructure",
-				"allow-transfer": ["l62.b1.example.com", "192.168.65.1"],
-				"also-notify": ["192.168.64.254"],
+				"allow-transfer": ["b1", "l62.b1.example.com", "192.168.65.1"],
+				"also-notify": ["b1", "l62.b1.example.com", "192.168.64.254"],
 				"dns": {
 					"A": {
 						"@": "1.1.1.1",
