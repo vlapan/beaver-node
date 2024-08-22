@@ -378,7 +378,25 @@
                 "refresh": 300,
                 "retry": 150,
                 "expire": 86400,
-                "minimum": 600
+                "minimum": 600,
+                "acl": {
+                    "standard": [
+                        "@locations",
+                        "@location:b1",
+                        "@routers",
+                        "@servers",
+                        "@server:l61.a1.example.com",
+                        "192.168.1.1/24",
+                        "192.168.2.254",
+                        "localhost"
+                    ],
+                    "nicru-secondary-ns": [
+                        "91.217.20.0/26",
+                        "91.217.21.0/26",
+                        "194.226.96.192/28",
+                        "31.177.66.192/28"
+                    ]
+                }
             },
             "dhcp": {}
         },
@@ -496,6 +514,7 @@
             ".example.com": {
                 "mode": "infrastructure",
                 "allow-transfer": [
+                    "@location:b1",
                     "b1",
                     "l62.b1.example.com",
                     "192.168.65.1"
@@ -638,10 +657,16 @@
             },
             ".example.org": {
                 "mode": "infrastructure",
+                "allow-transfer": "acl:standard",
                 "dns": {}
             },
             ".example.xyz": {
                 "mode": "infrastructure",
+                "allow-transfer": [
+                    "acl:standard",
+                    "acl:nicru-secondary-ns",
+                    "acl:bad"
+                ],
                 "dns": {}
             }
         }
