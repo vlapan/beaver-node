@@ -2,6 +2,38 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.228] - 2024-08-22
+
+### 🚀 Features
+
+- *(dns)* Resolve locations key in allow-transfer values to net3/wan36/lans
+- *(dns)* Options.dns.acl can define list that can be used for "allow-transfer" option in a zone definition, generates separate acls in bind9 configs as well
+
+### 🐛 Bug Fixes
+
+- *(acme)* Check master domains list, throw error if mirrorDomainSuffix exists but it is not in the list, or if mirrorDomainSuffix does not exist but route/altNames are not in the list
+- *(app)* Add daemons to the list of promises and wait for initialization at the end
+- *(cleanConfig)* Remove spaces offset from diff message
+
+### 🚜 Refactor
+
+- *(acme)* Change to non-negated condition
+- *(acme)* Some minor changes
+- *(dns)* Use processAppendKey when generating allow-transfer for slave-zone
+
+### 🎨 Styling
+
+- *(dns)* Align comments in output
+
+### 🧪 Testing
+
+- *(acme)* Add mirrorDomainSuffix target and empty ssl preset
+- *(acme)* Add mirrorDomainSuffix missing parts
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.227] - 2024-08-14
 
 ### 🚀 Features
