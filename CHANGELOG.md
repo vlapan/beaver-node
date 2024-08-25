@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.229] - 2024-08-25
+
+### 🚀 Features
+
+- *(https)* Jwt authentication method
+- *(https)* Pam_helper authentication method
+
+### 🐛 Bug Fixes
+
+- *(https)* Move "clear-site-data" get:/logout => post:/login, add delay to logout post request
+- *(https)* Logout update
+- *(https)* Fix "/approve" body params passing
+- *(https)* Pam add bad authentication delay
+
+### 🚜 Refactor
+
+- *(https)* Change setAuthenticated to receive user name
+- *(https)* AuthFilePath => bobotAuthPath
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.228] - 2024-08-22
 
 ### 🚀 Features
