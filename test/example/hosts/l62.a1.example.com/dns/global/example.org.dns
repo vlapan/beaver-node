@@ -14,6 +14,8 @@ $TTL 600
 ; NS Records
 @	IN	NS	a1	; config-n
 @	IN	NS	b1	; config-n
+@	IN	NS	c1	; config-n
+@	IN	NS	d1	; config-n
 _acme-challenge	IN	NS	l61.a1.example.com.	; global
 _acme-challenge.example.com.acme	IN	NS	l61.a1.example.com.	; global
 _acme-challenge.dns1.example.com.acme	IN	NS	l61.a1.example.com.	; global
@@ -34,6 +36,8 @@ _acme-challenge.mirror-domain-suffix.example-0.net.acme	IN	NS	l61.a1.example.com
 *	IN	A	192.168.64.26	; target-44-[TargetSingle(example.org)]
 *.a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
 *.b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+*.c1	IN	A	10.20.22.20	; location-44-[Location(c1)]
+*.d1	IN	A	10.20.23.20	; location-44-[Location(d1)]
 *.dns1	IN	A	10.20.20.20	; target-44-[TargetSingle(dns1.example.org)]
 *.dns1	IN	A	10.20.21.20	; target-44-[TargetSingle(dns1.example.org)]
 *.l61.a1	IN	A	192.168.64.26	; target-44-[Router(l61.a1.example.org)]
@@ -42,6 +46,8 @@ _acme-challenge.mirror-domain-suffix.example-0.net.acme	IN	NS	l61.a1.example.com
 @	IN	A	192.168.64.26	; target-44-[TargetSingle(example.org)]
 a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
 b1	IN	A	10.20.21.20	; location-44-[Location(b1)]
+c1	IN	A	10.20.22.20	; location-44-[Location(c1)]
+d1	IN	A	10.20.23.20	; location-44-[Location(d1)]
 dns1	IN	A	10.20.20.20	; target-44-[TargetSingle(dns1.example.org)]
 dns1	IN	A	10.20.21.20	; target-44-[TargetSingle(dns1.example.org)]
 l61.a1	IN	A	192.168.64.26	; target-44-[Router(l61.a1.example.org)]
@@ -51,10 +57,14 @@ wan-only	IN	A	192.168.64.91	; target-44-[Server(wan-only.example.org)]
 ; AAAA Records
 *.a1	IN	AAAA	2001:db8:abcd:1234:c000::1000	; location-46-[Location(a1)]
 *.b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
+*.c1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(c1)]
+*.d1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(d1)]
 *.dns1	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetSingle(dns1.example.org)]
 *.dns1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetSingle(dns1.example.org)]
 a1	IN	AAAA	2001:db8:abcd:1234:c000::1000	; location-46-[Location(a1)]
 b1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(b1)]
+c1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(c1)]
+d1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(d1)]
 dns1	IN	AAAA	2001:db8:abcd:1234:c000::1000	; target-46-[TargetSingle(dns1.example.org)]
 dns1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; target-46-[TargetSingle(dns1.example.org)]
 

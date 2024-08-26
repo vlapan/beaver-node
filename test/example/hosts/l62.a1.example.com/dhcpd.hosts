@@ -1,6 +1,6 @@
 subnet 10.10.10.0 netmask 255.255.255.0 {}
 subnet 10.10.10.0 netmask 255.255.255.0 {}
-host s1.a1.example.com_lan { option host-name "s1.a1.example.com"; option domain-name "example.com"; hardware ethernet 1A:01:01:01:01:01; fixed-address 172.16.1.1; }
+host s1.a1.example.com_lan { option host-name "s1.a1.example.com"; option domain-name "example.com"; option routers 10.10.10.10; option ntp-servers 10.10.10.10; option domain-name-servers 10.10.10.10; option rfc3442-classless-static-routes 0,  10,10,10,10; option ms-classless-static-routes 0,  10,10,10,10; hardware ethernet 1A:01:01:01:01:01; fixed-address 10.10.10.10; }
 host l61.a1.example.com_lan { option host-name "l61.a1.example.com"; option domain-name "example.com"; hardware ethernet 2A:01:01:01:01:01; fixed-address 172.16.3.1; }
 host l61.a1.example.com_wan { option host-name "l61.a1.example.com"; option domain-name "example.com"; hardware ethernet 20:01:01:01:01:01; fixed-address 192.168.64.26; }
 host l62.a1.example.com_lan { option host-name "l62.a1.example.com"; option domain-name "example.com"; hardware ethernet 2A:01:01:01:01:02; fixed-address 172.16.3.2; }

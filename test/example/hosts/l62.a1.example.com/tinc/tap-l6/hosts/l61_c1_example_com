@@ -1,0 +1,8 @@
+Address = l61.c1.example.com
+# myself
+Subnet = 10.254.3.1/32
+# l61.c1.example.com
+Subnet = 172.16.5.2/32
+Compression = 7
+
+-----BEGIN RSA PUBLIC KEY-----...-----END RSA PUBLIC KEY-----

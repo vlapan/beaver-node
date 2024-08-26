@@ -14,6 +14,8 @@ $TTL 600
 ; NS Records
 @	IN	NS	a1	; config-n
 @	IN	NS	b1	; config-n
+@	IN	NS	c1	; config-n
+@	IN	NS	d1	; config-n
 
 ; MX Records
 
@@ -21,21 +23,35 @@ $TTL 600
 *	IN	A	10.20.20.20	; config-a4
 *	IN	A	10.10.11.10	; config-a4
 *	IN	A	10.10.11.11	; config-a4
+*	IN	A	10.20.22.20	; config-a4
+*	IN	A	10.20.23.20	; config-a4
 *.a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
 *.b1	IN	A	10.10.11.10	; location-44-[Location(b1)]
 *.b1	IN	A	10.10.11.11	; location-44-[Location(b1)]
+*.c1	IN	A	10.20.22.20	; location-44-[Location(c1)]
+*.d1	IN	A	10.20.23.20	; location-44-[Location(d1)]
 @	IN	A	10.20.20.20	; config-a4
 @	IN	A	10.10.11.10	; config-a4
 @	IN	A	10.10.11.11	; config-a4
+@	IN	A	10.20.22.20	; config-a4
+@	IN	A	10.20.23.20	; config-a4
 a1	IN	A	10.20.20.20	; location-44-[Location(a1)]
 b1	IN	A	10.10.11.10	; location-44-[Location(b1)]
 b1	IN	A	10.10.11.11	; location-44-[Location(b1)]
+c1	IN	A	10.20.22.20	; location-44-[Location(c1)]
+d1	IN	A	10.20.23.20	; location-44-[Location(d1)]
 
 ; AAAA Records
 *	IN	AAAA	2001:db8:abcd:1234:c000::1000	; config-a6
+*	IN	AAAA	2001:db8:abcd:1234:c000::2000	; config-a6
 *.a1	IN	AAAA	2001:db8:abcd:1234:c000::1000	; location-46-[Location(a1)]
+*.c1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(c1)]
+*.d1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(d1)]
 @	IN	AAAA	2001:db8:abcd:1234:c000::1000	; config-a6
+@	IN	AAAA	2001:db8:abcd:1234:c000::2000	; config-a6
 a1	IN	AAAA	2001:db8:abcd:1234:c000::1000	; location-46-[Location(a1)]
+c1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(c1)]
+d1	IN	AAAA	2001:db8:abcd:1234:c000::2000	; location-46-[Location(d1)]
 
 ; CNAME Records
 

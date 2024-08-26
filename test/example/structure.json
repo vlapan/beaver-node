@@ -36,6 +36,42 @@
 				"gateway": "10.10.11.1"
 			}
 		},
+		"c1": {
+			"name": "c1.example.com",
+			"title": "c1.example.com location",
+			"wan3": ["10.20.22.20", "10.20.22.21"],
+			"wan36": "2001:db8:abcd:1234:c000::2000",
+			"lan3": ["10.10.12.10", "10.10.12.11"],
+			"ext": {
+				"web": {
+					"ip": "web.c1.example.com"
+				},
+				"tcp": {
+					"ip": "l3.c1.example.com"
+				}
+			},
+			"routing": {
+				"gateway": "10.10.12.1"
+			}
+		},
+		"d1": {
+			"name": "d1.example.com",
+			"title": "d1.example.com location",
+			"wan3": ["10.20.23.20", "10.20.23.21"],
+			"wan36": "2001:db8:abcd:1234:c000::2000",
+			"lan3": ["10.10.13.10", "10.10.13.11"],
+			"ext": {
+				"web": {
+					"ip": "web.d1.example.com"
+				},
+				"tcp": {
+					"ip": "l3.d1.example.com"
+				}
+			},
+			"routing": {
+				"gateway": "10.10.13.1"
+			}
+		},
 		"standalone": {
 			"name": "standalone"
 		}
@@ -54,11 +90,11 @@
 			},
 			"wan": {
 				"mac": "??:??:??:??:??",
-				"ip": "1.1.1.1"
+				"ip": "10.20.20.20"
 			},
 			"lan": {
 				"mac": "1A:01:01:01:01:01",
-				"ip": "172.16.1.1"
+				"ip": "10.10.10.10"
 			}
 		},
 		"s1.b1.example.com": {
@@ -74,11 +110,51 @@
 			},
 			"wan": {
 				"mac": "??:??:??:??:??",
-				"ip": "1.2.1.1"
+				"ip": "10.20.21.20"
 			},
 			"lan": {
 				"mac": "1A:01:01:01:01:01",
-				"ip": "172.16.2.1"
+				"ip": "10.10.11.10"
+			}
+		},
+		"s1.c1.example.com": {
+			"disposition": "host",
+			"location": "c1",
+			"notify": [
+				"grp-adm"
+			],
+			"resources": {
+				"cpu": 24,
+				"ram": "256G",
+				"hdd": "20000G"
+			},
+			"wan": {
+				"mac": "??:??:??:??:??",
+				"ip": "10.20.22.20"
+			},
+			"lan": {
+				"mac": "1A:01:01:01:01:01",
+				"ip": "10.10.12.10"
+			}
+		},
+		"s1.d1.example.com": {
+			"disposition": "host",
+			"location": "d1",
+			"notify": [
+				"grp-adm"
+			],
+			"resources": {
+				"cpu": 24,
+				"ram": "256G",
+				"hdd": "20000G"
+			},
+			"wan": {
+				"mac": "??:??:??:??:??",
+				"ip": "10.20.23.20"
+			},
+			"lan": {
+				"mac": "1A:01:01:01:01:01",
+				"ip": "10.10.13.10"
 			}
 		},
 		"l61.a1.example.com": {
@@ -199,6 +275,78 @@
 			"vpn": {
 				"key": "l6route",
 				"ip": "10.253.2.2"
+			},
+			"notify": [
+				"grp-adm"
+			],
+			"tcpShift": "1000",
+			"type": "unix",
+			"os": "bsd"
+		},
+		"l61.c1.example.com": {
+			"disposition": "guest",
+			"router": "active",
+			"monitor": true,
+			"location": "c1",
+			"resources": {
+				"cpu": 4,
+				"ram": "4096m",
+				"hdd": "100G"
+			},
+			"net": "net",
+			"lan": {
+				"mac": "2A:01:01:01:01:02",
+				"ip": "172.16.5.2"
+			},
+			"wan": {
+				"mac": "20:01:01:01:01:02",
+				"ip": "192.168.64.29",
+				"ipv6": "2001:db8:abcd:1234:c000::3001"
+			},
+			"tap": {
+				"name": "tap-l6",
+				"ip": "10.254.3.1",
+				"key": "-----BEGIN RSA PUBLIC KEY-----...-----END RSA PUBLIC KEY-----"
+			},
+			"vpn": {
+				"key": "l6route",
+				"ip": "10.253.3.1"
+			},
+			"notify": [
+				"grp-adm"
+			],
+			"tcpShift": "1000",
+			"type": "unix",
+			"os": "bsd"
+		},
+		"l61.d1.example.com": {
+			"disposition": "guest",
+			"router": "active",
+			"monitor": true,
+			"location": "d1",
+			"resources": {
+				"cpu": 4,
+				"ram": "4096m",
+				"hdd": "100G"
+			},
+			"net": "net",
+			"lan": {
+				"mac": "2A:01:01:01:01:02",
+				"ip": "172.16.6.2"
+			},
+			"wan": {
+				"mac": "20:01:01:01:01:02",
+				"ip": "192.168.64.30",
+				"ipv6": "2001:db8:abcd:1234:c000::4002"
+			},
+			"tap": {
+				"name": "tap-l6",
+				"ip": "10.254.4.1",
+				"key": "-----BEGIN RSA PUBLIC KEY-----...-----END RSA PUBLIC KEY-----"
+			},
+			"vpn": {
+				"key": "l6route",
+				"ip": "10.253.4.1"
 			},
 			"notify": [
 				"grp-adm"

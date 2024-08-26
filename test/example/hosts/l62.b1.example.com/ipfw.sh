@@ -23,6 +23,8 @@ ${fw} delete set 2 || true
 ${fw} set 2 table 5 flush || true 			 # 5: remote
 ${fw} set 2 table 5 add 172.16.3.1 10.254.1.1 	 #   net: l61.a1.example.com
 ${fw} set 2 table 5 add 172.16.3.2 10.254.1.1 	 #   net: l62.a1.example.com
+${fw} set 2 table 5 add 172.16.5.2 10.254.3.1 	 #   net: l61.c1.example.com
+${fw} set 2 table 5 add 172.16.6.2 10.254.4.1 	 #   net: l61.d1.example.com
 ${fw} set 2 table 5 add 172.16.3.1 10.254.1.1 	 #   net: l61.a1.example.org
 
 

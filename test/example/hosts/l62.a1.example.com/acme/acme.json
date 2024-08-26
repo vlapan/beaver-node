@@ -5,6 +5,8 @@
             "slaves": [
                 "l61.a1.example.com",
                 "l62.b1.example.com",
+                "l61.c1.example.com",
+                "l61.d1.example.com",
                 "l61.a1.example.org",
                 "l64.a1.example.org"
             ],
@@ -26,6 +28,8 @@
             "slaves": [
                 "l61.a1.example.com",
                 "l62.a1.example.com",
+                "l61.c1.example.com",
+                "l61.d1.example.com",
                 "l61.a1.example.org",
                 "l64.a1.example.org"
             ],
@@ -45,6 +49,8 @@
             "slaves": [
                 "l62.a1.example.com",
                 "l62.b1.example.com",
+                "l61.c1.example.com",
+                "l61.d1.example.com",
                 "l61.a1.example.org",
                 "l64.a1.example.org"
             ],
@@ -107,6 +113,8 @@
             "slaves": [
                 "l61.a1.example.com",
                 "l62.b1.example.com",
+                "l61.c1.example.com",
+                "l61.d1.example.com",
                 "l61.a1.example.org",
                 "l64.a1.example.org"
             ],
