@@ -2,6 +2,40 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.230] - 2024-08-26
+
+### 🚀 Features
+
+- New module for important messages on configuration, importantMessages
+- *(importantMessages)* Notify about root certificates soon expiration
+- Location.zone to separate tinc networks
+
+### 🐛 Bug Fixes
+
+- *(https)* Wait until the daemon have started
+- *(overseer)* Do not use test reason when making diff
+- *(overseer)* Default to append test reason
+- *(cleanConfig)* Fix fresh generation detection (without previous state)
+- *(extensions)* Reverse check for exit code of a hook ">0" => "=== 0"
+- *(tinc)* Multiple tinc networks, but it's still won't work until some other changes
+
+### 🚜 Refactor
+
+- *(overseer)* Fs.*Sync => async
+- *(https)* Authentication functions to separate middleware
+
+### 🎨 Styling
+
+- *(cleanConfig)* Prefix all messages with "Diff:"
+
+### 🧪 Testing
+
+- *(example)* Add two more locations and some servers to them
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.229] - 2024-08-25
 
 ### 🚀 Features
