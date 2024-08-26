@@ -93,7 +93,7 @@ module.exports = {
         }
 
         if (~extensionsEnabled.indexOf('monitor') && !argv.disableOverseer) {
-            const overseer = new Overseer({
+            promises.push(Overseer.build({
                 data: `${argv.home}/monitor.json`,
                 result: `${argv.home}/monitor-result.txt`,
                 disableNotify: argv.disableNotify,
@@ -101,8 +101,7 @@ module.exports = {
                 tcpTimeout: 5000,
                 webTimeout: 10000,
                 maxAttempts: 2,
-            });
-            overseer.start();
+            }));
         }
 
         if (~extensionsEnabled.indexOf('acme') && !argv.disableAcme) {

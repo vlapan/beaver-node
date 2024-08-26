@@ -55,8 +55,7 @@ function main(argv) {
         debug.enable(debugValue);
     }
 
-    const overseer = new Overseer(argv);
-    overseer.start();
+    Overseer.build(argv);
 }
 
 if (!module.parent) {
