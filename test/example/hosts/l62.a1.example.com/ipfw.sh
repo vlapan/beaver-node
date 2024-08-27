@@ -4,16 +4,46 @@ fw="/sbin/ipfw -qf"
 
 #${fw} nat 1 delete #
 ${fw} nat 1 config ip 10.20.20.20 unreg_only \
-    redirect_port tcp 192.168.64.27:1001 1002 $(true || comment beaver-web-a1-l64.a1.example.org) \
-    redirect_port tcp 192.168.64.27:655 1003 $(true || comment beaver-tinc-a1-l64.a1.example.org) \
-    redirect_port udp 192.168.64.27:655 1003 $(true || comment beaver-tinc-a1-l64.a1.example.org) \
-    redirect_port tcp 192.168.64.27:53 1053 $(true || comment type-unix-a1-l64.a1.example.org) \
-    redirect_port udp 192.168.64.27:53 1053 $(true || comment type-unix-a1-l64.a1.example.org) \
-    redirect_port tcp 192.168.64.27:82 1082 $(true || comment type-unix-a1-l64.a1.example.org) \
-    redirect_port udp 192.168.64.27:82 1082 $(true || comment type-unix-a1-l64.a1.example.org) \
-    redirect_port tcp 192.168.64.27:22 1022 $(true || comment type-unix-a1-l64.a1.example.org) \
-    redirect_port tcp 192.168.64.27:80 1080 $(true || comment type-unix-a1-l64.a1.example.org) \
-    redirect_port tcp 192.168.64.27:443 1443 $(true || comment type-unix-a1-l64.a1.example.org)
+    redirect_port tcp 192.168.64.26:1001 1002 $(true || comment beaver-web-a1-l61.a1.example.com) \
+    redirect_port tcp 192.168.64.26:655 1003 $(true || comment beaver-tinc-a1-l61.a1.example.com) \
+    redirect_port udp 192.168.64.26:655 1003 $(true || comment beaver-tinc-a1-l61.a1.example.com) \
+    redirect_port tcp 192.168.64.26:53 1053 $(true || comment type-unix-a1-l61.a1.example.com) \
+    redirect_port udp 192.168.64.26:53 1053 $(true || comment type-unix-a1-l61.a1.example.com) \
+    redirect_port tcp 192.168.64.26:82 1082 $(true || comment type-unix-a1-l61.a1.example.com) \
+    redirect_port udp 192.168.64.26:82 1082 $(true || comment type-unix-a1-l61.a1.example.com) \
+    redirect_port tcp 192.168.64.26:22 1022 $(true || comment type-unix-a1-l61.a1.example.com) \
+    redirect_port tcp 192.168.64.26:80 1080 $(true || comment type-unix-a1-l61.a1.example.com) \
+    redirect_port tcp 192.168.64.26:443 1443 $(true || comment type-unix-a1-l61.a1.example.com) \
+    redirect_port tcp 127.0.0.1:1001 2002 $(true || comment beaver-web-a1-l62.a1.example.com) \
+    redirect_port tcp 127.0.0.1:655 2003 $(true || comment beaver-tinc-a1-l62.a1.example.com) \
+    redirect_port udp 127.0.0.1:655 2003 $(true || comment beaver-tinc-a1-l62.a1.example.com) \
+    redirect_port tcp 127.0.0.1:53 2053 $(true || comment type-unix-a1-l62.a1.example.com) \
+    redirect_port udp 127.0.0.1:53 2053 $(true || comment type-unix-a1-l62.a1.example.com) \
+    redirect_port tcp 127.0.0.1:82 2082 $(true || comment type-unix-a1-l62.a1.example.com) \
+    redirect_port udp 127.0.0.1:82 2082 $(true || comment type-unix-a1-l62.a1.example.com) \
+    redirect_port tcp 127.0.0.1:22 2022 $(true || comment type-unix-a1-l62.a1.example.com) \
+    redirect_port tcp 127.0.0.1:80 2080 $(true || comment type-unix-a1-l62.a1.example.com) \
+    redirect_port tcp 127.0.0.1:443 2443 $(true || comment type-unix-a1-l62.a1.example.com) \
+    redirect_port tcp 192.168.64.26:1001 3002 $(true || comment beaver-web-a1-l61.a1.example.org) \
+    redirect_port tcp 192.168.64.26:655 3003 $(true || comment beaver-tinc-a1-l61.a1.example.org) \
+    redirect_port udp 192.168.64.26:655 3003 $(true || comment beaver-tinc-a1-l61.a1.example.org) \
+    redirect_port tcp 192.168.64.26:53 3053 $(true || comment type-unix-a1-l61.a1.example.org) \
+    redirect_port udp 192.168.64.26:53 3053 $(true || comment type-unix-a1-l61.a1.example.org) \
+    redirect_port tcp 192.168.64.26:82 3082 $(true || comment type-unix-a1-l61.a1.example.org) \
+    redirect_port udp 192.168.64.26:82 3082 $(true || comment type-unix-a1-l61.a1.example.org) \
+    redirect_port tcp 192.168.64.26:22 3022 $(true || comment type-unix-a1-l61.a1.example.org) \
+    redirect_port tcp 192.168.64.26:80 3080 $(true || comment type-unix-a1-l61.a1.example.org) \
+    redirect_port tcp 192.168.64.26:443 3443 $(true || comment type-unix-a1-l61.a1.example.org) \
+    redirect_port tcp 192.168.64.27:1001 4002 $(true || comment beaver-web-a1-l64.a1.example.org) \
+    redirect_port tcp 192.168.64.27:655 4003 $(true || comment beaver-tinc-a1-l64.a1.example.org) \
+    redirect_port udp 192.168.64.27:655 4003 $(true || comment beaver-tinc-a1-l64.a1.example.org) \
+    redirect_port tcp 192.168.64.27:53 4053 $(true || comment type-unix-a1-l64.a1.example.org) \
+    redirect_port udp 192.168.64.27:53 4053 $(true || comment type-unix-a1-l64.a1.example.org) \
+    redirect_port tcp 192.168.64.27:82 4082 $(true || comment type-unix-a1-l64.a1.example.org) \
+    redirect_port udp 192.168.64.27:82 4082 $(true || comment type-unix-a1-l64.a1.example.org) \
+    redirect_port tcp 192.168.64.27:22 4022 $(true || comment type-unix-a1-l64.a1.example.org) \
+    redirect_port tcp 192.168.64.27:80 4080 $(true || comment type-unix-a1-l64.a1.example.org) \
+    redirect_port tcp 192.168.64.27:443 4443 $(true || comment type-unix-a1-l64.a1.example.org)
 
 
 ${fw} set disable 2 || true

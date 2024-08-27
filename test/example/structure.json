@@ -237,7 +237,7 @@
 			"notify": [
 				"grp-adm"
 			],
-			"tcpShift": "1000",
+			"tcpShift": "2000",
 			"type": "unix",
 			"os": "bsd"
 		},
@@ -282,7 +282,7 @@
 			"notify": [
 				"grp-adm"
 			],
-			"tcpShift": "1000",
+			"tcpShift": "2000",
 			"type": "unix",
 			"os": "bsd"
 		},
@@ -398,7 +398,7 @@
 			"notify": [
 				"grp-adm"
 			],
-			"tcpShift": "1000",
+			"tcpShift": "3000",
 			"type": "unix",
 			"os": "bsd"
 		},
@@ -415,7 +415,7 @@
 				"mac": "20:01:01:01:01:01",
 				"ip": "192.168.64.27"
 			},
-			"tcpShift": "1000",
+			"tcpShift": "4000",
 			"type": "unix",
 			"os": "bsd"
 		},
