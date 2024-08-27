@@ -11,7 +11,7 @@ ${fw} nat 1 config ip 10.20.21.20 unreg_only \
     redirect_port udp 127.0.0.1:53 2053 $(true || comment type-unix-b1-l62.b1.example.com) \
     redirect_port tcp 127.0.0.1:82 2082 $(true || comment type-unix-b1-l62.b1.example.com) \
     redirect_port udp 127.0.0.1:82 2082 $(true || comment type-unix-b1-l62.b1.example.com) \
-    redirect_port tcp 127.0.0.1:22 2022 $(true || comment type-unix-b1-l62.b1.example.com) \
+    redirect_port tcp 127.0.0.1:27 2022 $(true || comment type-unix-b1-l62.b1.example.com) \
     redirect_port tcp 127.0.0.1:80 2080 $(true || comment type-unix-b1-l62.b1.example.com) \
     redirect_port tcp 127.0.0.1:443 2443 $(true || comment type-unix-b1-l62.b1.example.com)
 
