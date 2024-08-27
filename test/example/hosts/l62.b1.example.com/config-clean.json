@@ -899,15 +899,34 @@
         },
         "l61.a1.example.com": {
             "target": "l61.a1.example.com",
-            "dns": "use-wan"
+            "dns": "use-wan",
+            "monitor": {
+                "notify": [
+                    "grp-adm"
+                ]
+            }
         },
         "l62.a1.example.com": {
             "target": "l62.a1.example.com",
-            "dns": "use-wan"
+            "dns": "use-wan",
+            "monitor": {
+                "protocol": "https",
+                "path": "/",
+                "notify": [
+                    "grp-adm"
+                ]
+            }
         },
         "l61.b1.example.com": {
             "target": "l61.b1.example.com",
-            "dns": "use-wan"
+            "dns": "use-wan",
+            "monitor": {
+                "protocol": "https",
+                "path": "/path",
+                "notify": [
+                    "grp-adm"
+                ]
+            }
         },
         "no-target.example.com": {
             "dns": "use-router",
@@ -935,6 +954,11 @@
                     "indexPage": "index.html",
                     "errorPage": "error.html"
                 }
+            },
+            "monitor": {
+                "notify": [
+                    "grp-adm"
+                ]
             }
         },
         "cdn.example.com": {

@@ -312,6 +312,64 @@
     ],
     "web": [
         {
+            "url": "http://l61.a1.example.com/",
+            "ip": "192.168.64.26",
+            "port": false,
+            "expectCode": 200,
+            "subject": "web-get-200: http://l61.a1.example.com/, ip=192.168.64.26",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "http://service.example.com/",
+            "ip": "172.16.4.2",
+            "expectCode": 200,
+            "subject": "web-get-200: http://service.example.com/, ip=172.16.4.2",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "https://l61.a1.example.com/",
+            "ip": "192.168.64.26",
+            "port": false,
+            "expectCode": 200,
+            "subject": "web-get-200: https://l61.a1.example.com/, ip=192.168.64.26",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "https://l61.b1.example.com/path",
+            "ip": "l61.b1.example.com",
+            "port": false,
+            "expectCode": 200,
+            "subject": "web-get-200: https://l61.b1.example.com/, ip=l61.b1.example.com",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "https://l62.a1.example.com/",
+            "ip": "192.168.64.27",
+            "port": false,
+            "expectCode": 200,
+            "subject": "web-get-200: https://l62.a1.example.com/, ip=192.168.64.27",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "https://service.example.com/",
+            "ip": "172.16.4.2",
+            "expectCode": 200,
+            "subject": "web-get-200: https://service.example.com/, ip=172.16.4.2",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
             "url": "http://static.external.example.net/",
             "ip": "static.external.example.net",
             "port": false,
