@@ -186,6 +186,26 @@
             ]
         },
         {
+            "url": "https://proxy.example.com/",
+            "ip": "proxy.example.com",
+            "port": false,
+            "expectCode": 200,
+            "subject": "web-get-200: https://proxy.example.com/, ip=proxy.example.com",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "https://redirect.example.com/",
+            "ip": "redirect.example.com",
+            "port": false,
+            "expectCode": 200,
+            "subject": "web-get-200: https://redirect.example.com/, ip=redirect.example.com",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
             "url": "https://service.example.com/",
             "ip": "172.16.3.1",
             "expectCode": 200,

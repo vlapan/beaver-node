@@ -832,11 +832,23 @@
         },
         "proxy.example.com": {
             "proxyHttp": "https://example.com:443",
-            "proxyHttps": "https://example.com:443"
+            "proxyHttps": "https://example.com:443",
+            "monitor": {
+                "protocol": "https",
+                "notify": [
+                    "grp-adm"
+                ]
+            }
         },
         "redirect.example.com": {
             "redirectHttp": "https://example.com/",
-            "redirectHttps": "https://example.com/"
+            "redirectHttps": "https://example.com/",
+            "monitor": {
+                "protocol": "https",
+                "notify": [
+                    "grp-adm"
+                ]
+            }
         },
         "redirectHttps.example.com": {
             "redirectHttp": true,
