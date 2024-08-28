@@ -53,10 +53,15 @@ module.exports = {
                     });
                     debug('extentions: done');
                 } catch (e) {
-                    console.error(e);
                     debug('extentions: failed');
+                    throw e;
                 }
-            } catch {}
+            } catch (e) {
+                console.error(e);
+                if (!argv.daemon) {
+                    process.exit(1);
+                }
+            }
         }
         if (argv.daemon) {
             await this.daemonStart(argv);
