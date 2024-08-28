@@ -50,14 +50,6 @@
     },
     "tcp": [
         {
-            "ip": "10.20.20.20",
-            "port": 1022,
-            "subject": "tcp-conn-1022: l61.a1.example.com, ssh-fwd, ip=10.20.20.20",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
             "ip": "10.20.22.20",
             "port": 1022,
             "subject": "tcp-conn-1022: l61.c1.example.com, ssh-fwd, ip=10.20.22.20",
@@ -66,41 +58,9 @@
             ]
         },
         {
-            "ip": "10.20.23.20",
-            "port": 1022,
-            "subject": "tcp-conn-1022: l61.d1.example.com, ssh-fwd, ip=10.20.23.20",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "10.20.20.20",
-            "port": 2022,
-            "subject": "tcp-conn-2022: l62.a1.example.com, ssh-fwd, ip=10.20.20.20",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
             "ip": "10.20.21.20",
             "port": 2022,
             "subject": "tcp-conn-2022: l62.b1.example.com, ssh-fwd, ip=10.20.21.20",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "10.10.10.10",
-            "port": 22,
-            "subject": "tcp-conn-22: s1.a1.example.com, ssh-lan, ip=10.10.10.10",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "10.20.20.20",
-            "port": 22,
-            "subject": "tcp-conn-22: s1.a1.example.com, ssh-wan, ip=10.20.20.20",
             "notify": [
                 "grp-adm"
             ]
@@ -138,54 +98,6 @@
             ]
         },
         {
-            "ip": "10.10.13.10",
-            "port": 22,
-            "subject": "tcp-conn-22: s1.d1.example.com, ssh-lan, ip=10.10.13.10",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "10.20.23.20",
-            "port": 22,
-            "subject": "tcp-conn-22: s1.d1.example.com, ssh-wan, ip=10.20.23.20",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "172.16.3.1",
-            "port": 27,
-            "subject": "tcp-conn-27: l61.a1.example.com, ssh-lan, ip=172.16.3.1",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "192.168.64.26",
-            "port": 27,
-            "subject": "tcp-conn-27: l61.a1.example.com, ssh-wan, ip=192.168.64.26",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "172.16.3.1",
-            "port": 27,
-            "subject": "tcp-conn-27: l61.a1.example.org, ssh-lan, ip=172.16.3.1",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "192.168.64.26",
-            "port": 27,
-            "subject": "tcp-conn-27: l61.a1.example.org, ssh-wan, ip=192.168.64.26",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
             "ip": "172.16.5.2",
             "port": 27,
             "subject": "tcp-conn-27: l61.c1.example.com, ssh-lan, ip=172.16.5.2",
@@ -197,38 +109,6 @@
             "ip": "192.168.64.29",
             "port": 27,
             "subject": "tcp-conn-27: l61.c1.example.com, ssh-wan, ip=192.168.64.29",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "172.16.6.2",
-            "port": 27,
-            "subject": "tcp-conn-27: l61.d1.example.com, ssh-lan, ip=172.16.6.2",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "192.168.64.30",
-            "port": 27,
-            "subject": "tcp-conn-27: l61.d1.example.com, ssh-wan, ip=192.168.64.30",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "172.16.3.2",
-            "port": 27,
-            "subject": "tcp-conn-27: l62.a1.example.com, ssh-lan, ip=172.16.3.2",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "192.168.64.27",
-            "port": 27,
-            "subject": "tcp-conn-27: l62.a1.example.com, ssh-wan, ip=192.168.64.27",
             "notify": [
                 "grp-adm"
             ]
@@ -248,27 +128,9 @@
             "notify": [
                 "grp-adm"
             ]
-        },
-        {
-            "ip": "10.20.20.20",
-            "port": 3022,
-            "subject": "tcp-conn-3022: l61.a1.example.org, ssh-fwd, ip=10.20.20.20",
-            "notify": [
-                "grp-adm"
-            ]
         }
     ],
     "web": [
-        {
-            "url": "http://l61.a1.example.com/",
-            "ip": "192.168.64.26",
-            "port": false,
-            "expectCode": 200,
-            "subject": "web-get-200: http://l61.a1.example.com/, ip=192.168.64.26",
-            "notify": [
-                "grp-adm"
-            ]
-        },
         {
             "url": "http://service.example.com/",
             "ip": "172.16.4.2",
@@ -279,31 +141,11 @@
             ]
         },
         {
-            "url": "https://l61.a1.example.com/",
-            "ip": "192.168.64.26",
-            "port": false,
-            "expectCode": 200,
-            "subject": "web-get-200: https://l61.a1.example.com/, ip=192.168.64.26",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
             "url": "https://l61.b1.example.com/path",
             "ip": "l61.b1.example.com",
             "port": false,
             "expectCode": 200,
             "subject": "web-get-200: https://l61.b1.example.com/, ip=l61.b1.example.com",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "url": "https://l62.a1.example.com/",
-            "ip": "192.168.64.27",
-            "port": false,
-            "expectCode": 200,
-            "subject": "web-get-200: https://l62.a1.example.com/, ip=192.168.64.27",
             "notify": [
                 "grp-adm"
             ]
