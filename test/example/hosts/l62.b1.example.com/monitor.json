@@ -2,12 +2,12 @@
     "disabled": false,
     "testing": false,
     "appendReason": false,
-    "appendReasonTcp": false,
+    "appendReasonTcp": true,
     "appendReasonWeb": true,
     "interval": 30000,
-    "tcpTimeout": 5000,
-    "webTimeout": 10000,
-    "maxAttempts": 5,
+    "tcpTimeout": 1000,
+    "webTimeout": 1000,
+    "maxAttempts": 1,
     "notify": {
         "user1": {
             "type": "email",

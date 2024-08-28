@@ -464,16 +464,16 @@
 		"settings": {
 			"appendReason": false,
 			"intervalMillis": "30000",
-			"maxAttempts": 5
+			"maxAttempts": 1
 		},
 		"tests": {
 			"tcp": {
-				"appendReason": false,
-				"timeoutMillis": "5000"
+				"appendReason": true,
+				"timeoutMillis": "1000"
 			},
 			"web": {
 				"appendReason": true,
-				"timeoutMillis": "10000"
+				"timeoutMillis": "1000"
 			}
 		},
 		"notify": {
