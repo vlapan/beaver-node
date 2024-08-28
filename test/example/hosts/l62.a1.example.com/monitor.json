@@ -58,30 +58,6 @@
             ]
         },
         {
-            "ip": "10.20.20.20",
-            "port": 2022,
-            "subject": "tcp-conn-2022: l62.a1.example.com, ssh-fwd, ip=10.20.20.20",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "10.10.10.10",
-            "port": 22,
-            "subject": "tcp-conn-22: s1.a1.example.com, ssh-lan, ip=10.10.10.10",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "10.20.20.20",
-            "port": 22,
-            "subject": "tcp-conn-22: s1.a1.example.com, ssh-wan, ip=10.20.20.20",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
             "ip": "172.16.3.1",
             "port": 27,
             "subject": "tcp-conn-27: l61.a1.example.com, ssh-lan, ip=172.16.3.1",
@@ -98,17 +74,9 @@
             ]
         },
         {
-            "ip": "172.16.3.1",
-            "port": 27,
-            "subject": "tcp-conn-27: l61.a1.example.org, ssh-lan, ip=172.16.3.1",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "192.168.64.26",
-            "port": 27,
-            "subject": "tcp-conn-27: l61.a1.example.org, ssh-wan, ip=192.168.64.26",
+            "ip": "10.20.20.20",
+            "port": 2022,
+            "subject": "tcp-conn-2022: l62.a1.example.com, ssh-fwd, ip=10.20.20.20",
             "notify": [
                 "grp-adm"
             ]
@@ -130,9 +98,41 @@
             ]
         },
         {
+            "ip": "10.10.10.10",
+            "port": 22,
+            "subject": "tcp-conn-22: s1.a1.example.com, ssh-lan, ip=10.10.10.10",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "ip": "10.20.20.20",
+            "port": 22,
+            "subject": "tcp-conn-22: s1.a1.example.com, ssh-wan, ip=10.20.20.20",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
             "ip": "10.20.20.20",
             "port": 3022,
             "subject": "tcp-conn-3022: l61.a1.example.org, ssh-fwd, ip=10.20.20.20",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "ip": "172.16.3.1",
+            "port": 27,
+            "subject": "tcp-conn-27: l61.a1.example.org, ssh-lan, ip=172.16.3.1",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "ip": "192.168.64.26",
+            "port": 27,
+            "subject": "tcp-conn-27: l61.a1.example.org, ssh-wan, ip=192.168.64.26",
             "notify": [
                 "grp-adm"
             ]
@@ -149,19 +149,19 @@
             ]
         },
         {
-            "url": "http://service.example.com/",
+            "url": "https://l61.a1.example.com/",
             "ip": "172.16.3.1",
             "expectCode": 200,
-            "subject": "web-get-200: http://service.example.com/, ip=172.16.3.1",
+            "subject": "web-get-200: https://l61.a1.example.com/, ip=172.16.3.1",
             "notify": [
                 "grp-adm"
             ]
         },
         {
-            "url": "https://l61.a1.example.com/",
-            "ip": "172.16.3.1",
+            "url": "https://l62.a1.example.com/",
+            "ip": "172.16.3.2",
             "expectCode": 200,
-            "subject": "web-get-200: https://l61.a1.example.com/, ip=172.16.3.1",
+            "subject": "web-get-200: https://l62.a1.example.com/, ip=172.16.3.2",
             "notify": [
                 "grp-adm"
             ]
@@ -172,15 +172,6 @@
             "port": false,
             "expectCode": 200,
             "subject": "web-get-200: https://l61.b1.example.com/, ip=l61.b1.example.com",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "url": "https://l62.a1.example.com/",
-            "ip": "172.16.3.2",
-            "expectCode": 200,
-            "subject": "web-get-200: https://l62.a1.example.com/, ip=172.16.3.2",
             "notify": [
                 "grp-adm"
             ]
@@ -201,6 +192,15 @@
             "port": false,
             "expectCode": 200,
             "subject": "web-get-200: https://redirect.example.com/, ip=redirect.example.com",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "http://service.example.com/",
+            "ip": "172.16.3.1",
+            "expectCode": 200,
+            "subject": "web-get-200: http://service.example.com/, ip=172.16.3.1",
             "notify": [
                 "grp-adm"
             ]
