@@ -2,6 +2,26 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.231] - 2024-08-28
+
+### 🚀 Features
+
+- *(monitor)* ".protocol" and ".path"
+- *(overseer)* Notification message made of three blocks DIFF/CURRENT/PREVIOUSLY
+- *(monitor)* Respect zones on locations
+
+### 🐛 Bug Fixes
+
+- *(monitor)* Ssh-fwd, service ports from table, remove duplicates, refactor a bit
+- *(app)* Exit early on error if not in daemon mode
+
+### 🧪 Testing
+
+- *(example)* Set different tcpShift on the servers
+- *(example)* Change routing.types.unix['22/tcp']=27 port
+- *(example)* Change monitoring parameters
+- *(example)* Add monitor to TargetStatic
+
 ## [0.1.230] - 2024-08-26
 
 ### 🚀 Features
