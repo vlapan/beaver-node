@@ -2,6 +2,19 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.232] - 2024-08-28
+
+### 🐛 Bug Fixes
+
+- *(overseer)* Fix notification message section PREVIOUSLY
+- *(monitor)* Check wan3 exists before adding fwd tests
+- *(monitor)* Check that url starts with 'http' on static test entry
+- *(monitor)* Sort tests by name, host, ip, port
+
+### 🚜 Refactor
+
+- *(overseer)* Function to color line by status
+
 ## [0.1.231] - 2024-08-28
 
 ### 🚀 Features
