@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.236] - 2024-08-29
+
+### 🐛 Bug Fixes
+
+- *(overseer)* Notification mail blocks CURRENT/PREVIOUSLY should only color line which changed status
+- *(overseer)* Log status changes with fail reason
+- *(acme)* Remove async/await that was added by mistake
+
+### 🚜 Refactor
+
+- *(overseer)* Better log
+
 ## [0.1.235] - 2024-08-29
 
 ### 🐛 Bug Fixes
