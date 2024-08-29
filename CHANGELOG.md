@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.234] - 2024-08-29
+
+### 🐛 Bug Fixes
+
+- *(tinc)* Use main tinc process PID when syslog in hooks
+- *(tinc)* Use 'local7.info' facility.level when syslog in hooks
+
 ## [0.1.233] - 2024-08-29
 
 ### 🚀 Features
