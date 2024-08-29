@@ -1,5 +1,5 @@
 #!/bin/sh
-logger -t "tinc.tap-l6[$PPID]" "tinc-up, name=$NAME, iface=$INTERFACE"
+logger -p "local7.info" -t "tinc.tap-l6[$PPID]" "tinc-up, name=$NAME, iface=$INTERFACE"
 ifconfig $INTERFACE 10.254.2.2 netmask 255.255.0.0
 ifconfig $INTERFACE up
 if ifconfig tap-l6 2>/dev/null; then

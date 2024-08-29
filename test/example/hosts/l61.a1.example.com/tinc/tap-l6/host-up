@@ -1,2 +1,2 @@
 #!/bin/sh
-logger -t "tinc.tap-l6[$PPID]" "host-up, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT"
+logger -p "local7.info" -t "tinc.tap-l6[$PPID]" "host-up, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT"
