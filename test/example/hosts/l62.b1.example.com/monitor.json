@@ -52,7 +52,7 @@
         {
             "ip": "10.20.21.20",
             "port": 2022,
-            "subject": "tcp-conn-2022: l62.b1.example.com, ssh-fwd, ip=10.20.21.20",
+            "subject": "tcp-conn-ssh: l62.b1.example.com, ssh-fwd, ip=10.20.21.20, port=2022",
             "notify": [
                 "grp-adm"
             ]
@@ -60,7 +60,7 @@
         {
             "ip": "172.16.4.2",
             "port": 27,
-            "subject": "tcp-conn-27: l62.b1.example.com, ssh-lan, ip=172.16.4.2",
+            "subject": "tcp-conn-ssh: l62.b1.example.com, ssh-lan, ip=172.16.4.2, port=27",
             "notify": [
                 "grp-adm"
             ]
@@ -68,7 +68,7 @@
         {
             "ip": "192.168.64.28",
             "port": 27,
-            "subject": "tcp-conn-27: l62.b1.example.com, ssh-wan, ip=192.168.64.28",
+            "subject": "tcp-conn-ssh: l62.b1.example.com, ssh-wan, ip=192.168.64.28, port=27",
             "notify": [
                 "grp-adm"
             ]
@@ -76,7 +76,7 @@
         {
             "ip": "10.10.11.10",
             "port": 22,
-            "subject": "tcp-conn-22: s1.b1.example.com, ssh-lan, ip=10.10.11.10",
+            "subject": "tcp-conn-ssh: s1.b1.example.com, ssh-lan, ip=10.10.11.10, port=22",
             "notify": [
                 "grp-adm"
             ]
@@ -84,7 +84,7 @@
         {
             "ip": "10.20.21.20",
             "port": 22,
-            "subject": "tcp-conn-22: s1.b1.example.com, ssh-wan, ip=10.20.21.20",
+            "subject": "tcp-conn-ssh: s1.b1.example.com, ssh-wan, ip=10.20.21.20, port=22",
             "notify": [
                 "grp-adm"
             ]
@@ -92,7 +92,7 @@
         {
             "ip": "10.20.22.20",
             "port": 1022,
-            "subject": "tcp-conn-1022: l61.c1.example.com, ssh-fwd, ip=10.20.22.20",
+            "subject": "tcp-conn-ssh: l61.c1.example.com, ssh-fwd, ip=10.20.22.20, port=1022",
             "notify": [
                 "grp-adm"
             ]
@@ -100,7 +100,7 @@
         {
             "ip": "172.16.5.2",
             "port": 27,
-            "subject": "tcp-conn-27: l61.c1.example.com, ssh-lan, ip=172.16.5.2",
+            "subject": "tcp-conn-ssh: l61.c1.example.com, ssh-lan, ip=172.16.5.2, port=27",
             "notify": [
                 "grp-adm"
             ]
@@ -108,7 +108,7 @@
         {
             "ip": "192.168.64.29",
             "port": 27,
-            "subject": "tcp-conn-27: l61.c1.example.com, ssh-wan, ip=192.168.64.29",
+            "subject": "tcp-conn-ssh: l61.c1.example.com, ssh-wan, ip=192.168.64.29, port=27",
             "notify": [
                 "grp-adm"
             ]
@@ -116,7 +116,7 @@
         {
             "ip": "10.10.12.10",
             "port": 22,
-            "subject": "tcp-conn-22: s1.c1.example.com, ssh-lan, ip=10.10.12.10",
+            "subject": "tcp-conn-ssh: s1.c1.example.com, ssh-lan, ip=10.10.12.10, port=22",
             "notify": [
                 "grp-adm"
             ]
@@ -124,7 +124,7 @@
         {
             "ip": "10.20.22.20",
             "port": 22,
-            "subject": "tcp-conn-22: s1.c1.example.com, ssh-wan, ip=10.20.22.20",
+            "subject": "tcp-conn-ssh: s1.c1.example.com, ssh-wan, ip=10.20.22.20, port=22",
             "notify": [
                 "grp-adm"
             ]
