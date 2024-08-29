@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.235] - 2024-08-29
+
+### 🐛 Bug Fixes
+
+- *(overseer)* Change '\n' to '<br>' in the html message
+- *(monitor)* Reformat subject for tests
+
 ## [0.1.234] - 2024-08-29
 
 ### 🐛 Bug Fixes
