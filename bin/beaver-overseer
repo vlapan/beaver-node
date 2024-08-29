@@ -18,6 +18,10 @@ yargs
         alias: 'result',
         string: true,
         describe: 'results file',
+    }).options('l', {
+        alias: 'log',
+        string: true,
+        describe: 'log file',
     }).options('i', {
         alias: 'interval',
         default: 10000,

@@ -101,6 +101,7 @@ module.exports = {
             promises.push(Overseer.build({
                 data: `${argv.home}/monitor.json`,
                 result: `${argv.home}/monitor-result.txt`,
+                log: argv.overseerLog,
                 disableNotify: argv.disableNotify,
                 interval: 10000,
                 tcpTimeout: 5000,
