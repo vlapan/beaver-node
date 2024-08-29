@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.233] - 2024-08-29
+
+### 🚀 Features
+
+- *(sshConfig)* Add sshConfig module, generates ssh_config for the infrastructure
+- *(overseer)* New log argument --overseer-log, if specified then state changes will be logged to the file provided in that argument
+- *(overseer)* Print tests count
+
 ## [0.1.232] - 2024-08-28
 
 ### 🐛 Bug Fixes
