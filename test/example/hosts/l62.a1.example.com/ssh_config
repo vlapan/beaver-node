@@ -1,0 +1,43 @@
+# Copy and include this file in your ~/.ssh/config
+# Include ~/.ssh/beaver/*
+#
+
+Host s1.a1.example.com
+    AddressFamily inet
+    Port 22
+Host s1.b1.example.com
+    AddressFamily inet
+    Port 22
+Host s1.c1.example.com
+    AddressFamily inet
+    Port 22
+Host s1.d1.example.com
+    AddressFamily inet
+    Port 22
+Host l61.a1.example.com
+    AddressFamily inet
+    Port 27
+Host l62.a1.example.com
+    AddressFamily inet
+    Port 27
+Host l62.b1.example.com
+    AddressFamily inet
+    Port 27
+Host l61.c1.example.com
+    AddressFamily inet
+    Port 27
+Host l61.d1.example.com
+    AddressFamily inet
+    Port 27
+Host l61.a1.example.org
+    AddressFamily inet
+    Port 27
+Host l64.a1.example.org
+    AddressFamily inet
+    Port 27
+Host lan-only.example.org
+    AddressFamily inet
+    Port 22
+Host wan-only.example.org
+    AddressFamily inet
+    Port 22
