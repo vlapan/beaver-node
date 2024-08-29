@@ -1,5 +1,5 @@
 #!/bin/sh
-logger -i -t "tinc.tap-l6" "subnet-up, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT, subnet=$SUBNET, weight=$WEIGHT"
+logger -t "tinc.tap-l6[$PPID]" "subnet-up, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT, subnet=$SUBNET, weight=$WEIGHT"
 DIR=$(dirname -- "$(readlink -f -- "$0";)")
 if [ "$REMOTEADDRESS" ]; then
     IP=${SUBNET%/*}

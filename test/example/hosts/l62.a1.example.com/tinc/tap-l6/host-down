@@ -1,2 +1,2 @@
 #!/bin/sh
-logger -i -t "tinc.tap-l6" "host-down, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT"
+logger -t "tinc.tap-l6[$PPID]" "host-down, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT"
