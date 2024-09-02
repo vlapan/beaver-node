@@ -42,10 +42,10 @@
     "audit": "osv-scanner --lockfile yarn.lock"
   },
   "dependencies": {
-    "ace-builds": "^1.36.0",
+    "ace-builds": "^1.36.2",
     "acme-client": "^4.2.5",
     "async": "^3.2.6",
-    "axios": "^1.7.5",
+    "axios": "^1.7.7",
     "basic-auth": "^2.0.1",
     "clean-yaumnrc": "github:myx/clean-yaumnrc",
     "common-tags": "^1.8.2",
@@ -73,7 +73,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
-    "@stylistic/eslint-plugin-js": "^2.6.4",
+    "@stylistic/eslint-plugin-js": "^2.7.2",
     "eslint": "^9.9.1",
     "eslint-plugin-import": "^2.29.1",
     "eslint-plugin-json": "^4.0.1",
@@ -82,7 +82,7 @@
     "eslint-plugin-promise": "^7.1.0",
     "eslint-plugin-unicorn": "^55.0.0",
     "eslint-plugin-wc": "^2.1.1",
-    "flow-bin": "^0.244.0",
+    "flow-bin": "^0.245.0",
     "globals": "^15.9.0",
     "semver": "^7.6.3"
   }
