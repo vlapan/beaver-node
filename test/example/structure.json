@@ -937,6 +937,7 @@
 			"target": "l61.a1.example.com",
 			"dns": "use-wan",
 			"monitor": {
+				"type": ["location", "server"],
 				"notify": ["grp-adm"]
 			}
 		},

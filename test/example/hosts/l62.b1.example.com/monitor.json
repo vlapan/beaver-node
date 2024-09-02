@@ -74,22 +74,6 @@
             ]
         },
         {
-            "ip": "10.10.11.10",
-            "port": 22,
-            "subject": "tcp-conn-ssh: s1.b1.example.com, ssh-lan, ip=10.10.11.10, port=22",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "10.20.21.20",
-            "port": 22,
-            "subject": "tcp-conn-ssh: s1.b1.example.com, ssh-wan, ip=10.20.21.20, port=22",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
             "ip": "10.20.22.20",
             "port": 1022,
             "subject": "tcp-conn-ssh: l61.c1.example.com, ssh-fwd, ip=10.20.22.20, port=1022",
@@ -112,31 +96,14 @@
             "notify": [
                 "grp-adm"
             ]
-        },
-        {
-            "ip": "10.10.12.10",
-            "port": 22,
-            "subject": "tcp-conn-ssh: s1.c1.example.com, ssh-lan, ip=10.10.12.10, port=22",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "ip": "10.20.22.20",
-            "port": 22,
-            "subject": "tcp-conn-ssh: s1.c1.example.com, ssh-wan, ip=10.20.22.20, port=22",
-            "notify": [
-                "grp-adm"
-            ]
         }
     ],
     "web": [
         {
             "url": "https://l61.b1.example.com/path",
             "ip": "l61.b1.example.com",
-            "port": false,
             "expectCode": 200,
-            "subject": "web-get-200: https://l61.b1.example.com/, ip=l61.b1.example.com",
+            "subject": "web-get-200: https://l61.b1.example.com/path, ip=l61.b1.example.com",
             "notify": [
                 "grp-adm"
             ]
@@ -144,7 +111,6 @@
         {
             "url": "https://proxy.example.com/",
             "ip": "proxy.example.com",
-            "port": false,
             "expectCode": 200,
             "subject": "web-get-200: https://proxy.example.com/, ip=proxy.example.com",
             "notify": [
@@ -154,7 +120,6 @@
         {
             "url": "https://redirect.example.com/",
             "ip": "redirect.example.com",
-            "port": false,
             "expectCode": 200,
             "subject": "web-get-200: https://redirect.example.com/, ip=redirect.example.com",
             "notify": [
@@ -163,18 +128,36 @@
         },
         {
             "url": "http://service.example.com/",
-            "ip": "172.16.4.2",
+            "ip": "192.168.64.26",
             "expectCode": 200,
-            "subject": "web-get-200: http://service.example.com/, ip=172.16.4.2",
+            "subject": "web-get-200: http://service.example.com/, ip=192.168.64.26",
             "notify": [
                 "grp-adm"
             ]
         },
         {
             "url": "https://service.example.com/",
-            "ip": "172.16.4.2",
+            "ip": "192.168.64.26",
             "expectCode": 200,
-            "subject": "web-get-200: https://service.example.com/, ip=172.16.4.2",
+            "subject": "web-get-200: https://service.example.com/, ip=192.168.64.26",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "http://service.example.com/",
+            "ip": "192.168.64.28",
+            "expectCode": 200,
+            "subject": "web-get-200: http://service.example.com/, ip=192.168.64.28",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "https://service.example.com/",
+            "ip": "192.168.64.28",
+            "expectCode": 200,
+            "subject": "web-get-200: https://service.example.com/, ip=192.168.64.28",
             "notify": [
                 "grp-adm"
             ]
@@ -182,7 +165,6 @@
         {
             "url": "http://static.external.example.net/",
             "ip": "static.external.example.net",
-            "port": false,
             "expectCode": 302,
             "subject": "web-get-302: http://static.external.example.net/, ip=static.external.example.net",
             "notify": [
@@ -192,7 +174,6 @@
         {
             "url": "https://static.external.example.net/",
             "ip": "static.external.example.net",
-            "port": false,
             "expectCode": 302,
             "subject": "web-get-302: https://static.external.example.net/, ip=static.external.example.net",
             "notify": [
