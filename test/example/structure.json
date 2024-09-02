@@ -706,6 +706,7 @@
 			".example-2.com" : {
 				"publish": true,
 				"mode" : "dedicated",
+				"allow-transfer": ["@zone:zone2"],
 				"dns" : {
 					"TXT" : {
 						"@" : "v=spf1 a mx ptr ~all"

@@ -708,6 +708,9 @@
             },
             ".example-2.com": {
                 "mode": "dedicated",
+                "allow-transfer": [
+                    "@zone:zone2"
+                ],
                 "dns": {
                     "TXT": {
                         "@": [
