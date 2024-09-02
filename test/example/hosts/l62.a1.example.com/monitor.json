@@ -125,6 +125,24 @@
     "web": [
         {
             "url": "http://l61.a1.example.com/",
+            "ip": "10.20.20.20",
+            "expectCode": 200,
+            "subject": "web-get-200: http://l61.a1.example.com/, ip=10.20.20.20",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "https://l61.a1.example.com/",
+            "ip": "10.20.20.20",
+            "expectCode": 200,
+            "subject": "web-get-200: https://l61.a1.example.com/, ip=10.20.20.20",
+            "notify": [
+                "grp-adm"
+            ]
+        },
+        {
+            "url": "http://l61.a1.example.com/",
             "ip": "172.16.3.1",
             "expectCode": 200,
             "subject": "web-get-200: http://l61.a1.example.com/, ip=172.16.3.1",
@@ -142,28 +160,10 @@
             ]
         },
         {
-            "url": "http://l61.a1.example.com/",
-            "ip": "192.168.64.26",
-            "expectCode": 200,
-            "subject": "web-get-200: http://l61.a1.example.com/, ip=192.168.64.26",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
-            "url": "https://l61.a1.example.com/",
-            "ip": "192.168.64.26",
-            "expectCode": 200,
-            "subject": "web-get-200: https://l61.a1.example.com/, ip=192.168.64.26",
-            "notify": [
-                "grp-adm"
-            ]
-        },
-        {
             "url": "https://l62.a1.example.com/",
-            "ip": "192.168.64.27",
+            "ip": "10.20.20.20",
             "expectCode": 200,
-            "subject": "web-get-200: https://l62.a1.example.com/, ip=192.168.64.27",
+            "subject": "web-get-200: https://l62.a1.example.com/, ip=10.20.20.20",
             "notify": [
                 "grp-adm"
             ]
@@ -197,36 +197,36 @@
         },
         {
             "url": "http://service.example.com/",
-            "ip": "192.168.64.26",
+            "ip": "10.20.20.20",
             "expectCode": 200,
-            "subject": "web-get-200: http://service.example.com/, ip=192.168.64.26",
+            "subject": "web-get-200: http://service.example.com/, ip=10.20.20.20",
             "notify": [
                 "grp-adm"
             ]
         },
         {
             "url": "https://service.example.com/",
-            "ip": "192.168.64.26",
+            "ip": "10.20.20.20",
             "expectCode": 200,
-            "subject": "web-get-200: https://service.example.com/, ip=192.168.64.26",
+            "subject": "web-get-200: https://service.example.com/, ip=10.20.20.20",
             "notify": [
                 "grp-adm"
             ]
         },
         {
             "url": "http://service.example.com/",
-            "ip": "192.168.64.28",
+            "ip": "10.20.21.20",
             "expectCode": 200,
-            "subject": "web-get-200: http://service.example.com/, ip=192.168.64.28",
+            "subject": "web-get-200: http://service.example.com/, ip=10.20.21.20",
             "notify": [
                 "grp-adm"
             ]
         },
         {
             "url": "https://service.example.com/",
-            "ip": "192.168.64.28",
+            "ip": "10.20.21.20",
             "expectCode": 200,
-            "subject": "web-get-200: https://service.example.com/, ip=192.168.64.28",
+            "subject": "web-get-200: https://service.example.com/, ip=10.20.21.20",
             "notify": [
                 "grp-adm"
             ]
