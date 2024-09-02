@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.238] - 2024-09-02
+
+### 🚀 Features
+
+- *(dns)* Add @zone to 'allow-transfer' resolver
+
+### 🐛 Bug Fixes
+
+- *(overseer)* Fix mail message CURRENT view
+- *(monitor)* Use location wans instead of wan3smart
+
 ## [0.1.237] - 2024-09-02
 
 ### 🚜 Refactor
