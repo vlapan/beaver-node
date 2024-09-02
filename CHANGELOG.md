@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.237] - 2024-09-02
+
+### 🚜 Refactor
+
+- *(monitor)* Rewrite monitor a bit
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.236] - 2024-08-29
 
 ### 🐛 Bug Fixes
