@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.239] - 2024-09-04
+
+### 🐛 Bug Fixes
+
+- *(notificator)* Show process owner in daemonStarted notification
+
+### 🚜 Refactor
+
+- Fix 'unicorn/prefer-date-now'
+- *(overseer)* Let => const
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+- Upgrade 'acme-client' dep to v5
+
 ## [0.1.238] - 2024-09-02
 
 ### 🚀 Features
