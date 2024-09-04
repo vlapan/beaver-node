@@ -43,7 +43,7 @@
   },
   "dependencies": {
     "ace-builds": "^1.36.2",
-    "acme-client": "^4.2.5",
+    "acme-client": "^5.4.0",
     "async": "^3.2.6",
     "axios": "^1.7.7",
     "basic-auth": "^2.0.1",
