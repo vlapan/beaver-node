@@ -573,7 +573,7 @@
                     "type": "acme-http-01",
                     "acme": "letsencrypt-staging",
                     "email": "user@example.com",
-                    "keySize": 4096,
+                    "keySize": "secp256r1",
                     "subject": "/C=RU/ST=RU/OU=example.org/0.CN=${CN}/ext:subjectAltName=DNS:${CN},DNS:l61.a1.example.com"
                 },
                 "acme-le-0": {

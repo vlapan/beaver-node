@@ -15,7 +15,7 @@
     }
   ],
   "engines": {
-    "node": ">=18.20.3"
+    "node": ">=20.0.0"
   },
   "main": "./app.js",
   "private": true,
@@ -42,6 +42,7 @@
     "audit": "osv-scanner --lockfile yarn.lock"
   },
   "dependencies": {
+    "@peculiar/x509": "^1.12.1",
     "ace-builds": "^1.36.2",
     "acme-client": "^5.4.0",
     "async": "^3.2.6",
@@ -61,7 +62,6 @@
     "lit-html": "^3.2.0",
     "morgan": "^1.10.0",
     "nginx-conf": "^2.1.0",
-    "node-forge": "^1.3.1",
     "nodemailer": "^6.9.15",
     "supports-color": "^8.1.1",
     "tar": "^7.4.3",
