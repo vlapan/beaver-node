@@ -609,8 +609,8 @@ clean-regexp@^1.0.0:
     escape-string-regexp "^1.0.5"
 
 "clean-yaumnrc@github:myx/clean-yaumnrc":
-  version "0.0.157"
-  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/27457c42cc08a57a80b22385fc54835d98ea9889"
+  version "0.0.163"
+  resolved "https://codeload.github.com/myx/clean-yaumnrc/tar.gz/af3b17edb18cd942a1dd40ae768b1d03dfe8ef08"
 
 cliui@^8.0.1:
   version "8.0.1"
