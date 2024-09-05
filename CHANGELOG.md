@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.240] - 2024-09-05
+
+### 🚜 Refactor
+
+- Migrate 'node-forge' => '@peculiar/x509', acme EC certificates
+
+### 🧪 Testing
+
+- *(example)* Cleanup after tinc zones change
+
+### ⚙️ Miscellaneous Tasks
+
+- Update dep 'clean-yaumnrc'
+- Deps up
+
 ## [0.1.239] - 2024-09-04
 
 ### 🐛 Bug Fixes
