@@ -1,12 +1,157 @@
 [
     {
         "date": "1970-01-01T00:00:00.000Z",
-        "key": "regenerate",
-        "message": "Some certificates will expire soon, regenerate your configuration!\n1970-01-01T00:00:00.000Z 2048-sha265.example.com\n1970-01-01T00:00:00.000Z 4096-sha265.example.com\n1970-01-01T00:00:00.000Z abstract.app\n1970-01-01T00:00:00.000Z cdn.example.com\n1970-01-01T00:00:00.000Z cdn2.example.com\n1970-01-01T00:00:00.000Z cert.example.net (static certs)\n1970-01-01T00:00:00.000Z default\n1970-01-01T00:00:00.000Z ec256.example.com\n1970-01-01T00:00:00.000Z ec384.example.com\n1970-01-01T00:00:00.000Z example.xyz\n1970-01-01T00:00:00.000Z l61.a1.example.com\n1970-01-01T00:00:00.000Z l61.b1.example.com\n1970-01-01T00:00:00.000Z l62.a1.example.com\n1970-01-01T00:00:00.000Z lfs-static.example.com\n1970-01-01T00:00:00.000Z location.a1.example.com\n1970-01-01T00:00:00.000Z location.b1.example.com\n1970-01-01T00:00:00.000Z no-target.example.com\n1970-01-01T00:00:00.000Z pki.example.com\n1970-01-01T00:00:00.000Z proxy.example.com\n1970-01-01T00:00:00.000Z redirect.example.com\n1970-01-01T00:00:00.000Z redirectHttps.example.com\n1970-01-01T00:00:00.000Z redirectHttps.extends.example.com\n1970-01-01T00:00:00.000Z s7.service.example.com\n1970-01-01T00:00:00.000Z service.example.com\n1970-01-01T00:00:00.000Z static.external.example.net\n1970-01-01T00:00:00.000Z www.example.xyz"
+        "key": "regenerate-configuration-for:static.external.example.net",
+        "message": "Certificate for \"static.external.example.net\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
     },
     {
         "date": "1970-01-01T00:00:00.000Z",
-        "key": "regenerate-root",
-        "message": "Some root certificates will expire soon!\n1970-01-01T00:00:00.000Z 2048-sha256\n1970-01-01T00:00:00.000Z 4096-sha256\n1970-01-01T00:00:00.000Z ec\n1970-01-01T00:00:00.000Z ec256\n1970-01-01T00:00:00.000Z ec384"
+        "key": "regenerate-configuration-for:lfs-static.example.com",
+        "message": "Certificate for \"lfs-static.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:pki.example.com",
+        "message": "Certificate for \"pki.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:s7.service.example.com",
+        "message": "Certificate for \"s7.service.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:abstract.app",
+        "message": "Certificate for \"abstract.app\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:no-target.example.com",
+        "message": "Certificate for \"no-target.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:service.example.com",
+        "message": "Certificate for \"service.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:cdn.example.com",
+        "message": "Certificate for \"cdn.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:cdn2.example.com",
+        "message": "Certificate for \"cdn2.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:www.example.xyz",
+        "message": "Certificate for \"www.example.xyz\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:l61.a1.example.com",
+        "message": "Certificate for \"l61.a1.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:l62.a1.example.com",
+        "message": "Certificate for \"l62.a1.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:l61.b1.example.com",
+        "message": "Certificate for \"l61.b1.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:redirectHttps.extends.example.com",
+        "message": "Certificate for \"redirectHttps.extends.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:location.a1.example.com",
+        "message": "Certificate for \"location.a1.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:location.b1.example.com",
+        "message": "Certificate for \"location.b1.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:example.xyz",
+        "message": "Certificate for \"example.xyz\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:ec384.example.com",
+        "message": "Certificate for \"ec384.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:proxy.example.com",
+        "message": "Certificate for \"proxy.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:redirect.example.com",
+        "message": "Certificate for \"redirect.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:redirectHttps.example.com",
+        "message": "Certificate for \"redirectHttps.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:2048-sha265.example.com",
+        "message": "Certificate for \"2048-sha265.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:ec256.example.com",
+        "message": "Certificate for \"ec256.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:default",
+        "message": "Certificate for \"default\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:4096-sha265.example.com",
+        "message": "Certificate for \"4096-sha265.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-root-for:2048-sha256",
+        "message": "Root certificate for \"2048-sha256\" will expire on 1970-01-01T00:00:00.000Z!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-root-for:ec",
+        "message": "Root certificate for \"ec\" will expire on 1970-01-01T00:00:00.000Z!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-root-for:ec256",
+        "message": "Root certificate for \"ec256\" will expire on 1970-01-01T00:00:00.000Z!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-root-for:ec384",
+        "message": "Root certificate for \"ec384\" will expire on 1970-01-01T00:00:00.000Z!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-root-for:4096-sha256",
+        "message": "Root certificate for \"4096-sha256\" will expire on 1970-01-01T00:00:00.000Z!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:cert.example.net (static certs)",
+        "message": "Certificate for \"cert.example.net (static certs)\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
     }
 ]
