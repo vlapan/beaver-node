@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.241] - 2024-09-06
+
+### 🚀 Features
+
+- *(https)* Monitoring popup with coloring instead of just link
+
+### 🐛 Bug Fixes
+
+- *(acme)* Add failback to checkMigrate function
+- *(notificator)* Separate certificate notifications
+- *(https)* Add padding to explainer
+- *(notificator)* Fix notifications sorting
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+- Update dep 'clean-yaumnrc'
+
 ## [0.1.240] - 2024-09-05
 
 ### 🚜 Refactor
