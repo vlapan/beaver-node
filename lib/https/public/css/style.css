@@ -19,6 +19,37 @@ legend {
     margin-left: 15px;
     padding: 0 5px;
 }
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
+    white-space: nowrap;
+}
+table tr:first-child th {
+    background-color: #eee;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #ddd;
+}
+table input {
+    border: 0;
+}
+table input:focus {
+    z-index: 1;
+}
+table td {
+    border: 1px solid #ddd;
+    padding: 0 3px;
+}
+table tr:nth-child(odd) {
+    background-color: #fafefa;
+}
+table tr:nth-child(even) {
+    background-color: #fff;
+}
+
 ::-webkit-scrollbar {
     width: 7px;
     height: 7px;
