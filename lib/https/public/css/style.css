@@ -23,8 +23,6 @@ legend {
 table {
     border-collapse: collapse;
     border: 1px solid #ddd;
-    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
-    white-space: nowrap;
 }
 table tr:first-child th {
     background-color: #eee;
@@ -32,6 +30,7 @@ table tr:first-child th {
 table th {
     font-weight: bold;
     border: 1px solid #ddd;
+    text-align: left;
 }
 table input {
     border: 0;
@@ -40,8 +39,10 @@ table input:focus {
     z-index: 1;
 }
 table td {
+    font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     border: 1px solid #ddd;
     padding: 0 3px;
+    overflow-wrap: break-word;
 }
 table tr:nth-child(odd) {
     background-color: #fafefa;
