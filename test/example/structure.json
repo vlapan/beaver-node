@@ -462,17 +462,14 @@
 	},
 	"monitoring": {
 		"settings": {
-			"appendReason": false,
 			"intervalMillis": "30000",
 			"maxAttempts": 1
 		},
 		"tests": {
 			"tcp": {
-				"appendReason": true,
 				"timeoutMillis": "1000"
 			},
 			"web": {
-				"appendReason": true,
 				"timeoutMillis": "1000"
 			}
 		},

@@ -1,9 +1,6 @@
 {
     "disabled": false,
     "testing": false,
-    "appendReason": false,
-    "appendReasonTcp": true,
-    "appendReasonWeb": true,
     "interval": 30000,
     "tcpTimeout": 1000,
     "webTimeout": 1000,
