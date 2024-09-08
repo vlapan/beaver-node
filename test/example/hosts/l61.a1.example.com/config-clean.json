@@ -611,6 +611,15 @@
                     "acme": "buypass-staging",
                     "master": "l61.a1.example.com"
                 },
+                "acme-google-1": {
+                    "extends": "acme-le-default",
+                    "acme": "google-staging",
+                    "master": "l61.a1.example.com",
+                    "externalAccountBinding": {
+                        "kid": "YOUR-EAB-KID",
+                        "hmacKey": "YOUR-EAB-HMAC-KEY"
+                    }
+                },
                 "acme-le-no-master": {
                     "extends": "acme-le-default",
                     "type": "acme-http-01",
