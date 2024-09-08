@@ -606,6 +606,11 @@
                     "type": "acme-dns-01",
                     "master": "l61.a1.example.com"
                 },
+                "acme-buypass-1": {
+                    "extends": "acme-le-default",
+                    "acme": "buypass-staging",
+                    "master": "l61.a1.example.com"
+                },
                 "acme-le-no-master": {
                     "extends": "acme-le-default",
                     "type": "acme-http-01",
