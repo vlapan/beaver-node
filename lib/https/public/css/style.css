@@ -20,35 +20,37 @@ legend {
     padding: 0 5px;
 }
 
-.table {
-    border-collapse: collapse;
+table {
     border: 1px solid #ddd;
+    table-layout: fixed;
+    width: 100%;
 }
-.table tr:first-child th {
-    background-color: #eee;
+table tr:first-child th:first-child {
+    left: 0;
+    z-index: 3;
 }
-.table th {
+table th {
     font-weight: bold;
     border: 1px solid #ddd;
     text-align: left;
 }
-.table input {
+table input {
     border: 0;
 }
-.table input:focus {
+table input:focus {
     z-index: 1;
 }
-.table td {
+table td {
     font-family: ui-monospace, 'Cascadia Code', 'Source Code Pro', Menlo, Consolas, 'DejaVu Sans Mono', monospace;
     border: 1px solid #ddd;
     padding: 0 3px;
     overflow-wrap: break-word;
 }
-.table tr:nth-child(odd) {
-    background-color: #fafefa;
+table tr:nth-child(odd) td {
+    background-color: #f9fcf9;
 }
-.table tr:nth-child(even) {
-    background-color: #fff;
+table tr:nth-child(even) td {
+    background-color: #f9f9fc;
 }
 
 /* ::-webkit-scrollbar {
@@ -106,7 +108,7 @@ legend {
 .popup-inner {
     position: absolute;
     left: 5px;
-    right: 0;
+    right: 5px;
     top: 5px;
     bottom: 0;
 }
