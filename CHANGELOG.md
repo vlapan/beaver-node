@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.242] - 2024-09-08
+
+### 🐛 Bug Fixes
+
+- Remove appendReason from overseer and monitor
+- *(https)* Webui table style for explainer
+- *(https)* Update webui table style for explainer
+- *(webui)* Import explainer.css
+- *(https)* Update webui table style for explainer
+- *(https)* Update webui table style for explainer
+- *(acme)* Pass provider and type
+
+### ⚙️ Miscellaneous Tasks
+
+- Update dep 'clean-yaumnrc'
+- Deps up
+
 ## [0.1.241] - 2024-09-06
 
 ### 🚀 Features
