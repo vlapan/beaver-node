@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.243] - 2024-09-09
+
+### 🚀 Features
+
+- *(acme)* Ability to set custom acme directory for presets
+- *(utils)* New function "generateCertificate", uses crypto+x509 to create new certificate and sign it by provided issuer key
+
+### 🐛 Bug Fixes
+
+- *(acme)* Pass externalAccountBinding
+- *(acme)* Clone array before use
+- *(utils)* Ability to set return string length for the hash function
+- *(openssl)* Make openssl.generate use new utils generateCertificate function that uses crypto+x509 instead of separate shell openssl process executing
+- *(example)* Add generated home directory to the example output
+- *(acme)* Sort acme config output, make it deterministic
+- *(acme)* Parallel process of the routes
+
+### 🚜 Refactor
+
+- *(utils)* Move compareHost sort helper to common utils
+
+### 🧪 Testing
+
+- *(example)* Update beaver-test shell script, that produces example output
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.242] - 2024-09-08
 
 ### 🐛 Bug Fixes
