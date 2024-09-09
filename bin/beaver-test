@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
 export BEAVER_DAEMON=false
-TEST_PATH=test/example
+# export NODE_COMPILE_CACHE=.v8-cache
+TEST_PATH="test/example"
+OUTPUT_PATH="$TEST_PATH/hosts"
 
 DEBUG="$1"
 if [ "$DEBUG" ]; then
@@ -11,7 +13,7 @@ else
 fi
 
 for BEAVER_HOSTNAME in $HOSTS; do
-    BEAVER_HOSTNAME_PATH="${TEST_PATH}/hosts/${BEAVER_HOSTNAME}"
+    BEAVER_HOSTNAME_PATH="${OUTPUT_PATH}/${BEAVER_HOSTNAME}"
     if [ -d "${BEAVER_HOSTNAME_PATH}" ]; then
         if [ ! -d "${BEAVER_HOSTNAME_PATH}-saved" ]; then
             cp -R ${BEAVER_HOSTNAME_PATH} ${BEAVER_HOSTNAME_PATH}-saved
@@ -40,21 +42,21 @@ for BEAVER_HOSTNAME in $HOSTS; do
 done
 
 {
-    for ITEM in $(find test/example/hosts -name "*.csr" | grep -vE -e "/*.-saved/"); do
-        openssl req -text -noout -in ${ITEM} | grep -v -e '[a-z0-9]:[a-z0-9]' -e 'Modulus:' > ${ITEM}.txt
+    for ITEM in $(find "$OUTPUT_PATH" -name "*.csr" | grep -vE -e "/*.-saved/"); do
+        openssl req -text -noout -in ${ITEM} | grep -v -e '[a-z0-9]:[a-z0-9]' -e 'Signature Value:' -e 'Modulus:' -e 'pub:' > ${ITEM}.txt
     done
 } &
 
 {
-    for ITEM in $(find test/example/hosts -name "*.crt" -o -name "*.ca" -o -name "*.ca-crt" | grep -vE -e "/*.-saved/"); do
+    for ITEM in $(find "$OUTPUT_PATH" -name "*.crt" -o -name "*.ca" -o -name "*.ca-crt" | grep -vE -e "/*.-saved/"); do
         openssl x509 -in ${ITEM} -text -noout | grep -v -e 'pub:' -e 'Signature Value:' -e 'Modulus:' -e 'X509v3 Authority Key Identifier:' -e 'X509v3 Subject Key Identifier:' -e 'Serial Number:' -e 'Validity' -e 'Not Before:' -e 'Not After :' -e 'pub: $' -e ':\w\w$' -e ':\w\w:$' -e '^$' > ${ITEM}.txt
     done
 } &
 
-sed -i '' '/^; Exported/d;/;serial$/d' $(find test/example/hosts -name "*.dns" | grep -vE -e "/*.-saved/") &
+sed -i '' '/^; Exported/d;/;serial$/d' $(find "$OUTPUT_PATH" -name "*.dns" | grep -vE -e "/*.-saved/") &
 
 {
-for ITEM in $(find test/example/hosts -name "notificator.json" | grep -vE -e "/*.-saved/" | grep -vE -e "/*.-home/"); do
+for ITEM in $(find "$OUTPUT_PATH" -name "notificator.json" | grep -vE -e "/*.-saved/"); do
     node - -- $ITEM <<- 'EOF'
         const fs = require('fs');
         const file = process.argv.pop();
@@ -67,6 +69,39 @@ for ITEM in $(find test/example/hosts -name "notificator.json" | grep -vE -e "/*
                 const messageTemp = v.message.split('\n');
                 v.message = [messageTemp.shift(), ...messageTemp.sort((a, b) => a.localeCompare(b))].join('\n');
             });
+            await fs.promises.writeFile(file, JSON.stringify(data, null, 4));
+        })();
+EOF
+done
+} &
+
+{
+for ITEM in $(find "$OUTPUT_PATH" -name "last.json" | grep -vE -e "/*.-saved/"); do
+    node - -- $ITEM <<- 'EOF'
+        const fs = require('fs');
+        const file = process.argv.pop();
+        (async () => {
+            const json = await fs.promises.readFile(file, 'utf8');
+            const data = JSON.parse(json);
+            data.date = new Date(0);
+            data.version = 'dev';
+            await fs.promises.writeFile(file, JSON.stringify(data, null, 4));
+        })();
+EOF
+done
+} &
+
+{
+for ITEM in $(find "$OUTPUT_PATH" -name "state.json" | grep -vE -e "/*.-saved/"); do
+    node - -- $ITEM <<- 'EOF'
+        const fs = require('fs');
+        const file = process.argv.pop();
+        (async () => {
+            const json = await fs.promises.readFile(file, 'utf8');
+            const data = JSON.parse(json);
+            for (const [key, value] of Object.entries(data)) {
+                data[key] = new Date(0);
+            }
             await fs.promises.writeFile(file, JSON.stringify(data, null, 4));
         })();
 EOF
