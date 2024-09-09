@@ -6,50 +6,6 @@
         }
     },
     "accounts": {
-        "acme-le-1": {
-            "master": "l62.a1.example.com",
-            "slaves": [
-                "l61.a1.example.com",
-                "l62.b1.example.com",
-                "l61.c1.example.com",
-                "l61.d1.example.com",
-                "l61.a1.example.org",
-                "l64.a1.example.org"
-            ],
-            "provider": "letsencrypt-staging",
-            "email": "user@example.com",
-            "domains": [
-                {
-                    "commonName": "acme-le-1.service.example.com",
-                    "altNames": [
-                        "acme-le-1-2.service.example.com"
-                    ],
-                    "keySize": "secp256r1",
-                    "type": "acme-http-01"
-                }
-            ]
-        },
-        "acme-le-2": {
-            "master": "l62.b1.example.com",
-            "slaves": [
-                "l61.a1.example.com",
-                "l62.a1.example.com",
-                "l61.c1.example.com",
-                "l61.d1.example.com",
-                "l61.a1.example.org",
-                "l64.a1.example.org"
-            ],
-            "provider": "letsencrypt-staging",
-            "email": "user@example.com",
-            "domains": [
-                {
-                    "commonName": "acme-le-2.service.example.com",
-                    "altNames": [],
-                    "keySize": "secp256r1",
-                    "type": "acme-http-01"
-                }
-            ]
-        },
         "acme-dns-wildcard-1": {
             "master": "l61.a1.example.com",
             "slaves": [
@@ -64,18 +20,18 @@
             "email": "user@example.com",
             "domains": [
                 {
-                    "commonName": "example.org",
+                    "commonName": "example.com",
                     "altNames": [
-                        "*.example.org"
+                        "dns1.example.org",
+                        "*.example.com"
                     ],
                     "keySize": "secp256r1",
                     "type": "acme-dns-01"
                 },
                 {
-                    "commonName": "example.com",
+                    "commonName": "dns-wildcard-1.acme.example.com",
                     "altNames": [
-                        "dns1.example.org",
-                        "*.example.com"
+                        "*.dns-wildcard-1.acme.example.com"
                     ],
                     "keySize": "secp256r1",
                     "type": "acme-dns-01"
@@ -90,17 +46,17 @@
                     "type": "acme-dns-01"
                 },
                 {
-                    "commonName": "dns-wildcard-1.acme.example.com",
+                    "commonName": "mirror-domain-suffix.example-0.net",
                     "altNames": [
-                        "*.dns-wildcard-1.acme.example.com"
+                        "*.mirror-domain-suffix.example-0.net"
                     ],
                     "keySize": "secp256r1",
                     "type": "acme-dns-01"
                 },
                 {
-                    "commonName": "mirror-domain-suffix.example-0.net",
+                    "commonName": "example.org",
                     "altNames": [
-                        "*.mirror-domain-suffix.example-0.net"
+                        "*.example.org"
                     ],
                     "keySize": "secp256r1",
                     "type": "acme-dns-01"
@@ -149,6 +105,50 @@
                 ".example-2.com",
                 ".example.org",
                 ".example.xyz"
+            ]
+        },
+        "acme-le-1": {
+            "master": "l62.a1.example.com",
+            "slaves": [
+                "l61.a1.example.com",
+                "l62.b1.example.com",
+                "l61.c1.example.com",
+                "l61.d1.example.com",
+                "l61.a1.example.org",
+                "l64.a1.example.org"
+            ],
+            "provider": "letsencrypt-staging",
+            "email": "user@example.com",
+            "domains": [
+                {
+                    "commonName": "acme-le-1.service.example.com",
+                    "altNames": [
+                        "acme-le-1-2.service.example.com"
+                    ],
+                    "keySize": "secp256r1",
+                    "type": "acme-http-01"
+                }
+            ]
+        },
+        "acme-le-2": {
+            "master": "l62.b1.example.com",
+            "slaves": [
+                "l61.a1.example.com",
+                "l62.a1.example.com",
+                "l61.c1.example.com",
+                "l61.d1.example.com",
+                "l61.a1.example.org",
+                "l64.a1.example.org"
+            ],
+            "provider": "letsencrypt-staging",
+            "email": "user@example.com",
+            "domains": [
+                {
+                    "commonName": "acme-le-2.service.example.com",
+                    "altNames": [],
+                    "keySize": "secp256r1",
+                    "type": "acme-http-01"
+                }
             ]
         },
         "acme-le-no-master": {

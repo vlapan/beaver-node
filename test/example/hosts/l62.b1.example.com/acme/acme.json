@@ -6,6 +6,100 @@
         }
     },
     "accounts": {
+        "acme-dns-wildcard-1": {
+            "master": "l61.a1.example.com",
+            "slaves": [
+                "l62.a1.example.com",
+                "l62.b1.example.com",
+                "l61.c1.example.com",
+                "l61.d1.example.com",
+                "l61.a1.example.org",
+                "l64.a1.example.org"
+            ],
+            "provider": "letsencrypt-staging",
+            "email": "user@example.com",
+            "domains": [
+                {
+                    "commonName": "example.com",
+                    "altNames": [
+                        "dns1.example.org",
+                        "*.example.com"
+                    ],
+                    "keySize": "secp256r1",
+                    "type": "acme-dns-01"
+                },
+                {
+                    "commonName": "dns-wildcard-1.acme.example.com",
+                    "altNames": [
+                        "*.dns-wildcard-1.acme.example.com"
+                    ],
+                    "keySize": "secp256r1",
+                    "type": "acme-dns-01"
+                },
+                {
+                    "commonName": "dns-test-1.example.com",
+                    "altNames": [
+                        "dns-test-1-1.example.com",
+                        "*.dns-test-1.example.com"
+                    ],
+                    "keySize": "secp256r1",
+                    "type": "acme-dns-01"
+                },
+                {
+                    "commonName": "mirror-domain-suffix.example-0.net",
+                    "altNames": [
+                        "*.mirror-domain-suffix.example-0.net"
+                    ],
+                    "keySize": "secp256r1",
+                    "type": "acme-dns-01"
+                },
+                {
+                    "commonName": "example.org",
+                    "altNames": [
+                        "*.example.org"
+                    ],
+                    "keySize": "secp256r1",
+                    "type": "acme-dns-01"
+                }
+            ],
+            "mirrorDomainSuffix": "acme.example.org",
+            "masterDomains": [
+                ".example.com",
+                ".example-2.com",
+                ".example.org",
+                ".example.xyz"
+            ]
+        },
+        "acme-dns-wildcard-2": {
+            "master": "l62.a1.example.com",
+            "slaves": [
+                "l61.a1.example.com",
+                "l62.b1.example.com",
+                "l61.c1.example.com",
+                "l61.d1.example.com",
+                "l61.a1.example.org",
+                "l64.a1.example.org"
+            ],
+            "provider": "letsencrypt-staging",
+            "email": "user@example.com",
+            "domains": [
+                {
+                    "commonName": "dns-wildcard-2.acme.example.com",
+                    "altNames": [
+                        "*.dns-wildcard-2.acme.example.com"
+                    ],
+                    "keySize": "secp256r1",
+                    "type": "acme-dns-01"
+                }
+            ],
+            "mirrorDomainSuffix": "example.org",
+            "masterDomains": [
+                ".example.com",
+                ".example-2.com",
+                ".example.org",
+                ".example.xyz"
+            ]
+        },
         "acme-le-1": {
             "master": "l62.a1.example.com",
             "slaves": [
@@ -48,100 +142,6 @@
                     "keySize": "secp256r1",
                     "type": "acme-http-01"
                 }
-            ]
-        },
-        "acme-dns-wildcard-1": {
-            "master": "l61.a1.example.com",
-            "slaves": [
-                "l62.a1.example.com",
-                "l62.b1.example.com",
-                "l61.c1.example.com",
-                "l61.d1.example.com",
-                "l61.a1.example.org",
-                "l64.a1.example.org"
-            ],
-            "provider": "letsencrypt-staging",
-            "email": "user@example.com",
-            "domains": [
-                {
-                    "commonName": "example.org",
-                    "altNames": [
-                        "*.example.org"
-                    ],
-                    "keySize": "secp256r1",
-                    "type": "acme-dns-01"
-                },
-                {
-                    "commonName": "example.com",
-                    "altNames": [
-                        "dns1.example.org",
-                        "*.example.com"
-                    ],
-                    "keySize": "secp256r1",
-                    "type": "acme-dns-01"
-                },
-                {
-                    "commonName": "dns-test-1.example.com",
-                    "altNames": [
-                        "dns-test-1-1.example.com",
-                        "*.dns-test-1.example.com"
-                    ],
-                    "keySize": "secp256r1",
-                    "type": "acme-dns-01"
-                },
-                {
-                    "commonName": "dns-wildcard-1.acme.example.com",
-                    "altNames": [
-                        "*.dns-wildcard-1.acme.example.com"
-                    ],
-                    "keySize": "secp256r1",
-                    "type": "acme-dns-01"
-                },
-                {
-                    "commonName": "mirror-domain-suffix.example-0.net",
-                    "altNames": [
-                        "*.mirror-domain-suffix.example-0.net"
-                    ],
-                    "keySize": "secp256r1",
-                    "type": "acme-dns-01"
-                }
-            ],
-            "mirrorDomainSuffix": "acme.example.org",
-            "masterDomains": [
-                ".example.com",
-                ".example-2.com",
-                ".example.org",
-                ".example.xyz"
-            ]
-        },
-        "acme-dns-wildcard-2": {
-            "master": "l62.a1.example.com",
-            "slaves": [
-                "l61.a1.example.com",
-                "l62.b1.example.com",
-                "l61.c1.example.com",
-                "l61.d1.example.com",
-                "l61.a1.example.org",
-                "l64.a1.example.org"
-            ],
-            "provider": "letsencrypt-staging",
-            "email": "user@example.com",
-            "domains": [
-                {
-                    "commonName": "dns-wildcard-2.acme.example.com",
-                    "altNames": [
-                        "*.dns-wildcard-2.acme.example.com"
-                    ],
-                    "keySize": "secp256r1",
-                    "type": "acme-dns-01"
-                }
-            ],
-            "mirrorDomainSuffix": "example.org",
-            "masterDomains": [
-                ".example.com",
-                ".example-2.com",
-                ".example.org",
-                ".example.xyz"
             ]
         },
         "acme-le-no-master": {
