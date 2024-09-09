@@ -1,0 +1,16 @@
+Certificate Request:
+    Data:
+        Version: 1 (0x0)
+        Subject: CN=dns-wildcard-2.acme.example.com
+        Subject Public Key Info:
+            Public Key Algorithm: id-ecPublicKey
+                Public-Key: (256 bit)
+                ASN1 OID: prime256v1
+                NIST CURVE: P-256
+        Attributes:
+            Requested Extensions:
+                X509v3 Key Usage: 
+                    Digital Signature, Key Encipherment
+                X509v3 Subject Alternative Name: 
+                    DNS:dns-wildcard-2.acme.example.com, DNS:*.dns-wildcard-2.acme.example.com
+    Signature Algorithm: ecdsa-with-SHA256

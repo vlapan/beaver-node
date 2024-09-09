@@ -6,7 +6,12 @@ output
 yarn-error.log
 beaver-node*.tgz
 test/*/hosts/*-saved
-test/*/hosts/*-home
+test/*/hosts/*-home/acme/acme.json
+test/*/hosts/*-home/acme/dns/*
+test/*/hosts/*-home/git-static/repositories/*
+test/*/hosts/*-home/config-clean.json
+test/*/hosts/*-home/monitor.json
+test/*/hosts/*-home/notificator.json
 test/**/*.csr
 test/**/*.crt
 test/**/*.key
