@@ -537,6 +537,14 @@
                     ]
                 }
             },
+            "acme": {
+                "directory": {
+                    "custom": {
+                        "staging": "https://api.test.acme.example.com/acme/directory",
+                        "production": "https://api.example.com/acme/directory"
+                    }
+                }
+            },
             "dhcp": {}
         },
         "types": {
@@ -614,6 +622,15 @@
                 "acme-google-1": {
                     "extends": "acme-le-default",
                     "acme": "google-staging",
+                    "master": "l61.a1.example.com",
+                    "externalAccountBinding": {
+                        "kid": "YOUR-EAB-KID",
+                        "hmacKey": "YOUR-EAB-HMAC-KEY"
+                    }
+                },
+                "acme-custom-1": {
+                    "extends": "acme-le-default",
+                    "acme": "custom-staging",
                     "master": "l61.a1.example.com",
                     "externalAccountBinding": {
                         "kid": "YOUR-EAB-KID",

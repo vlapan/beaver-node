@@ -1,4 +1,10 @@
 {
+    "directory": {
+        "custom": {
+            "staging": "https://api.test.acme.example.com/acme/directory",
+            "production": "https://api.example.com/acme/directory"
+        }
+    },
     "accounts": {
         "acme-le-1": {
             "master": "l62.a1.example.com",

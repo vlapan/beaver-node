@@ -566,6 +566,15 @@
 						"hmacKey": "YOUR-EAB-HMAC-KEY"
 					}
 				},
+				"acme-custom-1": {
+					"extends": "acme-le-default",
+					"acme": "custom-staging",
+					"master": "l61.a1.example.com",
+					"externalAccountBinding": {
+						"kid": "YOUR-EAB-KID",
+						"hmacKey": "YOUR-EAB-HMAC-KEY"
+					}
+				},
 				"acme-le-no-master": {
 					"extends": "acme-le-default",
 					"type": "acme-http-01",
@@ -643,6 +652,14 @@
 						"194.226.96.192/28",
 						"31.177.66.192/28"
 					]
+				}
+			},
+			"acme": {
+				"directory": {
+					"custom": {
+						"staging": "https://api.test.acme.example.com/acme/directory",
+						"production": "https://api.example.com/acme/directory"
+					}
 				}
 			},
 			"dhcp": {}
