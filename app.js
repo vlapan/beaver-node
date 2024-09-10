@@ -4,12 +4,6 @@ const versions = require('./versions');
 const config = require('./lib/configuration');
 const extensions = require('./lib/extensions');
 
-// Require daemons
-const https = require('./lib/https');
-const Overseer = require('./lib/overseer/overseer');
-const Acme = require('./lib/acme/acme');
-const GitStatic = require('./lib/git-static/git-static');
-const NotificatorDaemon = require('./lib/modules/notificator/daemon');
 const { daemonStarted } = require('./lib/notificator');
 
 const ac = new AbortController();
@@ -94,10 +88,12 @@ module.exports = {
         const extensionsEnabled = argv.e.split(',');
 
         if (~extensionsEnabled.indexOf('ssl') && !argv.disableDaemonHttps) {
+            const https = require('./lib/https');
             promises.push(https.start());
         }
 
         if (~extensionsEnabled.indexOf('monitor') && !argv.disableOverseer) {
+            const Overseer = require('./lib/overseer/overseer');
             promises.push(Overseer.build({
                 data: `${argv.home}/monitor.json`,
                 result: `${argv.home}/monitor-result.txt`,
@@ -111,6 +107,7 @@ module.exports = {
         }
 
         if (~extensionsEnabled.indexOf('acme') && !argv.disableAcme) {
+            const Acme = require('./lib/acme/acme');
             const acme = new Acme({
                 data: `${argv.home}/acme/acme.json`,
                 interval: 15 * 60 * 1000,
@@ -119,6 +116,7 @@ module.exports = {
         }
 
         if (~extensionsEnabled.indexOf('git-static') && !argv.disableGitStatic) {
+            const GitStatic = require('./lib/git-static/git-static');
             const gitStatic = new GitStatic({
                 data: `${argv.home}/git-static/git-static.json`,
                 interval: 1 * 60 * 1000,
@@ -128,6 +126,7 @@ module.exports = {
         }
 
         if (!argv.disableNotificatorDaemon) {
+            const NotificatorDaemon = require('./lib/modules/notificator/daemon');
             const notificatorDaemon = new NotificatorDaemon({
                 argv,
                 config,
