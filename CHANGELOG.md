@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.245] - 2024-09-10
+
+### 🐛 Bug Fixes
+
+- *(utils)* Fix generateCertificate importKey algo
+
 ## [0.1.244] - 2024-09-10
 
 ### 🚀 Features
