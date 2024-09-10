@@ -2,6 +2,29 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.244] - 2024-09-10
+
+### 🚀 Features
+
+- *(extensions)* Argv.tar to get gzipped tar piped to stdout
+
+### 🐛 Bug Fixes
+
+- *(utils)* ConvertSubjectToObject function, for later
+- *(nodemailer)* Create transport lazily on the first job
+
+### 🚜 Refactor
+
+- Rename required function "hash" => "getHash"
+- *(acme)* Some optimizations to the extension
+- *(nginx)* Some optimizations to the extension
+- *(app)* Load daemons lazily
+- *(acme)* Optimize workdir/export directories checking
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.243] - 2024-09-09
 
 ### 🚀 Features
