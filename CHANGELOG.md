@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.246] - 2024-09-11
+
+### 🚀 Features
+
+- *(dns)* Respect dns prefix options in structure, prefix.master and prefix.slave to replace same args
+
+### 🐛 Bug Fixes
+
+- *(dns)* DnsPath/dnsSlavePath options
+- *(dns)* Remove unnecessary prefix "/usr/local/etc/namedb" from some paths
+
 ## [0.1.245] - 2024-09-10
 
 ### 🐛 Bug Fixes
