@@ -513,6 +513,10 @@
                 "pingTimeout": 5
             },
             "dns": {
+                "prefix": {
+                    "master": "primary/beaver",
+                    "slave": "secondary"
+                },
                 "ttl": 600,
                 "refresh": 300,
                 "retry": 150,

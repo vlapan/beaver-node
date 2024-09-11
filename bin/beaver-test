@@ -31,8 +31,6 @@ for BEAVER_HOSTNAME in $HOSTS; do
         --home=${BEAVER_HOSTNAME_PATH}-home \
         --replaceHome=/usr/local/etc/beaver \
         --platform=freebsd \
-        --dnsPath=primary/beaver \
-        --dnsSlavePath=secondary \
         --disable-notify \
         --disable-acme \
         --disable-overseer; then
