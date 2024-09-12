@@ -1,0 +1,22 @@
+{
+    "routing": {
+        "options": {
+            "nginx": {
+                "maxFails": 5,
+                "failTimeout": "15s"
+            },
+            "tinc": {
+                "mode": "router",
+                "compression": 7,
+                "pingInterval": 60,
+                "pingTimeout": 5
+            },
+            "dns": {
+                "prefix": {
+                    "master": "primary/beaver2",
+                    "slave": "secondary2"
+                }
+            }
+        }
+    }
+}

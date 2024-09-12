@@ -30,6 +30,7 @@ for BEAVER_HOSTNAME in $HOSTS; do
         --hostname=${BEAVER_HOSTNAME} \
         --home=${BEAVER_HOSTNAME_PATH}-home \
         --replaceHome=/usr/local/etc/beaver \
+        --static-configs-path=${TEST_PATH}/conf.d \
         --platform=freebsd \
         --disable-notify \
         --disable-acme \

@@ -1,0 +1,12 @@
+{
+    "routing": {
+        "options": {
+            "dns": {
+                "prefix": {
+                    "master": "primary/beaver0",
+                    "slave": "secondary0"
+                }
+            }
+        }
+    }
+}
