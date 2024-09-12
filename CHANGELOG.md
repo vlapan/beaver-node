@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.247] - 2024-09-12
+
+### 🚀 Features
+
+- *(configuration)* Apply all "*.json" from "home/conf.d" directory to the same object, and apply main config after
+
+### 🐛 Bug Fixes
+
+- *(configuration)* Pass new layered object to config.set
+- *(configuration)* Improve static configs
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.246] - 2024-09-11
 
 ### 🚀 Features
