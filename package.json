@@ -58,7 +58,7 @@
     "express": "^4.21.0",
     "fs-extra": "^11.2.0",
     "glob-to-regexp": "^0.4.1",
-    "jose": "^5.8.0",
+    "jose": "^5.9.2",
     "lit-html": "^3.2.0",
     "morgan": "^1.10.0",
     "nginx-conf": "^2.1.0",
@@ -82,7 +82,7 @@
     "eslint-plugin-promise": "^7.1.0",
     "eslint-plugin-unicorn": "^55.0.0",
     "eslint-plugin-wc": "^2.1.1",
-    "flow-bin": "^0.245.2",
+    "flow-bin": "^0.246.0",
     "globals": "^15.9.0",
     "semver": "^7.6.3"
   }
