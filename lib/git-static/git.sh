@@ -12,6 +12,7 @@ export GIT_HTTP_LOW_SPEED_TIME=20
 
 if [ -d "${REPOS}/${NAME}" ]; then
     cd "${REPOS}/${NAME}"
+    git reset --hard
     git pull --prune --rebase
 else
     cd "${REPOS}"
