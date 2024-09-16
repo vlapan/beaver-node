@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.248] - 2024-09-16
+
+### 🐛 Bug Fixes
+
+- *(git-static)* Git reset before pulling
+
+### 🚜 Refactor
+
+- *(git-static)* Use double-quotes with variables
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.247] - 2024-09-12
 
 ### 🚀 Features
