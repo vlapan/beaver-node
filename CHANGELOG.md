@@ -2,6 +2,23 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.249] - 2024-09-23
+
+### 🐛 Bug Fixes
+
+- *(git-static)* Git clean as well
+- *(git-static)* Run reset and clean with --quiet
+- *(notificator)* Use new `from` for `notificator.notify`
+- *(argv)* `dnsPath` => `dnsPrefixMaster` and `dnsSlavePath` => `dnsPrefixSlave`
+
+### 🎨 Styling
+
+- Change utf8 signs in notifications
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.248] - 2024-09-16
 
 ### 🐛 Bug Fixes
