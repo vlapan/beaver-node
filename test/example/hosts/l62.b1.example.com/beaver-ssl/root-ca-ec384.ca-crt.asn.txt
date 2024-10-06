@@ -1,0 +1,43 @@
+INTEGER :02 
+OBJECT :sha512WithRSAEncryption 
+NULL 
+OBJECT :countryName 
+PRINTABLESTRING :RU 
+OBJECT :stateOrProvinceName 
+UTF8STRING :example.org 
+OBJECT :localityName 
+UTF8STRING :example.org 
+OBJECT :organizationName 
+UTF8STRING :example.org 
+OBJECT :organizationalUnitName 
+UTF8STRING :example.org 
+OBJECT :commonName 
+UTF8STRING :example.org 
+OBJECT :emailAddress 
+IA5STRING :example@example.org 
+OBJECT :countryName 
+PRINTABLESTRING :RU 
+OBJECT :stateOrProvinceName 
+UTF8STRING :example.org 
+OBJECT :organizationName 
+UTF8STRING :example.org 
+OBJECT :organizationalUnitName 
+UTF8STRING :example.org 
+OBJECT :commonName 
+UTF8STRING :example.org 
+OBJECT :emailAddress 
+IA5STRING :example@example.org 
+OBJECT :rsaEncryption 
+NULL 
+BIT STRING 
+OBJECT :X509v3 Authority Key Identifier 
+OCTET STRING [HEX DUMP]:301680149A93B93A388A9C9F8D62892F4DA0CFA5AAAC0AC3 
+OBJECT :X509v3 Basic Constraints 
+BOOLEAN :255 
+OCTET STRING [HEX DUMP]:30060101FF020100 
+OBJECT :X509v3 Key Usage 
+BOOLEAN :255 
+OCTET STRING [HEX DUMP]:03020186 
+OBJECT :sha512WithRSAEncryption 
+NULL 
+BIT STRING 

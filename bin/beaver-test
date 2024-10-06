@@ -45,12 +45,14 @@ done
 {
     for ITEM in $(find "$OUTPUT_PATH" -name "*.csr" | grep -vE -e "/*.-saved/"); do
         openssl req -text -noout -in ${ITEM} | grep -v -e '[a-z0-9]:[a-z0-9]' -e 'Signature Value:' -e 'Modulus:' -e 'pub:' > ${ITEM}.txt
+        openssl asn1parse -in ${ITEM} | awk '$5 == "prim:" { s = ""; for (i=6; i<=NF;i++){ s = s $i " " }; print s; }' > ${ITEM}.asn.txt
     done
 } &
 
 {
     for ITEM in $(find "$OUTPUT_PATH" -name "*.crt" -o -name "*.ca" -o -name "*.ca-crt" | grep -vE -e "/*.-saved/"); do
         openssl x509 -in ${ITEM} -text -noout | grep -v -e 'pub:' -e 'Signature Value:' -e 'Modulus:' -e 'X509v3 Authority Key Identifier:' -e 'X509v3 Subject Key Identifier:' -e 'Serial Number:' -e 'Validity' -e 'Not Before:' -e 'Not After :' -e 'pub: $' -e ':\w\w$' -e ':\w\w:$' -e '^$' > ${ITEM}.txt
+        openssl asn1parse -in ${ITEM} | awk '$5 == "prim:" && $6 != "UTCTIME" { l++; if (l == 2) next; if (z) { z = 0; next; }; if ($0 ~ "Subject Key Identifier") { z = 1; next; }; s = ""; for (i=6; i<=NF;i++){ s = s $i " " }; print s; }' > ${ITEM}.asn.txt
     done
 } &
 
