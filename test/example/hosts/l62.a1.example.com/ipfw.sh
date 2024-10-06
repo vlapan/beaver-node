@@ -50,14 +50,14 @@ ${fw} set disable 2 || true
 ${fw} delete set 2 || true
 
 
-${fw} set 2 table 5 flush || true 			 # 5: remote
+${fw} set 2 table tinc-tap-l6-hosts-remote create or-flush || true 			 # 5: remote
 
 
 
-${fw} set 2 table 6 flush || true 			 # 6: local
-${fw} set 2 table 6 add 172.16.3.1 			 #   net: l61.a1.example.com
-${fw} set 2 table 6 add 172.16.3.2 			 #   net: l62.a1.example.com
-${fw} set 2 table 6 add 172.16.3.1 			 #   net: l61.a1.example.org
+${fw} set 2 table tinc-tap-l6-hosts-local create or-flush || true 			 # 6: local
+${fw} set 2 table tinc-tap-l6-hosts-local add 172.16.3.1 			 #   net: l61.a1.example.com
+${fw} set 2 table tinc-tap-l6-hosts-local add 172.16.3.2 			 #   net: l62.a1.example.com
+${fw} set 2 table tinc-tap-l6-hosts-local add 172.16.3.1 			 #   net: l61.a1.example.org
 
 
 ${fw} add 504 set 2 allow tcp from any to me dst-port 80,443 in // public http
@@ -83,7 +83,7 @@ ${fw} add 608 set 2 nat 1 ip from 172.16.0.0/12 to any out // outgoing nat
 ${fw} add 608 set 2 nat 1 ip from 192.168.0.0/16 to any out // outgoing nat
 
 
-${fw} add 800 set 2 deny icmp from me to 'table(6)' icmptype 5 in // block redirects for tincd
+${fw} add 800 set 2 deny icmp from me to 'table(tinc-tap-l6-hosts-local)' icmptype 5 in // block redirects for tincd
 
 
 
