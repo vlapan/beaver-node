@@ -703,8 +703,17 @@
 			".example.com": {
 				"publish": true,
 				"mode": "infrastructure",
-				"allow-transfer": ["@location:b1", "b1", "l62.b1.example.com", "192.168.65.1"],
-				"also-notify": ["@location:b1", "b1", "l62.b1.example.com", "192.168.64.254"],
+				"allow-transfer": ["@location:b1", "b1", "l62.b1.example.com", "192.168.65.1 # very good server"],
+				"also-notify": [
+					"@location:b1",
+					"b1",
+					"l62.b1.example.com",
+					"192.168.64.254",
+					{
+						"value": "192.168.64.253",
+						"comment": "VPN WAN4 #1"
+					}
+				],
 				"dns": {
 					"A": {
 						"@": "1.1.1.1",

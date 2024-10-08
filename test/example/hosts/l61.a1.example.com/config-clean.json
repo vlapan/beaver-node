@@ -695,7 +695,7 @@
                     "@location:b1",
                     "b1",
                     "l62.b1.example.com",
-                    "192.168.65.1"
+                    "192.168.65.1 # very good server"
                 ],
                 "dns": {
                     "A": {
