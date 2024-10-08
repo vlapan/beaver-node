@@ -521,25 +521,29 @@
                 "refresh": 300,
                 "retry": 150,
                 "expire": 86400,
-                "minimum": 600,
-                "acl": {
-                    "standard": [
-                        "@locations",
-                        "@location:b1",
-                        "@routers",
-                        "@servers",
-                        "@server:l61.a1.example.com",
-                        "192.168.1.1/24",
-                        "192.168.2.254",
-                        "localhost"
-                    ],
-                    "nicru-secondary-ns": [
-                        "91.217.20.0/26",
-                        "91.217.21.0/26",
-                        "194.226.96.192/28",
-                        "31.177.66.192/28"
-                    ]
-                }
+                "minimum": 600
+            },
+            "acls": {
+                "myx-at-home": [
+                    "89.18.203.174 # MYX#1",
+                    "89.18.103.174 # MYX#2"
+                ],
+                "standard": [
+                    "@locations",
+                    "@location:b1",
+                    "@routers",
+                    "@servers",
+                    "@server:l61.a1.example.com",
+                    "192.168.1.1/24",
+                    "192.168.2.254",
+                    "localhost"
+                ],
+                "nicru-secondary-ns": [
+                    "91.217.20.0/26",
+                    "91.217.21.0/26",
+                    "194.226.96.192/28",
+                    "31.177.66.192/28"
+                ]
             },
             "acme": {
                 "directory": {
