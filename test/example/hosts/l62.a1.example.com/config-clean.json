@@ -504,7 +504,8 @@
         "options": {
             "nginx": {
                 "maxFails": 5,
-                "failTimeout": "15s"
+                "failTimeout": "15s",
+                "http2": "on"
             },
             "tinc": {
                 "mode": "router",
@@ -948,6 +949,14 @@
             "location": "web-eu.example.xyz",
             "redirectHttp": "https://example.com",
             "redirectHttps": "https://example.com"
+        },
+        "http1.example.xyz": {
+            "location": "web-eu.example.xyz",
+            "redirectHttp": "https://example.com",
+            "redirectHttps": "https://example.com",
+            "nginx": {
+                "http2": "off"
+            }
         },
         "web.example.xyz": {
             "target": [

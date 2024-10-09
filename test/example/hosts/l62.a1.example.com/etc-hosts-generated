@@ -161,6 +161,8 @@
 10.20.21.20                                                                   b1.example.xyz
 10.20.22.20                                                                   c1.example.xyz
 10.20.23.20                                                                   d1.example.xyz
+# skip: 10.10.10.10                                                           http1.example.xyz
+# skip: 10.10.10.11                                                           http1.example.xyz
 # skip: 10.10.10.10                                                           web.example.xyz
 # skip: 10.10.10.11                                                           web.example.xyz
 # skip: 10.20.21.20                                                           web.example.xyz
