@@ -2,6 +2,44 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.250] - 2024-10-09
+
+### 🚀 Features
+
+- Make `acls` more global, move `config.routing.options.dns.acl` => `config.routing.options.acls`
+- *(ipfw)* Custom tables, and acls for beaver and tinc fw-protection
+- *(nginx)* Ability to disable `http2` for all or specific targets
+
+### 🐛 Bug Fixes
+
+- *(importantMessages)* Little bit more visible
+- *(openssl)* Hash short
+- *(openssl)* Crl newline in the file end
+- *(openssl)* Serial to date.now
+- *(openssl)* Revert to old function
+- *(nginx)* Correct certificate expiry date in deferred notifications
+- *(openssl)* Fix issuer in new certificate generator function
+- *(openssl)* Use new certificate generator function
+- *(dns)* Separate key to ip resolver
+- *(dns)* Use align in `allow-recursion` block
+- *(utils/structure)* Rename 'ip' => 'value'
+- *(dns)* Add `acl` only if used
+- *(utils/structure)* Remove item as object with comment, not needed for now anyway
+
+### 🚜 Refactor
+
+- *(ipfw)* Change table `5`/`6` names to more self-explaining `tinc-tap-l6-hosts-remote`/`tinc-tap-l6-hosts-local`, and use `create or-flush` instead of just `flush` to fix deprecation warning about table autocreating
+- Remove `authenticate-pam` from dependenices, if needed then it could be installed globally, use of other authentication methods such as `pam_helper` is preferable
+
+### 🧪 Testing
+
+- *(example)* Add asn parsed files for all crt/csr
+- *(example)* Add comments example inside `allow-transfer` and `also-notify`
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.249] - 2024-09-23
 
 ### 🐛 Bug Fixes
