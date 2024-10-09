@@ -971,10 +971,16 @@
 		},
 		"http1.example.xyz" : {
 			"location" : "web-eu.example.xyz",
-			"redirectHttp" : "https://example.com",
+			"redirectHttp" : true,
 			"redirectHttps" : "https://example.com",
 			"nginx": {
-				"http2": "off"
+				"http2": "off",
+				"allow": [
+					"172.254.1.0/24",
+					"acl:vpn1",
+					"acl:vpn2"
+				],
+				"deny": "all"
 			}
 		},
 
