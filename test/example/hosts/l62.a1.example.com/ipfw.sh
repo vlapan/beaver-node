@@ -83,8 +83,8 @@ ${fw} set 2 table beaver-acl-table add 192.168.64.30/32                  # [Loca
 ${fw} set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::4002/128 # [Location(d1)]: [Router(l61.d1.example.com)]: WAN36
 ${fw} set 2 table beaver-acl-table add 172.16.6.2/32                     # [Location(d1)]: [Router(l61.d1.example.com)]: LAN3
 ${fw} set 2 table beaver-acl-table add 172.16.4.1/32                     # [Location(a1)]: [Router(l64.a1.example.org)]: LAN3
-${fw} set 2 table beaver-acl-table add 192.168.253.0/24                  # static entry
-${fw} set 2 table beaver-acl-table add 192.168.243.0/24                  # static entry
+${fw} set 2 table beaver-acl-table add 192.168.253.0/24                  # static entry: VPN WAN4
+${fw} set 2 table beaver-acl-table add 192.168.243.0/24                  # static entry: VPN WAN4
 ${fw} set 2 table beaver-acl-table add 172.0.1.1/24                      # static entry
 
 ${fw} set 2 table tinc-acl-table create or-flush

@@ -621,12 +621,13 @@
 		"options": {
 			"acls": {
 				"vpn1": [
-					"192.168.253.0/24",
-					"192.168.243.0/24"
+					"192.168.253.0/24 # VPN WAN4",
+					"# just comment",
+					"192.168.243.0/24 # VPN WAN4"
 				],
 				"vpn2": [
-					"192.168.253.0/24 # VPN WAN4",
-					"192.168.243.0/24 # VPN WAN4"
+					"192.168.253.0/24             # VPN WAN4",
+					"192.168.243.0/24        # VPN WAN4"
 				],
 				"standard": [
 					"@locations",
@@ -636,6 +637,7 @@
 					"@server:l61.a1.example.com",
 					"192.168.1.1/24",
 					"192.168.2.254",
+					"# just comment",
 					"localhost"
 				],
 				"nicru-secondary-ns": [
@@ -662,6 +664,7 @@
 				"closed": true,
 				"acl": [
 					"acl:vpn1",
+					"acl:vpn2",
 					"172.0.1.1/24"
 				]
 			},
