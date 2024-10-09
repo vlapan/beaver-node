@@ -510,7 +510,8 @@
                 "mode": "router",
                 "compression": 7,
                 "pingInterval": 60,
-                "pingTimeout": 5
+                "pingTimeout": 5,
+                "closed": true
             },
             "dns": {
                 "prefix": {
@@ -524,9 +525,13 @@
                 "minimum": 600
             },
             "acls": {
-                "myx-at-home": [
-                    "89.18.203.174 # MYX#1",
-                    "89.18.103.174 # MYX#2"
+                "vpn1": [
+                    "192.168.253.0/24",
+                    "192.168.243.0/24"
+                ],
+                "vpn2": [
+                    "192.168.253.0/24 # VPN WAN4",
+                    "192.168.243.0/24 # VPN WAN4"
                 ],
                 "standard": [
                     "@locations",
@@ -543,6 +548,21 @@
                     "91.217.21.0/26",
                     "194.226.96.192/28",
                     "31.177.66.192/28"
+                ]
+            },
+            "firewall": {
+                "tables": {
+                    "custom-table": [
+                        "@server:l61.a1.example.com",
+                        "@server:l62.a1.example.com"
+                    ]
+                }
+            },
+            "beaver": {
+                "closed": true,
+                "acl": [
+                    "acl:vpn1",
+                    "172.0.1.1/24"
                 ]
             },
             "acme": {

@@ -1,8 +1,6 @@
 #!/bin/sh
 fw="/sbin/ipfw -qf"
 
-
-#${fw} nat 1 delete #
 ${fw} nat 1 config if wan.4022 unreg_only \
     redirect_port tcp 127.0.0.1:1001 1002 $(true || comment beaver-web-a1-l61.a1.example.com) \
     redirect_port tcp 127.0.0.1:655 1003 $(true || comment beaver-tinc-a1-l61.a1.example.com) \
@@ -60,11 +58,67 @@ ${fw} set 2 table tinc-tap-l6-hosts-local add 172.16.3.2 			 #   net: l62.a1.exa
 ${fw} set 2 table tinc-tap-l6-hosts-local add 172.16.3.1 			 #   net: l61.a1.example.org
 
 
+${fw} set 2 table custom-table create or-flush
+${fw} set 2 table custom-table add 192.168.64.26/32                  # [Location(a1)]: [Router(l61.a1.example.com)]: WAN3
+${fw} set 2 table custom-table add 2001:db8:abcd:1234:c000::1001/128 # [Location(a1)]: [Router(l61.a1.example.com)]: WAN36
+${fw} set 2 table custom-table add 172.16.3.1/32                     # [Location(a1)]: [Router(l61.a1.example.com)]: LAN3
+${fw} set 2 table custom-table add 192.168.64.27/32                  # [Location(a1)]: [Router(l62.a1.example.com)]: WAN3
+${fw} set 2 table custom-table add 2001:db8:abcd:1234:c000::1002/128 # [Location(a1)]: [Router(l62.a1.example.com)]: WAN36
+${fw} set 2 table custom-table add 172.16.3.2/32                     # [Location(a1)]: [Router(l62.a1.example.com)]: LAN3
+
+${fw} set 2 table beaver-acl-table create or-flush
+${fw} set 2 table beaver-acl-table add 192.168.64.26/32                  # [Location(a1)]: [Router(l61.a1.example.org)]: WAN3
+${fw} set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::1001/128 # [Location(a1)]: [Router(l61.a1.example.com)]: WAN36
+${fw} set 2 table beaver-acl-table add 172.16.3.1/32                     # [Location(a1)]: [Router(l61.a1.example.org)]: LAN3
+${fw} set 2 table beaver-acl-table add 192.168.64.27/32                  # [Location(a1)]: [Router(l64.a1.example.org)]: WAN3
+${fw} set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::1002/128 # [Location(a1)]: [Router(l62.a1.example.com)]: WAN36
+${fw} set 2 table beaver-acl-table add 172.16.3.2/32                     # [Location(a1)]: [Router(l62.a1.example.com)]: LAN3
+${fw} set 2 table beaver-acl-table add 192.168.64.28/32                  # [Location(b1)]: [Router(l62.b1.example.com)]: WAN3
+${fw} set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::2001/128 # [Location(b1)]: [Router(l62.b1.example.com)]: WAN36
+${fw} set 2 table beaver-acl-table add 172.16.4.2/32                     # [Location(b1)]: [Router(l62.b1.example.com)]: LAN3
+${fw} set 2 table beaver-acl-table add 192.168.64.29/32                  # [Location(c1)]: [Router(l61.c1.example.com)]: WAN3
+${fw} set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::3001/128 # [Location(c1)]: [Router(l61.c1.example.com)]: WAN36
+${fw} set 2 table beaver-acl-table add 172.16.5.2/32                     # [Location(c1)]: [Router(l61.c1.example.com)]: LAN3
+${fw} set 2 table beaver-acl-table add 192.168.64.30/32                  # [Location(d1)]: [Router(l61.d1.example.com)]: WAN3
+${fw} set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::4002/128 # [Location(d1)]: [Router(l61.d1.example.com)]: WAN36
+${fw} set 2 table beaver-acl-table add 172.16.6.2/32                     # [Location(d1)]: [Router(l61.d1.example.com)]: LAN3
+${fw} set 2 table beaver-acl-table add 172.16.4.1/32                     # [Location(a1)]: [Router(l64.a1.example.org)]: LAN3
+${fw} set 2 table beaver-acl-table add 192.168.253.0/24                  # static entry
+${fw} set 2 table beaver-acl-table add 192.168.243.0/24                  # static entry
+${fw} set 2 table beaver-acl-table add 172.0.1.1/24                      # static entry
+
+${fw} set 2 table tinc-acl-table create or-flush
+${fw} set 2 table tinc-acl-table add 192.168.64.26/32                  # [Location(a1)]: [Router(l61.a1.example.org)]: WAN3
+${fw} set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::1001/128 # [Location(a1)]: [Router(l61.a1.example.com)]: WAN36
+${fw} set 2 table tinc-acl-table add 172.16.3.1/32                     # [Location(a1)]: [Router(l61.a1.example.org)]: LAN3
+${fw} set 2 table tinc-acl-table add 192.168.64.27/32                  # [Location(a1)]: [Router(l64.a1.example.org)]: WAN3
+${fw} set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::1002/128 # [Location(a1)]: [Router(l62.a1.example.com)]: WAN36
+${fw} set 2 table tinc-acl-table add 172.16.3.2/32                     # [Location(a1)]: [Router(l62.a1.example.com)]: LAN3
+${fw} set 2 table tinc-acl-table add 192.168.64.28/32                  # [Location(b1)]: [Router(l62.b1.example.com)]: WAN3
+${fw} set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::2001/128 # [Location(b1)]: [Router(l62.b1.example.com)]: WAN36
+${fw} set 2 table tinc-acl-table add 172.16.4.2/32                     # [Location(b1)]: [Router(l62.b1.example.com)]: LAN3
+${fw} set 2 table tinc-acl-table add 192.168.64.29/32                  # [Location(c1)]: [Router(l61.c1.example.com)]: WAN3
+${fw} set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::3001/128 # [Location(c1)]: [Router(l61.c1.example.com)]: WAN36
+${fw} set 2 table tinc-acl-table add 172.16.5.2/32                     # [Location(c1)]: [Router(l61.c1.example.com)]: LAN3
+${fw} set 2 table tinc-acl-table add 192.168.64.30/32                  # [Location(d1)]: [Router(l61.d1.example.com)]: WAN3
+${fw} set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::4002/128 # [Location(d1)]: [Router(l61.d1.example.com)]: WAN36
+${fw} set 2 table tinc-acl-table add 172.16.6.2/32                     # [Location(d1)]: [Router(l61.d1.example.com)]: LAN3
+${fw} set 2 table tinc-acl-table add 172.16.4.1/32                     # [Location(a1)]: [Router(l64.a1.example.org)]: LAN3
+
+
 ${fw} add 504 set 2 allow tcp from any to me dst-port 80,443 in // public http
 ${fw} add 504 set 2 allow tcp from any to me dst-port 22,27 in // management ssh
 ${fw} add 504 set 2 count tcp from any to me dst-port 53 in // tcp dns
-${fw} add 504 set 2 count ip from any to me dst-port 655 in // tincd
-${fw} add 504 set 2 allow ip from any to me dst-port 53,655 in // dns + tincd
+${fw} add 504 set 2 allow ip from any to me dst-port 53 in // dns
+
+${fw} add 504 set 2 count ip from any to me dst-port 655 in // tinc: count all
+${fw} add 504 set 2 allow ip from 'table(tinc-acl-table)' to me dst-port 655 in // tinc: allow specific
+${fw} add 504 set 2 deny ip from any to me dst-port 655 in // tinc: deny others
+
+
+${fw} add 504 set 2 count ip from any to me dst-port 8443 in // beaver-api: count all
+${fw} add 504 set 2 allow ip from 'table(beaver-acl-table)' to me dst-port 8443 in // beaver-api: allow specific
+${fw} add 504 set 2 deny ip from any to me dst-port 8443 in // beaver-api: deny others
 
 
 ${fw} add 508 set 2 count ip6 from me to not me out // ipv6 of all
@@ -91,6 +145,5 @@ ${fw} add 900 set 2 count ip6 from any to any // ipv6 of all
 ${fw} add 900 set 2 count ip from not me to me in // incoming of all
 ${fw} add 900 set 2 allow ip from any to any // all traffic blindly allowed
 
-${fw} set enable 2 || true
 ${fw} set swap 2 1 || true
 ${fw} delete set 2 || true
