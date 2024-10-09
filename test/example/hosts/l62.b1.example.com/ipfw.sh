@@ -114,4 +114,5 @@ ${fw} add 900 set 2 count ip from not me to me in // incoming of all
 ${fw} add 900 set 2 allow ip from any to any // all traffic blindly allowed
 
 ${fw} set swap 2 1 || true
+${fw} set enable 1 || true
 ${fw} delete set 2 || true
