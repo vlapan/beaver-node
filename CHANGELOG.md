@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.251] - 2024-10-10
+
+### 🚀 Features
+
+- *(nginx)* Make use of `acls` in `target.nginx.allow`
+
+### 🐛 Bug Fixes
+
+- Fallback to `dns.acl` if there no `acls` for a while
+- *(acls)* Entries with just comment, more tests
+- *(nginx)* For redirect to `https` instead of `$server_name$request_uri` use `$host$request_uri` to keep subdomain from request
+- *(ipfw)* Enable `set` after `swap` just in case if it was manually disabled before
+
+### ⚡ Performance
+
+- *(ipfw)* Change method of applying `ipfw` rules from separated commands to whole bunch to one `cat ... | ipfw /dev/stdin`
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.250] - 2024-10-09
 
 ### 🚀 Features
