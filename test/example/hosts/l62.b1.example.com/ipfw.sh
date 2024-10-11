@@ -1,20 +1,19 @@
 #!/bin/sh
 fw="/sbin/ipfw -qf"
 
+$fw nat 1 config ip 10.20.21.20 unreg_only \
+    redirect_port tcp 127.0.0.1:1001 2002 $(: beaver-web-b1-l62.b1.example.com ) \
+    redirect_port tcp 127.0.0.1:655 2003  $(: beaver-tinc-b1-l62.b1.example.com ) \
+    redirect_port udp 127.0.0.1:655 2003  $(: beaver-tinc-b1-l62.b1.example.com ) \
+    redirect_port tcp 127.0.0.1:53 2053   $(: type-unix-b1-l62.b1.example.com ) \
+    redirect_port udp 127.0.0.1:53 2053   $(: type-unix-b1-l62.b1.example.com ) \
+    redirect_port tcp 127.0.0.1:82 2082   $(: type-unix-b1-l62.b1.example.com ) \
+    redirect_port udp 127.0.0.1:82 2082   $(: type-unix-b1-l62.b1.example.com ) \
+    redirect_port tcp 127.0.0.1:27 2022   $(: type-unix-b1-l62.b1.example.com ) \
+    redirect_port tcp 127.0.0.1:80 2080   $(: type-unix-b1-l62.b1.example.com ) \
+    redirect_port tcp 127.0.0.1:443 2443  $(: type-unix-b1-l62.b1.example.com )
+
 : | $fw /dev/stdin <<- EOF
-    nat 1 config ip 10.20.21.20 unreg_only \
-        redirect_port tcp 127.0.0.1:1001 2002 $(: beaver-web-b1-l62.b1.example.com ) \
-        redirect_port tcp 127.0.0.1:655 2003  $(: beaver-tinc-b1-l62.b1.example.com ) \
-        redirect_port udp 127.0.0.1:655 2003  $(: beaver-tinc-b1-l62.b1.example.com ) \
-        redirect_port tcp 127.0.0.1:53 2053   $(: type-unix-b1-l62.b1.example.com ) \
-        redirect_port udp 127.0.0.1:53 2053   $(: type-unix-b1-l62.b1.example.com ) \
-        redirect_port tcp 127.0.0.1:82 2082   $(: type-unix-b1-l62.b1.example.com ) \
-        redirect_port udp 127.0.0.1:82 2082   $(: type-unix-b1-l62.b1.example.com ) \
-        redirect_port tcp 127.0.0.1:27 2022   $(: type-unix-b1-l62.b1.example.com ) \
-        redirect_port tcp 127.0.0.1:80 2080   $(: type-unix-b1-l62.b1.example.com ) \
-        redirect_port tcp 127.0.0.1:443 2443  $(: type-unix-b1-l62.b1.example.com )
-
-
     set disable 2
     delete set 2
 
