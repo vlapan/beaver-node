@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.252] - 2024-10-11
+
+### 🚀 Features
+
+- *(nginx)* Generate xff map
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Separate `nat 1 config`
+
 ## [0.1.251] - 2024-10-10
 
 ### 🚀 Features
