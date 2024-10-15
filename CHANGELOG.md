@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.253] - 2024-10-15
+
+### 🚀 Features
+
+- *(git-static)* Add zones support
+- *(ipfw)* Tmp table and swap
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.252] - 2024-10-11
 
 ### 🚀 Features
