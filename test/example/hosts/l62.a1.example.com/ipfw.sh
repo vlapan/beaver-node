@@ -48,61 +48,76 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     delete set 2
 
 
-    set 2 table tinc-tap-l6-hosts-remote create or-flush
+    set 2 table tinc-tap-l6-hosts-remote create missing
+    set 2 table tinc-tap-l6-hosts-remote-tmp create or-flush
     
+    set 2 table tinc-tap-l6-hosts-remote-tmp swap tinc-tap-l6-hosts-remote
+    set 2 table tinc-tap-l6-hosts-remote-tmp destroy
 
 
-    set 2 table tinc-tap-l6-hosts-local create or-flush
-    set 2 table tinc-tap-l6-hosts-local add 172.16.3.1 			 #   net: l61.a1.example.com
-    set 2 table tinc-tap-l6-hosts-local add 172.16.3.2 			 #   net: l62.a1.example.com
-    set 2 table tinc-tap-l6-hosts-local add 172.16.3.1 			 #   net: l61.a1.example.org
+    set 2 table tinc-tap-l6-hosts-local create missing
+    set 2 table tinc-tap-l6-hosts-local-tmp create or-flush
+    set 2 table tinc-tap-l6-hosts-local-tmp add 172.16.3.1 			 #   net: l61.a1.example.com
+    set 2 table tinc-tap-l6-hosts-local-tmp add 172.16.3.2 			 #   net: l62.a1.example.com
+    set 2 table tinc-tap-l6-hosts-local-tmp add 172.16.3.1 			 #   net: l61.a1.example.org
+    set 2 table tinc-tap-l6-hosts-local-tmp swap tinc-tap-l6-hosts-local
+    set 2 table tinc-tap-l6-hosts-local-tmp destroy
 
-    set 2 table custom-table create or-flush
-    set 2 table custom-table add 192.168.64.26/32                  # [Location(a1)]: [Router(l61.a1.example.com)]: WAN3
-    set 2 table custom-table add 2001:db8:abcd:1234:c000::1001/128 # [Location(a1)]: [Router(l61.a1.example.com)]: WAN36
-    set 2 table custom-table add 172.16.3.1/32                     # [Location(a1)]: [Router(l61.a1.example.com)]: LAN3
-    set 2 table custom-table add 192.168.64.27/32                  # [Location(a1)]: [Router(l62.a1.example.com)]: WAN3
-    set 2 table custom-table add 2001:db8:abcd:1234:c000::1002/128 # [Location(a1)]: [Router(l62.a1.example.com)]: WAN36
-    set 2 table custom-table add 172.16.3.2/32                     # [Location(a1)]: [Router(l62.a1.example.com)]: LAN3
+    set 2 table custom-table create missing
+    set 2 table custom-table-tmp create or-flush
+    set 2 table custom-table-tmp add 192.168.64.26/32                  # [Location(a1)]: [Router(l61.a1.example.com)]: WAN3
+    set 2 table custom-table-tmp add 2001:db8:abcd:1234:c000::1001/128 # [Location(a1)]: [Router(l61.a1.example.com)]: WAN36
+    set 2 table custom-table-tmp add 172.16.3.1/32                     # [Location(a1)]: [Router(l61.a1.example.com)]: LAN3
+    set 2 table custom-table-tmp add 192.168.64.27/32                  # [Location(a1)]: [Router(l62.a1.example.com)]: WAN3
+    set 2 table custom-table-tmp add 2001:db8:abcd:1234:c000::1002/128 # [Location(a1)]: [Router(l62.a1.example.com)]: WAN36
+    set 2 table custom-table-tmp add 172.16.3.2/32                     # [Location(a1)]: [Router(l62.a1.example.com)]: LAN3
+    set 2 table custom-table-tmp swap custom-table
+    set 2 table custom-table-tmp destroy
 
-    set 2 table beaver-acl-table create or-flush
-    set 2 table beaver-acl-table add 192.168.64.26/32                  # [Location(a1)]: [Router(l61.a1.example.org)]: WAN3
-    set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::1001/128 # [Location(a1)]: [Router(l61.a1.example.com)]: WAN36
-    set 2 table beaver-acl-table add 172.16.3.1/32                     # [Location(a1)]: [Router(l61.a1.example.org)]: LAN3
-    set 2 table beaver-acl-table add 192.168.64.27/32                  # [Location(a1)]: [Router(l64.a1.example.org)]: WAN3
-    set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::1002/128 # [Location(a1)]: [Router(l62.a1.example.com)]: WAN36
-    set 2 table beaver-acl-table add 172.16.3.2/32                     # [Location(a1)]: [Router(l62.a1.example.com)]: LAN3
-    set 2 table beaver-acl-table add 192.168.64.28/32                  # [Location(b1)]: [Router(l62.b1.example.com)]: WAN3
-    set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::2001/128 # [Location(b1)]: [Router(l62.b1.example.com)]: WAN36
-    set 2 table beaver-acl-table add 172.16.4.2/32                     # [Location(b1)]: [Router(l62.b1.example.com)]: LAN3
-    set 2 table beaver-acl-table add 192.168.64.29/32                  # [Location(c1)]: [Router(l61.c1.example.com)]: WAN3
-    set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::3001/128 # [Location(c1)]: [Router(l61.c1.example.com)]: WAN36
-    set 2 table beaver-acl-table add 172.16.5.2/32                     # [Location(c1)]: [Router(l61.c1.example.com)]: LAN3
-    set 2 table beaver-acl-table add 192.168.64.30/32                  # [Location(d1)]: [Router(l61.d1.example.com)]: WAN3
-    set 2 table beaver-acl-table add 2001:db8:abcd:1234:c000::4002/128 # [Location(d1)]: [Router(l61.d1.example.com)]: WAN36
-    set 2 table beaver-acl-table add 172.16.6.2/32                     # [Location(d1)]: [Router(l61.d1.example.com)]: LAN3
-    set 2 table beaver-acl-table add 172.16.4.1/32                     # [Location(a1)]: [Router(l64.a1.example.org)]: LAN3
-    set 2 table beaver-acl-table add 192.168.253.0/24                  # static entry: VPN WAN4
-    set 2 table beaver-acl-table add 192.168.243.0/24                  # static entry: VPN WAN4
-    set 2 table beaver-acl-table add 172.0.1.1/24                      # static entry
+    set 2 table beaver-acl-table create missing
+    set 2 table beaver-acl-table-tmp create or-flush
+    set 2 table beaver-acl-table-tmp add 192.168.64.26/32                  # [Location(a1)]: [Router(l61.a1.example.org)]: WAN3
+    set 2 table beaver-acl-table-tmp add 2001:db8:abcd:1234:c000::1001/128 # [Location(a1)]: [Router(l61.a1.example.com)]: WAN36
+    set 2 table beaver-acl-table-tmp add 172.16.3.1/32                     # [Location(a1)]: [Router(l61.a1.example.org)]: LAN3
+    set 2 table beaver-acl-table-tmp add 192.168.64.27/32                  # [Location(a1)]: [Router(l64.a1.example.org)]: WAN3
+    set 2 table beaver-acl-table-tmp add 2001:db8:abcd:1234:c000::1002/128 # [Location(a1)]: [Router(l62.a1.example.com)]: WAN36
+    set 2 table beaver-acl-table-tmp add 172.16.3.2/32                     # [Location(a1)]: [Router(l62.a1.example.com)]: LAN3
+    set 2 table beaver-acl-table-tmp add 192.168.64.28/32                  # [Location(b1)]: [Router(l62.b1.example.com)]: WAN3
+    set 2 table beaver-acl-table-tmp add 2001:db8:abcd:1234:c000::2001/128 # [Location(b1)]: [Router(l62.b1.example.com)]: WAN36
+    set 2 table beaver-acl-table-tmp add 172.16.4.2/32                     # [Location(b1)]: [Router(l62.b1.example.com)]: LAN3
+    set 2 table beaver-acl-table-tmp add 192.168.64.29/32                  # [Location(c1)]: [Router(l61.c1.example.com)]: WAN3
+    set 2 table beaver-acl-table-tmp add 2001:db8:abcd:1234:c000::3001/128 # [Location(c1)]: [Router(l61.c1.example.com)]: WAN36
+    set 2 table beaver-acl-table-tmp add 172.16.5.2/32                     # [Location(c1)]: [Router(l61.c1.example.com)]: LAN3
+    set 2 table beaver-acl-table-tmp add 192.168.64.30/32                  # [Location(d1)]: [Router(l61.d1.example.com)]: WAN3
+    set 2 table beaver-acl-table-tmp add 2001:db8:abcd:1234:c000::4002/128 # [Location(d1)]: [Router(l61.d1.example.com)]: WAN36
+    set 2 table beaver-acl-table-tmp add 172.16.6.2/32                     # [Location(d1)]: [Router(l61.d1.example.com)]: LAN3
+    set 2 table beaver-acl-table-tmp add 172.16.4.1/32                     # [Location(a1)]: [Router(l64.a1.example.org)]: LAN3
+    set 2 table beaver-acl-table-tmp add 192.168.253.0/24                  # static entry: VPN WAN4
+    set 2 table beaver-acl-table-tmp add 192.168.243.0/24                  # static entry: VPN WAN4
+    set 2 table beaver-acl-table-tmp add 172.0.1.1/24                      # static entry
+    set 2 table beaver-acl-table-tmp swap beaver-acl-table
+    set 2 table beaver-acl-table-tmp destroy
 
-    set 2 table tinc-acl-table create or-flush
-    set 2 table tinc-acl-table add 192.168.64.26/32                  # [Location(a1)]: [Router(l61.a1.example.org)]: WAN3
-    set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::1001/128 # [Location(a1)]: [Router(l61.a1.example.com)]: WAN36
-    set 2 table tinc-acl-table add 172.16.3.1/32                     # [Location(a1)]: [Router(l61.a1.example.org)]: LAN3
-    set 2 table tinc-acl-table add 192.168.64.27/32                  # [Location(a1)]: [Router(l64.a1.example.org)]: WAN3
-    set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::1002/128 # [Location(a1)]: [Router(l62.a1.example.com)]: WAN36
-    set 2 table tinc-acl-table add 172.16.3.2/32                     # [Location(a1)]: [Router(l62.a1.example.com)]: LAN3
-    set 2 table tinc-acl-table add 192.168.64.28/32                  # [Location(b1)]: [Router(l62.b1.example.com)]: WAN3
-    set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::2001/128 # [Location(b1)]: [Router(l62.b1.example.com)]: WAN36
-    set 2 table tinc-acl-table add 172.16.4.2/32                     # [Location(b1)]: [Router(l62.b1.example.com)]: LAN3
-    set 2 table tinc-acl-table add 192.168.64.29/32                  # [Location(c1)]: [Router(l61.c1.example.com)]: WAN3
-    set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::3001/128 # [Location(c1)]: [Router(l61.c1.example.com)]: WAN36
-    set 2 table tinc-acl-table add 172.16.5.2/32                     # [Location(c1)]: [Router(l61.c1.example.com)]: LAN3
-    set 2 table tinc-acl-table add 192.168.64.30/32                  # [Location(d1)]: [Router(l61.d1.example.com)]: WAN3
-    set 2 table tinc-acl-table add 2001:db8:abcd:1234:c000::4002/128 # [Location(d1)]: [Router(l61.d1.example.com)]: WAN36
-    set 2 table tinc-acl-table add 172.16.6.2/32                     # [Location(d1)]: [Router(l61.d1.example.com)]: LAN3
-    set 2 table tinc-acl-table add 172.16.4.1/32                     # [Location(a1)]: [Router(l64.a1.example.org)]: LAN3
+    set 2 table tinc-acl-table create missing
+    set 2 table tinc-acl-table-tmp create or-flush
+    set 2 table tinc-acl-table-tmp add 192.168.64.26/32                  # [Location(a1)]: [Router(l61.a1.example.org)]: WAN3
+    set 2 table tinc-acl-table-tmp add 2001:db8:abcd:1234:c000::1001/128 # [Location(a1)]: [Router(l61.a1.example.com)]: WAN36
+    set 2 table tinc-acl-table-tmp add 172.16.3.1/32                     # [Location(a1)]: [Router(l61.a1.example.org)]: LAN3
+    set 2 table tinc-acl-table-tmp add 192.168.64.27/32                  # [Location(a1)]: [Router(l64.a1.example.org)]: WAN3
+    set 2 table tinc-acl-table-tmp add 2001:db8:abcd:1234:c000::1002/128 # [Location(a1)]: [Router(l62.a1.example.com)]: WAN36
+    set 2 table tinc-acl-table-tmp add 172.16.3.2/32                     # [Location(a1)]: [Router(l62.a1.example.com)]: LAN3
+    set 2 table tinc-acl-table-tmp add 192.168.64.28/32                  # [Location(b1)]: [Router(l62.b1.example.com)]: WAN3
+    set 2 table tinc-acl-table-tmp add 2001:db8:abcd:1234:c000::2001/128 # [Location(b1)]: [Router(l62.b1.example.com)]: WAN36
+    set 2 table tinc-acl-table-tmp add 172.16.4.2/32                     # [Location(b1)]: [Router(l62.b1.example.com)]: LAN3
+    set 2 table tinc-acl-table-tmp add 192.168.64.29/32                  # [Location(c1)]: [Router(l61.c1.example.com)]: WAN3
+    set 2 table tinc-acl-table-tmp add 2001:db8:abcd:1234:c000::3001/128 # [Location(c1)]: [Router(l61.c1.example.com)]: WAN36
+    set 2 table tinc-acl-table-tmp add 172.16.5.2/32                     # [Location(c1)]: [Router(l61.c1.example.com)]: LAN3
+    set 2 table tinc-acl-table-tmp add 192.168.64.30/32                  # [Location(d1)]: [Router(l61.d1.example.com)]: WAN3
+    set 2 table tinc-acl-table-tmp add 2001:db8:abcd:1234:c000::4002/128 # [Location(d1)]: [Router(l61.d1.example.com)]: WAN36
+    set 2 table tinc-acl-table-tmp add 172.16.6.2/32                     # [Location(d1)]: [Router(l61.d1.example.com)]: LAN3
+    set 2 table tinc-acl-table-tmp add 172.16.4.1/32                     # [Location(a1)]: [Router(l64.a1.example.org)]: LAN3
+    set 2 table tinc-acl-table-tmp swap tinc-acl-table
+    set 2 table tinc-acl-table-tmp destroy
 
 
     add 504 set 2 allow tcp from any to me dst-port 80,443 in // public http
@@ -145,4 +160,5 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     set swap 2 1
     set enable 1
     delete set 2
+    set 2 table all destroy
 EOF
