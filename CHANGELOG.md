@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.254] - 2024-10-16
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Add `nat 1 delete` to fix nat instance problem
+
 ## [0.1.253] - 2024-10-15
 
 ### 🚀 Features
