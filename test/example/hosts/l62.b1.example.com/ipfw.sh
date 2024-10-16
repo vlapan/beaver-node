@@ -1,6 +1,7 @@
 #!/bin/sh
 fw="/sbin/ipfw -qf"
 
+$fw nat 1 delete
 $fw nat 1 config ip 10.20.21.20 unreg_only \
     redirect_port tcp 127.0.0.1:1001 2002 $(: beaver-web-b1-l62.b1.example.com ) \
     redirect_port tcp 127.0.0.1:655 2003  $(: beaver-tinc-b1-l62.b1.example.com ) \
