@@ -79,7 +79,7 @@
     "eslint-plugin-promise": "^7.1.0",
     "eslint-plugin-unicorn": "^56.0.0",
     "eslint-plugin-wc": "^2.2.0",
-    "flow-bin": "^0.248.1",
+    "flow-bin": "^0.250.0",
     "globals": "^15.11.0",
     "semver": "^7.6.3"
   }
