@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.256] - 2024-10-21
+
+### 🐛 Bug Fixes
+
+- *(nginx)* `ssl-external` alias
+- *(nginx)* Nginx.allow didn't clone object
+
 ## [0.1.255] - 2024-10-18
 
 ### 🐛 Bug Fixes
