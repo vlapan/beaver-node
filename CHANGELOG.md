@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.258] - 2024-10-22
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Replace to real externalIp
+
 ## [0.1.257] - 2024-10-22
 
 ### 🐛 Bug Fixes
