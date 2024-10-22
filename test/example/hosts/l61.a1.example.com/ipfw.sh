@@ -232,7 +232,7 @@ $fw nat 1 config if wan.4022 unreg_only \
     set 2 table service-lan-tmp destroy
 
     add 515 set 2 skipto 613 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan)
-    add 515 set 2 skipto 613 ip from any to 167.233.6.242 flow table(service-wan) recv wan.4022
+    add 515 set 2 skipto 613 ip from any to 10.20.20.20 flow table(service-wan) recv wan.4022
 
 
     add 518 set 2 nat 2 ip from any to 10.20.20.20 in recv wan.4022 // natDynamic: incoming nat
