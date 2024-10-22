@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.257] - 2024-10-22
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Use second `nat instance` for nat dynamic rules
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
+### Example
+
+- Add `service.pki.authorities[zone0]` for `pki2.example.com`
+
 ## [0.1.256] - 2024-10-21
 
 ### 🐛 Bug Fixes
