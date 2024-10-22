@@ -96,6 +96,11 @@
     },
     {
         "date": "1970-01-01T00:00:00.000Z",
+        "key": "regenerate-configuration-for:pki2.example.com",
+        "message": "Certificate for \"pki2.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
+    },
+    {
+        "date": "1970-01-01T00:00:00.000Z",
         "key": "regenerate-configuration-for:proxy.example.com",
         "message": "Certificate for \"proxy.example.com\" will expire on 1970-01-01T00:00:00.000Z, regenerate your configuration!"
     },
