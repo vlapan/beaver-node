@@ -1,6 +1,9 @@
 #!/bin/sh
 fw="/sbin/ipfw -qf"
 
+
+$fw nat 2 config if wan.4022 unreg_only
+
 $fw nat 1 delete
 $fw nat 1 config if wan.4022 unreg_only \
     redirect_port tcp 127.0.0.1:1001 1002     $(: beaver-web-a1-l61.a1.example.com ) \
@@ -138,16 +141,120 @@ $fw nat 1 config if wan.4022 unreg_only \
     add 508 set 2 count udp from me to not me out // udp of all
     add 508 set 2 allow ip from me to not me out // all outgoing blindly allowed
 
+    set 2 table service-wan create missing type flow:dst-ip,dst-port
+    set 2 table service-wan-tmp create or-flush type flow:dst-ip,dst-port
+    set 2 table service-wan-tmp add 10.20.20.20,1002 # beaver-web-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,1003 # beaver-tinc-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,1003 # beaver-tinc-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,1053 # type-unix-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,1053 # type-unix-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,1082 # type-unix-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,1082 # type-unix-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,1022 # type-unix-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,1080 # type-unix-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,1443 # type-unix-a1-l61.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2002 # beaver-web-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2003 # beaver-tinc-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2003 # beaver-tinc-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2053 # type-unix-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2053 # type-unix-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2082 # type-unix-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2082 # type-unix-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2022 # type-unix-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2080 # type-unix-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,2443 # type-unix-a1-l62.a1.example.com 
+    set 2 table service-wan-tmp add 10.20.20.20,3002 # beaver-web-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,3003 # beaver-tinc-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,3003 # beaver-tinc-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,3053 # type-unix-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,3053 # type-unix-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,3082 # type-unix-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,3082 # type-unix-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,3022 # type-unix-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,3080 # type-unix-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,3443 # type-unix-a1-l61.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4002 # beaver-web-a1-l64.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4003 # beaver-tinc-a1-l64.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4003 # beaver-tinc-a1-l64.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4053 # type-unix-a1-l64.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4053 # type-unix-a1-l64.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4082 # type-unix-a1-l64.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4082 # type-unix-a1-l64.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4022 # type-unix-a1-l64.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4080 # type-unix-a1-l64.a1.example.org 
+    set 2 table service-wan-tmp add 10.20.20.20,4443 # type-unix-a1-l64.a1.example.org
+    set 2 table service-wan swap service-wan-tmp
+    set 2 table service-wan-tmp destroy
 
-    add 518 set 2 nat 1 ip from any to 10.20.20.20 in recv wan.4022 // incoming nat
+    set 2 table service-lan create missing type flow:src-ip,src-port
+    set 2 table service-lan-tmp create or-flush type flow:src-ip,src-port
+    set 2 table service-lan-tmp add 127.0.0.1,1001     # beaver-web-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 127.0.0.1,655      # beaver-tinc-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 127.0.0.1,655      # beaver-tinc-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 127.0.0.1,53       # type-unix-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 127.0.0.1,53       # type-unix-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 127.0.0.1,82       # type-unix-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 127.0.0.1,82       # type-unix-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 127.0.0.1,27       # type-unix-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 127.0.0.1,80       # type-unix-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 127.0.0.1,443      # type-unix-a1-l61.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,1001 # beaver-web-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,655  # beaver-tinc-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,655  # beaver-tinc-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,53   # type-unix-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,53   # type-unix-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,82   # type-unix-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,82   # type-unix-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,27   # type-unix-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,80   # type-unix-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.27,443  # type-unix-a1-l62.a1.example.com 
+    set 2 table service-lan-tmp add 192.168.64.26,1001 # beaver-web-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.26,655  # beaver-tinc-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.26,655  # beaver-tinc-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.26,53   # type-unix-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.26,53   # type-unix-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.26,82   # type-unix-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.26,82   # type-unix-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.26,27   # type-unix-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.26,80   # type-unix-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.26,443  # type-unix-a1-l61.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,1001 # beaver-web-a1-l64.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,655  # beaver-tinc-a1-l64.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,655  # beaver-tinc-a1-l64.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,53   # type-unix-a1-l64.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,53   # type-unix-a1-l64.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,82   # type-unix-a1-l64.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,82   # type-unix-a1-l64.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,27   # type-unix-a1-l64.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,80   # type-unix-a1-l64.a1.example.org 
+    set 2 table service-lan-tmp add 192.168.64.27,443  # type-unix-a1-l64.a1.example.org
+    set 2 table service-lan swap service-lan-tmp
+    set 2 table service-lan-tmp destroy
+
+    add 515 set 2 skipto 613 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan)
+    add 515 set 2 skipto 613 ip from any to 167.233.6.242 flow table(service-wan) recv wan.4022
+
+
+    add 518 set 2 nat 2 ip from any to 10.20.20.20 in recv wan.4022 // natDynamic: incoming nat
     add 518 set 2 skipto 700 ip from 10.0.0.0/8 to 10.0.0.0/8 // local traffic
     add 518 set 2 skipto 700 ip from 172.16.0.0/12 to 172.16.0.0/12 // local traffic
     add 518 set 2 skipto 700 ip from 192.168.0.0/16 to 192.168.0.0/16 // local traffic
 
 
-    add 608 set 2 nat 1 ip from 10.0.0.0/8 to any out xmit wan.4022 // outgoing nat
-    add 608 set 2 nat 1 ip from 172.16.0.0/12 to any out xmit wan.4022 // outgoing nat
-    add 608 set 2 nat 1 ip from 192.168.0.0/16 to any out xmit wan.4022 // outgoing nat
+    add 608 set 2 nat 2 ip from 10.0.0.0/8 to any out xmit wan.4022 // natDynamic: outgoing nat
+    add 608 set 2 nat 2 ip from 172.16.0.0/12 to any out xmit wan.4022 // natDynamic: outgoing nat
+    add 608 set 2 nat 2 ip from 192.168.0.0/16 to any out xmit wan.4022 // natDynamic: outgoing nat
+
+    add 611 set 2 skipto 620 ip from any to any
+
+    add 614 set 2 nat 1 ip from any to 10.20.20.20 in recv wan.4022 // natService: incoming nat
+    add 614 set 2 skipto 700 ip from 10.0.0.0/8 to 10.0.0.0/8 // local traffic
+    add 614 set 2 skipto 700 ip from 172.16.0.0/12 to 172.16.0.0/12 // local traffic
+    add 614 set 2 skipto 700 ip from 192.168.0.0/16 to 192.168.0.0/16 // local traffic
+
+    add 615 set 2 nat 1 ip from 10.0.0.0/8 to any out xmit wan.4022 // natService: outgoing nat
+    add 615 set 2 nat 1 ip from 172.16.0.0/12 to any out xmit wan.4022 // natService: outgoing nat
+    add 615 set 2 nat 1 ip from 192.168.0.0/16 to any out xmit wan.4022 // natService: outgoing nat
 
 
     add 800 set 2 deny icmp from me to table(tinc-tap-l6-hosts-local) icmptype 5 in // block redirects for tincd
