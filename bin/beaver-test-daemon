@@ -21,6 +21,7 @@ if time beaver -v \
     --platform=freebsd \
     --disable-overseer \
     --disable-notify \
+    --static-configs-path=${TEST_PATH}/conf.d \
     --authentication-methods=jwt,bad,passwd,pam \
     --disable-acme; then
     echo exited with code 1

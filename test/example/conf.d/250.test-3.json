@@ -3,8 +3,8 @@
         "options": {
             "dns": {
                 "prefix": {
-                    "master": "primary/beaver0",
-                    "slave": "secondary0"
+                    "master": "primary/beaver",
+                    "slave": "secondary"
                 }
             }
         }
