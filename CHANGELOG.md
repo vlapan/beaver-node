@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.259] - 2024-10-22
+
+### 🐛 Bug Fixes
+
+- *(https)* Add static layers to `approve`
+
 ## [0.1.258] - 2024-10-22
 
 ### 🐛 Bug Fixes
