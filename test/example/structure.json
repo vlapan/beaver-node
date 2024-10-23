@@ -944,6 +944,7 @@
 					"DefaultReplace -1"
 				]
 			},
+			"noWildcard": true,
 			"static": {
 				"/": {
 					"type": "lfs-static",
