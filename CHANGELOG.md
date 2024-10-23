@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.260] - 2024-10-23
+
+### 🚀 Features
+
+- *(nginx)* `noWildcard` option on a route target
+
 ## [0.1.259] - 2024-10-22
 
 ### 🐛 Bug Fixes
