@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.261] - 2024-10-23
+
+### Example
+
+- Update for myx commits
+
 ## [0.1.260] - 2024-10-23
 
 ### 🚀 Features
