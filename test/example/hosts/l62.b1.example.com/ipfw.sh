@@ -97,11 +97,9 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 504 set 2 count tcp from any to me dst-port 53 in // tcp dns
     add 504 set 2 allow ip from any to me dst-port 53 in // dns
 
-    add 504 set 2 count ip from any to me dst-port 655 in // tinc: count all
     add 504 set 2 allow ip from table(tinc-acl-table) to me dst-port 655 in // tinc: allow specific
     add 504 set 2 deny ip from any to me dst-port 655 in // tinc: deny others
 
-    add 504 set 2 count ip from any to me dst-port 8443 in // beaver-api: count all
     add 504 set 2 allow ip from table(beaver-acl-table) to me dst-port 8443 in // beaver-api: allow specific
     add 504 set 2 deny ip from any to me dst-port 8443 in // beaver-api: deny others
 
@@ -143,26 +141,22 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 515 set 2 skipto 613 ip from any to 10.20.21.20 flow table(service-wan)
 
 
-    add 518 set 2 nat 2 ip from any to 10.20.21.20 in // natDynamic: incoming nat
-    add 518 set 2 skipto 700 ip from 10.0.0.0/8 to 10.0.0.0/8 // local traffic
-    add 518 set 2 skipto 700 ip from 172.16.0.0/12 to 172.16.0.0/12 // local traffic
-    add 518 set 2 skipto 700 ip from 192.168.0.0/16 to 192.168.0.0/16 // local traffic
+    add 518 set 2 nat 2 ip from any to 10.20.21.20 in // incoming nat, dynamic
+    add 518 set 2 skipto 700 ip from 10.0.0.0/8 to 10.0.0.0/8 in // local traffic
+    add 518 set 2 skipto 700 ip from 172.16.0.0/12 to 172.16.0.0/12 in // local traffic
+    add 518 set 2 skipto 700 ip from 192.168.0.0/16 to 192.168.0.0/16 in // local traffic
 
 
-    add 608 set 2 nat 2 ip from 10.0.0.0/8 to any out // natDynamic: outgoing nat
-    add 608 set 2 nat 2 ip from 172.16.0.0/12 to any out // natDynamic: outgoing nat
-    add 608 set 2 nat 2 ip from 192.168.0.0/16 to any out // natDynamic: outgoing nat
+    add 608 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out // outgoing nat, dynamic
 
-    add 611 set 2 skipto 620 ip from any to any
+    add 611 set 2 skipto 700 ip from any to any
 
-    add 614 set 2 nat 1 ip from any to 10.20.21.20 in // natService: incoming nat
-    add 614 set 2 skipto 700 ip from 10.0.0.0/8 to 10.0.0.0/8 // local traffic
-    add 614 set 2 skipto 700 ip from 172.16.0.0/12 to 172.16.0.0/12 // local traffic
-    add 614 set 2 skipto 700 ip from 192.168.0.0/16 to 192.168.0.0/16 // local traffic
+    add 614 set 2 nat 1 ip from any to 10.20.21.20 in // incoming nat, service
+    add 614 set 2 skipto 700 ip from 10.0.0.0/8 to 10.0.0.0/8 in // local traffic
+    add 614 set 2 skipto 700 ip from 172.16.0.0/12 to 172.16.0.0/12 in // local traffic
+    add 614 set 2 skipto 700 ip from 192.168.0.0/16 to 192.168.0.0/16 in // local traffic
 
-    add 615 set 2 nat 1 ip from 10.0.0.0/8 to any out // natService: outgoing nat
-    add 615 set 2 nat 1 ip from 172.16.0.0/12 to any out // natService: outgoing nat
-    add 615 set 2 nat 1 ip from 192.168.0.0/16 to any out // natService: outgoing nat
+    add 615 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out // outgoing nat, service
 
 
     add 800 set 2 deny icmp from me to table(tinc-tap-l6-hosts-local) icmptype 5 in // block redirects for tincd
