@@ -2,10 +2,10 @@
 fw="/sbin/ipfw -qf"
 
 
-$fw nat 2 config if wan.4022 unreg_only
+$fw nat 2 config ip 10.20.20.20 unreg_only
 
 $fw nat 1 delete
-$fw nat 1 config if wan.4022 unreg_only \
+$fw nat 1 config ip 10.20.20.20 unreg_only \
     redirect_port tcp 127.0.0.1:1001 1002     $(: beaver-web-a1-l61.a1.example.com ) \
     redirect_port tcp 127.0.0.1:655 1003      $(: beaver-tinc-a1-l61.a1.example.com ) \
     redirect_port udp 127.0.0.1:655 1003      $(: beaver-tinc-a1-l61.a1.example.com ) \
@@ -229,26 +229,27 @@ $fw nat 1 config if wan.4022 unreg_only \
     set 2 table service-lan swap service-lan-tmp
     set 2 table service-lan-tmp destroy
 
-    add 515 set 2 skipto 613 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan)
-    add 515 set 2 skipto 613 ip from any to 10.20.20.20 flow table(service-wan) recv wan.4022
+    add 515 set 2 skipto 521 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan)
+    add 515 set 2 skipto 521 ip from any to 10.20.20.20 flow table(service-wan)
 
 
-    add 518 set 2 nat 2 ip from any to 10.20.20.20 in recv wan.4022 // incoming nat, dynamic
-    add 518 set 2 skipto 700 ip from 10.0.0.0/8 to 10.0.0.0/8 in // local traffic
-    add 518 set 2 skipto 700 ip from 172.16.0.0/12 to 172.16.0.0/12 in // local traffic
-    add 518 set 2 skipto 700 ip from 192.168.0.0/16 to 192.168.0.0/16 in // local traffic
+    add 516 set 2 nat 2 tag 7 ip from any to 10.20.20.20 in // incoming nat, dynamic
+    add 516 set 2 skipto 518 out tagged 7 // incoming nat, dynamic
+    add 517 set 2 skipto 600 ip from 10.0.0.0/8 to 10.0.0.0/8 // local traffic
+    add 517 set 2 skipto 600 ip from 172.16.0.0/12 to 172.16.0.0/12 // local traffic
+    add 517 set 2 skipto 600 ip from 192.168.0.0/16 to 192.168.0.0/16 // local traffic
 
+    add 519 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out // outgoing nat, dynamic
 
-    add 608 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out xmit wan.4022 // outgoing nat, dynamic
+    add 520 set 2 skipto 600 ip from any to any
 
-    add 611 set 2 skipto 700 ip from any to any
+    add 521 set 2 nat 1 tag 7 ip from any to 10.20.20.20 in // incoming nat, service
+    add 521 set 2 skipto 523 out tagged 7 // incoming nat, service
+    add 522 set 2 skipto 600 ip from 10.0.0.0/8 to 10.0.0.0/8 // local traffic
+    add 522 set 2 skipto 600 ip from 172.16.0.0/12 to 172.16.0.0/12 // local traffic
+    add 522 set 2 skipto 600 ip from 192.168.0.0/16 to 192.168.0.0/16 // local traffic
 
-    add 614 set 2 nat 1 ip from any to 10.20.20.20 in recv wan.4022 // incoming nat, service
-    add 614 set 2 skipto 700 ip from 10.0.0.0/8 to 10.0.0.0/8 in // local traffic
-    add 614 set 2 skipto 700 ip from 172.16.0.0/12 to 172.16.0.0/12 in // local traffic
-    add 614 set 2 skipto 700 ip from 192.168.0.0/16 to 192.168.0.0/16 in // local traffic
-
-    add 615 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out xmit wan.4022 // outgoing nat, service
+    add 524 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out // outgoing nat, service
 
 
     add 800 set 2 deny icmp from me to table(tinc-tap-l6-hosts-local) icmptype 5 in // block redirects for tincd
