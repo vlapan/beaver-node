@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.262] - 2024-10-24
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Get `server.wan3` for `externalIp` if `location.wan3` is not defined, and update example
+
 ## [0.1.261] - 2024-10-23
 
 ### Example
