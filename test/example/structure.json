@@ -660,7 +660,8 @@
 				"failTimeout": "15s",
 				"http2": "on",
 				"trust": [
-					"127.0.0.1"
+					"127.0.0.1",
+					"acl:vpn1"
 				]
 			},
 			"beaver": {
