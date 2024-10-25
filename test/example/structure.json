@@ -658,7 +658,10 @@
 			"nginx": {
 				"maxFails": 5,
 				"failTimeout": "15s",
-				"http2": "on"
+				"http2": "on",
+				"trust": [
+					"127.0.0.1"
+				]
 			},
 			"beaver": {
 				"closed": true,
