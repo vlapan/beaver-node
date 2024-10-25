@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.263] - 2024-10-25
+
+### 🚀 Features
+
+- *(nginx)* Add acls for XFF to `routing.options.nginx.trust`
+
+### Example
+
+- Update
+
 ## [0.1.262] - 2024-10-24
 
 ### 🐛 Bug Fixes
