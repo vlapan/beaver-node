@@ -98,6 +98,10 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     set 2 table beaver-acl-table-tmp add 172.16.4.1/32                     # [Location(a1)]: [Router(l64.a1.example.org)]: LAN3
     set 2 table beaver-acl-table-tmp add 192.168.253.0/24                  # static entry: VPN WAN4
     set 2 table beaver-acl-table-tmp add 192.168.243.0/24                  # static entry: VPN WAN4
+    set 2 table beaver-acl-table-tmp add 91.217.20.0/26                    # static entry
+    set 2 table beaver-acl-table-tmp add 91.217.21.0/26                    # static entry
+    set 2 table beaver-acl-table-tmp add 194.226.96.192/28                 # static entry
+    set 2 table beaver-acl-table-tmp add 31.177.66.192/28                  # static entry
     set 2 table beaver-acl-table-tmp add 172.0.1.1/24                      # static entry
     set 2 table beaver-acl-table-tmp swap beaver-acl-table
     set 2 table beaver-acl-table-tmp destroy
