@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.264] - 2024-10-26
+
+### 🚀 Features
+
+- *(nginx)* Use `acls` for `target.nginx.deny`
+- Acls could include acls
+
+### Example
+
+- Add real acl to nginx.trust
+
 ## [0.1.263] - 2024-10-25
 
 ### 🚀 Features
