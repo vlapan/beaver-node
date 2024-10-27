@@ -992,7 +992,12 @@
                 "web-ru.example.xyz"
             ],
             "dns": "use-router",
-            "ssl": false
+            "ssl": false,
+            "access": [
+                "172.254.1.0/24",
+                "acl:vpn1",
+                "acl:vpn2"
+            ]
         },
         "web-eu.example.xyz": {
             "location": "a1",
