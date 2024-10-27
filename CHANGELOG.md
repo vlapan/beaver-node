@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.265] - 2024-10-27
+
+### 🚀 Features
+
+- *(nginx)* Add ability to specify `target.access`
+- *(nginx)* Generate XFF for `target.trust`
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.264] - 2024-10-26
 
 ### 🚀 Features
