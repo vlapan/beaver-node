@@ -992,6 +992,9 @@
 			"location" : "web-eu.example.xyz",
 			"redirectHttp" : true,
 			"redirectHttps" : "https://example.com",
+			"trust": [
+				"acl:vpn2"
+			],
 			"nginx": {
 				"http2": "off",
 				"allow": [
@@ -1010,6 +1013,9 @@
 			],
 			"dns": "use-router",
 			"ssl": false,
+			"trust": [
+				"acl:vpn2"
+			],
 			"access": [
 				"172.254.1.0/24",
 				"acl:vpn1",
