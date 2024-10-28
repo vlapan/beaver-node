@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.266] - 2024-10-28
+
+### 🐛 Bug Fixes
+
+- *(git-static)* Respect zones when add servers for git pull notification
+- *(git-static)* `disableGitStatic` argument only disables daemon, add `disableGitStaticPull` to disable git pull on extension run
+
+### 🎨 Styling
+
+- *(utils/structure)* Add trailling comma and semicolon
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.265] - 2024-10-27
 
 ### 🚀 Features
