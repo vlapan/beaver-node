@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.267] - 2024-10-31
+
+### 🐛 Bug Fixes
+
+- *(git-static)* Check zone on repository itself against zone on server itself, check if zones intersects one with another
+- *(package.json)* Corepack adds packageManager field
+- *(tinc)* Treat zone as array and check for intersection
+- *(git-static)* Pass getConfig function instead of config object, fix for updateHook
+- *(git-static)* Better error processing
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
+### Example
+
+- Add missing block from trust
+
 ## [0.1.266] - 2024-10-28
 
 ### 🐛 Bug Fixes
