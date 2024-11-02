@@ -1,4 +1,5 @@
 {
+	"name": "default",
 	"locations": {
 		"a1": {
 			"name": "a1.example.com",
