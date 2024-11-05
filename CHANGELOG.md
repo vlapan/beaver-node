@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.269] - 2024-11-05
+
+### 🐛 Bug Fixes
+
+- *(git-static)* Return 403 when got bad secret
+- *(git-static)* BodyRaw, lower-case headers
+
 ## [0.1.268] - 2024-11-05
 
 ### 🚀 Features
