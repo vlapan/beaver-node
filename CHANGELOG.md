@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.268] - 2024-11-05
+
+### 🚀 Features
+
+- *(nginx)* If route has static then create separate nginx server for `.*` and 404 all static on subdomains
+- *(git-static)* Initial webhook secret check
+- *(structure)* Add `name` property
+- *(extensions)* Run hooks from `hook.d` path
+- Merge configs
+
+### 🐛 Bug Fixes
+
+- *(nginx)* `acme` and `git-static` entrypoints add `allow all;`
+- *(openssl)* Create symlink to certificates with hash, use plain version in nginx
+- *(openssl)* Unlink before symlink
+- *(nginx)* No static on subdomains
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.267] - 2024-10-31
 
 ### 🐛 Bug Fixes
