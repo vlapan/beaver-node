@@ -511,33 +511,6 @@
     },
     "routing": {
         "options": {
-            "nginx": {
-                "maxFails": 5,
-                "failTimeout": "15s",
-                "http2": "on",
-                "trust": [
-                    "127.0.0.1",
-                    "acl:vpn1"
-                ]
-            },
-            "tinc": {
-                "mode": "router",
-                "compression": 7,
-                "pingInterval": 60,
-                "pingTimeout": 5,
-                "closed": true
-            },
-            "dns": {
-                "prefix": {
-                    "master": "primary/beaver",
-                    "slave": "secondary"
-                },
-                "ttl": 600,
-                "refresh": 300,
-                "retry": 150,
-                "expire": 86400,
-                "minimum": 600
-            },
             "acls": {
                 "vpn1": [
                     "192.168.253.0/24 # VPN WAN4",
@@ -579,6 +552,15 @@
                     ]
                 }
             },
+            "nginx": {
+                "maxFails": 5,
+                "failTimeout": "15s",
+                "http2": "on",
+                "trust": [
+                    "127.0.0.1",
+                    "acl:vpn1"
+                ]
+            },
             "beaver": {
                 "closed": true,
                 "acl": [
@@ -586,6 +568,24 @@
                     "acl:vpn2",
                     "172.0.1.1/24"
                 ]
+            },
+            "tinc": {
+                "mode": "router",
+                "compression": 7,
+                "pingInterval": 60,
+                "pingTimeout": 5,
+                "closed": true
+            },
+            "dns": {
+                "prefix": {
+                    "master": "primary/beaver",
+                    "slave": "secondary"
+                },
+                "ttl": 600,
+                "refresh": 300,
+                "retry": 150,
+                "expire": 86400,
+                "minimum": 600
             },
             "acme": {
                 "directory": {
