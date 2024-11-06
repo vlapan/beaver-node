@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.270] - 2024-11-06
+
+### 🐛 Bug Fixes
+
+- *(notificator)* Change timer key
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.269] - 2024-11-05
 
 ### 🐛 Bug Fixes
