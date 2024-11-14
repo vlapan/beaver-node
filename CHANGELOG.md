@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.271] - 2024-11-14
+
+### 🐛 Bug Fixes
+
+- *(dns)* Add `acme.conf` to lan views
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.270] - 2024-11-06
 
 ### 🐛 Bug Fixes
