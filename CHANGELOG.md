@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.272] - 2024-11-28
+
+### 🐛 Bug Fixes
+
+- *(dns)* Add `NS` records for `acme` to local views
+
+### 🎨 Styling
+
+- Fix missing trailing comma
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
+### Example
+
+- Add `passwd` for daemon test
+
 ## [0.1.271] - 2024-11-14
 
 ### 🐛 Bug Fixes
