@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.273] - 2024-12-12
+
+### 🐛 Bug Fixes
+
+- *(ssl)* Generate simple certificate serial when legacy sha-1 hash used
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.272] - 2024-11-28
 
 ### 🐛 Bug Fixes
