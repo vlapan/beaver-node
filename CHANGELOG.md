@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.275] - 2025-01-09
+
+### 🐛 Bug Fixes
+
+- *(openssl)* Empty `san`, copy `cn` from `subject`
+
 ## [0.1.274] - 2025-01-09
 
 ### 🚀 Features
