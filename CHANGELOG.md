@@ -2,6 +2,25 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.274] - 2025-01-09
+
+### 🚀 Features
+
+- Add `passwd` module, generate `passwd` file from `structure`
+
+### 🐛 Bug Fixes
+
+- *(openssl)* Use `webcrypto` for `csr` signing, copy `san` from `csr`
+- *(git-static)* Use shallow clone, etc...
+
+### 🚜 Refactor
+
+- *(openssl)* Use `Set` and other optimizations
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.273] - 2024-12-12
 
 ### 🐛 Bug Fixes
