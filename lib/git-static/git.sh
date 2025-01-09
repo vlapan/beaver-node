@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-set -e
+set -ex
 
 REPOS=%{path}
 NAME=%{name}
@@ -11,11 +11,9 @@ export GIT_HTTP_LOW_SPEED_LIMIT=1000
 export GIT_HTTP_LOW_SPEED_TIME=20
 
 if [ -d "${REPOS}/${NAME}" ]; then
-    cd "${REPOS}/${NAME}"
-    git reset --hard --quiet
-    git clean -df --quiet
-    git pull --prune --rebase
+    git -C "${REPOS}/${NAME}" reset --hard --quiet
+    git -C "${REPOS}/${NAME}" clean -df --quiet
+    git -C "${REPOS}/${NAME}" pull --prune --rebase
 else
-    cd "${REPOS}"
-    git clone "${URL}" "${NAME}"
+    git clone --depth 1 --shallow-submodules --no-tags -- "${URL}" "${REPOS}/${NAME}"
 fi
