@@ -1,0 +1,13 @@
+Certificate Request:
+    Data:
+        Version: 1 (0x0)
+        Subject: CN=acme-le-1.service.example.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Exponent: 65537 (0x10001)
+        Attributes:
+            Requested Extensions:
+                X509v3 Subject Alternative Name: 
+                    DNS:acme-le-1.service.example.com, DNS:acme-le-1-2.service.example.com
+    Signature Algorithm: sha1WithRSAEncryption
