@@ -419,15 +419,17 @@
     "monitoring": {
         "templates": {},
         "notify": {
-            "user1": {
+            "user": {
                 "type": "email",
                 "name": "User 1",
-                "email": "user1@example.com"
+                "email": "user1@example.com",
+                "pass": "$6$wIArYdbyTe9hVzND$ZRMQC2u4pLwQ0euVvabcj/m.NiIJSvspF43zqlN9mhIRbiz9ROPgYZJo2IwXYkVJr5ompQkNYx/wIm9/BDNR0."
             },
             "user2": {
                 "type": "email",
                 "name": "User 2",
-                "email": "user2@example.com"
+                "email": "user2@example.com",
+                "pass": "$6$rounds=100000$ExamplePassword$Fl3FuqLVlCqAhYpvl0d72ufs..wEUKSqJGXg0xfG7lYUSvlPBoNDqDeal/otX2LbBCZD3XEUhG1hOVoIsV42S1"
             },
             "user3": {
                 "type": "email",
