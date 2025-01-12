@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.276] - 2025-01-12
+
+### 🐛 Bug Fixes
+
+- *(extensions)* Correct hook path
+- *(extensions)* Pass `output_path` to `hook` script as `env` variable
+- *(extensions)* `provided`, `default` and `directory` hook types, some changes to debug output
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.275] - 2025-01-09
 
 ### 🐛 Bug Fixes
