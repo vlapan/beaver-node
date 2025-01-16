@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@peculiar/x509": "^1.12.3",
-    "ace-builds": "^1.37.4",
+    "ace-builds": "^1.37.5",
     "acme-client": "^5.4.0",
     "async": "^3.2.6",
     "axios": "^1.7.9",
@@ -58,7 +58,7 @@
     "diff": "^7.0.0",
     "dns-zonefile": "^0.3.2",
     "express": "^4.21.2",
-    "fs-extra": "^11.2.0",
+    "fs-extra": "^11.3.0",
     "glob-to-regexp": "^0.4.1",
     "jose": "^5.9.6",
     "lit-html": "^3.2.1",
@@ -72,7 +72,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.18.0",
-    "@stylistic/eslint-plugin-js": "^2.12.1",
+    "@stylistic/eslint-plugin-js": "^2.13.0",
     "eslint": "^9.18.0",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-json": "^4.0.1",
@@ -81,7 +81,7 @@
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-unicorn": "^56.0.1",
     "eslint-plugin-wc": "^2.2.0",
-    "flow-bin": "^0.258.1",
+    "flow-bin": "^0.259.0",
     "globals": "^15.14.0",
     "semver": "^7.6.3"
   }
