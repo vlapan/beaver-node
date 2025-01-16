@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.277] - 2025-01-16
+
+### 🐛 Bug Fixes
+
+- *(nginx)* Add acme `well-known` location only if preset is `acmeHttp` type
+- *(nginx)* Set `Host` header explicitly to proxified request, so it would work if header is changed in the upper scope
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.276] - 2025-01-12
 
 ### 🐛 Bug Fixes
