@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.278] - 2025-02-10
+
+### 🐛 Bug Fixes
+
+- *(git-static)* Replace url in the config before pulling
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.277] - 2025-01-16
 
 ### 🐛 Bug Fixes
