@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@peculiar/x509": "^1.12.3",
-    "ace-builds": "^1.37.5",
+    "ace-builds": "^1.38.0",
     "acme-client": "^5.4.0",
     "async": "^3.2.6",
     "axios": "^1.7.9",
@@ -73,7 +73,7 @@
   "devDependencies": {
     "@eslint/js": "^9.20.0",
     "@stylistic/eslint-plugin-js": "^3.1.0",
-    "eslint": "^9.20.0",
+    "eslint": "^9.20.1",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-json": "^4.0.1",
     "eslint-plugin-lit": "^1.15.0",
@@ -81,7 +81,7 @@
     "eslint-plugin-promise": "^7.2.1",
     "eslint-plugin-unicorn": "^56.0.1",
     "eslint-plugin-wc": "^2.2.0",
-    "flow-bin": "^0.259.1",
+    "flow-bin": "^0.260.0",
     "globals": "^15.14.0",
     "semver": "^7.7.1"
   }
