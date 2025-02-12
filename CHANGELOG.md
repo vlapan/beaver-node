@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.279] - 2025-02-12
+
+### 🐛 Bug Fixes
+
+- *(https)* Reload ssl/root-ca certificates
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.278] - 2025-02-10
 
 ### 🐛 Bug Fixes
