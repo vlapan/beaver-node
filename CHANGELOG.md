@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.280] - 2025-02-20
+
+### 🐛 Bug Fixes
+
+- *(git-static)* Remove trace `-x` from `git.sh`
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.279] - 2025-02-12
 
 ### 🐛 Bug Fixes
