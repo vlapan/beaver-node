@@ -60,7 +60,7 @@
     "express": "^4.21.2",
     "fs-extra": "^11.3.0",
     "glob-to-regexp": "^0.4.1",
-    "jose": "^5.9.6",
+    "jose": "^5.10.0",
     "lit-html": "^3.2.1",
     "morgan": "^1.10.0",
     "nginx-conf": "^2.1.0",
@@ -72,17 +72,17 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.20.0",
-    "@stylistic/eslint-plugin-js": "^3.1.0",
+    "@stylistic/eslint-plugin-js": "^4.0.1",
     "eslint": "^9.20.1",
     "eslint-plugin-import": "^2.31.0",
     "eslint-plugin-json": "^4.0.1",
     "eslint-plugin-lit": "^1.15.0",
     "eslint-plugin-n": "^17.15.1",
     "eslint-plugin-promise": "^7.2.1",
-    "eslint-plugin-unicorn": "^56.0.1",
+    "eslint-plugin-unicorn": "^57.0.0",
     "eslint-plugin-wc": "^2.2.0",
-    "flow-bin": "^0.260.0",
-    "globals": "^15.14.0",
+    "flow-bin": "^0.261.2",
+    "globals": "^15.15.0",
     "semver": "^7.7.1"
   }
 }
