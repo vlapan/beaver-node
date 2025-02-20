@@ -1,6 +1,6 @@
-#!/usr/bin/env bash
+#!/bin/sh
 
-set -ex
+set -e
 
 REPOS=%{path}
 NAME=%{name}
