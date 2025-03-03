@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.281] - 2025-03-03
+
+### 🐛 Bug Fixes
+
+- *(openssl)* Make proper algo with hash.name
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.280] - 2025-02-20
 
 ### 🐛 Bug Fixes
