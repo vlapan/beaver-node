@@ -1190,6 +1190,11 @@
 					"nginx": {
 						"return": "200 \"OK\""
 					}
+				},
+				"/test": {
+				    "nginx": {
+        				"allow": "acl:vpn1"
+					}
 				}
 			}
 		},
