@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.283] - 2025-04-11
+
+### 🐛 Bug Fixes
+
+- *(dns)* Split long `TXT` records
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.282] - 2025-04-01
 
 ### 🐛 Bug Fixes
