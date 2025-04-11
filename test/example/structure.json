@@ -759,7 +759,8 @@
 							"text_record_1",
 							"text record 2",
 							"text record 3"
-						]
+						],
+						"mail._domainkey": "v=DKIM1; h=sha256; k=rsa; s=email; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA5+Gy0cyLo+lysy/e2b4kiBy4K2oOOHD56MO/mrHHUAdOBQWYMVNWEo/WiEgols7dvliv3ZKLvX8GmJyWS1dYuSBNXqXk11kJ+lMCe+eUiNso4D6TzhDKOB6ewxLVdsSEEPu6CBGQ6FDEZTORS1VvMfg1euuTovyOE0lR3WoeI92yiw0+ohY03/qTExM9kBc6Axv4drplCujDcqLqvXnrXhQAlqO1ylJVr4NSEWYF3JKEchmYN3msrIgaFDH/gskUde56vjDsw6S+GsfyCFaJIQ24l6oCcwJ3HegaNXlWdIJSZhYmDbdklYqLX5TmlNOVC9oxNRLswbAyZ/FpX11b6QIDAQAB"
 					},
 					"SRV": {
 						"_www._tcp": [
