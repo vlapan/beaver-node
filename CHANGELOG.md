@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.284] - 2025-05-19
+
+### 🐛 Bug Fixes
+
+- *(acme)* Server and pull should start even when there is no config yet
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
+### Example
+
+- Add missing
+
 ## [0.1.283] - 2025-04-11
 
 ### 🐛 Bug Fixes
