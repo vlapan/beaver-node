@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.285] - 2025-08-27
+
+### 🚀 Features
+
+- *(ipfw)* Port forward access
+
 ## [0.1.284] - 2025-05-19
 
 ### 🐛 Bug Fixes
