@@ -111,26 +111,26 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 508 set 2 count udp from me to not me out // udp of all
     add 508 set 2 allow ip from me to not me out // all outgoing blindly allowed
 
-    set 2 table service-wan-access create missing type flow:proto,src-ip,dst-port
-    set 2 table service-wan-access-tmp create or-flush type flow:proto,src-ip,dst-port
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2002 # beaver-web-b1-l62.b1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2003 # beaver-tinc-b1-l62.b1.example.com => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,2003 # beaver-tinc-b1-l62.b1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2053 # type-unix-b1-l62.b1.example.com => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,2053 # type-unix-b1-l62.b1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2082 # type-unix-b1-l62.b1.example.com => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,2082 # type-unix-b1-l62.b1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2022 # type-unix-b1-l62.b1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2080 # type-unix-b1-l62.b1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2443 # type-unix-b1-l62.b1.example.com => public access
+    set 2 table service-wan-access create missing type flow:src-ip,proto,dst-port
+    set 2 table service-wan-access-tmp create or-flush type flow:src-ip,proto,dst-port
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2002 # beaver-web-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2003 # beaver-tinc-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,2003 # beaver-tinc-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2053 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,2053 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2082 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,2082 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2022 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2080 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2443 # type-unix-b1-l62.b1.example.com => public access
     set 2 table service-wan-access swap service-wan-access-tmp
     set 2 table service-wan-access-tmp destroy
 
-    set 2 table service-lan-access create missing type flow:proto,src-ip,src-port,dst-ip
-    set 2 table service-lan-access-tmp create or-flush type flow:proto,src-ip,src-port,dst-ip
-    set 2 table service-lan-access-tmp add udp,172.16.4.2,655,0.0.0.0/0 # beaver-tinc-b1-l62.b1.example.com => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.4.2,53,0.0.0.0/0  # type-unix-b1-l62.b1.example.com => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.4.2,82,0.0.0.0/0  # type-unix-b1-l62.b1.example.com => public access
+    set 2 table service-lan-access create missing type flow:src-ip,proto,src-port,dst-ip
+    set 2 table service-lan-access-tmp create or-flush type flow:src-ip,proto,src-port,dst-ip
+    set 2 table service-lan-access-tmp add 172.16.4.2,udp,655,0.0.0.0/0 # beaver-tinc-b1-l62.b1.example.com => public access 
+    set 2 table service-lan-access-tmp add 172.16.4.2,udp,53,0.0.0.0/0  # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-lan-access-tmp add 172.16.4.2,udp,82,0.0.0.0/0  # type-unix-b1-l62.b1.example.com => public access
     set 2 table service-lan-access swap service-lan-access-tmp
     set 2 table service-lan-access-tmp destroy
 

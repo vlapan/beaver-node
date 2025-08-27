@@ -143,93 +143,93 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     add 508 set 2 count udp from me to not me out // udp of all
     add 508 set 2 allow ip from me to not me out // all outgoing blindly allowed
 
-    set 2 table service-wan-access create missing type flow:proto,src-ip,dst-port
-    set 2 table service-wan-access-tmp create or-flush type flow:proto,src-ip,dst-port
-    set 2 table service-wan-access-tmp add tcp,172.254.1.0/24,1002    # beaver-web-a1-l61.a1.example.com => static entry: some host 
-    set 2 table service-wan-access-tmp add tcp,192.168.253.0/24,1002  # beaver-web-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-wan-access-tmp add tcp,192.168.243.0/24,1002  # beaver-web-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-wan-access-tmp add tcp,91.217.20.0/26,1002    # beaver-web-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,91.217.21.0/26,1002    # beaver-web-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,194.226.96.192/28,1002 # beaver-web-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,31.177.66.192/28,1002  # beaver-web-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,172.254.1.0/24,1003    # beaver-tinc-a1-l61.a1.example.com => static entry: some host 
-    set 2 table service-wan-access-tmp add udp,172.254.1.0/24,1003    # beaver-tinc-a1-l61.a1.example.com => static entry: some host 
-    set 2 table service-wan-access-tmp add tcp,192.168.253.0/24,1003  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-wan-access-tmp add udp,192.168.253.0/24,1003  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-wan-access-tmp add tcp,192.168.243.0/24,1003  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-wan-access-tmp add udp,192.168.243.0/24,1003  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-wan-access-tmp add tcp,91.217.20.0/26,1003    # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add udp,91.217.20.0/26,1003    # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,91.217.21.0/26,1003    # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add udp,91.217.21.0/26,1003    # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,194.226.96.192/28,1003 # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add udp,194.226.96.192/28,1003 # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,31.177.66.192/28,1003  # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add udp,31.177.66.192/28,1003  # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,1053         # type-unix-a1-l61.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,1053         # type-unix-a1-l61.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,1082         # type-unix-a1-l61.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,1082         # type-unix-a1-l61.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,172.254.1.0/24,1022    # type-unix-a1-l61.a1.example.com => static entry: some host 
-    set 2 table service-wan-access-tmp add tcp,192.168.253.0/24,1022  # type-unix-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-wan-access-tmp add tcp,192.168.243.0/24,1022  # type-unix-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-wan-access-tmp add tcp,91.217.20.0/26,1022    # type-unix-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,91.217.21.0/26,1022    # type-unix-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,194.226.96.192/28,1022 # type-unix-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,31.177.66.192/28,1022  # type-unix-a1-l61.a1.example.com => static entry 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,1080         # type-unix-a1-l61.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,1443         # type-unix-a1-l61.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2002         # beaver-web-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2003         # beaver-tinc-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,2003         # beaver-tinc-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2053         # type-unix-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,2053         # type-unix-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2082         # type-unix-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,2082         # type-unix-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2022         # type-unix-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2080         # type-unix-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2443         # type-unix-a1-l62.a1.example.com => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,3002         # beaver-web-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,3003         # beaver-tinc-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,3003         # beaver-tinc-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,3053         # type-unix-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,3053         # type-unix-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,3082         # type-unix-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,3082         # type-unix-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,3022         # type-unix-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,3080         # type-unix-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,3443         # type-unix-a1-l61.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,4002         # beaver-web-a1-l64.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,4003         # beaver-tinc-a1-l64.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,4003         # beaver-tinc-a1-l64.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,4053         # type-unix-a1-l64.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,4053         # type-unix-a1-l64.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,4082         # type-unix-a1-l64.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,4082         # type-unix-a1-l64.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,4022         # type-unix-a1-l64.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,4080         # type-unix-a1-l64.a1.example.org => public access 
-    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,4443         # type-unix-a1-l64.a1.example.org => public access
+    set 2 table service-wan-access create missing type flow:src-ip,proto,dst-port
+    set 2 table service-wan-access-tmp create or-flush type flow:src-ip,proto,dst-port
+    set 2 table service-wan-access-tmp add 172.254.1.0/24,tcp,1002    # beaver-web-a1-l61.a1.example.com => static entry: some host 
+    set 2 table service-wan-access-tmp add 192.168.253.0/24,tcp,1002  # beaver-web-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-wan-access-tmp add 192.168.243.0/24,tcp,1002  # beaver-web-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-wan-access-tmp add 91.217.20.0/26,tcp,1002    # beaver-web-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 91.217.21.0/26,tcp,1002    # beaver-web-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 194.226.96.192/28,tcp,1002 # beaver-web-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 31.177.66.192/28,tcp,1002  # beaver-web-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 172.254.1.0/24,tcp,1003    # beaver-tinc-a1-l61.a1.example.com => static entry: some host 
+    set 2 table service-wan-access-tmp add 172.254.1.0/24,udp,1003    # beaver-tinc-a1-l61.a1.example.com => static entry: some host 
+    set 2 table service-wan-access-tmp add 192.168.253.0/24,tcp,1003  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-wan-access-tmp add 192.168.253.0/24,udp,1003  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-wan-access-tmp add 192.168.243.0/24,tcp,1003  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-wan-access-tmp add 192.168.243.0/24,udp,1003  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-wan-access-tmp add 91.217.20.0/26,tcp,1003    # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 91.217.20.0/26,udp,1003    # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 91.217.21.0/26,tcp,1003    # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 91.217.21.0/26,udp,1003    # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 194.226.96.192/28,tcp,1003 # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 194.226.96.192/28,udp,1003 # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 31.177.66.192/28,tcp,1003  # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 31.177.66.192/28,udp,1003  # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,1053         # type-unix-a1-l61.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,1053         # type-unix-a1-l61.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,1082         # type-unix-a1-l61.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,1082         # type-unix-a1-l61.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 172.254.1.0/24,tcp,1022    # type-unix-a1-l61.a1.example.com => static entry: some host 
+    set 2 table service-wan-access-tmp add 192.168.253.0/24,tcp,1022  # type-unix-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-wan-access-tmp add 192.168.243.0/24,tcp,1022  # type-unix-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-wan-access-tmp add 91.217.20.0/26,tcp,1022    # type-unix-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 91.217.21.0/26,tcp,1022    # type-unix-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 194.226.96.192/28,tcp,1022 # type-unix-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 31.177.66.192/28,tcp,1022  # type-unix-a1-l61.a1.example.com => static entry 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,1080         # type-unix-a1-l61.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,1443         # type-unix-a1-l61.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2002         # beaver-web-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2003         # beaver-tinc-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,2003         # beaver-tinc-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2053         # type-unix-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,2053         # type-unix-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2082         # type-unix-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,2082         # type-unix-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2022         # type-unix-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2080         # type-unix-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,2443         # type-unix-a1-l62.a1.example.com => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,3002         # beaver-web-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,3003         # beaver-tinc-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,3003         # beaver-tinc-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,3053         # type-unix-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,3053         # type-unix-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,3082         # type-unix-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,3082         # type-unix-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,3022         # type-unix-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,3080         # type-unix-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,3443         # type-unix-a1-l61.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,4002         # beaver-web-a1-l64.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,4003         # beaver-tinc-a1-l64.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,4003         # beaver-tinc-a1-l64.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,4053         # type-unix-a1-l64.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,4053         # type-unix-a1-l64.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,4082         # type-unix-a1-l64.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,udp,4082         # type-unix-a1-l64.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,4022         # type-unix-a1-l64.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,4080         # type-unix-a1-l64.a1.example.org => public access 
+    set 2 table service-wan-access-tmp add 0.0.0.0/0,tcp,4443         # type-unix-a1-l64.a1.example.org => public access
     set 2 table service-wan-access swap service-wan-access-tmp
     set 2 table service-wan-access-tmp destroy
 
-    set 2 table service-lan-access create missing type flow:proto,src-ip,src-port,dst-ip
-    set 2 table service-lan-access-tmp create or-flush type flow:proto,src-ip,src-port,dst-ip
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,655,172.254.1.0/24    # beaver-tinc-a1-l61.a1.example.com => static entry: some host 
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,655,192.168.253.0/24  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,655,192.168.243.0/24  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,655,91.217.20.0/26    # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,655,91.217.21.0/26    # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,655,194.226.96.192/28 # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,655,31.177.66.192/28  # beaver-tinc-a1-l61.a1.example.com => static entry 
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,53,0.0.0.0/0          # type-unix-a1-l61.a1.example.org => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,82,0.0.0.0/0          # type-unix-a1-l61.a1.example.org => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.3.2,655,0.0.0.0/0         # beaver-tinc-a1-l62.a1.example.com => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.3.2,53,0.0.0.0/0          # type-unix-a1-l62.a1.example.com => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.3.2,82,0.0.0.0/0          # type-unix-a1-l62.a1.example.com => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.3.1,655,0.0.0.0/0         # beaver-tinc-a1-l61.a1.example.org => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.4.1,655,0.0.0.0/0         # beaver-tinc-a1-l64.a1.example.org => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.4.1,53,0.0.0.0/0          # type-unix-a1-l64.a1.example.org => public access 
-    set 2 table service-lan-access-tmp add udp,172.16.4.1,82,0.0.0.0/0          # type-unix-a1-l64.a1.example.org => public access
+    set 2 table service-lan-access create missing type flow:src-ip,proto,src-port,dst-ip
+    set 2 table service-lan-access-tmp create or-flush type flow:src-ip,proto,src-port,dst-ip
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,655,172.254.1.0/24    # beaver-tinc-a1-l61.a1.example.com => static entry: some host 
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,655,192.168.253.0/24  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,655,192.168.243.0/24  # beaver-tinc-a1-l61.a1.example.com => static entry: VPN WAN4 
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,655,91.217.20.0/26    # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,655,91.217.21.0/26    # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,655,194.226.96.192/28 # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,655,31.177.66.192/28  # beaver-tinc-a1-l61.a1.example.com => static entry 
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,53,0.0.0.0/0          # type-unix-a1-l61.a1.example.org => public access 
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,82,0.0.0.0/0          # type-unix-a1-l61.a1.example.org => public access 
+    set 2 table service-lan-access-tmp add 172.16.3.2,udp,655,0.0.0.0/0         # beaver-tinc-a1-l62.a1.example.com => public access 
+    set 2 table service-lan-access-tmp add 172.16.3.2,udp,53,0.0.0.0/0          # type-unix-a1-l62.a1.example.com => public access 
+    set 2 table service-lan-access-tmp add 172.16.3.2,udp,82,0.0.0.0/0          # type-unix-a1-l62.a1.example.com => public access 
+    set 2 table service-lan-access-tmp add 172.16.3.1,udp,655,0.0.0.0/0         # beaver-tinc-a1-l61.a1.example.org => public access 
+    set 2 table service-lan-access-tmp add 172.16.4.1,udp,655,0.0.0.0/0         # beaver-tinc-a1-l64.a1.example.org => public access 
+    set 2 table service-lan-access-tmp add 172.16.4.1,udp,53,0.0.0.0/0          # type-unix-a1-l64.a1.example.org => public access 
+    set 2 table service-lan-access-tmp add 172.16.4.1,udp,82,0.0.0.0/0          # type-unix-a1-l64.a1.example.org => public access
     set 2 table service-lan-access swap service-lan-access-tmp
     set 2 table service-lan-access-tmp destroy
 
