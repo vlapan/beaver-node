@@ -204,7 +204,12 @@
 			],
 			"tcpShift": "1000",
 			"type": "unix",
-			"os": "bsd"
+			"os": "bsd",
+			"access": [
+				"172.254.1.0/24 # some host",
+				"acl:vpn1",
+				"acl:vpn2"
+			]
 		},
 		"l62.a1.example.com": {
 			"disposition": "guest",
@@ -711,11 +716,11 @@
 		"types": {
 			"unix": {
 				"level3": {
-					"53": 53,
-					"82": 82,
-					"22/tcp": 27,
-					"80/tcp": 80,
-					"443/tcp": 443
+					"53/*/public": 53,
+					"82/*/public": 82,
+					"22/tcp/private": 27,
+					"80/tcp/public": 80,
+					"443/tcp/public": 443
 				},
 				"level6": {
 					"plain": 3000,

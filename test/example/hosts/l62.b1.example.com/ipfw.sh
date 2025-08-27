@@ -111,6 +111,29 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 508 set 2 count udp from me to not me out // udp of all
     add 508 set 2 allow ip from me to not me out // all outgoing blindly allowed
 
+    set 2 table service-wan-access create missing type flow:proto,src-ip,dst-port
+    set 2 table service-wan-access-tmp create or-flush type flow:proto,src-ip,dst-port
+    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2002 # beaver-web-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2003 # beaver-tinc-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,2003 # beaver-tinc-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2053 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,2053 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2082 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add udp,0.0.0.0/0,2082 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2022 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2080 # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-wan-access-tmp add tcp,0.0.0.0/0,2443 # type-unix-b1-l62.b1.example.com => public access
+    set 2 table service-wan-access swap service-wan-access-tmp
+    set 2 table service-wan-access-tmp destroy
+
+    set 2 table service-lan-access create missing type flow:proto,src-ip,src-port,dst-ip
+    set 2 table service-lan-access-tmp create or-flush type flow:proto,src-ip,src-port,dst-ip
+    set 2 table service-lan-access-tmp add udp,172.16.4.2,655,0.0.0.0/0 # beaver-tinc-b1-l62.b1.example.com => public access 
+    set 2 table service-lan-access-tmp add udp,172.16.4.2,53,0.0.0.0/0  # type-unix-b1-l62.b1.example.com => public access 
+    set 2 table service-lan-access-tmp add udp,172.16.4.2,82,0.0.0.0/0  # type-unix-b1-l62.b1.example.com => public access
+    set 2 table service-lan-access swap service-lan-access-tmp
+    set 2 table service-lan-access-tmp destroy
+
     set 2 table service-wan create missing type flow:dst-ip,dst-port
     set 2 table service-wan-tmp create or-flush type flow:dst-ip,dst-port
     set 2 table service-wan-tmp add 10.20.21.20,2002 # beaver-web-b1-l62.b1.example.com 
@@ -141,17 +164,22 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     set 2 table service-lan swap service-lan-tmp
     set 2 table service-lan-tmp destroy
 
-    add 515 set 2 skipto 518 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan) // svc lan-2-wan
-    add 515 set 2 skipto 518 ip from any to 10.20.21.20 flow table(service-wan) // svc any-2-lan
 
-    add 516 set 2 nat 2 tag 7 ip from any to 10.20.21.20 in // incoming nat, dynamic
-    add 516 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, dynamic
-    add 516 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, dynamic
-    add 517 set 2 skipto 519 ip from any to any
+    add 520 set 2 count 540 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan-access) // svc lan-2-wan
+    add 521 set 2 count 540 ip from any to 10.20.21.20 flow table(service-wan-access) // svc any-2-lan
 
-    add 518 set 2 nat 1 tag 7 ip from any to 10.20.21.20 in // incoming nat, service
-    add 518 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, service
-    add 518 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, service
+    add 522 set 2 skipto 540 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan) // svc lan-2-wan
+    add 523 set 2 skipto 540 ip from any to 10.20.21.20 flow table(service-wan) // svc any-2-lan
+
+    add 530 set 2 nat 2 tag 7 ip from any to 10.20.21.20 in // incoming nat, dynamic
+    add 531 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, dynamic
+    add 532 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, dynamic
+
+    add 535 set 2 skipto 550 ip from any to any
+
+    add 540 set 2 nat 1 tag 7 ip from any to 10.20.21.20 in // incoming nat, service
+    add 541 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, service
+    add 542 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, service
 
 
     add 800 set 2 deny icmp from me to table(tinc-tap-l6-hosts-local) icmptype 5 in // block redirects for tincd
