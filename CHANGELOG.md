@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.286] - 2025-08-27
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Reorder port forward access tables
+
 ## [0.1.285] - 2025-08-27
 
 ### 🚀 Features
