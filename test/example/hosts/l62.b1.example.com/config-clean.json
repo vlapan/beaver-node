@@ -224,7 +224,10 @@
             ],
             "tcpShift": "2000",
             "type": "unix",
-            "os": "bsd"
+            "os": "bsd",
+            "access": [
+                "acl:vpn1"
+            ]
         },
         "l62.b1.example.com": {
             "disposition": "guest",

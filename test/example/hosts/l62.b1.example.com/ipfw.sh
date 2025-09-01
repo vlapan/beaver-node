@@ -112,16 +112,6 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 1100 set 2 allow ip from table(beaver-acl-table) to me dst-port 8443 in // beaver-api: allow specific
     add 1100 set 2 deny ip from any to me dst-port 8443 in // beaver-api: deny others
 
-    set 2 table service-port-forward-private create missing type flow:proto,dst-ip,dst-port valtype skipto
-    set 2 table service-port-forward-private-tmp create or-flush type flow:proto,dst-ip,dst-port valtype skipto
-    
-    set 2 table service-port-forward-private swap service-port-forward-private-tmp
-    set 2 table service-port-forward-private-tmp destroy
-    
-    add 1200 set 2 skipto tablearg ip from any to any flow table(service-port-forward-private) in // goto access check rule
-    add 1200 set 2 skipto 1500 ip from any to any in // skip to next stage
-    
-    
     
 
     set 2 table service-wan create missing type flow:dst-ip,dst-port
