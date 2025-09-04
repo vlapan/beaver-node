@@ -409,7 +409,10 @@
 			],
 			"tcpShift": "3000",
 			"type": "unix",
-			"os": "bsd"
+			"os": "bsd",
+			"access": [
+				"acl:vpn1"
+			]
 		},
 		"l64.a1.example.org": {
 			"disposition": "guest",

@@ -50,6 +50,7 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
 : | $fw /dev/stdin <<- EOF
     set disable 2
     delete set 2
+    set 2 table all destroy
 
 
     set 2 table tinc-tap-l6-hosts-remote create missing
@@ -127,85 +128,68 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     set 2 table tinc-acl-table-tmp swap tinc-acl-table
     set 2 table tinc-acl-table-tmp destroy
 
+    set 2 table service-port-forward-source-ff5eec00 create missing
+    set 2 table service-port-forward-source-ff5eec00-tmp create or-flush
+    set 2 table service-port-forward-source-ff5eec00-tmp add 172.254.1.0/24    # static entry: some host
+    set 2 table service-port-forward-source-ff5eec00-tmp add 192.168.253.0/24  # static entry: VPN WAN4
+    set 2 table service-port-forward-source-ff5eec00-tmp add 192.168.243.0/24  # static entry: VPN WAN4
+    set 2 table service-port-forward-source-ff5eec00-tmp add 91.217.20.0/26    # static entry
+    set 2 table service-port-forward-source-ff5eec00-tmp add 91.217.21.0/26    # static entry
+    set 2 table service-port-forward-source-ff5eec00-tmp add 194.226.96.192/28 # static entry
+    set 2 table service-port-forward-source-ff5eec00-tmp add 31.177.66.192/28  # static entry
+    set 2 table service-port-forward-source-ff5eec00-tmp swap service-port-forward-source-ff5eec00
+    set 2 table service-port-forward-source-ff5eec00-tmp destroy
 
-    add 1000 set 2 count ip6 from me to not me out // ipv6 of all
-    add 1000 set 2 count udp from me to not me out // udp of all
-    add 1000 set 2 allow ip from me to not me out // all outgoing blindly allowed
+    set 2 table service-port-forward-source-7a40909f create missing
+    set 2 table service-port-forward-source-7a40909f-tmp create or-flush
+    set 2 table service-port-forward-source-7a40909f-tmp add 192.168.253.0/24  # static entry: VPN WAN4
+    set 2 table service-port-forward-source-7a40909f-tmp add 192.168.243.0/24  # static entry: VPN WAN4
+    set 2 table service-port-forward-source-7a40909f-tmp add 91.217.20.0/26    # static entry
+    set 2 table service-port-forward-source-7a40909f-tmp add 91.217.21.0/26    # static entry
+    set 2 table service-port-forward-source-7a40909f-tmp add 194.226.96.192/28 # static entry
+    set 2 table service-port-forward-source-7a40909f-tmp add 31.177.66.192/28  # static entry
+    set 2 table service-port-forward-source-7a40909f-tmp swap service-port-forward-source-7a40909f
+    set 2 table service-port-forward-source-7a40909f-tmp destroy
 
 
-    add 1100 set 2 allow tcp from any to me dst-port 80,443 in // public http
-    add 1100 set 2 allow tcp from any to me dst-port 22,27 in // management ssh
-    add 1100 set 2 count tcp from any to me dst-port 53 in // tcp dns
-    add 1100 set 2 allow ip from any to me dst-port 53 in // dns
+    add 504 set 2 allow tcp from any to me dst-port 80,443 in // public http
+    add 504 set 2 allow tcp from any to me dst-port 22,27 in // management ssh
+    add 504 set 2 count tcp from any to me dst-port 53 in // tcp dns
+    add 504 set 2 allow ip from any to me dst-port 53 in // dns
 
-    add 1100 set 2 allow ip from table(tinc-acl-table) to me dst-port 655 in // tinc: allow specific
-    add 1100 set 2 deny ip from any to me dst-port 655 in // tinc: deny others
+    add 504 set 2 allow ip from table(tinc-acl-table) to me dst-port 655 in // tinc: allow specific
+    add 504 set 2 deny ip from any to me dst-port 655 in // tinc: deny others
 
-    add 1100 set 2 allow ip from table(beaver-acl-table) to me dst-port 8443 in // beaver-api: allow specific
-    add 1100 set 2 deny ip from any to me dst-port 8443 in // beaver-api: deny others
+    add 504 set 2 allow ip from table(beaver-acl-table) to me dst-port 8443 in // beaver-api: allow specific
+    add 504 set 2 deny ip from any to me dst-port 8443 in // beaver-api: deny others
 
-    set 2 table service-port-forward-private create missing type flow:proto,dst-ip,dst-port valtype skipto
-    set 2 table service-port-forward-private-tmp create or-flush type flow:proto,dst-ip,dst-port valtype skipto
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,1002 1201 # beaver-web-a1-l61.a1.example.com => tcp-1002
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,1003 1201 # beaver-tinc-a1-l61.a1.example.com => tcp-1003
-    set 2 table service-port-forward-private-tmp add udp,10.20.20.20,1003 1201 # beaver-tinc-a1-l61.a1.example.com => udp-1003
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,1022 1201 # type-unix-a1-l61.a1.example.com => tcp-1022
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,2002 1202 # beaver-web-a1-l62.a1.example.com => tcp-2002
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,2003 1202 # beaver-tinc-a1-l62.a1.example.com => tcp-2003
-    set 2 table service-port-forward-private-tmp add udp,10.20.20.20,2003 1202 # beaver-tinc-a1-l62.a1.example.com => udp-2003
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,2022 1202 # type-unix-a1-l62.a1.example.com => tcp-2022
+    add 508 set 2 count ip6 from me to not me out // ipv6 of all
+    add 508 set 2 count udp from me to not me out // udp of all
+    add 508 set 2 allow ip from me to not me out // all outgoing blindly allowed
+
+    set 2 table service-port-forward-private create missing type flow:proto,dst-ip,dst-port valtype tag
+    set 2 table service-port-forward-private-tmp create or-flush type flow:proto,dst-ip,dst-port valtype tag
+    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,1002 1001 # beaver-web-a1-l61.a1.example.com => tcp-1002
+    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,1003 1001 # beaver-tinc-a1-l61.a1.example.com => tcp-1003
+    set 2 table service-port-forward-private-tmp add udp,10.20.20.20,1003 1001 # beaver-tinc-a1-l61.a1.example.com => udp-1003
+    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,1022 1001 # type-unix-a1-l61.a1.example.com => tcp-1022
+    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,2002 1002 # beaver-web-a1-l62.a1.example.com => tcp-2002
+    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,2003 1002 # beaver-tinc-a1-l62.a1.example.com => tcp-2003
+    set 2 table service-port-forward-private-tmp add udp,10.20.20.20,2003 1002 # beaver-tinc-a1-l62.a1.example.com => udp-2003
+    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,2022 1002 # type-unix-a1-l62.a1.example.com => tcp-2022
+    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,3002 1003 # beaver-web-a1-l61.a1.example.org => tcp-3002
+    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,3003 1003 # beaver-tinc-a1-l61.a1.example.org => tcp-3003
+    set 2 table service-port-forward-private-tmp add udp,10.20.20.20,3003 1003 # beaver-tinc-a1-l61.a1.example.org => udp-3003
+    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,3022 1003 # type-unix-a1-l61.a1.example.org => tcp-3022
     set 2 table service-port-forward-private swap service-port-forward-private-tmp
     set 2 table service-port-forward-private-tmp destroy
     
-    add 1200 set 2 skipto tablearg ip from any to any flow table(service-port-forward-private) in // goto access check rule
-    add 1200 set 2 skipto 1500 ip from any to any in // skip to next stage
+    add 510 set 2 skipto 511 tag tablearg ip from any to any flow table(service-port-forward-private) in // goto access check rule
+    add 510 set 2 skipto 520 ip from any to any in // skip to next stage
     
-    set 2 table service-port-forward-source-l61.a1.example.com create missing
-    set 2 table service-port-forward-source-l61.a1.example.com-tmp create or-flush
-    set 2 table service-port-forward-source-l61.a1.example.com-tmp add 172.254.1.0/24    # static entry: some host
-    set 2 table service-port-forward-source-l61.a1.example.com-tmp add 192.168.253.0/24  # static entry: VPN WAN4
-    set 2 table service-port-forward-source-l61.a1.example.com-tmp add 192.168.243.0/24  # static entry: VPN WAN4
-    set 2 table service-port-forward-source-l61.a1.example.com-tmp add 91.217.20.0/26    # static entry
-    set 2 table service-port-forward-source-l61.a1.example.com-tmp add 91.217.21.0/26    # static entry
-    set 2 table service-port-forward-source-l61.a1.example.com-tmp add 194.226.96.192/28 # static entry
-    set 2 table service-port-forward-source-l61.a1.example.com-tmp add 31.177.66.192/28  # static entry
-    set 2 table service-port-forward-source-l61.a1.example.com swap service-port-forward-source-l61.a1.example.com-tmp
-    set 2 table service-port-forward-source-l61.a1.example.com-tmp destroy
-    
-    set 2 table service-port-forward-target-l61.a1.example.com create missing type flow:proto,dst-ip,dst-port
-    set 2 table service-port-forward-target-l61.a1.example.com-tmp create or-flush type flow:proto,dst-ip,dst-port
-    set 2 table service-port-forward-target-l61.a1.example.com-tmp add tcp,10.20.20.20,1002 # beaver-web-a1-l61.a1.example.com => tcp-1002
-    set 2 table service-port-forward-target-l61.a1.example.com-tmp add tcp,10.20.20.20,1003 # beaver-tinc-a1-l61.a1.example.com => tcp-1003
-    set 2 table service-port-forward-target-l61.a1.example.com-tmp add udp,10.20.20.20,1003 # beaver-tinc-a1-l61.a1.example.com => udp-1003
-    set 2 table service-port-forward-target-l61.a1.example.com-tmp add tcp,10.20.20.20,1022 # type-unix-a1-l61.a1.example.com => tcp-1022
-    set 2 table service-port-forward-target-l61.a1.example.com swap service-port-forward-target-l61.a1.example.com-tmp
-    set 2 table service-port-forward-target-l61.a1.example.com-tmp destroy
-    
-    add 1201 set 2 drop ip from not table(service-port-forward-source-l61.a1.example.com) to any flow table(service-port-forward-target-l61.a1.example.com) in
-    add 1201 set 2 skipto 1500 ip from any to any in
-
-    set 2 table service-port-forward-source-l62.a1.example.com create missing
-    set 2 table service-port-forward-source-l62.a1.example.com-tmp create or-flush
-    set 2 table service-port-forward-source-l62.a1.example.com-tmp add 192.168.253.0/24  # static entry: VPN WAN4
-    set 2 table service-port-forward-source-l62.a1.example.com-tmp add 192.168.243.0/24  # static entry: VPN WAN4
-    set 2 table service-port-forward-source-l62.a1.example.com-tmp add 91.217.20.0/26    # static entry
-    set 2 table service-port-forward-source-l62.a1.example.com-tmp add 91.217.21.0/26    # static entry
-    set 2 table service-port-forward-source-l62.a1.example.com-tmp add 194.226.96.192/28 # static entry
-    set 2 table service-port-forward-source-l62.a1.example.com-tmp add 31.177.66.192/28  # static entry
-    set 2 table service-port-forward-source-l62.a1.example.com swap service-port-forward-source-l62.a1.example.com-tmp
-    set 2 table service-port-forward-source-l62.a1.example.com-tmp destroy
-    
-    set 2 table service-port-forward-target-l62.a1.example.com create missing type flow:proto,dst-ip,dst-port
-    set 2 table service-port-forward-target-l62.a1.example.com-tmp create or-flush type flow:proto,dst-ip,dst-port
-    set 2 table service-port-forward-target-l62.a1.example.com-tmp add tcp,10.20.20.20,2002 # beaver-web-a1-l62.a1.example.com => tcp-2002
-    set 2 table service-port-forward-target-l62.a1.example.com-tmp add tcp,10.20.20.20,2003 # beaver-tinc-a1-l62.a1.example.com => tcp-2003
-    set 2 table service-port-forward-target-l62.a1.example.com-tmp add udp,10.20.20.20,2003 # beaver-tinc-a1-l62.a1.example.com => udp-2003
-    set 2 table service-port-forward-target-l62.a1.example.com-tmp add tcp,10.20.20.20,2022 # type-unix-a1-l62.a1.example.com => tcp-2022
-    set 2 table service-port-forward-target-l62.a1.example.com swap service-port-forward-target-l62.a1.example.com-tmp
-    set 2 table service-port-forward-target-l62.a1.example.com-tmp destroy
-    
-    add 1202 set 2 drop ip from not table(service-port-forward-source-l62.a1.example.com) to any flow table(service-port-forward-target-l62.a1.example.com) in
-    add 1202 set 2 skipto 1500 ip from any to any in
+    add 511 set 2 drop ip from not table(service-port-forward-source-ff5eec00) to any in tagged 1001
+    add 511 set 2 drop ip from not table(service-port-forward-source-7a40909f) to any in tagged 1002
+    add 511 set 2 drop ip from not table(service-port-forward-source-7a40909f) to any in tagged 1003
     
 
     set 2 table service-wan create missing type flow:dst-ip,dst-port
@@ -299,27 +283,27 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     set 2 table service-lan-tmp destroy
 
 
-    add 1522 set 2 skipto 1540 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan) // svc lan-2-wan
-    add 1523 set 2 skipto 1540 ip from any to 10.20.20.20 flow table(service-wan) // svc any-2-lan
+    add 522 set 2 skipto 540 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan) // svc lan-2-wan
+    add 523 set 2 skipto 540 ip from any to 10.20.20.20 flow table(service-wan) // svc any-2-lan
 
-    add 1530 set 2 nat 2 tag 7 ip from any to 10.20.20.20 in // incoming nat, dynamic
-    add 1531 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, dynamic
-    add 1532 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, dynamic
+    add 530 set 2 nat 2 tag 7 ip from any to 10.20.20.20 in // incoming nat, dynamic
+    add 531 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, dynamic
+    add 532 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, dynamic
 
-    add 1535 set 2 skipto 1550 ip from any to any
+    add 535 set 2 skipto 550 ip from any to any
 
-    add 1540 set 2 nat 1 tag 7 ip from any to 10.20.20.20 in // incoming nat, service
-    add 1541 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, service
-    add 1542 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, service
+    add 540 set 2 nat 1 tag 7 ip from any to 10.20.20.20 in // incoming nat, service
+    add 541 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, service
+    add 542 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, service
 
 
-    add 1800 set 2 deny icmp from me to table(tinc-tap-l6-hosts-local) icmptype 5 in // block redirects for tincd
+    add 800 set 2 deny icmp from me to table(tinc-tap-l6-hosts-local) icmptype 5 in // block redirects for tincd
     
 
 
-    add 1900 set 2 count ip6 from any to any // ipv6 of all
-    add 1900 set 2 count ip from not me to me in // incoming of all
-    add 1900 set 2 allow ip from any to any // all traffic blindly allowed
+    add 900 set 2 count ip6 from any to any // ipv6 of all
+    add 900 set 2 count ip from not me to me in // incoming of all
+    add 900 set 2 allow ip from any to any // all traffic blindly allowed
 
     set swap 2 1
     set enable 1
