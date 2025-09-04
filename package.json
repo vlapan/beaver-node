@@ -45,7 +45,7 @@
   },
   "dependencies": {
     "@peculiar/x509": "^1.12.3",
-    "ace-builds": "^1.43.2",
+    "ace-builds": "^1.43.3",
     "acme-client": "^5.4.0",
     "async": "^3.2.6",
     "axios": "^1.11.0",
