@@ -128,28 +128,28 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     set 2 table tinc-acl-table-tmp swap tinc-acl-table
     set 2 table tinc-acl-table-tmp destroy
 
-    set 2 table service-port-forward-source-ff5eec00 create missing
-    set 2 table service-port-forward-source-ff5eec00-tmp create or-flush
-    set 2 table service-port-forward-source-ff5eec00-tmp add 172.254.1.0/24    # static entry: some host
-    set 2 table service-port-forward-source-ff5eec00-tmp add 192.168.253.0/24  # static entry: VPN WAN4
-    set 2 table service-port-forward-source-ff5eec00-tmp add 192.168.243.0/24  # static entry: VPN WAN4
-    set 2 table service-port-forward-source-ff5eec00-tmp add 91.217.20.0/26    # static entry
-    set 2 table service-port-forward-source-ff5eec00-tmp add 91.217.21.0/26    # static entry
-    set 2 table service-port-forward-source-ff5eec00-tmp add 194.226.96.192/28 # static entry
-    set 2 table service-port-forward-source-ff5eec00-tmp add 31.177.66.192/28  # static entry
-    set 2 table service-port-forward-source-ff5eec00-tmp swap service-port-forward-source-ff5eec00
-    set 2 table service-port-forward-source-ff5eec00-tmp destroy
+    set 2 table service-port-forward-access-ff5eec00 create missing
+    set 2 table service-port-forward-access-ff5eec00-tmp create or-flush
+    set 2 table service-port-forward-access-ff5eec00-tmp add 172.254.1.0/24    # static entry: some host
+    set 2 table service-port-forward-access-ff5eec00-tmp add 192.168.253.0/24  # static entry: VPN WAN4
+    set 2 table service-port-forward-access-ff5eec00-tmp add 192.168.243.0/24  # static entry: VPN WAN4
+    set 2 table service-port-forward-access-ff5eec00-tmp add 91.217.20.0/26    # static entry
+    set 2 table service-port-forward-access-ff5eec00-tmp add 91.217.21.0/26    # static entry
+    set 2 table service-port-forward-access-ff5eec00-tmp add 194.226.96.192/28 # static entry
+    set 2 table service-port-forward-access-ff5eec00-tmp add 31.177.66.192/28  # static entry
+    set 2 table service-port-forward-access-ff5eec00-tmp swap service-port-forward-access-ff5eec00
+    set 2 table service-port-forward-access-ff5eec00-tmp destroy
 
-    set 2 table service-port-forward-source-7a40909f create missing
-    set 2 table service-port-forward-source-7a40909f-tmp create or-flush
-    set 2 table service-port-forward-source-7a40909f-tmp add 192.168.253.0/24  # static entry: VPN WAN4
-    set 2 table service-port-forward-source-7a40909f-tmp add 192.168.243.0/24  # static entry: VPN WAN4
-    set 2 table service-port-forward-source-7a40909f-tmp add 91.217.20.0/26    # static entry
-    set 2 table service-port-forward-source-7a40909f-tmp add 91.217.21.0/26    # static entry
-    set 2 table service-port-forward-source-7a40909f-tmp add 194.226.96.192/28 # static entry
-    set 2 table service-port-forward-source-7a40909f-tmp add 31.177.66.192/28  # static entry
-    set 2 table service-port-forward-source-7a40909f-tmp swap service-port-forward-source-7a40909f
-    set 2 table service-port-forward-source-7a40909f-tmp destroy
+    set 2 table service-port-forward-access-7a40909f create missing
+    set 2 table service-port-forward-access-7a40909f-tmp create or-flush
+    set 2 table service-port-forward-access-7a40909f-tmp add 192.168.253.0/24  # static entry: VPN WAN4
+    set 2 table service-port-forward-access-7a40909f-tmp add 192.168.243.0/24  # static entry: VPN WAN4
+    set 2 table service-port-forward-access-7a40909f-tmp add 91.217.20.0/26    # static entry
+    set 2 table service-port-forward-access-7a40909f-tmp add 91.217.21.0/26    # static entry
+    set 2 table service-port-forward-access-7a40909f-tmp add 194.226.96.192/28 # static entry
+    set 2 table service-port-forward-access-7a40909f-tmp add 31.177.66.192/28  # static entry
+    set 2 table service-port-forward-access-7a40909f-tmp swap service-port-forward-access-7a40909f
+    set 2 table service-port-forward-access-7a40909f-tmp destroy
 
 
     add 504 set 2 allow tcp from any to me dst-port 80,443 in // public http
@@ -167,29 +167,28 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     add 508 set 2 count udp from me to not me out // udp of all
     add 508 set 2 allow ip from me to not me out // all outgoing blindly allowed
 
-    set 2 table service-port-forward-private create missing type flow:proto,dst-ip,dst-port valtype tag
-    set 2 table service-port-forward-private-tmp create or-flush type flow:proto,dst-ip,dst-port valtype tag
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,1002 1001 # beaver-web-a1-l61.a1.example.com => tcp-1002
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,1003 1001 # beaver-tinc-a1-l61.a1.example.com => tcp-1003
-    set 2 table service-port-forward-private-tmp add udp,10.20.20.20,1003 1001 # beaver-tinc-a1-l61.a1.example.com => udp-1003
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,1022 1001 # type-unix-a1-l61.a1.example.com => tcp-1022
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,2002 1002 # beaver-web-a1-l62.a1.example.com => tcp-2002
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,2003 1002 # beaver-tinc-a1-l62.a1.example.com => tcp-2003
-    set 2 table service-port-forward-private-tmp add udp,10.20.20.20,2003 1002 # beaver-tinc-a1-l62.a1.example.com => udp-2003
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,2022 1002 # type-unix-a1-l62.a1.example.com => tcp-2022
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,3002 1003 # beaver-web-a1-l61.a1.example.org => tcp-3002
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,3003 1003 # beaver-tinc-a1-l61.a1.example.org => tcp-3003
-    set 2 table service-port-forward-private-tmp add udp,10.20.20.20,3003 1003 # beaver-tinc-a1-l61.a1.example.org => udp-3003
-    set 2 table service-port-forward-private-tmp add tcp,10.20.20.20,3022 1003 # type-unix-a1-l61.a1.example.org => tcp-3022
-    set 2 table service-port-forward-private swap service-port-forward-private-tmp
-    set 2 table service-port-forward-private-tmp destroy
+    set 2 table service-port-forward-target create missing type flow:proto,dst-ip,dst-port valtype tag
+    set 2 table service-port-forward-target-tmp create or-flush type flow:proto,dst-ip,dst-port valtype tag
+    set 2 table service-port-forward-target-tmp add tcp,10.20.20.20,1002 1001 # beaver-web-a1-l61.a1.example.com => tcp-1002
+    set 2 table service-port-forward-target-tmp add tcp,10.20.20.20,1003 1001 # beaver-tinc-a1-l61.a1.example.com => tcp-1003
+    set 2 table service-port-forward-target-tmp add udp,10.20.20.20,1003 1001 # beaver-tinc-a1-l61.a1.example.com => udp-1003
+    set 2 table service-port-forward-target-tmp add tcp,10.20.20.20,1022 1001 # type-unix-a1-l61.a1.example.com => tcp-1022
+    set 2 table service-port-forward-target-tmp add tcp,10.20.20.20,2002 1002 # beaver-web-a1-l62.a1.example.com => tcp-2002
+    set 2 table service-port-forward-target-tmp add tcp,10.20.20.20,2003 1002 # beaver-tinc-a1-l62.a1.example.com => tcp-2003
+    set 2 table service-port-forward-target-tmp add udp,10.20.20.20,2003 1002 # beaver-tinc-a1-l62.a1.example.com => udp-2003
+    set 2 table service-port-forward-target-tmp add tcp,10.20.20.20,2022 1002 # type-unix-a1-l62.a1.example.com => tcp-2022
+    set 2 table service-port-forward-target-tmp add tcp,10.20.20.20,3002 1002 # beaver-web-a1-l61.a1.example.org => tcp-3002
+    set 2 table service-port-forward-target-tmp add tcp,10.20.20.20,3003 1002 # beaver-tinc-a1-l61.a1.example.org => tcp-3003
+    set 2 table service-port-forward-target-tmp add udp,10.20.20.20,3003 1002 # beaver-tinc-a1-l61.a1.example.org => udp-3003
+    set 2 table service-port-forward-target-tmp add tcp,10.20.20.20,3022 1002 # type-unix-a1-l61.a1.example.org => tcp-3022
+    set 2 table service-port-forward-target swap service-port-forward-target-tmp
+    set 2 table service-port-forward-target-tmp destroy
     
-    add 510 set 2 skipto 511 tag tablearg ip from any to any flow table(service-port-forward-private) in // goto access check rule
+    add 510 set 2 skipto 511 tag tablearg ip from any to any flow table(service-port-forward-target) in // goto access check rule
     add 510 set 2 skipto 520 ip from any to any in // skip to next stage
     
-    add 511 set 2 drop ip from not table(service-port-forward-source-ff5eec00) to any in tagged 1001
-    add 511 set 2 drop ip from not table(service-port-forward-source-7a40909f) to any in tagged 1002
-    add 511 set 2 drop ip from not table(service-port-forward-source-7a40909f) to any in tagged 1003
+    add 511 set 2 drop ip from not table(service-port-forward-access-ff5eec00) to any in tagged 1001 // source to target
+    add 511 set 2 drop ip from not table(service-port-forward-access-7a40909f) to any in tagged 1002 // source to target
     
 
     set 2 table service-wan create missing type flow:dst-ip,dst-port
