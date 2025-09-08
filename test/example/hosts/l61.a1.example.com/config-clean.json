@@ -565,6 +565,16 @@
                     ]
                 }
             },
+            "ssh": {
+                "closed": false,
+                "port": [
+                    22,
+                    27
+                ],
+                "acl": [
+                    "acl:vpn1"
+                ]
+            },
             "nginx": {
                 "maxFails": 5,
                 "failTimeout": "15s",

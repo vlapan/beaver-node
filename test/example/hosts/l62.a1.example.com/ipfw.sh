@@ -152,8 +152,10 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     set 2 table service-port-forward-access-7a40909f-tmp destroy
 
 
-    add 504 set 2 allow tcp from any to me dst-port 80,443 in // public http
-    add 504 set 2 allow tcp from any to me dst-port 22,27 in // management ssh
+    add 504 set 2 allow ip from any to me dst-port 80,443 in // http: allow all
+
+    add 504 set 2 allow tcp from any to me dst-port 22,27 in // ssh: allow all
+
     add 504 set 2 count tcp from any to me dst-port 53 in // tcp dns
     add 504 set 2 allow ip from any to me dst-port 53 in // dns
 
