@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.290] - 2025-09-08
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Port forward access tables take5
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.289] - 2025-09-04
 
 ### 🐛 Bug Fixes
