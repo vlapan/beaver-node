@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.292] - 2025-10-22
+
+### 🚀 Features
+
+- *(cleanConfig)* Redact `csr`s in `services.pki.authorities`
+
 ## [0.1.291] - 2025-10-22
 
 ### 🚀 Features
