@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.291] - 2025-10-22
+
+### 🚀 Features
+
+- *(cleanConfig)* + add redaction of some values in `monitoring.notify` and `services.git.repositories`
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Ability to close access to `ssh`/`http` services with acls
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.290] - 2025-09-08
 
 ### 🐛 Bug Fixes
