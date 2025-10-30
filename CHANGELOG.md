@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.294] - 2025-10-30
+
+### 🐛 Bug Fixes
+
+- *(nginx)* Upstream protocol
+
 ## [0.1.293] - 2025-10-30
 
 ### 🚀 Features
