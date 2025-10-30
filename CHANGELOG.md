@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.293] - 2025-10-30
+
+### 🚀 Features
+
+- *(utils/fs)* Add ability to set custom filter for `findFile` function
+
+### 🐛 Bug Fixes
+
+- *(https)* Compare fully redacted versions
+- *(passwd)* Correct file variable debug
+- *(nginx)* Respect `location` on target
+- *(acme)* Move expired cleanup from worker to extension
+- *(nginx)* Remove broken symbolic links, and clean up certs in `acme` export path before certificates generation
+
+### 🎨 Styling
+
+- *(https)* Add missing semicolon
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up, migrate to `yargs v18`
+- Deps up, migrate to `express v5.1`
+- Deps up, migrate to `supports-color v10`
+- Deps up
+
 ## [0.1.292] - 2025-10-22
 
 ### 🚀 Features
