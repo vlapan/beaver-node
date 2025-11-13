@@ -1233,6 +1233,23 @@
 				}
 			}
 		},
+		"geoip.example.com" : {
+			"static": {
+				"/simple": {
+					"nginx": {
+						"add_header": "Country $country",
+						"return": "200 \"OK\""
+					}
+				},
+				"/redirect": {
+					"nginx": {
+						"if ($geo_is_EA)": "return 302 \"https://geoip.example.com/EA\"",
+						"if ($geo_is_EU)": "return 302 \"https://geoip.example.com/EU\"",
+						"if ($geo_is_TR)": "return 403"
+					}
+				}
+			}
+		},
 		"s1.service.example.com": {
 			"nginx": {
 				"proxy_connect_timeout": "60s"
