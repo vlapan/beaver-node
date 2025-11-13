@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.295] - 2025-11-13
+
+### 🐛 Bug Fixes
+
+- *(nginx)* Recognize `if` as block, add example
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.294] - 2025-10-30
 
 ### 🐛 Bug Fixes
