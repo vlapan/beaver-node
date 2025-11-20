@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.296] - 2025-11-20
+
+### 🐛 Bug Fixes
+
+- *(nginx)* Do not create links for routes with `use:`
+- *(acme)* Log error and throw
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.295] - 2025-11-13
 
 ### 🐛 Bug Fixes
