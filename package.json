@@ -44,7 +44,7 @@
     "audit": "osv-scanner --lockfile yarn.lock"
   },
   "dependencies": {
-    "@peculiar/x509": "^1.14.0",
+    "@peculiar/x509": "^1.14.2",
     "ace-builds": "^1.43.4",
     "acme-client": "^5.4.0",
     "async": "^3.2.6",
@@ -60,7 +60,7 @@
     "express": "^5.1.0",
     "fs-extra": "^11.3.2",
     "glob-to-regexp": "^0.4.1",
-    "jose": "^6.1.1",
+    "jose": "^6.1.2",
     "lit-html": "^3.3.1",
     "morgan": "^1.10.1",
     "nginx-conf": "^2.1.0",
