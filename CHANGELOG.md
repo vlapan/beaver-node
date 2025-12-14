@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.297] - 2025-12-14
+
+### 🐛 Bug Fixes
+
+- *(named)* Look for ACLs in `slaves`
+- *(acme)* Correct preset cleanup
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.296] - 2025-11-20
 
 ### 🐛 Bug Fixes
