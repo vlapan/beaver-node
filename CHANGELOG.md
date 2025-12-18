@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.298] - 2025-12-18
+
+### 🐛 Bug Fixes
+
+- *(acme)* Some more
+- *(nginx)* Clone headers object
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.297] - 2025-12-14
 
 ### 🐛 Bug Fixes
