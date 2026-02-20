@@ -159,6 +159,8 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     add 504 set 2 count tcp from any to me dst-port 53 in // tcp dns
     add 504 set 2 allow ip from any to me dst-port 53 in // dns
 
+    add 504 set 2 allow ip from any to me dst-port 123 in // ntp: allow all
+
     add 504 set 2 allow ip from table(tinc-acl-table) to me dst-port 655 in // tinc: allow specific
     add 504 set 2 deny ip from any to me dst-port 655 in // tinc: deny others
 
