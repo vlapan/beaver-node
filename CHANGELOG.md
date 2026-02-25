@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.300] - 2026-02-25
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Separate 80/443 rules
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.299] - 2026-02-20
 
 ### 🐛 Bug Fixes
