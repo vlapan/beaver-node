@@ -682,6 +682,7 @@
 				]
 			},
 			"nginx": {
+				"closed": false,
 				"maxFails": 5,
 				"failTimeout": "15s",
 				"http2": "on",

@@ -100,7 +100,8 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 504 set 2 allow ip from any to me dst-port 80 in // http: allow all 
     add 504 set 2 allow ip from any to me dst-port 443 in // http: allow all
 
-    add 504 set 2 allow tcp from any to me dst-port 22,27 in // ssh: allow all
+    add 504 set 2 allow tcp from any to me dst-port 22 in // ssh: allow all 
+    add 504 set 2 allow tcp from any to me dst-port 27 in // ssh: allow all
 
     add 504 set 2 count tcp from any to me dst-port 53 in // tcp dns
     add 504 set 2 allow ip from any to me dst-port 53 in // dns
@@ -112,6 +113,18 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
 
     add 504 set 2 allow ip from table(beaver-acl-table) to me dst-port 8443 in // beaver-api: allow specific
     add 504 set 2 deny ip from any to me dst-port 8443 in // beaver-api: deny others
+
+
+    add 506 set 2 allow ip from me src-port 80 to not me out // http out 
+    add 506 set 2 allow ip from me src-port 443 to not me out // http out
+    add 506 set 2 allow tcp from me src-port 22 to not me out // ssh out 
+    add 506 set 2 allow tcp from me src-port 27 to not me out // ssh out
+    add 506 set 2 count tcp from me src-port 53 to not me out // dns out
+    add 506 set 2 allow ip from me src-port 53 to not me out // dns out
+    add 506 set 2 allow ip from me src-port 123 to not me out // ntp out
+    add 506 set 2 allow ip from me src-port 655 to not me out // tinc out
+    add 506 set 2 allow ip from me src-port 8443 to not me out // beaver-api out
+
 
     add 508 set 2 count ip6 from me to not me out // ipv6 of all
     add 508 set 2 count udp from me to not me out // udp of all
