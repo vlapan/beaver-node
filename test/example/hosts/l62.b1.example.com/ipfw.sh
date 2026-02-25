@@ -97,7 +97,8 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     set 2 table tinc-acl-table-tmp destroy
 
 
-    add 504 set 2 allow ip from any to me dst-port 80,443 in // http: allow all
+    add 504 set 2 allow ip from any to me dst-port 80 in // http: allow all 
+    add 504 set 2 allow ip from any to me dst-port 443 in // http: allow all
 
     add 504 set 2 allow tcp from any to me dst-port 22,27 in // ssh: allow all
 
