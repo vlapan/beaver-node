@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.301] - 2026-02-25
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Separate ssh ports, and make specific rules for outgoing L6 services traffic
+
 ## [0.1.300] - 2026-02-25
 
 ### 🐛 Bug Fixes
