@@ -170,15 +170,15 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     add 504 set 2 deny ip from any to me dst-port 8443 in // beaver-api: deny others
 
 
-    add 506 set 2 allow ip from me src-port 80 to not me out // http out 
-    add 506 set 2 allow ip from me src-port 443 to not me out // http out
-    add 506 set 2 allow tcp from me src-port 22 to not me out // ssh out 
-    add 506 set 2 allow tcp from me src-port 27 to not me out // ssh out
-    add 506 set 2 count tcp from me src-port 53 to not me out // dns out
-    add 506 set 2 allow ip from me src-port 53 to not me out // dns out
-    add 506 set 2 allow ip from me src-port 123 to not me out // ntp out
-    add 506 set 2 allow ip from me src-port 655 to not me out // tinc out
-    add 506 set 2 allow ip from me src-port 8443 to not me out // beaver-api out
+    add 506 set 2 allow ip from me to not me src-port 80 out // http out 
+    add 506 set 2 allow ip from me to not me src-port 443 out // http out
+    add 506 set 2 allow tcp from me to not me src-port 22 out // ssh out 
+    add 506 set 2 allow tcp from me to not me src-port 27 out // ssh out
+    add 506 set 2 count tcp from me to not me src-port 53 out // dns out
+    add 506 set 2 allow ip from me to not me src-port 53 out // dns out
+    add 506 set 2 allow ip from me to not me src-port 123 out // ntp out
+    add 506 set 2 allow ip from me to not me src-port 655 out // tinc out
+    add 506 set 2 allow ip from me to not me src-port 8443 out // beaver-api out
 
 
     add 508 set 2 count ip6 from me to not me out // ipv6 of all
