@@ -1,7 +1,6 @@
 #!/bin/sh
 fw="/sbin/ipfw -qf"
 
-
 $fw nat 2 config ip 10.20.20.20 unreg_only
 
 $fw nat 1 delete
@@ -253,7 +252,7 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     set 2 table service-wan-tmp add 10.20.20.20,4443 # type-unix-a1-l64.a1.example.org
     set 2 table service-wan swap service-wan-tmp
     set 2 table service-wan-tmp destroy
-
+    
     set 2 table service-lan create missing type flow:src-ip,src-port
     set 2 table service-lan-tmp create or-flush type flow:src-ip,src-port
     set 2 table service-lan-tmp add 127.0.0.1,1001     # beaver-web-a1-l61.a1.example.com 
@@ -298,17 +297,16 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     set 2 table service-lan-tmp add 192.168.64.27,443  # type-unix-a1-l64.a1.example.org
     set 2 table service-lan swap service-lan-tmp
     set 2 table service-lan-tmp destroy
-
-
+    
     add 522 set 2 skipto 540 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan) // svc lan-2-wan
     add 523 set 2 skipto 540 ip from any to 10.20.20.20 flow table(service-wan) // svc any-2-lan
-
+    
     add 530 set 2 nat 2 tag 7 ip from any to 10.20.20.20 in // incoming nat, dynamic
     add 531 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, dynamic
     add 532 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, dynamic
-
+    
     add 535 set 2 skipto 550 ip from any to any
-
+    
     add 540 set 2 nat 1 tag 7 ip from any to 10.20.20.20 in // incoming nat, service
     add 541 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, service
     add 542 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, service

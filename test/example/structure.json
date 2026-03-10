@@ -667,6 +667,7 @@
 				]
 			},
 			"firewall": {
+				"nat": true,
 				"tables": {
 					"custom-table": [
 						"@server:l61.a1.example.com",
