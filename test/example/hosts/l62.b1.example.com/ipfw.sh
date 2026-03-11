@@ -132,7 +132,7 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
 
     add 11030 set 2 allow tcp from any to me  dst-port 53 in // tcp dns
     add 11030 set 2 allow udp from any to me  dst-port 53 in // dns
-    add 31030 set 2 count tcp from any to me6 dst-port 53 in // tcp dns
+    add 31030 set 2 allow tcp from any to me6 dst-port 53 in // tcp dns
     add 31030 set 2 allow udp from any to me6 dst-port 53 in // dns
 
     add 11031 set 2 allow udp from any to me  dst-port 123 in // ntp: allow all
