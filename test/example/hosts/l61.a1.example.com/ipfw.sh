@@ -204,10 +204,14 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     add 31033 set 2 deny  ip6 from any to me6 dst-port 8443 in // beaver-api: deny others
 
 
-    add 21010 set 2 allow ip4 from me to not me  src-port 443 out // http out 
-    add 21011 set 2 allow ip4 from me to not me  src-port 80 out // http out
-    add 41010 set 2 allow ip6 from me to not me6 src-port 443 out // http out 
-    add 41011 set 2 allow ip6 from me to not me6 src-port 80 out // http out
+    add 21010 set 2 allow tcp from me to not me  src-port 443 out // http out 
+    add 21010 set 2 allow udp from me to not me  src-port 443 out // http out 
+    add 41010 set 2 allow tcp from me to not me6 src-port 443 out // http out 
+    add 41010 set 2 allow udp from me to not me6 src-port 443 out // http out 
+    add 21011 set 2 allow tcp from me to not me  src-port 80 out // http out 
+    add 21011 set 2 allow udp from me to not me  src-port 80 out // http out 
+    add 41011 set 2 allow tcp from me to not me6 src-port 80 out // http out 
+    add 41011 set 2 allow udp from me to not me6 src-port 80 out // http out
     add 21020 set 2 allow tcp from me to not me  src-port 22 out // ssh out 
     add 21021 set 2 allow tcp from me to not me  src-port 27 out // ssh out
     add 41020 set 2 allow tcp from me to not me6 src-port 22 out // ssh out 
@@ -218,10 +222,14 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     add 41030 set 2 allow udp from me to not me6 src-port 53 out // dns out
     add 21031 set 2 allow udp from me to not me  src-port 123 out // ntp out
     add 41031 set 2 allow udp from me to not me6 src-port 123 out // ntp out
-    add 21032 set 2 allow ip4 from me to not me  src-port 655 out // tinc out
-    add 41032 set 2 allow ip6 from me to not me6 src-port 655 out // tinc out
-    add 21033 set 2 allow ip4 from me to not me  src-port 8443 out // beaver-api out
-    add 41033 set 2 allow ip6 from me to not me6 src-port 8443 out // beaver-api out
+    add 21032 set 2 allow tcp from me to not me  src-port 655 out // tinc out
+    add 21032 set 2 allow udp from me to not me  src-port 655 out // tinc out
+    add 41032 set 2 allow tcp from me to not me6 src-port 655 out // tinc out
+    add 41032 set 2 allow udp from me to not me6 src-port 655 out // tinc out
+    add 21033 set 2 allow tcp from me to not me  src-port 8443 out // beaver-api out
+    add 21033 set 2 allow udp from me to not me  src-port 8443 out // beaver-api out
+    add 41033 set 2 allow tcp from me to not me6 src-port 8443 out // beaver-api out
+    add 41033 set 2 allow udp from me to not me6 src-port 8443 out // beaver-api out
 
 
     set 2 table service-port-forward-target create missing type flow:proto,dst-ip,dst-port valtype tag
