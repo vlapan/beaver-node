@@ -21,6 +21,13 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     delete set 2
     set 2 table all destroy
 
+    set 2 table private-networks create missing
+    set 2 table private-networks-tmp create or-flush
+    set 2 table private-networks-tmp add 10.0.0.0/8
+    set 2 table private-networks-tmp add 172.16.0.0/12
+    set 2 table private-networks-tmp add 192.168.0.0/16
+    set 2 table private-networks-tmp swap private-networks
+    set 2 table private-networks-tmp destroy
 
     set 2 table tinc-tap-l6-hosts-remote create missing
     set 2 table tinc-tap-l6-hosts-remote-tmp create or-flush
@@ -101,6 +108,11 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 00999 set 2 skipto 40000 ip6 from any to any out
     add 00999 set 2 allow ip4 from any to any // why any traffic here?
     add 00999 set 2 allow ip6 from any to any // why any traffic here?
+
+    add 10100 set 2 allow tcp from table(private-networks) to table(private-networks) in  // lan to lan
+    add 10100 set 2 allow udp from table(private-networks) to table(private-networks) in  // lan to lan
+    add 20100 set 2 allow tcp from table(private-networks) to table(private-networks) out // lan to lan
+    add 20100 set 2 allow udp from table(private-networks) to table(private-networks) out // lan to lan
 
 
     add 19999 set 2 allow ip4 from any to me  in // dynamic v4 in
@@ -215,12 +227,11 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 15660 set 2 nat 1 tag 7 ip from any to 10.20.21.20 in // incoming nat, service
     
     add 25600 set 2 skipto 25680 ip from any to not me flow table(service-lan) out // svc lan-2-wan
-    add 25620 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, dynamic
-    add 25640 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, dynamic
+    add 25620 set 2 nat 2 ip from table(private-networks) to any out tagged 7 // hairpin, dynamic
+    add 25640 set 2 nat 2 ip from table(private-networks) to not table(private-networks) out // outgoing nat, dynamic
     add 25660 set 2 skipto 26000 ip from any to any
-    add 25680 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, service
-    add 25700 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, service
-
+    add 25680 set 2 nat 1 ip from table(private-networks) to any out tagged 7 // hairpin, service
+    add 25700 set 2 nat 1 ip from table(private-networks) to not table(private-networks) out // outgoing nat, service
 
     add 15800 set 2 deny icmp from me to table(tinc-tap-l6-hosts-local) icmptype 5 in // block redirects for tincd
     
