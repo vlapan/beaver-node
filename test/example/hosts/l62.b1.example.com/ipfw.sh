@@ -201,7 +201,7 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     set 2 table service-lan swap service-lan-tmp
     set 2 table service-lan-tmp destroy
     
-    add 15522 set 2 skipto 15540 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan) in // svc lan-2-wan
+    add 25522 set 2 skipto 25540 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan) out // svc lan-2-wan
     add 15523 set 2 skipto 15540 ip from any to 10.20.21.20 flow table(service-wan) in // svc any-2-lan
     
     add 15530 set 2 nat 2 tag 7 ip from any to 10.20.21.20 in // incoming nat, dynamic
