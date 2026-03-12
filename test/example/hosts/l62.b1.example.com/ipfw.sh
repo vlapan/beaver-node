@@ -201,17 +201,17 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     set 2 table service-lan swap service-lan-tmp
     set 2 table service-lan-tmp destroy
     
-    add 15523 set 2 skipto 15540 ip from any to 10.20.21.20 flow table(service-wan) in // svc any-2-lan
-    add 15530 set 2 nat 2 tag 7 ip from any to 10.20.21.20 in // incoming nat, dynamic
-    add 15535 set 2 skipto 15600 ip from any to any
-    add 15540 set 2 nat 1 tag 7 ip from any to 10.20.21.20 in // incoming nat, service
+    add 15600 set 2 skipto 15660 ip from any to 10.20.21.20 flow table(service-wan) in // svc any-2-lan
+    add 15620 set 2 nat 2 tag 7 ip from any to 10.20.21.20 in // incoming nat, dynamic
+    add 15640 set 2 skipto 16000 ip from any to any
+    add 15660 set 2 nat 1 tag 7 ip from any to 10.20.21.20 in // incoming nat, service
     
-    add 25522 set 2 skipto 25540 ip from any to not me flow table(service-lan) out // svc lan-2-wan
-    add 25531 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, dynamic
-    add 25532 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, dynamic
-    add 25535 set 2 skipto 25600 ip from any to any
-    add 25541 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, service
-    add 25542 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, service
+    add 25600 set 2 skipto 25680 ip from any to not me flow table(service-lan) out // svc lan-2-wan
+    add 25620 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, dynamic
+    add 25640 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, dynamic
+    add 25660 set 2 skipto 26000 ip from any to any
+    add 25680 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, service
+    add 25700 set 2 nat 1 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, service
 
 
     add 15800 set 2 deny icmp from me to table(tinc-tap-l6-hosts-local) icmptype 5 in // block redirects for tincd
