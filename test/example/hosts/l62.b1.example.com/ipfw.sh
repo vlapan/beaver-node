@@ -206,7 +206,7 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 15535 set 2 skipto 15600 ip from any to any
     add 15540 set 2 nat 1 tag 7 ip from any to 10.20.21.20 in // incoming nat, service
     
-    add 25522 set 2 skipto 25540 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not me flow table(service-lan) out // svc lan-2-wan
+    add 25522 set 2 skipto 25540 ip from any to not me flow table(service-lan) out // svc lan-2-wan
     add 25531 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to any out tagged 7 // hairpin, dynamic
     add 25532 set 2 nat 2 ip from 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 to not 10.0.0.0/8,172.16.0.0/12,192.168.0.0/16 out // outgoing nat, dynamic
     add 25535 set 2 skipto 25600 ip from any to any
