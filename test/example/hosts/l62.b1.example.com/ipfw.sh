@@ -23,9 +23,7 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
 
     set 2 table private-networks create missing
     set 2 table private-networks-tmp create or-flush
-    set 2 table private-networks-tmp add 10.0.0.0/8
-    set 2 table private-networks-tmp add 172.16.0.0/12
-    set 2 table private-networks-tmp add 192.168.0.0/16
+    set 2 table private-networks-tmp add 10.10.11.0/24
     set 2 table private-networks-tmp swap private-networks
     set 2 table private-networks-tmp destroy
 
