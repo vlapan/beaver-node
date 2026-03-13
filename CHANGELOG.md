@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.302] - 2026-03-13
+
+### 🚀 Features
+
+- *(ipfw)* Ability to disable nat rules creation
+- *(ipfw)* Split rules
+- *(ipfw)* Get private networks from structure
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* `src-port` misplaced
+- *(ipfw)* `count` => `allow`
+- *(ipfw)* Correct nat service rule
+- *(ipfw)* Use `any` for rule with flow table that defines src anyway
+
+### 🚜 Refactor
+
+- *(ipfw)* Reorder output
+- *(ipfw)* Change rule numbers
+- *(ipfw)* Split tcp/udp some more
+- *(ipfw)* Use table and allow lan-to-lan
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.301] - 2026-02-25
 
 ### 🐛 Bug Fixes
