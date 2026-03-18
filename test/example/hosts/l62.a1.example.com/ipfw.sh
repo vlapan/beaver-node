@@ -162,10 +162,10 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     add 00999 set 2 allow ip4 from any to any // why any traffic here?
     add 00999 set 2 allow ip6 from any to any // why any traffic here?
 
-    add 10100 set 2 allow tcp from table(private-networks) to table(private-networks) in  // lan to lan
-    add 10100 set 2 allow udp from table(private-networks) to table(private-networks) in  // lan to lan
-    add 20100 set 2 allow tcp from table(private-networks) to table(private-networks) out // lan to lan
-    add 20100 set 2 allow udp from table(private-networks) to table(private-networks) out // lan to lan
+    add 10100 set 2 allow tcp from table(private-networks) to table(private-networks) in               // lan to lan
+    add 10100 set 2 allow udp from table(private-networks) to table(private-networks) in               // lan to lan
+    add 20100 set 2 allow tcp from table(private-networks) to table(private-networks) out not tagged 7 // lan to lan
+    add 20100 set 2 allow udp from table(private-networks) to table(private-networks) out not tagged 7 // lan to lan
 
 
     add 19999 set 2 allow ip4 from any to me  in // dynamic v4 in
