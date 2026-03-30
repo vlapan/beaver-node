@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.303] - 2026-03-30
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Correct
+- *(ipfw)* Add rule for wg
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.302] - 2026-03-13
 
 ### 🚀 Features
