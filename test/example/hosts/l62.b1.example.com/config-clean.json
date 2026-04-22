@@ -1013,7 +1013,7 @@
                     "acl:vpn1",
                     "acl:vpn2"
                 ],
-                "deny": "all"
+                "deny": "192.168.1.1"
             }
         },
         "web.example.xyz": {
