@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.304] - 2026-04-22
+
+### 🐛 Bug Fixes
+
+- *(ipfw)* Closures
+- *(ipfw)* Allow tinc
+- *(nginx)* Make deny rules come first, auto add `deny all` to the end if `allow` list exists
+
+### 📚 Documentation
+
+- *(ipfw)* Examples update
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.303] - 2026-03-30
 
 ### 🐛 Bug Fixes
