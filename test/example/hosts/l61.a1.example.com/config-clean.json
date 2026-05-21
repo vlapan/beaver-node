@@ -583,7 +583,11 @@
                 "trust": [
                     "127.0.0.1",
                     "acl:vpn1"
-                ]
+                ],
+                "listenOptions": {
+                    "plain": "reuseport accept_filter=httpready",
+                    "secure": "reuseport accept_filter=dataready so_keepalive=60s:10s:3"
+                }
             },
             "beaver": {
                 "closed": true,
