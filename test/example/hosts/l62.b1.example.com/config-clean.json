@@ -619,7 +619,10 @@
                     }
                 }
             },
-            "dhcp": {}
+            "dhcp": {
+                "useDomainName": false,
+                "useDomainSearch": false
+            }
         },
         "types": {
             "unix": {
