@@ -1257,7 +1257,15 @@
                     "nginx": {
                         "if ($geo_is_EA)": "return 302 \"https://geoip.example.com/EA\"",
                         "if ($geo_is_EU)": "return 302 \"https://geoip.example.com/EU\"",
-                        "if ($geo_is_TR)": "return 403"
+                        "if ($geo_is_TR)": "return 403",
+                        "if ($geo_is_NZ)": [
+                            "default_type text/plain",
+                            "return 403"
+                        ],
+                        "if ($geo_is_ZZ)": {
+                            "default_type": "text/plain",
+                            "return": "403"
+                        }
                     }
                 }
             }
