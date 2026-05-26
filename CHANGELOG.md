@@ -2,6 +2,27 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.305] - 2026-05-26
+
+### 🚀 Features
+
+- *(nginx)* + ability to set additional socket option to `listen`
+- *(dhcp)* Hide `option domain-name` behind option flag `useDomainName`, default is `false`, also add `useDomainSearch`
+- *(nginx)* Allow blocks in `nginx` section in structure
+
+### 🐛 Bug Fixes
+
+- *(cleanConfig)* Store real CSR, but redacted in diff notification, to be able to easily use clean configs in testing
+- *(cleanConfig)* Check for already redacted values
+
+### 📚 Documentation
+
+- *(nginx)* Add example on how to use `listenOptions`
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.304] - 2026-04-22
 
 ### 🐛 Bug Fixes
