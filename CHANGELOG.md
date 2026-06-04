@@ -2,6 +2,20 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.306] - 2026-06-04
+
+### 🚀 Features
+
+- *(dhcp)* Ability to add resolvers through `routing.options.dhcp.resolvers`
+
+### 🐛 Bug Fixes
+
+- *(dhcp)* Default `domain-search` to `invalid`
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.305] - 2026-05-26
 
 ### 🚀 Features
