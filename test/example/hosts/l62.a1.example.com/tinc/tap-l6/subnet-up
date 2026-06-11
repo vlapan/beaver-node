@@ -2,8 +2,11 @@
 logger -p "local7.info" -t "tinc.tap-l6[$PPID]" "subnet-up, iface=$INTERFACE, node=$NODE, remoteaddress=$REMOTEADDRESS, remoteport=$REMOTEPORT, subnet=$SUBNET, weight=$WEIGHT"
 DIR=$(dirname -- "$(readlink -f -- "$0";)")
 if [ "$REMOTEADDRESS" ]; then
-    IP=${SUBNET%/*}
-    MASK=${SUBNET#*/}
+    IP="${SUBNET%%/*}"
+    MASK="${SUBNET#*/}"
+    if [ "$MASK" = "$IP" ]; then
+        MASK=32
+    fi
     ROUTEDIR="$DIR/routes/ip=${IP},mask=${MASK}"
     mkdir -p $ROUTEDIR
     touch $ROUTEDIR/$REMOTEADDRESS
