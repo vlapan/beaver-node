@@ -64,7 +64,7 @@
     "lit-html": "^3.3.3",
     "morgan": "^1.11.0",
     "nginx-conf": "^2.1.0",
-    "nodemailer": "^8.0.10",
+    "nodemailer": "^8.0.11",
     "supports-color": "^10.2.2",
     "tar": "^7.5.16",
     "unixcrypt": "^3.0.4",
@@ -77,12 +77,12 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-json": "^4.0.1",
     "eslint-plugin-lit": "^2.3.1",
-    "eslint-plugin-n": "^18.0.1",
+    "eslint-plugin-n": "^18.1.0",
     "eslint-plugin-promise": "^7.3.0",
-    "eslint-plugin-unicorn": "^64.0.0",
+    "eslint-plugin-unicorn": "^65.0.1",
     "eslint-plugin-wc": "^3.1.0",
-    "flow-bin": "^0.317.0",
+    "flow-bin": "^0.318.0",
     "globals": "^17.6.0",
-    "semver": "^7.8.1"
+    "semver": "^7.8.4"
   }
 }
