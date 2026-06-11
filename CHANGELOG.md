@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.307] - 2026-06-11
+
+### 🐛 Bug Fixes
+
+- *(git-static)* Use `env` to prevent leaking sensitive data in notifications
+- *(tinc)* Subnet mask parsing should process cases when there is no mask defined
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.306] - 2026-06-04
 
 ### 🚀 Features
