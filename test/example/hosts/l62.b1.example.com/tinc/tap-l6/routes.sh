@@ -6,9 +6,9 @@ ROUTES=$(ls $DIR/routes)
 ROUTES_REMOTE=$(cat $DIR/routes-remote)
 for ITEM in $ROUTES; do
     IP=$(echo $ITEM | cut -d= -f2 | cut -d, -f1)
-    MASK=$(echo $ITEM | cut -d= -f3)
     echo $ROUTES_REMOTE | grep -q $IP || continue
     echo $NETSTAT_CURRENT | grep -q $IP && continue
+    MASK=$(echo $ITEM | cut -d= -f3)
     route add "$IP/$MASK" -interface tap-l6
 done
 for IP in $NETSTAT_CURRENT; do

@@ -8,7 +8,9 @@ if [ "$REMOTEADDRESS" ]; then
         MASK=32
     fi
     ROUTEDIR="$DIR/routes/ip=$IP,mask=$MASK"
-    [ -f "$ROUTEDIR/$REMOTEADDRESS" ] && rm "$ROUTEDIR/$REMOTEADDRESS"
-    [ "0" = "$(ls $ROUTEDIR | wc -l | tr -d ' ')" ] && rm -rdf $ROUTEDIR 
+    if [ -d "$ROUTEDIR" ]; then
+        [ -f "$ROUTEDIR/$REMOTEADDRESS" ] && rm "$ROUTEDIR/$REMOTEADDRESS"
+        [ "0" = "$(ls $ROUTEDIR | wc -l | tr -d ' ')" ] && rm -rdf $ROUTEDIR 
+    fi
 fi
 /bin/sh $DIR/routes.sh
