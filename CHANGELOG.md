@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.308] - 2026-07-14
+
+### 🐛 Bug Fixes
+
+- *(tinc)* Optimize hooks a bit
+- *(nginx)* Check that object exists before accessing properties
+- *(cleanConfig)* Copy clean config to home dir instead of stringifying it again
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.307] - 2026-06-11
 
 ### 🐛 Bug Fixes
