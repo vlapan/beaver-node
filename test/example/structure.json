@@ -732,6 +732,7 @@
 				}
 			},
 			"dhcp": {
+				"resolvers": [ "8.8.8.8", "1.1.1.1" ],
 				"useDomainName": false,
 				"useDomainSearch": false
 			}
