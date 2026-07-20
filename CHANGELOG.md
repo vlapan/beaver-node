@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.309] - 2026-07-20
+
+### 🚀 Features
+
+- *(named)* Ability to enable zone stats per domain
+- *(structure)* Add static resolvers as example
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.308] - 2026-07-14
 
 ### 🐛 Bug Fixes
