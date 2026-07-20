@@ -720,7 +720,8 @@
 				"refresh": 300,
 				"retry": 150,
 				"expire": 86400,
-				"minimum": 600
+				"minimum": 600,
+				"zonesStats": false
 			},
 			"acme": {
 				"directory": {
@@ -766,6 +767,7 @@
 			".example.com": {
 				"publish": true,
 				"mode": "infrastructure",
+				"stats": true,
 				"allow-transfer": ["@location:b1", "b1", "l62.b1.example.com", "192.168.65.1 # very good server"],
 				"also-notify": ["@location:b1", "b1", "l62.b1.example.com", "192.168.64.254"],
 				"dns": {

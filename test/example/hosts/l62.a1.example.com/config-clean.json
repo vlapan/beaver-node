@@ -613,7 +613,8 @@
                 "refresh": 300,
                 "retry": 150,
                 "expire": 86400,
-                "minimum": 600
+                "minimum": 600,
+                "zonesStats": false
             },
             "acme": {
                 "directory": {
