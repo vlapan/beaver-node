@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.310] - 2026-07-21
+
+### 🚜 Refactor
+
+- *(tinc)* Add faster script that sets routes
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.309] - 2026-07-20
 
 ### 🚀 Features
