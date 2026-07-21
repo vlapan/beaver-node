@@ -450,9 +450,9 @@ balanced-match@^4.0.2:
   integrity sha512-BLrgEcRTwX2o6gGxGOCNyMvGSp35YofuYzw9h1IMTRmKqttAZZVU67bdb9Pr2vUHA8+j3i2tJfjO6C6+4myGTA==
 
 baseline-browser-mapping@^2.10.42:
-  version "2.10.43"
-  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.43.tgz#7b5d11590ce5acdbe4859443e3c940e81ce8c02d"
-  integrity sha512-AjYpR78kDWAY3Efj+cDTFH9t9SCoL7OoTp1BOb0mQV7S+6CiLwnWM3FyxhJtdPufDFKzmCSFoUncKjWgJEZTCQ==
+  version "2.10.44"
+  resolved "https://registry.yarnpkg.com/baseline-browser-mapping/-/baseline-browser-mapping-2.10.44.tgz#2e074675e640b67cb3835c54c11aa2dd9119c0f8"
+  integrity sha512-T3ghW+sl/ZJ8w1v/yQx3qvJ9040DWoLBz8JT/CILbAKcFyG9b2MRe75v6W5uXjv6uH1lumK2Kv46y2zSkcej0Q==
 
 basic-auth@^2.0.1, basic-auth@~2.0.1:
   version "2.0.1"
@@ -782,9 +782,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.5.389:
-  version "1.5.393"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.393.tgz#aec971df2a6f4f7e51fbacb200d66cebfc7d3c17"
-  integrity sha512-kiDJdIUawuEIcp9XoICKp1iTYDEbgguIPq526N1Q7jIQDeQ3CqoMx71025PI/7E48Ddtw2HuWsVjY7afEgNxmg==
+  version "1.5.394"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.5.394.tgz#1b7eaf1abbeabaced7ce401705ec7cc488fd492b"
+  integrity sha512-Wmt2Gm0o8JWBuGgmc4XZ0u9s1RaCRqhxP47phplmfg04+qypTUurpeJGP45A7Fhv7jdrrVH44PLlR9qXo37cVQ==
 
 emoji-regex@^10.3.0:
   version "10.6.0"
@@ -1002,10 +1002,10 @@ eslint-plugin-import@^2.32.0:
     string.prototype.trimend "^1.0.9"
     tsconfig-paths "^3.15.0"
 
-eslint-plugin-json@^4.0.1:
-  version "4.0.1"
-  resolved "https://registry.yarnpkg.com/eslint-plugin-json/-/eslint-plugin-json-4.0.1.tgz#c99e0e465b2a33fbdce6dac040f507d75e940a74"
-  integrity sha512-3An5ISV5dq/kHfXdNyY5TUe2ONC3yXFSkLX2gu+W8xAhKhfvrRvkSAeKXCxZqZ0KJLX15ojBuLPyj+UikQMkOA==
+eslint-plugin-json@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/eslint-plugin-json/-/eslint-plugin-json-5.0.0.tgz#589fe512b1ee50b51dcf352c80addfb34eae990a"
+  integrity sha512-x7YyFjvOninRJR9rsaAGFxoGNgMMLoxpxsuoPWubg3fkbWWsjdAGRzTEUZsAVz+7Ghl7n4q83UyFmCLW/v/mzg==
   dependencies:
     lodash "^4.17.21"
     vscode-json-languageservice "^4.1.6"
@@ -1275,10 +1275,10 @@ flatted@^3.2.9:
   resolved "https://registry.yarnpkg.com/flatted/-/flatted-3.4.2.tgz#f5c23c107f0f37de8dbdf24f13722b3b98d52726"
   integrity sha512-PjDse7RzhcPkIJwy5t7KPWQSZ9cAbzQXcafsetQoD7sOJRQlGikNbx7yZp2OotDnJyrDcbyRq3Ttb18iYOqkxA==
 
-flow-bin@^0.322.0:
-  version "0.322.0"
-  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.322.0.tgz#b396ad85819af86d9ec8db841d4e1305c2089aa1"
-  integrity sha512-epxfCrmoA2LXi9NjrTT9GbDXuLxDlMDfHsrFKbHuM5Aug7HTe33/8yvurHK+m4CPzCesRF6ycGx3R2xJl0YMAA==
+flow-bin@^0.323.0:
+  version "0.323.0"
+  resolved "https://registry.yarnpkg.com/flow-bin/-/flow-bin-0.323.0.tgz#d0fecd08abfabc16be7ff8582649729f7cbf763b"
+  integrity sha512-HAetmtwPmDG5Ac1Hv6it56DItWhSuhnMQbLqAE4T8SPHq4hVC1bamFagrWB0lAyOe5ZvtQi3MyGADEwXemLErw==
 
 follow-redirects@^1.16.0:
   version "1.16.0"
