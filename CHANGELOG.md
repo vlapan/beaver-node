@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.311] - 2026-07-24
+
+### 🐛 Bug Fixes
+
+- *(utils)* Add microseconds and random to certificate serial number
+
 ## [0.1.310] - 2026-07-21
 
 ### 🚜 Refactor
