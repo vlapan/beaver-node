@@ -135,10 +135,14 @@ $fw nat 1 config ip 10.20.21.20 unreg_only \
     add 31010 set 2 allow udp from any to me6 dst-port 443 in // http: allow all 
     add 31011 set 2 allow udp from any to me6 dst-port 80 in // http: allow all
 
-    add 11020 set 2 allow tcp from any to me  dst-port 22 in // ssh: allow all 
-    add 11021 set 2 allow tcp from any to me  dst-port 27 in // ssh: allow all
-    add 31020 set 2 allow tcp from any to me6 dst-port 22 in // ssh: allow all 
-    add 31021 set 2 allow tcp from any to me6 dst-port 27 in // ssh: allow all
+    add 11020 set 2 allow tcp from any to me  dst-port 22 in // ssh tcp: allow all 
+    add 11021 set 2 allow tcp from any to me  dst-port 27 in // ssh tcp: allow all
+    add 11020 set 2 deny  udp from any to me  dst-port 22 in // ssh udp: deny  all 
+    add 11021 set 2 deny  udp from any to me  dst-port 27 in // ssh udp: deny  all
+    add 31020 set 2 allow tcp from any to me6 dst-port 22 in // ssh tcp: allow all 
+    add 31021 set 2 allow tcp from any to me6 dst-port 27 in // ssh tcp: allow all
+    add 31020 set 2 deny  udp from any to me6 dst-port 22 in // ssh udp: deny  all 
+    add 31021 set 2 deny  udp from any to me6 dst-port 27 in // ssh udp: deny  all
 
     add 11030 set 2 allow tcp from any to me  dst-port 53 in // tcp dns
     add 11030 set 2 allow udp from any to me  dst-port 53 in // dns
