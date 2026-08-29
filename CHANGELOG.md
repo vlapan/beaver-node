@@ -2,6 +2,22 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.312] - 2026-08-29
+
+### 🚀 Features
+
+- *(ipfw)* Ability to set ACL for `ntpd`, and deny tcp traffic to 123 port
+
+### 🐛 Bug Fixes
+
+- *(utils)* Correct to actual microseconds
+- *(ipfw)* Udp on ssh ports early allow/deny
+- *(structure.js)* Process servers without location, and first entry's comment wins
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.311] - 2026-07-24
 
 ### 🐛 Bug Fixes
