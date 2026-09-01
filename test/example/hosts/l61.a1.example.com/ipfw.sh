@@ -199,10 +199,10 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     add 31020 set 2 deny  udp from any to me6 dst-port 22 in // ssh udp: deny  all 
     add 31021 set 2 deny  udp from any to me6 dst-port 27 in // ssh udp: deny  all
 
-    add 11030 set 2 allow tcp from any to me  dst-port 53 in // tcp dns
-    add 11030 set 2 allow udp from any to me  dst-port 53 in // dns
-    add 31030 set 2 allow tcp from any to me6 dst-port 53 in // tcp dns
-    add 31030 set 2 allow udp from any to me6 dst-port 53 in // dns
+    add 11030 set 2 allow tcp from any to me  dst-port 53 in // dns tcp: allow all
+    add 11030 set 2 allow udp from any to me  dst-port 53 in // dns udp: allow all
+    add 31030 set 2 allow tcp from any to me6 dst-port 53 in // dns tcp: allow all
+    add 31030 set 2 allow udp from any to me6 dst-port 53 in // dns udp: allow all
 
     add 11031 set 2 allow udp from any to me  dst-port 123 in // ntpd udp: allow all
     add 11031 set 2 deny  tcp from any to me  dst-port 123 in // ntpd tcp: deny  all
