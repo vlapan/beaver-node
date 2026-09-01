@@ -220,6 +220,20 @@ $fw nat 1 config ip 10.20.20.20 unreg_only \
     add 31033 set 2 deny  ip6 from any to me6 dst-port 8443 in // beaver-api: deny others
 
 
+    # DHCP server
+    add 11034 set 2 allow udp from 0.0.0.0 68 to 255.255.255.255 67 in    // dhcp server in:  allow broadcast requests
+    add 11034 set 2 allow udp from table(private-networks) 68 to me 67 in // dhcp server in:  allow unicast requests
+    add 11034 set 2 deny ip from any to any 67 in                         // dhcp server in:  deny others requests
+    add 21034 set 2 allow udp from me 67 to any 68 out                    // dhcp server out: allow replies (bypassed via raw L2 BPF socket)
+
+
+    # DHCP client
+    add 11035 set 2 allow udp from 0.0.0.0 67 to 255.255.255.255 68 in  // dhcp client in:  allow broadcast replies
+    add 11035 set 2 allow udp from any 67 to me 68 in                   // dhcp client in:  allow unicast replies
+    add 11035 set 2 deny ip from any to any 68 in                       // dhcp client in:  deny others replies
+    add 21035 set 2 allow udp from me 68 to any 67 out                  // dhcp client out: allow requests (bypassed via raw L2 BPF socket)
+
+
     add 21010 set 2 allow tcp from me to not me  src-port 443 out // http out 
     add 21010 set 2 allow udp from me to not me  src-port 443 out // http out 
     add 41010 set 2 allow tcp from me to not me6 src-port 443 out // http out 
