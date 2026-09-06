@@ -2,6 +2,24 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.313] - 2026-09-06
+
+### 🚀 Features
+
+- *(ipfw)* Add dhcp client and server rules
+
+### 🐛 Bug Fixes
+
+- *(cleanConfig)* Should not assume that tmp output would be there at postHook
+
+### 🚜 Refactor
+
+- *(ipfw)* Correct dns rules comments a little
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.312] - 2026-08-29
 
 ### 🚀 Features
