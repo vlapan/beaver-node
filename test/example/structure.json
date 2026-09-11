@@ -1315,9 +1315,11 @@
 			"nginx": {
 				"location /api0": "proxy_pass https://asd.example.com",
 				"location /api1": {
+					"proxy_set_header": "Host asd.example.com",
 					"proxy_pass": "https://asd.example.com"
 				},
 				"location /api3": [
+					"proxy_set_header Host asd.example.com",
 					"proxy_pass https://asd.example.com"
 				]
 			}
