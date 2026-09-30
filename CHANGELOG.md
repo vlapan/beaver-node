@@ -2,6 +2,32 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.314] - 2026-09-30
+
+### 🚀 Features
+
+- *(nginx)* Set `location` as a block
+- *(nginx)* Add map with first ip address from `xff` map
+- *(nginx)* Ability to set `upstreamSettings` on target
+- *(nginx)* `upstreamSettings` should accept string, array or object
+- Return version when executes with `--version` argument
+
+### 🐛 Bug Fixes
+
+- *(https)* Use `parse` function in new `basic-auth` module
+- *(example)* New openssl key serialization changes, filter more
+
+### 📚 Documentation
+
+- *(nginx)* Change example for `location` block a bit
+- + add `upstreamSettings` example
+- *(example)* New openssl key serialization changes
+- *(example)* Add `upstreamSettings` to `structure.json`
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
 ## [0.1.313] - 2026-09-06
 
 ### 🚀 Features
