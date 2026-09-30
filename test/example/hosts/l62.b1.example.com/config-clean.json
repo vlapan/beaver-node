@@ -1305,6 +1305,7 @@
             "target": "service.example.com",
             "ssl": "use:service.example.com",
             "extends": "s2.service.example.com",
+            "upstreamSettings": "hash $beaver_xff_map_client consistent",
             "nginx": {
                 "location /api0": "proxy_pass https://asd.example.com",
                 "location /api1": {
