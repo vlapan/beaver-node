@@ -4,7 +4,7 @@ Certificate Request:
         Subject: CN=acme-le-1.service.example.com
         Subject Public Key Info:
             Public Key Algorithm: id-ecPublicKey
-                Public-Key: (256 bit)
+                Public-Key: (256 bit field, 128 bit security level)
                 ASN1 OID: prime256v1
                 NIST CURVE: P-256
         Attributes:
