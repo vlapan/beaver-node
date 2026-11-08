@@ -1,8 +1,10 @@
-const fs = require('node:fs/promises');
-const util = require('node:util');
-const exec = util.promisify(require('node:child_process').exec);
+import fs from 'node:fs/promises';
+import util from 'node:util';
+import { exec as execRaw } from 'node:child_process';
 
-const inc = require('semver/functions/inc');
+const exec = util.promisify(execRaw);
+
+import inc from 'semver/functions/inc.js';
 
 async function getGitLatestTag() {
     const execResult = await exec('git for-each-ref refs/tags --sort=-v:refname --format "%(refname:short)" --count=1');

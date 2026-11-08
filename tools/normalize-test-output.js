@@ -1,10 +1,10 @@
 #!/usr/bin/env node
 
-const fs = require('node:fs');
-const os = require('node:os');
-const path = require('node:path');
-const { execFile } = require('node:child_process');
-const { promisify } = require('node:util');
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { execFile } from 'node:child_process';
+import { promisify } from 'node:util';
 
 const execFileAsync = promisify(execFile);
 
@@ -170,7 +170,10 @@ async function normalizeCert(source) {
 async function normalizeDns(filePath) {
     const raw = await fs.promises.readFile(filePath, 'utf8');
     const lines = raw.split('\n');
-    const out = lines.filter((line) => !/^; Exported/.test(line) && !/;serial$/.test(line));
+    const out = lines.filter((line) => {
+        const trimmed = line.trimStart();
+        return !/^; Exported/.test(trimmed) && !/;serial$/.test(line);
+    });
     await fs.promises.writeFile(filePath, out.join('\n'), 'utf8');
 }
 

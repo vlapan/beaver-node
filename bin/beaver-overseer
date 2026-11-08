@@ -1,12 +1,13 @@
 #!/usr/bin/env node
 
-const debug = require('debug');
-const yargs = require('yargs');
-const helpers = require('yargs/helpers');
+import debug from 'debug';
+import yargs from 'yargs';
+import { hideBin } from 'yargs/helpers';
 
-const Overseer = require('../lib/overseer/overseer');
+import Overseer from '../lib/overseer/overseer.js';
 
-const y = yargs(helpers.hideBin(process.argv))
+const y = yargs(hideBin(process.argv))
+    .strict()
     .usage('Monitor network services.\nUsage: beaver-overseer -d ./monitor.json')
     .example('beaver-overseer -d ./monitor.json', 'run as daemon')
     .env('BEAVER_OVERSEER')
@@ -64,8 +65,8 @@ function main(argv) {
     Overseer.build(argv);
 }
 
-if (!module.parent) {
+if (import.meta.main) {
     main(argv);
-} else {
-    module.exports = main;
 }
+
+export default main;

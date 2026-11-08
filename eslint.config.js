@@ -1,22 +1,31 @@
-const globals = require('globals');
-const pluginJs = require('@eslint/js');
-const pluginNode = require('eslint-plugin-n');
-const pluginWC = require('eslint-plugin-wc');
-const pluginLit = require('eslint-plugin-lit');
-const pluginJSON = require('eslint-plugin-json');
-const pluginPromise = require('eslint-plugin-promise');
-const pluginImport = require('eslint-plugin-import');
-const pluginUnicorn = require('eslint-plugin-unicorn');
-const stylisticJs = require('@stylistic/eslint-plugin-js');
+import globals from 'globals';
+import pluginJs from '@eslint/js';
+import pluginNode from 'eslint-plugin-n';
+import pluginWC from 'eslint-plugin-wc';
+import pluginLit from 'eslint-plugin-lit';
+import pluginJSON from 'eslint-plugin-json';
+import pluginPromise from 'eslint-plugin-promise';
+import pluginImport from 'eslint-plugin-import';
+import pluginUnicorn from 'eslint-plugin-unicorn';
+import stylisticJs from '@stylistic/eslint-plugin-js';
 
-module.exports = [
+const moduleExports = [
     ////
     // General settings
     {
         ignores: ['build/*', '!build/index.js'],
     },
     {
-        files: ['**/*.js', '**/*.cjs'],
+        files: ['**/*.js'],
+        languageOptions: {
+            sourceType: 'module',
+            globals: {
+                ...globals.node,
+            },
+        },
+    },
+    {
+        files: ['**/*.cjs'],
         languageOptions: {
             sourceType: 'commonjs',
             globals: {
@@ -126,10 +135,10 @@ module.exports = [
     ////
     // NodeJS settings
     {
-        ...pluginNode.configs['flat/recommended-script'],
+        ...pluginNode.configs['flat/recommended-module'],
         ignores: ['**/*.mjs', 'lib/https/views/*.js', 'lib/https/public/js/*.mjs'],
         rules: {
-            ...pluginNode.configs['flat/recommended-script'].rules,
+            ...pluginNode.configs['flat/recommended-module'].rules,
             'n/no-missing-import': [
                 'error',
                 {
@@ -259,3 +268,4 @@ module.exports = [
     },
     ////
 ];
+export default moduleExports;

@@ -1,10 +1,10 @@
-const fs = require('node:fs');
-const crypto = require('node:crypto');
+import fs from 'node:fs';
+import crypto from 'node:crypto';
 
-const x509 = require('@peculiar/x509');
+import x509 from '@peculiar/x509';
 
-const { mkdirSafe, checkFileExists } = require('../lib/utils/fs');
-const { createSubject } = require('../lib/utils');
+import { mkdirSafe, checkFileExists } from '../lib/utils/fs.js';
+import { createSubject } from '../lib/utils/index.js';
 
 const type = process.argv.pop();
 

@@ -1,10 +1,11 @@
-const debug = require('debug')('beaver');
+import createDebug from 'debug';
+const debug = createDebug('beaver');
 
-const versions = require('./versions');
-const config = require('./lib/configuration');
-const extensions = require('./lib/extensions');
+import versions from './versions.js';
+import config from './lib/configuration.js';
+import extensions from './lib/extensions/index.js';
 
-const { daemonStarted } = require('./lib/notificator');
+import { daemonStarted } from './lib/notificator.js';
 
 const ac = new AbortController();
 
@@ -28,7 +29,7 @@ const ac = new AbortController();
 //     abort();
 // });
 
-module.exports = {
+export default {
     async main(argv) {
         debug('start');
         debug(`versions: beaver ${await versions.get('beaver')}, yaumnrc ${await versions.get('yaumnrc')}`);
@@ -101,12 +102,12 @@ module.exports = {
         const extensionsEnabled = argv.e.split(',');
 
         if (~extensionsEnabled.indexOf('ssl') && !argv.disableDaemonHttps) {
-            const https = require('./lib/https');
+            const { https } = await import('./lib/https/index.js');
             promises.push(https.start());
         }
 
         if (~extensionsEnabled.indexOf('monitor') && !argv.disableOverseer) {
-            const Overseer = require('./lib/overseer/overseer');
+            const { Overseer } = await import('./lib/overseer/overseer.js');
             promises.push(Overseer.build({
                 data: `${argv.home}/monitor.json`,
                 result: `${argv.home}/monitor-result.txt`,
@@ -120,7 +121,7 @@ module.exports = {
         }
 
         if (~extensionsEnabled.indexOf('acme') && !argv.disableAcme) {
-            const Acme = require('./lib/acme/acme');
+            const { Acme } = await import('./lib/acme/acme.js');
             const acme = new Acme({
                 data: `${argv.home}/acme/acme.json`,
                 interval: 15 * 60 * 1000,
@@ -129,7 +130,7 @@ module.exports = {
         }
 
         if (~extensionsEnabled.indexOf('git-static') && !argv.disableGitStatic) {
-            const GitStatic = require('./lib/git-static/git-static');
+            const { GitStatic } = await import('./lib/git-static/git-static.js');
             const gitStatic = new GitStatic({
                 data: `${argv.home}/git-static/git-static.json`,
                 interval: 1 * 60 * 1000,
@@ -139,7 +140,7 @@ module.exports = {
         }
 
         if (!argv.disableNotificatorDaemon) {
-            const NotificatorDaemon = require('./lib/modules/notificator/daemon');
+            const { NotificatorDaemon } = await import('./lib/modules/notificator/daemon.js');
             const notificatorDaemon = new NotificatorDaemon({
                 argv,
                 config,

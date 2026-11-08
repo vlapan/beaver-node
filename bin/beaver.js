@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+import argv from '../lib/argv.js';
+import beaverApp from '../app.js';
 
 (async () => {
     process.on('unhandledRejection', error => {
@@ -6,9 +8,6 @@
         process.exitCode = 1;
         process.exit();
     });
-
-    const argv = require('../lib/argv.js');
-    const beaverApp = require('../app.js');
 
     await beaverApp.main(argv);
 })();

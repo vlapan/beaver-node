@@ -1,4 +1,4 @@
-const fs = require('node:fs');
+import fs from 'node:fs';
 
 const type = process.argv.pop();
 const file = process.argv.pop();

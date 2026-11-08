@@ -1,6 +1,3 @@
-const fs = require('node:fs');
-const path = require('node:path');
-
 class Versions {
     constructor() {
         this.versions = {};
@@ -17,16 +14,16 @@ class Versions {
     }
 
     async beaver() {
-        const json = await fs.promises.readFile(path.resolve(__dirname, 'package.json'));
-        const data = JSON.parse(json);
-        return typeof data === 'object' && data.version;
+        const { default: packageData } = await import('./package.json', { with: { type: 'json' } });
+        return typeof packageData === 'object' && packageData.version;
     }
 
     async yaumnrc() {
-        const json = await fs.promises.readFile(path.resolve(path.dirname(require.resolve('clean-yaumnrc')), 'package.json'));
-        const data = JSON.parse(json);
-        return typeof data === 'object' && data.version;
+        const { default: yaumnrcData } = await import('clean-yaumnrc/package.json', { with: { type: 'json' } });
+        return typeof yaumnrcData === 'object' && yaumnrcData.version;
     }
 }
 
-module.exports = new Versions();
+const moduleExports = new Versions();
+
+export default moduleExports;

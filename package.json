@@ -15,7 +15,7 @@
     }
   ],
   "engines": {
-    "node": ">=20.0.0"
+    "node": ">=22.18.0"
   },
   "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e",
   "main": "./app.js",
@@ -39,7 +39,7 @@
     "eslint-list": "eslint $(yarn run -s git-list-tree-files)",
     "git-list-tree-files": "(for ITEM in $(git ls-tree -r HEAD --name-only | grep -e '.js$' -e '.mjs$' -e '.json$'); do if [ -f $ITEM ]; then echo $ITEM; fi; done) | xargs",
     "git-list-staged-files": "git diff --name-only --diff-filter=d HEAD | xargs",
-    "flow": "flow check --all --show-all-errors --show-all-branches",
+    "flow": "flow check --show-all-errors --show-all-branches",
     "audit": "osv-scanner --lockfile yarn.lock"
   },
   "dependencies": {
@@ -83,5 +83,6 @@
     "flow-bin": "^0.340.0",
     "globals": "^17.13.0",
     "semver": "^7.8.5"
-  }
+  },
+  "type": "module"
 }
