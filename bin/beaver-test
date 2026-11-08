@@ -12,6 +12,9 @@ else
     HOSTS="l61.a1.example.com l62.a1.example.com l62.b1.example.com"
 fi
 
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
 for BEAVER_HOSTNAME in $HOSTS; do
     BEAVER_HOSTNAME_PATH="${OUTPUT_PATH}/${BEAVER_HOSTNAME}"
     if [ -d "${BEAVER_HOSTNAME_PATH}" ]; then
@@ -42,73 +45,5 @@ for BEAVER_HOSTNAME in $HOSTS; do
     echo
 done
 
-{
-    for ITEM in $(find "$OUTPUT_PATH" -type f -name "*.csr" | grep -vE -e "/*.-saved/"); do
-        openssl req -text -noout -in ${ITEM} | grep -v -e '[a-z0-9]:[a-z0-9]' -e 'Signature Value:' -e 'Modulus:' -e 'pub:' -e '^[[:space:]]*[0-9a-f]\{2\}[[:space:]]*$' > ${ITEM}.txt
-        openssl asn1parse -in ${ITEM} | awk '$5 == "prim:" { s = ""; for (i=6; i<=NF;i++){ s = s $i " " }; print s; }' > ${ITEM}.asn.txt
-    done
-} &
-
-{
-    for ITEM in $(find "$OUTPUT_PATH" -type f -name "*.crt" -o -name "*.ca" -o -name "*.ca-crt" | grep -vE -e "/*.-saved/"); do
-        openssl x509 -in ${ITEM} -text -noout | grep -v -e 'pub:' -e 'Signature Value:' -e 'Modulus:' -e 'X509v3 Authority Key Identifier:' -e 'X509v3 Subject Key Identifier:' -e 'Serial Number:' -e 'Validity' -e 'Not Before:' -e 'Not After :' -e 'pub: $' -e ':\w\w$' -e ':\w\w:$' -e '^$' -e '^[[:space:]]*[0-9a-f]\{2\}[[:space:]]*$' > ${ITEM}.txt
-        openssl asn1parse -in ${ITEM} | awk '$5 == "prim:" && $6 != "UTCTIME" { l++; if (l == 2) next; if (z) { z = 0; next; }; if ($0 ~ "Subject Key Identifier") { z = 1; next; }; s = ""; for (i=6; i<=NF;i++){ s = s $i " " }; print s; }' > ${ITEM}.asn.txt
-    done
-} &
-
-sed -i '' '/^; Exported/d;/;serial$/d' $(find "$OUTPUT_PATH" -name "*.dns" | grep -vE -e "/*.-saved/") &
-
-{
-for ITEM in $(find "$OUTPUT_PATH" -name "notificator.json" | grep -vE -e "/*.-saved/"); do
-    node - -- $ITEM <<- 'EOF'
-        const fs = require('fs');
-        const file = process.argv.pop();
-        (async () => {
-            const json = await fs.promises.readFile(file, 'utf8');
-            const data = JSON.parse(json);
-            data.forEach((v) => {
-                v.date = (new Date(0)).toISOString();
-                v.message = v.message.replace(/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/g, (new Date(0)).toISOString());
-                const messageTemp = v.message.split('\n');
-                v.message = [messageTemp.shift(), ...messageTemp.sort((a, b) => a.localeCompare(b))].join('\n');
-            });
-            await fs.promises.writeFile(file, JSON.stringify(data, null, 4));
-        })();
-EOF
-done
-} &
-
-{
-for ITEM in $(find "$OUTPUT_PATH" -name "last.json" | grep -vE -e "/*.-saved/"); do
-    node - -- $ITEM <<- 'EOF'
-        const fs = require('fs');
-        const file = process.argv.pop();
-        (async () => {
-            const json = await fs.promises.readFile(file, 'utf8');
-            const data = JSON.parse(json);
-            data.date = new Date(0);
-            data.version = 'dev';
-            await fs.promises.writeFile(file, JSON.stringify(data, null, 4));
-        })();
-EOF
-done
-} &
-
-{
-for ITEM in $(find "$OUTPUT_PATH" -name "state.json" | grep -vE -e "/*.-saved/"); do
-    node - -- $ITEM <<- 'EOF'
-        const fs = require('fs');
-        const file = process.argv.pop();
-        (async () => {
-            const json = await fs.promises.readFile(file, 'utf8');
-            const data = JSON.parse(json);
-            for (const [key, value] of Object.entries(data)) {
-                data[key] = new Date(0);
-            }
-            await fs.promises.writeFile(file, JSON.stringify(data, null, 4));
-        })();
-EOF
-done
-} &
-
-wait
+echo "normalizing generated output..."
+node "$PROJECT_ROOT/tools/normalize-test-output.js" "$OUTPUT_PATH" || exit 1
