@@ -15,9 +15,14 @@ else
         mkdir -p ${BEAVER_HOSTNAME_PATH}-saved
     fi
 fi
-if time beaver -v \
+
+SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
+PROJECT_ROOT="$(cd "$SCRIPT_DIR/.." && pwd)"
+
+if /usr/bin/time -al node "${PROJECT_ROOT}/bin/beaver.js" -v \
     --output=${BEAVER_HOSTNAME_PATH} \
     --home=${BEAVER_HOSTNAME_PATH}-home \
+    --replaceHome=/usr/local/etc/beaver \
     --platform=freebsd \
     --disable-overseer \
     --disable-notify \
