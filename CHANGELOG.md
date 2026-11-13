@@ -2,6 +2,31 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.316] - 2026-11-13
+
+### 🚀 Features
+
+- Add drop user privileges
+- Add tools for testing external clean structures
+
+### 🐛 Bug Fixes
+
+- Make CryptoKey extractable
+- `createSelfSigned` function, produce certificate with just one `KeyUsage` attribute, and remove `keyEncipherment` and `nonRepudiation` from it
+
+### ⚡ Performance
+
+- *(test)* Optimize beaver-test normalization
+
+### ⚙️ Miscellaneous Tasks
+
+- Deps up
+
+### Example
+
+- Add missing
+- Remove some parts
+
 ## [0.1.315] - 2026-10-27
 
 ### ⚙️ Miscellaneous Tasks
