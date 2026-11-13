@@ -64,9 +64,9 @@
     "lit-html": "^3.3.3",
     "morgan": "^1.12.1",
     "nginx-conf": "^2.1.0",
-    "nodemailer": "^10.2.1",
+    "nodemailer": "^10.5.0",
     "supports-color": "^11.0.0",
-    "tar": "^7.5.22",
+    "tar": "^7.5.23",
     "unixcrypt": "^4.0.0",
     "yargs": "^18.2.0"
   },
@@ -81,7 +81,7 @@
     "eslint-plugin-promise": "^7.3.0",
     "eslint-plugin-unicorn": "^79.0.0",
     "eslint-plugin-wc": "^3.1.0",
-    "flow-bin": "^0.337.0",
+    "flow-bin": "^0.340.0",
     "globals": "^17.13.0",
     "semver": "^7.8.5"
   }
