@@ -27,7 +27,7 @@ for BEAVER_HOSTNAME in $HOSTS; do
             mkdir -p ${BEAVER_HOSTNAME_PATH}-saved
         fi
     fi
-    if time beaver -v \
+    if /usr/bin/time -al node "${PROJECT_ROOT}/bin/beaver.js" -v \
         --input=${TEST_PATH}/structure.json \
         --output=${BEAVER_HOSTNAME_PATH} \
         --hostname=${BEAVER_HOSTNAME} \
