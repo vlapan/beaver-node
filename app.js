@@ -59,6 +59,19 @@ module.exports = {
         }
         if (argv.daemon) {
             await this.daemonStart(argv);
+            if (argv.dropToUser) {
+                debug(`current privileges: uid=${process.getuid()} gid=${process.getgid()}`);
+                const user = argv.dropToUser;
+                const group = argv.dropToGroup || argv.dropToUser;
+                debug(`dropping privileges: user=${user} group=${group}`);
+                try {
+                    process.setgid(group);
+                    process.setuid(user);
+                    debug(`current privileges: uid=${process.getuid()} gid=${process.getgid()}`);
+                } catch (e) {
+                    debug(`failed to drop privileges: ${e}`);
+                }
+            }
         }
     },
     async daemonStart(argv) {
