@@ -38,9 +38,9 @@ for BEAVER_HOSTNAME in $HOSTS; do
         --disable-notify \
         --disable-acme \
         --disable-overseer; then
-        echo exited with code 1
+        echo exited with code == 0
     else
-        echo exited with code 2
+        echo exited with code != 0
     fi
     echo
 done

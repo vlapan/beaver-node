@@ -29,8 +29,8 @@ if /usr/bin/time -al node "${PROJECT_ROOT}/bin/beaver.js" -v \
     --static-configs-path=${TEST_PATH}/conf.d \
     --authentication-methods=jwt,bad,passwd,pam \
     --disable-acme; then
-    echo exited with code 1
+    echo exited with code == 0
 else
-    echo exited with code 2
+    echo exited with code != 0
 fi
 echo
