@@ -2,11 +2,11 @@
 
 const debug = require('debug');
 const yargs = require('yargs');
+const helpers = require('yargs/helpers');
 
 const Overseer = require('../lib/overseer/overseer');
 
-yargs
-    .strict()
+const y = yargs(helpers.hideBin(process.argv))
     .usage('Monitor network services.\nUsage: beaver-overseer -d ./monitor.json')
     .example('beaver-overseer -d ./monitor.json', 'run as daemon')
     .env('BEAVER_OVERSEER')
@@ -47,9 +47,11 @@ yargs
     .help('help')
     .count('verbose');
 
+const argv = y.parse();
+
 function main(argv) {
     if (!argv.data) {
-        yargs.showHelp();
+        y.showHelp();
         process.exit();
     }
     const levelOption = argv.v | 0;
@@ -63,7 +65,7 @@ function main(argv) {
 }
 
 if (!module.parent) {
-    main(yargs.argv);
+    main(argv);
 } else {
     module.exports = main;
 }
