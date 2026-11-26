@@ -1,20 +1,19 @@
+import { defineConfig, globalIgnores } from 'eslint/config';
 import globals from 'globals';
 import pluginJs from '@eslint/js';
+import json from '@eslint/json';
 import pluginNode from 'eslint-plugin-n';
 import pluginWC from 'eslint-plugin-wc';
 import pluginLit from 'eslint-plugin-lit';
-import pluginJSON from 'eslint-plugin-json';
 import pluginPromise from 'eslint-plugin-promise';
-import pluginImport from 'eslint-plugin-import';
+import pluginImport from 'eslint-plugin-import-x';
 import pluginUnicorn from 'eslint-plugin-unicorn';
-import stylisticJs from '@stylistic/eslint-plugin-js';
+import stylistic from '@stylistic/eslint-plugin';
 
-const moduleExports = [
+export default defineConfig([
     ////
     // General settings
-    {
-        ignores: ['build/*', '!build/index.js'],
-    },
+    globalIgnores(['dist/', 'build/', 'coverage/', 'node_modules/']),
     {
         files: ['**/*.js'],
         languageOptions: {
@@ -43,20 +42,21 @@ const moduleExports = [
         },
     },
     {
-        ...pluginJs.configs.recommended,
+        files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+        plugins: { pluginJs },
+        extends: [pluginJs.configs.recommended],
         rules: {
-            ...pluginJs.configs.recommended.rules,
             'func-names': ['error', 'never'],
             'no-console': 'off',
             'no-continue': 'off',
             'no-underscore-dangle': 'off',
-            'no-bitwise': [
-                'error',
-                {
-                    int32Hint: true,
-                    allow: ['~'],
-                },
-            ],
+            // 'no-bitwise': [
+            //     'error',
+            //     {
+            //         int32Hint: true,
+            //         allow: ['~', '|='],
+            //     },
+            // ],
             'no-restricted-syntax': 'off',
             'no-plusplus': 'off',
             'no-await-in-loop': 'off',
@@ -68,77 +68,71 @@ const moduleExports = [
             ],
         },
     },
-    {
-        ...stylisticJs.configs['all-flat'],
-        plugins: {
-            '@stylistic/js': stylisticJs,
-        },
-        rules: {
-            ...stylisticJs.configs['all-flat'].rules,
-            '@stylistic/js/indent': [
-                'error',
-                4,
-                {
-                    SwitchCase: 1,
-                },
-            ],
-            '@stylistic/js/semi': [
-                2,
-                'always',
-                {
-                    omitLastInOneLineBlock: true,
-                },
-            ],
-            '@stylistic/js/quote-props': ['error', 'as-needed'],
-            '@stylistic/js/padded-blocks': ['error', 'never'],
-            '@stylistic/js/quotes': ['error', 'single'],
-            '@stylistic/js/comma-dangle': ['error', 'always-multiline'],
-            '@stylistic/js/max-len': ['error', 999, 4],
-            '@stylistic/js/space-before-function-paren': [
-                'error',
-                {
-                    anonymous: 'always',
-                    named: 'never',
-                    asyncArrow: 'always',
-                },
-            ],
-            '@stylistic/js/function-paren-newline': ['error', 'consistent'],
-            '@stylistic/js/multiline-ternary': ['error', 'never'],
-            '@stylistic/js/function-call-argument-newline': ['error', 'consistent'],
-            '@stylistic/js/array-bracket-newline': [
-                'error',
-                'consistent',
-            ],
-            '@stylistic/js/array-element-newline': [
-                'error',
-                {
-                    consistent: true,
-                    multiline: false,
-                },
-            ],
-            '@stylistic/js/multiline-comment-style': ['error', 'separate-lines'],
-            '@stylistic/js/spaced-comment': [
-                'error',
-                'always',
-                {
-                    exceptions: ['-', '=', '+', '/'],
-                },
-            ],
-            '@stylistic/js/dot-location': ['error', 'property'],
-            '@stylistic/js/object-curly-spacing': ['error', 'always'],
-            '@stylistic/js/no-extra-parens': 'off',
-            '@stylistic/js/newline-per-chained-call': 'off',
-        },
-    },
+
+    ////
+    // Stylistic
+    //     {
+    //         files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+    //         plugins: { stylistic },
+    //         extends: [stylistic.configs.all],
+    //         rules: {
+    //             '@stylistic/indent': [
+    //                 'error',
+    //                 4,
+    //                 {
+    //                     SwitchCase: 1,
+    //                 },
+    //             ],
+    //             '@stylistic/semi': [
+    //                 2,
+    //                 'always',
+    //                 {
+    //                     omitLastInOneLineBlock: true,
+    //                 },
+    //             ],
+    //             '@stylistic/quote-props': ['error', 'as-needed'],
+    //             '@stylistic/padded-blocks': ['error', 'never'],
+    //             '@stylistic/quotes': ['error', 'single'],
+    //             '@stylistic/comma-dangle': ['error', 'always-multiline'],
+    //             '@stylistic/max-len': ['error', 999, 4],
+    //             '@stylistic/wrap-regex': 'off',
+    //             '@stylistic/space-before-function-paren': [
+    //                 'error',
+    //                 {
+    //                     anonymous: 'always',
+    //                     named: 'never',
+    //                     asyncArrow: 'always',
+    //                 },
+    //             ],
+    //             '@stylistic/multiline-ternary': ['error', 'never'],
+    //             '@stylistic/multiline-comment-style': ['error', 'separate-lines'],
+    //             '@stylistic/spaced-comment': [
+    //                 'error',
+    //                 'always',
+    //                 {
+    //                     exceptions: ['-', '=', '+', '/'],
+    //                 },
+    //             ],
+    //             '@stylistic/dot-location': ['error', 'property'],
+    //             '@stylistic/no-extra-parens': 'off',
+    //             '@stylistic/newline-per-chained-call': 'off',
+    //
+    //             // Replaces function-paren-newline, function-call-argument-newline,
+    //             // array-bracket-newline, array-element-newline, and object-curly-spacing
+    //             '@stylistic/list-style': 'error',
+    //             '@stylistic/brace-style': ['error', '1tbs', { allowSingleLine: true }],
+    //         },
+    //     },
     ////
 
     ////
     // NodeJS settings
     {
-        ...pluginNode.configs['flat/recommended-module'],
-        ignores: ['**/*.mjs', 'lib/https/views/*.js', 'lib/https/public/js/*.mjs'],
+        files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+        ignores: ['lib/https/views/*.js', 'lib/https/public/js/*.mjs'],
+        plugins: { pluginNode },
+        extends: [pluginNode.configs['flat/recommended-module']],
         rules: {
-            ...pluginNode.configs['flat/recommended-module'].rules,
             'n/no-missing-import': [
                 'error',
                 {
@@ -158,8 +152,9 @@ const moduleExports = [
     ////
     // Web settings
     {
-        ...pluginWC.configs['flat/recommended'],
         files: ['lib/https/views/*.js', 'lib/https/public/js/*.mjs'],
+        plugins: { pluginWC },
+        extends: [pluginWC.configs['flat/recommended']],
         languageOptions: {
             sourceType: 'module',
             globals: {
@@ -176,8 +171,9 @@ const moduleExports = [
         },
     },
     {
-        ...pluginLit.configs['flat/recommended'],
         files: ['lib/https/views/*.js', 'lib/https/public/js/*.mjs'],
+        plugins: { pluginLit },
+        extends: [pluginLit.configs['flat/recommended']],
         languageOptions: {
             sourceType: 'module',
             globals: {
@@ -192,80 +188,90 @@ const moduleExports = [
 
     ////
     // JSON
-    pluginJSON.configs.recommended,
+    {
+        files: ['**/*.json'],
+        ignores: ['package-lock.json'],
+        language: 'json/json',
+        plugins: { json },
+        extends: ['json/recommended'],
+    },
     ////
 
     ////
     // Promise
-    pluginPromise.configs['flat/recommended'],
+    {
+        files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+        plugins: { pluginPromise },
+        extends: [pluginPromise.configs['flat/recommended']],
+    },
     ////
 
     ////
     // Unicorn
-    {
-        ...pluginUnicorn.configs['flat/recommended'],
-        rules: {
-            ...pluginUnicorn.configs['flat/recommended'].rules,
-            'unicorn/prevent-abbreviations': 'off',
-            'unicorn/template-indent': [
-                'error',
-                {
-                    indent: 4,
-                },
-            ],
-            'unicorn/filename-case': [
-                'error',
-                {
-                    cases: {
-                        kebabCase: true,
-                        pascalCase: true,
-                    },
-                },
-            ],
-            'unicorn/catch-error-name': [
-                'error',
-                {
-                    name: 'e',
-                },
-            ],
-            'unicorn/prefer-string-replace-all': 'off', // replaceAll isn't faster, at least on Safari
-            'unicorn/prefer-module': 'off',
-        },
-    },
+    // {
+    //     files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+    //     plugins: { unicorn: pluginUnicorn },
+    //     extends: [pluginUnicorn.configs['recommended']],
+    //     rules: {
+    //         'unicorn/prevent-abbreviations': 'off',
+    //         'unicorn/template-indent': [
+    //             'error',
+    //             {
+    //                 indent: 4,
+    //             },
+    //         ],
+    //         'unicorn/filename-case': [
+    //             'error',
+    //             {
+    //                 cases: {
+    //                     kebabCase: true,
+    //                     pascalCase: true,
+    //                 },
+    //             },
+    //         ],
+    //         // 'unicorn/catch-error-name': [
+    //         //     'error',
+    //         //     {
+    //         //         name: 'e',
+    //         //     },
+    //         // ],
+    //         'unicorn/prefer-string-replace-all': 'off', // replaceAll isn't faster, at least on Safari
+    //         'unicorn/prefer-module': 'off',
+    //     },
+    // },
     ////
 
     ////
     // Import plugins
-    {
-        plugins: {
-            import: pluginImport,
-        },
-        rules: {
-            // analysis/correctness
-            // 'import/no-unresolved': 'error',
-            'import/named': 'error',
-            'import/namespace': 'error',
-            'import/default': 'error',
-            'import/export': 'error',
-
-            // red flags (thus, warnings)
-            // 'import/no-named-as-default': 'warn',
-            // 'import/no-named-as-default-member': 'warn',
-            'import/no-duplicates': 'warn',
-
-            // other
-            'import/order': 'error',
-            'import/group-exports': 'error',
-            'import/exports-last': 'error',
-        },
-        settings: {
-            'import/resolver': {
-                node: {
-                    moduleDirectory: ['node_modules', 'lib', 'src'],
-                },
-            },
-        },
-    },
+    //     {
+    //         files: ['**/*.js', '**/*.mjs', '**/*.cjs'],
+    //         plugins: { import: pluginImport },
+    //         extends: [pluginImport.configs['flat/recommended']],
+    //         rules: {
+    //             // analysis/correctness
+    //             // 'import-x/no-unresolved': 'error',
+    //             'import-x/named': 'error',
+    //             'import-x/namespace': 'error',
+    //             'import-x/default': 'error',
+    //             'import-x/export': 'error',
+    //
+    //             // red flags (thus, warnings)
+    //             // 'import-x/no-named-as-default': 'warn',
+    //             'import-x/no-named-as-default-member': 'off',
+    //             'import-x/no-duplicates': 'warn',
+    //
+    //             // other
+    //             'import-x/order': 'error',
+    //             'import-x/group-exports': 'error',
+    //             'import-x/exports-last': 'error',
+    //         },
+    //         settings: {
+    //             'import-x/resolver': {
+    //                 node: {
+    //                     moduleDirectory: ['node_modules', 'lib', 'src'],
+    //                 },
+    //             },
+    //         },
+    //     },
     ////
-];
-export default moduleExports;
+]);

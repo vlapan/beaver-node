@@ -1,5 +1,3 @@
-#!/usr/bin/env node
-
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -65,12 +63,13 @@ function filterCsrText(output) {
     return output
         .split('\n')
         .filter((line) => {
-            if (/[a-z0-9]:[a-z0-9]/.test(line)) return false;
-            if (/Signature Value:/.test(line)) return false;
-            if (/Modulus:/.test(line)) return false;
-            if (/pub:/.test(line)) return false;
-            if (/^\s*[0-9a-f]{2}\s*$/.test(line)) return false;
-            return true;
+            return !(
+                /[a-z0-9]:[a-z0-9]/.test(line) ||
+                /Signature Value:/.test(line) ||
+                /Modulus:/.test(line) ||
+                /pub:/.test(line) ||
+                /^\s*[0-9a-f]{2}\s*$/.test(line)
+            );
         })
         .join('\n');
 }
@@ -79,21 +78,22 @@ function filterCertText(output) {
     return output
         .split('\n')
         .filter((line) => {
-            if (/pub:/.test(line)) return false;
-            if (/Signature Value:/.test(line)) return false;
-            if (/Modulus:/.test(line)) return false;
-            if (/X509v3 Authority Key Identifier:/.test(line)) return false;
-            if (/X509v3 Subject Key Identifier:/.test(line)) return false;
-            if (/Serial Number:/.test(line)) return false;
-            if (/Validity/.test(line)) return false;
-            if (/Not Before:/.test(line)) return false;
-            if (/Not After :/.test(line)) return false;
-            if (/pub: $/.test(line)) return false;
-            if (/:..$/.test(line)) return false;
-            if (/:..:$/.test(line)) return false;
-            if (line === '') return false;
-            if (/^\s*[0-9a-f]{2}\s*$/.test(line)) return false;
-            return true;
+            return !(
+                /pub:/.test(line) ||
+                /Signature Value:/.test(line) ||
+                /Modulus:/.test(line) ||
+                /X509v3 Authority Key Identifier:/.test(line) ||
+                /X509v3 Subject Key Identifier:/.test(line) ||
+                /Serial Number:/.test(line) ||
+                /Validity/.test(line) ||
+                /Not Before:/.test(line) ||
+                /Not After :/.test(line) ||
+                line.endsWith('pub: ') ||
+                /:..$/.test(line) ||
+                /:..:$/.test(line) ||
+                line === '' ||
+                /^\s*[0-9a-f]{2}\s*$/.test(line)
+            );
         })
         .join('\n');
 }
@@ -114,56 +114,52 @@ function asn1CsrOutput(stdout) {
         const fields = line.trim().split(/\s+/);
         if (fields[4] === 'prim:') {
             let s = '';
-            for (let i = 5; i < fields.length; i++) s += fields[i] + ' ';
+            for (let index = 5; index < fields.length; index++) s += fields[index] + ' ';
             fixed.push(s);
         }
     }
-    return fixed.join('\n') + (fixed.length ? '\n' : '');
+    return fixed.join('\n') + (fixed.length > 0 ? '\n' : '');
 }
 
 function asn1CertOutput(stdout) {
     const lines = stdout.split('\n');
     const result = [];
     let count = 0;
-    let skipBecauseIdentifier = false;
+    let isSkipBecauseIdentifier = false;
     for (const line of lines) {
         const fields = line.trim().split(/\s+/);
         if (fields[4] === 'prim:' && fields[5] !== 'UTCTIME') {
             count++;
             if (count === 2) continue;
-            if (skipBecauseIdentifier) {
-                skipBecauseIdentifier = false;
+            if (isSkipBecauseIdentifier) {
+                isSkipBecauseIdentifier = false;
                 continue;
             }
             if (line.includes('Subject Key Identifier')) {
-                skipBecauseIdentifier = true;
+                isSkipBecauseIdentifier = true;
                 continue;
             }
             let s = '';
-            for (let i = 5; i < fields.length; i++) s += fields[i] + ' ';
+            for (let index = 5; index < fields.length; index++) s += fields[index] + ' ';
             result.push(s);
         }
     }
-    return result.join('\n') + (result.length ? '\n' : '');
+    return result.join('\n') + (result.length > 0 ? '\n' : '');
 }
 
 async function normalizeCert(source) {
     const isCsr = source.endsWith('.csr');
-    const opensslArgs = isCsr
+    const opensslArguments = isCsr
         ? ['req', '-text', '-noout', '-in', source]
         : ['x509', '-in', source, '-text', '-noout'];
-    const asnArgs = ['asn1parse', '-in', source];
+    const asnArguments = ['asn1parse', '-in', source];
     const [textResult, asnResult] = await Promise.all([
-        execFileAsync('openssl', opensslArgs, { maxBuffer: 64 * 1024 * 1024 }),
-        execFileAsync('openssl', asnArgs, { maxBuffer: 64 * 1024 * 1024 }),
+        execFileAsync('openssl', opensslArguments, { maxBuffer: 64 * 1024 * 1024 }),
+        execFileAsync('openssl', asnArguments, { maxBuffer: 64 * 1024 * 1024 }),
     ]);
-    const filteredText = isCsr
-        ? filterCsrText(textResult.stdout)
-        : filterCertText(textResult.stdout);
+    const filteredText = isCsr ? filterCsrText(textResult.stdout) : filterCertText(textResult.stdout);
     await writeSibling(source, '.txt', filteredText.endsWith('\n') ? filteredText : filteredText + '\n');
-    const asnText = isCsr
-        ? asn1CsrOutput(asnResult.stdout)
-        : asn1CertOutput(asnResult.stdout);
+    const asnText = isCsr ? asn1CsrOutput(asnResult.stdout) : asn1CertOutput(asnResult.stdout);
     await writeSibling(source, '.asn.txt', asnText);
 }
 
@@ -172,7 +168,7 @@ async function normalizeDns(filePath) {
     const lines = raw.split('\n');
     const out = lines.filter((line) => {
         const trimmed = line.trimStart();
-        return !/^; Exported/.test(trimmed) && !/;serial$/.test(line);
+        return !trimmed.startsWith('; Exported') && !line.endsWith(';serial');
     });
     await fs.promises.writeFile(filePath, out.join('\n'), 'utf8');
 }
@@ -180,11 +176,14 @@ async function normalizeDns(filePath) {
 async function normalizeNotificator(filePath) {
     const raw = await fs.promises.readFile(filePath, 'utf8');
     const data = JSON.parse(raw);
-    const zero = (new Date(0)).toISOString();
+    const zero = new Date(0).toISOString();
     for (const item of data) {
         item.date = zero;
         if (typeof item.message === 'string') {
-            item.message = item.message.replace(/\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/g, zero);
+            item.message = item.message.replace(
+                /\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+([+-][0-2]\d:[0-5]\d|Z)/g,
+                zero,
+            );
             const parts = item.message.split('\n');
             item.message = [parts.shift(), ...parts.sort((a, b) => a.localeCompare(b))].join('\n');
         }
@@ -207,35 +206,42 @@ async function normalizeState(filePath) {
     await fs.promises.writeFile(filePath, JSON.stringify(data, null, 4), 'utf8');
 }
 
-(async function main() {
-    const files = walk(outputRoot, []);
-    const certJobs = [];
-    const dnsJobs = [];
-    const jsonJobs = [];
-    for (const file of files) {
-        const base = path.basename(file);
-        if (base.endsWith('.csr') || base.endsWith('.crt') || base.endsWith('.ca') || base.endsWith('.ca-crt')) {
-            certJobs.push(file);
-        } else if (base.endsWith('.dns')) {
-            dnsJobs.push(file);
-        } else if (base === 'notificator.json') {
-            jsonJobs.push(() => normalizeNotificator(file));
-        } else if (base === 'last.json') {
-            jsonJobs.push(() => normalizeLast(file));
-        } else if (base === 'state.json') {
-            jsonJobs.push(() => normalizeState(file));
+const files = walk(outputRoot, []);
+const certJobs = [];
+const dnsJobs = [];
+const jsonJobs = [];
+for (const file of files) {
+    const base = path.basename(file);
+    if (base.endsWith('.csr') || base.endsWith('.crt') || base.endsWith('.ca') || base.endsWith('.ca-crt')) {
+        certJobs.push(file);
+    } else if (base.endsWith('.dns')) {
+        dnsJobs.push(file);
+    } else {
+        switch (base) {
+            case 'notificator.json': {
+                jsonJobs.push(() => normalizeNotificator(file));
+                break;
+            }
+            case 'last.json': {
+                jsonJobs.push(() => normalizeLast(file));
+                break;
+            }
+            case 'state.json': {
+                jsonJobs.push(() => normalizeState(file));
+                break;
+            }
+            // No default
         }
     }
+}
 
-    const allJobs = [
-        ...dnsJobs.map((file) => () => normalizeDns(file)),
-        ...jsonJobs.map((job) => job),
-        ...certJobs.map((file) => () => normalizeCert(file)),
-    ];
-    await Promise.all(allJobs.map((job) => runTask(job)));
+const allJobs = [
+    ...dnsJobs.map((file) => () => normalizeDns(file)),
+    ...jsonJobs.map((job) => job),
+    ...certJobs.map((file) => () => normalizeCert(file)),
+];
+await Promise.all(allJobs.map((job) => runTask(job)));
 
-    console.log(`Normalized ${certJobs.length} cert sources, ${dnsJobs.length} DNS files, and ${jsonJobs.length} JSON state files.`);
-})().catch((error) => {
-    console.error(error);
-    process.exit(1);
-});
+console.log(
+    `Normalized ${certJobs.length} cert sources, ${dnsJobs.length} DNS files, and ${jsonJobs.length} JSON state files.`,
+);
