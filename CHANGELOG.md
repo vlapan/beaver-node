@@ -2,6 +2,35 @@
 
 All notable changes to this project will be documented in this file.
 
+## [0.1.317] - 2026-11-26
+
+### 🚀 Features
+
+- Add `tools/release.sh` script
+- *(esm)* Migrate beaver-node to ES modules
+- *(git-static)* Support BRANCH env var in git.sh
+- *(git-static)* Thread branch config through generation and daemon
+
+### 🐛 Bug Fixes
+
+- Use local beaver in `beaver-test`
+- Update `beaver-test-daemon`
+- Correct `beaver-overseer`
+
+### 🚜 Refactor
+
+- Minor cleaning of `package.json`
+- Echo proper exit code messages in `beaver-test` and `beaver-test-daemon`
+
+### 🧪 Testing
+
+- Add branch to git-static test fixture and expected output
+
+### ⚙️ Miscellaneous Tasks
+
+- *(eslint)* Modernize eslint config and deps, reduce plugin noise
+- Deps up
+
 ## [0.1.316] - 2026-11-13
 
 ### 🚀 Features
